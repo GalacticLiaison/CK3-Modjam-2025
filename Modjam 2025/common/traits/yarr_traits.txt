@@ -1,0 +1,343 @@
+﻿# Standard Values
+@pos_compat_high = 30
+@pos_compat_medium = 15
+@pos_compat_low = 5
+
+@neg_compat_high = -30
+@neg_compat_medium = -15
+@neg_compat_low = -5
+
+# Pirate Levelled Trait
+yarr_pirate_track = {
+	category = lifestyle
+	ai_honor = -50
+	ai_energy = 40
+	same_opinion = 30
+	#legitimacy_gain_mult = -0.25
+	#legitimacy_loss_mult = 0.25
+
+    # Localized Icons
+	    icon = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = yarr_pirate_trait.dds
+			}
+			triggered_desc = {
+				trigger = {
+					trigger_if = {
+						limit = { has_trait = yarr_pirate_track }
+						AND = {
+							has_trait_xp = {
+								trait = yarr_pirate_track
+								track = yarr_positive
+								value >= 90
+							}
+							has_trait_xp = {
+								trait = yarr_pirate_track
+								track = yarr_negative
+								value <= 40
+							}
+						}
+					}
+				}
+				desc = yarr_pirate_trait_high_low.dds
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait = yarr_pirate_track
+					AND = {
+						has_trait_xp = {
+							trait = yarr_pirate_track
+							track = yarr_positive
+							value >= 70
+						}
+						has_trait_xp = {
+							trait = yarr_pirate_track
+							track = yarr_negative
+							value >= 70
+						}
+					}
+				}
+				desc = yarr_pirate_trait_high_high.dds
+			}
+			triggered_desc = {
+				trigger = {
+					AND = {
+						has_trait_xp = {
+							trait = yarr_pirate_track
+							track = yarr_positive
+							value >= 0
+						}
+						has_trait_xp = {
+							trait = yarr_pirate_track
+							track = yarr_negative
+							value >= 50
+						}
+					}
+				}
+				desc = yarr_pirate_trait_low_high.dds
+			}
+			desc = yarr_pirate_trait.dds
+		}
+	}
+	# Localized Names
+        name = {
+		first_valid = {
+			# HIGH/LOW
+			triggered_desc = {
+				trigger = {
+					exists = this
+					AND = {
+						has_trait_xp = {
+							trait = yarr_pirate_track
+							track = yarr_positive
+							value >= 90
+						}
+						has_trait_xp = {
+							trait = yarr_pirate_track
+							track = yarr_negative
+							value <= 40
+						}
+					}
+				}
+				desc = trait_yarr_high_low_male
+			}
+			# HIGH/HIGH
+			triggered_desc = {
+				trigger = {
+					exists = this
+					AND = {
+						has_trait_xp = {
+							trait = yarr_pirate_track
+							track = yarr_positive
+							value >= 70
+						}
+						has_trait_xp = {
+							trait = yarr_pirate_track
+							track = yarr_negative
+							value >= 70
+						}
+					}
+				}
+				desc = trait_yarr_high_high
+			}
+			# LOW/HIGH
+			triggered_desc = {
+				trigger = {
+					exists = this
+					AND = {
+						has_trait_xp = {
+							trait = yarr_pirate_track
+							track = yarr_positive
+							value >= 0
+						}
+						has_trait_xp = {
+							trait = yarr_pirate_track
+							track = yarr_negative
+							value >= 50
+						}
+					}
+				}
+				desc = trait_yarr_low_high
+			}
+			# Low-Level Pirate / Unlevelled
+			triggered_desc = {
+				trigger = {
+					exists = this
+					AND = {
+						has_trait_xp = {
+							trait = yarr_pirate_track
+							track = yarr_positive
+							value >= 0
+						}
+					}
+				}
+				desc = trait_yarr_default
+			}
+			desc = trait_yarr_default
+		}
+	}
+	# Localized Descs
+	    desc = {
+		first_valid = {
+			# HIGH/LOW
+			triggered_desc = {
+				trigger = {
+					exists = this
+					AND = {
+						has_trait_xp = {
+							trait = yarr_pirate_track
+							track = yarr_positive
+							value >= 90
+						}
+						has_trait_xp = {
+							trait = yarr_pirate_track
+							track = yarr_negative
+							value <= 40
+						}
+					}
+				}
+				desc = trait_yarr_high_low_desc
+			}
+			# HIGH/HIGH
+			triggered_desc = {
+				trigger = {
+					exists = this
+					AND = {
+						has_trait_xp = {
+							trait = yarr_pirate_track
+							track = yarr_positive
+							value >= 70
+						}
+						has_trait_xp = {
+							trait = yarr_pirate_track
+							track = yarr_negative
+							value >= 70
+						}
+					}
+				}
+				desc = trait_yarr_high_high_desc
+			}
+			# LOW/HIGH
+			triggered_desc = {
+				trigger = {
+					exists = this
+					AND = {
+						has_trait_xp = {
+							trait = yarr_pirate_track
+							track = yarr_positive
+							value >= 0
+						}
+						has_trait_xp = {
+							trait = yarr_pirate_track
+							track = yarr_negative
+							value >= 50
+						}
+					}
+				}
+				desc = trait_yarr_low_high_desc
+			}
+			# LOW LEVEL PIRATE
+			triggered_desc = {
+				trigger = {
+					exists = this
+					AND = {
+						has_trait_xp = {
+							trait = yarr_pirate_track
+							track = yarr_positive
+							value >= 0
+						}
+					}
+				}
+				desc = trait_yarr_default_desc
+			}
+		}
+	}
+    # Tracks
+	    tracks = {
+		# Successfully scheming gives XP
+		yarr_positive = {
+			20 = {
+				monthly_martial_lifestyle_xp_gain_mult = 0.05
+				independent_ruler_opinion = 5
+                martial = 1
+                monthly_prestige_gain_per_dread_add = 0.01
+                provisions_gain_mult = 0.05
+                coastal_advantage = 1
+                naval_movement_speed_mult = 0.25
+			}
+			40 = {
+				monthly_martial_lifestyle_xp_gain_mult = 0.05
+				independent_ruler_opinion = 5
+                martial = 1
+                monthly_prestige_gain_per_dread_add = 0.01
+                provisions_gain_mult = 0.05
+                coastal_advantage = 1
+                naval_movement_speed_mult = 0.25
+			}
+			60 = {
+				monthly_martial_lifestyle_xp_gain_mult = 0.05
+				independent_ruler_opinion = 5
+                martial = 1
+                monthly_prestige_gain_per_dread_add = 0.01
+                provisions_gain_mult = 0.05
+                coastal_advantage = 1
+                naval_movement_speed_mult = 0.25
+			}
+			80 = {
+				monthly_martial_lifestyle_xp_gain_mult = 0.05
+				independent_ruler_opinion = 5
+                martial = 1
+                monthly_prestige_gain_per_dread_add = 0.01
+                provisions_gain_mult = 0.05
+                coastal_advantage = 1
+                naval_movement_speed_mult = 0.25
+			}
+			100 = {
+				monthly_martial_lifestyle_xp_gain_mult = 0.05
+				independent_ruler_opinion = 5
+                martial = 1
+                monthly_prestige_gain_per_dread_add = 0.01
+                provisions_gain_mult = 0.05
+                coastal_advantage = 1
+                naval_movement_speed_mult = 0.25
+			}
+			
+			
+		}
+		# Getting caught gives XP
+		yarr_negative = {
+			20 = {
+				general_opinion = -5
+				courtier_and_guest_opinion = 5
+				independent_ruler_opinion = -5
+				dread_baseline_add = 2
+				#monthly_prestige = -0.5
+                raid_speed = 0.2
+			}
+			40 = {
+				general_opinion = -5
+				courtier_and_guest_opinion = 5
+				independent_ruler_opinion = -5
+				dread_baseline_add = 2
+				#monthly_prestige = -0.5
+                raid_speed = 0.2
+			}
+			60 = {
+				general_opinion = -5
+				courtier_and_guest_opinion = 5
+				independent_ruler_opinion = -5
+				dread_baseline_add = 2
+				#monthly_prestige = -0.5
+                raid_speed = 0.2
+			}
+			80 = {
+				general_opinion = -5
+				courtier_and_guest_opinion = 5
+				independent_ruler_opinion = -5
+				dread_baseline_add = 2
+				#monthly_prestige = -0.5
+                raid_speed = 0.2
+			}
+			100 = {
+				general_opinion = -5
+				courtier_and_guest_opinion = 5
+				independent_ruler_opinion = -5
+				dread_baseline_add = 2
+				#monthly_prestige = -0.5
+                raid_speed = 0.2
+			}
+		}	
+	}
+	# Compatibility
+	    compatibility = {
+		honest = @neg_compat_low
+        just = @neg_compat_low
+        gallowsbait = @pos_compat_high
+	}
+}
+
+	
