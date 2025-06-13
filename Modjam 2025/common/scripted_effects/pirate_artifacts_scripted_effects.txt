@@ -1,4 +1,4 @@
-create_pirate_sword_effect = {
+﻿create_pirate_sword_effect = {
 	$OWNER$ = { save_scope_as = owner }
 
 	if = {
