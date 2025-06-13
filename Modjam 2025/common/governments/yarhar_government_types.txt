@@ -12,8 +12,6 @@ pirate_government = {
 		conditional_maa_refill = yes
 		uses_culture_and_house_head_named_realms = yes
 		sticky_government = yes
-		obedience = yes
-		subject_men_at_arms = yes
 		no_capital_movement_cooldown = yes
 		use_maa_maintenance = no
 	}
@@ -53,7 +51,7 @@ pirate_government = {
 	}
 
 	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
-	flag = government_is_nomadic
+	flag = government_is_pirate
 	flag = government_can_raid_rule
 	flag = can_start_war_with_raised_troops
 	flag = ignores_faith_marriage_penalties

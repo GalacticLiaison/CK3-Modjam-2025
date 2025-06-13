@@ -1,0 +1,35 @@
+﻿l_english: 
+
+ pirate_government_taxes: "[GetGovernment( 'pirate_government' ).GetNameNoTooltip] [taxes|U]"
+ pirate_tax_exempt: "[tax|E] Exempt"
+ pirate_tax_exempt_short: "Exempt"
+ pirate_tax_low: "Low $game_concept_taxes$"
+ pirate_tax_low_short: "Low"
+ pirate_tax_normal: "Normal $game_concept_taxes$"
+ pirate_tax_normal_short: "Normal"
+ pirate_tax_high: "High $game_concept_taxes$"
+ pirate_tax_high_short: "High"
+ pirate_tax_extortionate: "Extortionate $game_concept_taxes$"
+ pirate_tax_extortionate_short: "Extortionate"
+
+ pirate_government_prestige: "[GetGovernment( 'pirate_government' ).GetNameNoTooltip] [prestige|U]"
+ pirate_prestige_none: "No Contribution"
+ pirate_prestige_none_short: "None"
+ pirate_prestige_normal: "Some $game_concept_prestige$ Contribution"
+ pirate_prestige_normal_short: "Low"
+ pirate_prestige_high: "High $game_concept_prestige$ Contribution"
+ pirate_prestige_high_short: "High"
+
+ government_is_pirate: "Has access to a [pirate_ship|E]"
+ 
+ # Pirates
+ pirate_government: "Pirates"
+ pirate_government_with_icon: "@government_type_adventurer! $pirate_government$"
+ pirate_government_adjective: "Pirates"
+ pirate_government_realm: "Pirate Ship"
+ pirate_government_desc: "\n$game_concept_pirate_desc$\n\n#F For pirates, moving is their way of life. Every ruler is only as strong as the strength of their people.#!"
+ PIRATE_CONTRACT: "Pirate Contract"
+ ignores_faith_marriage_penalties: "#indent_newline:3 Ignores [faith|E] when arranging [marriages|E] with [GetGovernment( 'pirate_government' ).GetName], [GetGovernment( 'nomad_government' ).GetName], or [GetGovernment( 'herder_government' ).GetName] [rulers|E] or their [tributaries|E]#!"
+ is_pirate_title: "Is [GetGovernment( 'pirate_government' ).GetName] Pirate Ship [title|E]"
+
+ pirate_government_vassals_label: "Pirate [obligations|E] are based on each [vassal|E]'s [vassal_contract|E]"
