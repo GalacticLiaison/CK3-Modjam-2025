@@ -1,0 +1,16 @@
+﻿l_english: 
+# Pirate Levelled Trait
+ trait_yarr_track_desc: "This character is a Pirate"
+ trait_yarr_track_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] is a pirate"
+ trait_track_yarr_track_1: "Track 1"
+ trait_track_yarr_track_1_desc: "Track 1 Desc"
+ trait_track_yarr_track_2: "Track 2"
+ trait_track_yarr_track_2_desc: "Track 2 Desc"
+ trait_yarr_high_low_male: "Good Pirate"
+ trait_yarr_high_low_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] is a good pirate"
+ trait_yarr_high_high: "Ruthless Pirate"
+ trait_yarr_high_high_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] is a ruthless pirate"
+ trait_yarr_low_high: "Unlawful Pirate"
+ trait_yarr_low_high_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] is a unlawful pirate"
+ trait_yarr_default: "Basic Pirate"
+ trait_yarr_default_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] is basic pirate"
