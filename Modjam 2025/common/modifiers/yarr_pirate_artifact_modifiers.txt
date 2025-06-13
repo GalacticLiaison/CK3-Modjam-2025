@@ -1,0 +1,23 @@
+﻿common_pirate_short_sword_modifier = {
+	raid_speed = 0.05
+	prowess = 1
+	dread_baseline_add = 1
+}
+
+masterwork_pirate_short_sword_modifier = {
+	raid_speed = 0.10
+	prowess = 2
+	dread_baseline_add = 3
+}
+
+famed_pirate_short_sword_modifier = {
+	raid_speed = 0.15
+	prowess = 3
+	dread_baseline_add = 5
+}
+
+illustrious_pirate_short_sword_modifier = {
+	raid_speed = 0.25
+	prowess = 4
+	dread_baseline_add = 10
+}

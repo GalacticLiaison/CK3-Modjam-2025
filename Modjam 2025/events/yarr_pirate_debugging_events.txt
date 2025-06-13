@@ -1,0 +1,77 @@
+﻿namespace = pirate_debugging_events
+
+
+pirate_debugging_events.001 = { # Spawn Artifacts
+	type = character_event
+	title = pirate_debugging_events.001.title
+	desc = pirate_debugging_events.001.desc
+
+	left_portrait = {
+		character = root
+		animation = personality_content
+	}
+
+	theme = travel
+	override_background = { reference = fp1_ocean }
+
+	immediate = {
+
+	}
+
+	option = {
+		name = debugging_events.001.common_pirate_sword
+		save_scope_value_as = {
+			name = quality
+			value = 20
+		}
+		save_scope_value_as = {
+			name = wealth
+			value = 20
+		}
+		create_pirate_sword_effect = { 
+            OWNER = root
+        }
+	}
+	option = {
+		name = debugging_events.001.masterwork_pirate_sword
+		save_scope_value_as = {
+			name = quality
+			value = 45
+		}
+		save_scope_value_as = {
+			name = wealth
+			value = 45
+		}
+		create_pirate_sword_effect = { 
+            OWNER = root
+        }
+	}
+	option = {
+		name = debugging_events.001.famed_pirate_sword
+		save_scope_value_as = {
+			name = quality
+			value = 70
+		}
+		save_scope_value_as = {
+			name = wealth
+			value = 70
+		}
+		create_pirate_sword_effect = { 
+            OWNER = root
+        }
+	}
+	option = {
+		name = debugging_events.001.illustrious_pirate_sword
+		save_scope_value_as = {
+			name = quality
+			value = 100
+		}
+		save_scope_value_as = {
+			name = wealth
+			value = 100
+		}
+		create_pirate_sword_effect = { 
+            OWNER = root
+        }
+	}
+}

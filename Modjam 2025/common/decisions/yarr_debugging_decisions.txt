@@ -1,0 +1,28 @@
+spawn_pirate_artifact = {
+	desc = "spawn_pirate_artifact"
+	selection_tooltip = "spawn_pirate_artifact_tooltip"
+	
+	picture = {
+		reference = "gfx/interface/illustrations/event_scenes/fp1_ocean.dds"
+	}
+
+	decision_group_type = debug
+
+	is_shown = {
+		is_ai = no
+        debug_only = yes
+	}
+
+	ai_goal = no
+	ai_will_do = {
+		value = 0
+	}
+	ai_potential = {
+		always = no
+	}
+	ai_check_interval = 0
+
+	effect = {
+		trigger_event = pirate_debugging_events.001
+	}
+}
