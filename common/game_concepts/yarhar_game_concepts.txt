@@ -1,0 +1,54 @@
+﻿pirate = {
+	texture = "gfx/interface/icons/government_types/government_type_nomad.dds"
+	parent = government
+	alias = { pirate_government pirate_i pirates pirate }
+}
+
+pirate_holding = {
+	texture = "gfx/interface/icons/map_icons/onmap_holding_icon.dds"
+	parent = domicile
+	alias = { pirate_holdings }
+}
+
+pirate_parley = {
+	texture = "gfx/interface/icons/message_feed/law.dds"
+	parent = law
+	alias = { parley }
+}
+
+savage_pirates = {
+	texture = "gfx/interface/icons/message_feed/law.dds"
+	parent = pirate_parley
+}
+
+dasterdly_pirates = {
+	texture = "gfx/interface/icons/message_feed/law.dds"
+	parent = pirate_parley
+}
+
+unruly_pirates = {
+	texture = "gfx/interface/icons/message_feed/law.dds"
+	parent = pirate_parley
+}
+
+managed_pirates = {
+	texture = "gfx/interface/icons/message_feed/law.dds"
+	parent = pirate_parley
+}
+
+captained_pirates = {
+	texture = "gfx/interface/icons/message_feed/law.dds"
+	parent = pirate_parley
+}
+
+pirate_ship = {
+	texture = "gfx/interface/icons/map_icons/map_icon_yurt.dds"
+	parent = domicile
+	alias = { pirate_ships }
+}
+
+pirate_ship_buildings = {
+	texture = "gfx/interface/icons/map_icons/map_icon_yurt.dds"
+	parent = pirate_ship
+	alias = { pirate_ship_building }
+}
