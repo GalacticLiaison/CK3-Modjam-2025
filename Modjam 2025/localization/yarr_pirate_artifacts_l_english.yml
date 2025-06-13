@@ -1,0 +1,3 @@
+﻿l_english:
+  pirate_sword_name:0 "$artifact_name_prefix$ Pirate Short Sword"
+  pirate_sword_desc:3 "A [SCOPE.Custom('ArtifactQuality')] curved [newly_created_artifact.GetFeatureText( 'blade_metal' )] sword commonly used by bandits of the sea."

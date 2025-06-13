@@ -1,4 +1,4 @@
-pirate_short_sword = {
+﻿pirate_short_sword = {
 	icon = "artifact_pirate_short_sword.dds"
 	# AFR - Placed at the top so that AFR specific assets trump generic MENA
 	asset = {

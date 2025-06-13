@@ -1,0 +1,1 @@
+﻿increase_pirate_authority_prestige_cost = 100
