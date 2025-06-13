@@ -1,6 +1,6 @@
-spawn_pirate_sword = {
-	desc = "spawn_pirate_sword"
-	selection_tooltip = "spawn_pirate_sword_tooltip"
+spawn_pirate_artifact = {
+	desc = "spawn_pirate_artifact"
+	selection_tooltip = "spawn_pirate_artifact_tooltip"
 	
 	picture = {
 		reference = "gfx/interface/illustrations/event_scenes/fp1_ocean.dds"
