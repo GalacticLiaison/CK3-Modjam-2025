@@ -1,0 +1,576 @@
+﻿activity_pirate_visit_port = {
+
+	is_shown = {
+		has_ep3_dlc_trigger = yes
+		is_landless_adventurer = yes
+		is_adult = yes
+	}
+
+	can_start_showing_failures_only = {
+		is_available = yes
+		age >= 16
+	}
+
+	is_valid = {
+		scope:host = {
+			is_alive = yes
+			is_imprisoned = no
+			is_landless_adventurer = yes
+			NOT = { is_incapable = yes }
+		}
+	}
+
+	on_invalidated = {
+		# Host becomes incapable
+		if = {
+			limit = {
+				scope:host = { is_incapable = yes }
+			}
+			scope:activity = {
+				activity_type = { save_scope_as = activity_type }
+			}
+			scope:host = {
+				trigger_event = activity_system.0330
+			}
+			every_attending_character = {
+				limit = { NOT = { this = scope:host } }
+				trigger_event = activity_system.0331
+			}
+		}
+	}
+
+	province_filter = domicile_domain
+	ai_province_filter = domicile_domain
+
+	max_province_icons = 1
+	allow_zero_guest_invites = no
+	open_invite = no
+
+	province_description = {
+		desc = activity_pirate_visit_port_province_desc
+	}
+
+	province_score = {
+		add = pirate_visit_port_province_reference_value
+	}
+
+	cost = {
+		gold = {
+			add = {
+				add = {
+					value = standard_camp_party_activity_cost
+					desc = hunt_base_cost
+				}
+				if =  {
+					limit = {
+						has_character_modifier = journey_communal_modifier
+					}
+					multiply = {
+						value = 0.8
+						desc = journey_communal_modifier
+					}
+				}
+			}
+		}	
+	}
+
+	ui_predicted_cost = {
+		gold = {
+			# Base Cost
+			value = standard_camp_party_activity_cost
+			# Options 
+			add = { # Pomp Option 
+				value = 0 # Appropriate Cost
+				add = 50 # Extra Cost
+				add = 100 # Extra Cost
+				# Scale option costs by tier and era
+				multiply = activity_cost_scale_by_tier
+				# Divide by the number of option levels to get an average option cost
+				divide = 3
+			}
+			# Make it a multiple of 5 (rounded up)
+			divide = 5 
+			ceiling = yes
+			multiply = 5
+		}
+	}
+
+	cooldown = { years = standard_camp_party_cooldown_time	}
+
+	###################
+	# PHASES AND OPTIONS
+	###################
+
+	phases = {
+		phase_visit_port = {
+			is_predefined = yes
+			location_source = pickable
+
+			ai_will_do = {
+				value = 0
+				add = {
+					value = 30
+					desc = "Base test value"
+				}
+			}
+
+			on_phase_active = {
+				if = {
+					limit = { this = scope:host }
+
+					scope:host = {
+						trigger_event = pirate_visit_port.8888
+					}
+				}
+			}
+		}
+	}
+
+
+	###################
+	# OPTIONS
+	###################
+
+	special_option_category = special_type
+
+	options = {
+		#########
+		# TYPE OF VISIT
+		#########
+		special_type = {
+			pirate_visit_port_type_carousing = {
+				default = yes	
+				ai_will_do = {
+					value = 10
+					if = {
+						limit = {
+							has_trait = gluttonous
+						}
+						add = 10
+					}
+					if = {
+						limit = {
+							has_trait = drunkard
+						}
+						add = 20
+					}
+					if = {
+						limit = {
+							has_trait = gregarious
+						}
+						add = 10
+					}
+					if = {
+						limit = {
+							has_trait = lustful
+						}
+						add = 10
+					}
+				}
+			}
+			pirate_visit_port_type_recruitment = {		
+				ai_will_do = {
+					value = 10
+					if = {
+						limit = {
+							has_trait = ambitious
+						}
+						add = 10
+					}
+					if = {
+						limit = {
+							has_trait = gregarious
+						}
+						add = 20
+					}
+					if = {
+						limit = {
+							has_trait = diligent
+						}
+						add = 10
+					}
+					if = {
+						limit = {
+							has_trait = generous
+						}
+						add = 10
+					}
+				}
+			}
+			pirate_visit_port_type_gambling = {		
+				ai_will_do = {
+					value = 10
+					if = {
+						limit = {
+							has_trait = arbitrary
+						}
+						add = 10
+					}
+					if = {
+						limit = {
+							has_trait = greedy
+						}
+						add = 20
+					}
+					if = {
+						limit = {
+							has_trait = impatient
+						}
+						add = 10
+					}
+					if = {
+						limit = {
+							has_trait = ambitious
+						}
+						add = 10
+					}
+				}
+			}
+		}
+
+
+		#########
+		# OFFERING AMOUNT
+		#########
+		pirate_visit_port_purse_type = {
+			pirate_visit_port_purse_type_small = {
+				default = yes			
+				ai_will_do = {
+					value = 10
+				}
+			}
+			pirate_visit_port_purse_type_medium = {
+				cost = { 
+					gold = {
+						add = {
+							value = 0
+							desc = pirate_visit_port_purse_extra_amount
+							add = {
+								value = 25
+								desc = pirate_visit_port_purse_extra_amount
+							}
+							add = {
+								value = 25 
+								multiply = activity_cost_scale_by_tier
+								subtract = 25
+								desc = activity_cost_scale_by_tier
+							}
+						}
+					}
+				}				
+				ai_will_do = {
+					value = 5
+					if = {
+						limit = {
+							short_term_gold <= 50
+						}
+						subtract = {
+							value = 5
+						}
+					}
+				}
+			}
+			pirate_visit_port_purse_type_large = {
+				cost = { 
+					gold = {
+						add = {
+							value = 0
+							desc = pirate_visit_port_purse_extra_amount
+							add = {
+								value = 50
+								desc = pirate_visit_port_purse_extra_amount
+							}
+							add = {
+								value = 50 
+								multiply = activity_cost_scale_by_tier
+								subtract = 50
+								desc = activity_cost_scale_by_tier
+							}
+						}
+					}
+				}			
+				ai_will_do = {
+					value = 5
+					if = {
+						limit = {
+							short_term_gold <= 100
+						}
+						subtract = {
+							value = 5
+						}
+					}
+				}
+			}
+		}
+
+	}
+
+	max_guest_arrival_delay_time = { weeks = 1 }
+	
+	###################
+	# ACTIVITY-SPECIFIC PULSES
+	###################
+
+	pulse_actions = {
+		
+	}
+
+	on_start = {
+
+	}
+
+	###################
+	# AI VALUES
+	###################
+
+	# desc is only shown in debug AI watch window
+	ai_will_do = {
+		value = 50
+		
+		if = {
+			limit = {
+				has_trait = diligent
+			}
+			add = 10
+		}
+		
+		if = {
+			limit = {
+				has_trait = gregarious
+			}
+			add = 10
+		}
+		
+		if = {
+			limit = {
+				has_trait = lazy
+			}
+			add = -10
+		}
+
+	}
+
+	ai_check_interval = 60
+
+	ai_will_select_province = {
+		value = 10
+	}
+
+	###################
+	# GUEST HANDLING
+	###################
+
+	host_intents = {
+		default = reduce_stress_intent
+		intents = { reduce_stress_intent befriend_attendee_intent }
+	}
+
+	guest_intents = {
+		intents = { reduce_stress_intent befriend_attendee_intent }
+		default = reduce_stress_intent
+	}
+
+	can_be_activity_guest = {
+		is_healthy = yes
+		is_available = yes
+		age >= 16
+		is_ai = yes
+		liege = scope:host
+		location = scope:host.location
+	}
+
+	guest_invite_rules = {
+		defaults = {
+			1 = activity_invite_rule_followers
+		}
+	}
+
+	
+	max_guests = 50 #Theoretically everyone, practically only around 2-10 usually
+
+	guest_join_chance = {
+		base = 0
+		base_activity_modifier = yes
+
+		# Scripted Modifiers
+		activity_guest_shared_ai_accept_modifier = yes
+	}
+
+	###################
+	# GRAPHICS
+	###################
+
+	#Fallback
+	background = {
+		texture = "gfx/interface/illustrations/event_scenes/fp1_beached_longship.dds"
+		environment = "environment_event_fp1_beached_longship"
+		ambience = "event:/DLC/FP1/SFX/Events/event_beached_longships"
+	}
+
+
+	window_characters = {
+		guest = {
+			camera = camera_body_right
+
+			effect = {
+				if = {
+					limit = {
+						scope:host.location = scope:activity.activity_location
+					}
+					every_attending_character = {
+						limit = {
+							location = scope:activity.activity_location
+							NOT = {
+								this = scope:host
+							}
+						}
+						add_to_list = characters
+					}
+				}
+			}
+
+			scripted_animation = {
+				triggered_animation = {
+					trigger = {
+						always = yes
+					}
+					animation = { drink_goblet happiness flirtation throne_room_conversation_3 throne_room_conversation_1 instrument_idle alto_flute_active }
+				}
+			}
+		}
+
+		#Guest of Honor
+		guest = {
+			camera = camera_body
+
+			effect = {
+				if = {
+					limit = {
+						scope:host.location = scope:activity.activity_location
+					}
+					every_attending_character = {
+						limit = {
+							location = scope:activity.activity_location
+							NOT = {
+								this = scope:host
+							}
+						}
+						add_to_list = characters
+					}
+				}
+			}
+
+			scripted_animation = {
+				triggered_animation = {
+					trigger = {
+						always = yes
+					}
+					animation = { drink_goblet happiness flirtation throne_room_conversation_3 throne_room_conversation_1 instrument_idle alto_flute_active }
+				}
+			}
+		}
+
+		host = {
+			camera = camera_body
+			
+			effect = {
+				if = {
+					limit = {
+						scope:host.location = scope:activity.activity_location
+					}
+					scope:host = {
+						add_to_list = characters
+					}
+				}
+			}
+			scripted_animation = {
+				triggered_animation = {
+					trigger = {
+						always = yes
+					}
+					animation = { toast_goblet toast lute_active }
+				}
+			}
+		}
+
+		guest = {
+			camera = camera_body
+			
+			effect = {
+				if = {
+					limit = {
+						scope:host.location = scope:activity.activity_location
+					}
+					every_attending_character = {
+						limit = {
+							location = scope:activity.activity_location
+							NOT = {
+								this = scope:host
+							}
+						}
+						add_to_list = characters
+					}
+				}
+			}
+
+			scripted_animation = {
+				triggered_animation = {
+					trigger = {
+						scope:character = { has_trait = shy }
+					}
+					animation = { worry stress boredom fear disbelief lunatic paranoia eyeroll drink drink_goblet }
+				}
+				triggered_animation = {
+					trigger = {
+						scope:character = { 
+							NOT = { has_trait = shy } 
+						}
+					}
+					animation = { dancing laugh throne_room_conversation_2 }
+				}
+				#Fallback
+				animation = toast
+			}
+		}
+		
+		guest = {
+			camera = camera_body_left
+			
+			effect = {
+				if = {
+					limit = {
+						scope:host.location = scope:activity.activity_location
+					}
+					every_attending_character = {
+						limit = {
+							location = scope:activity.activity_location
+							NOT = {
+								this = scope:host
+							}
+						}
+						add_to_list = characters
+					}
+				}
+			}
+
+			scripted_animation = {
+				triggered_animation = {
+					trigger = {
+						scope:character = { has_trait = shy }
+					}
+					animation = { worry stress boredom fear disbelief lunatic paranoia eyeroll drink drink_goblet }
+				}
+				triggered_animation = {
+					trigger = {
+						scope:character = { 
+							NOT = { has_trait = shy } 
+						}
+					}
+					animation = { drink eavesdrop wedding_drunk instrument_active }
+				}
+				#Fallback
+				animation = toast
+			}
+		}
+	}
+}
