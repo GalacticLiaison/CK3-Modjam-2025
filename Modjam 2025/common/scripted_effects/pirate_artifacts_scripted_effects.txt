@@ -1,0 +1,60 @@
+create_pirate_sword_effect = {
+	$OWNER$ = { save_scope_as = owner }
+
+	if = {
+		limit = {
+			scope:quality > 0
+			scope:quality <= 25
+		}
+		spawn_pirate_sword = {
+			PIRATE_SHORT_SWORD_MODIFIER = common_pirate_short_sword_modifier
+		}
+	}
+	else_if = {
+		limit = {
+			scope:quality > 25
+			scope:quality <= 50
+		}
+		spawn_pirate_sword = {
+			PIRATE_SHORT_SWORD_MODIFIER = masterwork_pirate_short_sword_modifier
+		}
+	}
+	else_if = {
+		limit = {
+			scope:quality > 50
+			scope:quality <= 75
+		}
+		spawn_pirate_sword = {
+			PIRATE_SHORT_SWORD_MODIFIER = famed_pirate_short_sword_modifier
+		}
+	}
+	else = {
+		spawn_pirate_sword = {
+			PIRATE_SHORT_SWORD_MODIFIER = illustrious_pirate_short_sword_modifier
+		}
+	}
+
+}
+
+spawn_pirate_sword = {
+	create_artifact = {	
+		name = pirate_sword_name
+		description = pirate_sword_desc
+		visuals = pirate_short_sword
+		type = sword
+		modifier = $PIRATE_SHORT_SWORD_MODIFIER$
+		# rarity = illustrious
+		# rarity = common
+		# rarity = famed
+		# rarity = masterwork
+		wealth = scope:wealth
+		quality = scope:quality
+        history = {
+            location = scope:location
+            # actor = scope:adventurer
+            recipient = root
+            type = discovered
+        }
+		save_scope_as = newly_created_artifact
+	}
+}
