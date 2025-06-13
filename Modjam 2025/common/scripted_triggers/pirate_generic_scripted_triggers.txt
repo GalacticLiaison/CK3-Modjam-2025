@@ -1,0 +1,6 @@
+﻿
+
+is_a_pirate_ruler = {
+	government_has_flag = government_is_pirate
+}
+
