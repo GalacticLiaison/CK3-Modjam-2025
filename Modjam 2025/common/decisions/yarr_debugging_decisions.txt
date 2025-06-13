@@ -1,4 +1,4 @@
-spawn_pirate_artifact = {
+﻿spawn_pirate_artifact = {
 	desc = "spawn_pirate_artifact"
 	selection_tooltip = "spawn_pirate_artifact_tooltip"
 	
@@ -14,9 +14,9 @@ spawn_pirate_artifact = {
 	}
 
 	ai_goal = no
-	ai_will_do = {
-		value = 0
-	}
+	# ai_will_do = {
+	# 	value = 0
+	# }
 	ai_potential = {
 		always = no
 	}
@@ -24,5 +24,34 @@ spawn_pirate_artifact = {
 
 	effect = {
 		trigger_event = pirate_debugging_events.001
+	}
+}
+
+set_pirate_government = {
+	desc = "set_pirate_government"
+	selection_tooltip = "set_pirate_government_tooltip"
+	
+	picture = {
+		reference = "gfx/interface/illustrations/event_scenes/fp1_ocean.dds"
+	}
+
+	decision_group_type = debug
+
+	is_shown = {
+		is_ai = no
+        debug_only = yes
+	}
+
+	ai_goal = no
+	# ai_will_do = {
+	# 	value = 0
+	# }
+	ai_potential = {
+		always = no
+	}
+	ai_check_interval = 0
+
+	effect = {
+		change_government = pirate_government
 	}
 }
