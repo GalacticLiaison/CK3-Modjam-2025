@@ -4,3 +4,6 @@ is_a_pirate_ruler = {
 	government_has_flag = government_is_pirate
 }
 
+realm_law_uses_pirate_authority = {
+	government_has_flag = government_is_pirate
+}

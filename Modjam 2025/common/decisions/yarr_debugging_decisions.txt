@@ -10,7 +10,7 @@
 
 	is_shown = {
 		is_ai = no
-        debug_only = yes
+		debug_only = yes
 	}
 
 	ai_goal = no
@@ -28,7 +28,7 @@
 }
 
 set_pirate_government = {
-	desc = "set_pirate_government"
+	desc = "set_pirate_government_desc"
 	selection_tooltip = "set_pirate_government_tooltip"
 	
 	picture = {
@@ -39,7 +39,8 @@ set_pirate_government = {
 
 	is_shown = {
 		is_ai = no
-        debug_only = yes
+		debug_only = yes
+		NOT = { government_has_flag = government_is_pirate }
 	}
 
 	ai_goal = no
@@ -52,6 +53,6 @@ set_pirate_government = {
 	ai_check_interval = 0
 
 	effect = {
-		change_government = pirate_government
+		become_pirate_government = yes
 	}
 }

@@ -29,8 +29,8 @@ pirate_debugging_events.001 = { # Spawn Artifacts
 			value = 20
 		}
 		create_pirate_sword_effect = { 
-            OWNER = root
-        }
+			OWNER = root
+		}
 	}
 	option = {
 		name = debugging_events.001.masterwork_pirate_sword
@@ -43,8 +43,8 @@ pirate_debugging_events.001 = { # Spawn Artifacts
 			value = 45
 		}
 		create_pirate_sword_effect = { 
-            OWNER = root
-        }
+			OWNER = root
+		}
 	}
 	option = {
 		name = debugging_events.001.famed_pirate_sword
@@ -57,8 +57,8 @@ pirate_debugging_events.001 = { # Spawn Artifacts
 			value = 70
 		}
 		create_pirate_sword_effect = { 
-            OWNER = root
-        }
+			OWNER = root
+		}
 	}
 	option = {
 		name = debugging_events.001.illustrious_pirate_sword
@@ -71,7 +71,7 @@ pirate_debugging_events.001 = { # Spawn Artifacts
 			value = 100
 		}
 		create_pirate_sword_effect = { 
-            OWNER = root
-        }
+			OWNER = root
+		}
 	}
 }

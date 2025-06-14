@@ -3,3 +3,14 @@
  pirate_culture: "Pirate"
  pirate_culture_prefix: "Pirate"
  pirate_culture_collective_noun: "Pirates"
+
+ highmate_chancellor: "Firstmate"
+ booty_chancellor: "Master of Booty"
+ warden_chancellor: "Warden"
+ sneaky_chancellor: "Ya Sneaky One"
+ wise_chancellor: "Wise Cracker"
+ malewif_pirate: "Malewif"
+ wif_pirate: "Wif"
+ event_window_widget_name_child_random_pirate_name: "Give your child a cool pirate name (not historic)"
+
+ LeSithia: "Le Sithia" #for the Space

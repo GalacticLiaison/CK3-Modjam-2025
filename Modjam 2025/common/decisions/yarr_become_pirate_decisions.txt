@@ -1,0 +1,302 @@
+﻿landed_becomes_pirate = {
+	selection_tooltip = "set_pirate_government_tooltip"
+	
+	picture = {
+		reference = "gfx/interface/illustrations/event_scenes/fp1_ocean.dds"
+	}
+
+	decision_group_type = pirate
+
+	is_shown = {
+		NOT = { government_has_flag = government_is_pirate }
+		is_landed = yes
+		is_independent_ruler = yes
+	}
+
+	is_valid = {
+		is_adult = yes
+		is_imprisoned = no
+		OR = {
+			custom_tooltip = {
+				capital_county = { is_coastal_county = yes }
+				text = "capital_county_is_coastal"
+			}
+			culture = {
+				OR = {
+					has_cultural_tradition = tradition_seafaring
+					has_cultural_tradition = tradition_fp1_coastal_warriors
+					has_cultural_tradition = tradition_maritime_mercantilism
+				}
+			}
+		}
+		realm_size < 4
+	}
+
+	ai_goal = no
+	# ai_will_do = {
+	# 	value = 0
+	# }
+	ai_potential = {
+		always = no
+	}
+	ai_check_interval = 0
+
+	effect = {
+		become_pirate_government = yes
+	}
+}
+
+laamp_becomes_pirate = {
+	selection_tooltip = "set_pirate_government_tooltip"
+	
+	picture = {
+		reference = "gfx/interface/illustrations/event_scenes/fp1_ocean.dds"
+	}
+
+	decision_group_type = pirate
+
+	is_shown = {
+		NOT = { government_has_flag = government_is_pirate }
+		is_landless_adventurer = yes
+	}
+
+	is_valid = {
+		is_adult = yes
+		is_imprisoned = no
+		culture = {
+			OR = {
+				has_cultural_tradition = tradition_seafaring
+				has_cultural_tradition = tradition_fp1_coastal_warriors
+				has_cultural_tradition = tradition_maritime_mercantilism
+			}
+		}
+		has_realm_law = camp_purpose_brigands
+	}
+
+	ai_goal = no
+	# ai_will_do = {
+	# 	value = 0
+	# }
+	ai_potential = {
+		always = no
+	}
+	ai_check_interval = 0
+
+	effect = {
+		become_pirate_government = yes
+	}
+}
+
+quit_piracy_as_feudal = {
+	picture = {
+		reference = "gfx/interface/illustrations/event_scenes/throneroom_west.dds"
+	}
+
+	decision_group_type = pirate
+
+	is_shown = {
+		government_has_flag = government_is_pirate
+	}
+
+	is_valid = {
+		is_adult = yes
+		is_imprisoned = no
+		is_landed = yes
+		has_realm_law = pirate_authority_5
+	}
+	is_valid_showing_failures_only = {
+		is_at_war = no
+		is_available = yes
+	}
+
+	cost = {
+		gold = {
+			value = quit_piracy_as_feudal_gold_cost
+		}
+		piety = {
+			value = quit_piracy_as_feudal_piety_cost
+		}
+		prestige = {
+			value = quit_piracy_as_feudal_prestige_cost
+		}
+	}
+
+	ai_goal = no
+	# ai_will_do = {
+	# 	value = 0
+	# }
+	ai_potential = {
+		always = no
+	}
+	ai_check_interval = 0
+
+	effect = {
+		remove_trait = yarr_pirate_track
+		change_government = feudal_government
+	}
+}
+
+quit_piracy_as_tribal = {
+	picture = {
+		reference = "gfx/interface/illustrations/event_scenes/bp1_docks_tribal.dds"
+	}
+
+	decision_group_type = pirate
+
+	is_shown = {
+		government_has_flag = government_is_pirate
+	}
+
+	is_valid = {
+		is_adult = yes
+		is_imprisoned = no
+		is_landed = yes
+		OR = {
+			has_realm_law = pirate_authority_3
+			has_realm_law = pirate_authority_4
+			has_realm_law = pirate_authority_5
+		}
+	}
+	is_valid_showing_failures_only = {
+		is_at_war = no
+		is_available = yes
+	}
+
+	cost = {
+		gold = {
+			value = quit_piracy_as_tribal_gold_cost
+		}
+		piety = {
+			value = quit_piracy_as_tribal_piety_cost
+		}
+		prestige = {
+			value = quit_piracy_as_tribal_prestige_cost
+		}
+	}
+
+	ai_goal = no
+	# ai_will_do = {
+	# 	value = 0
+	# }
+	ai_potential = {
+		always = no
+	}
+	ai_check_interval = 0
+
+	effect = {
+		remove_trait = yarr_pirate_track
+		change_government = tribal_government
+	}
+}
+
+quit_piracy_as_landless = {
+	picture = {
+		reference = "gfx/interface/illustrations/event_scenes/bp3_coast.dds"
+	}
+
+	decision_group_type = pirate
+
+	is_shown = {
+		government_has_flag = government_is_pirate
+	}
+
+	is_valid = {
+		is_adult = yes
+		is_imprisoned = no
+		is_landless_adventurer = yes
+	}
+	is_valid_showing_failures_only = {
+		is_at_war = no
+		is_available = yes
+	}
+
+	cost = {
+		gold = {
+			value = quit_piracy_as_landless_gold_cost
+		}
+		piety = {
+			value = quit_piracy_as_landless_piety_cost
+		}
+		prestige = {
+			value = quit_piracy_as_landless_prestige_cost
+		}
+	}
+
+	ai_goal = no
+	# ai_will_do = {
+	# 	value = 0
+	# }
+	ai_potential = {
+		always = no
+	}
+	ai_check_interval = 0
+
+	effect = {
+		remove_trait = yarr_pirate_track
+		change_government = landless_adventurer_government
+	}
+}
+
+quit_piracy_as_nomadic = {
+	picture = {
+		reference = "gfx/interface/illustrations/event_story/mpo_steppe_region.dds"
+	}
+
+	decision_group_type = pirate
+
+	is_shown = {
+		has_mpo_dlc_trigger = yes
+		government_has_flag = government_is_pirate
+		is_playable_character = yes
+		is_landless_adventurer = yes
+	}
+
+	is_valid = {
+		location.county.holder = {
+			has_government = herder_government
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		is_at_war = no
+		is_available = yes
+	}
+
+	cost = {
+		gold = {
+			value = quit_piracy_as_nomad_gold_cost
+		}
+		piety = {
+			value = quit_piracy_as_nomad_piety_cost
+		}
+		prestige = {
+			value = quit_piracy_as_nomad_prestige_cost
+		}
+	}
+
+	ai_potential = {
+		always = no
+	}
+
+	ai_will_do = {
+		base = 0
+	}
+	ai_check_interval = 0
+
+	effect = {
+		remove_trait = yarr_pirate_track
+		create_title_and_vassal_change = {
+			type = conquest
+			save_scope_as = change
+			add_claim_on_loss = yes
+		}
+		location.county = {
+			change_title_holder = {
+				holder = root
+				change = scope:change
+				take_baronies = yes
+			}
+		}
+		change_government = nomad_government
+	}
+}

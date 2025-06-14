@@ -1,1 +1,17 @@
 ﻿increase_pirate_authority_prestige_cost = 100
+
+quit_piracy_as_feudal_gold_cost = 1000
+quit_piracy_as_feudal_piety_cost = 1000
+quit_piracy_as_feudal_prestige_cost = 3000
+
+quit_piracy_as_tribal_gold_cost = 400
+quit_piracy_as_tribal_piety_cost = 400
+quit_piracy_as_tribal_prestige_cost = 1200
+
+quit_piracy_as_landless_gold_cost = 0
+quit_piracy_as_landless_piety_cost = 0
+quit_piracy_as_landless_prestige_cost = 0
+
+quit_piracy_as_nomad_gold_cost = 0
+quit_piracy_as_nomad_piety_cost = 0
+quit_piracy_as_nomad_prestige_cost = 0
