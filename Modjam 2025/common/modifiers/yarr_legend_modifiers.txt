@@ -1,0 +1,14 @@
+﻿yarr_famed_reaver_house_modifier = {
+    icon = dread_positive
+    dread_gain_mult = 0.2
+    dread_decay_mult = -0.33
+}
+
+yarr_reaver_legend_province_looted = {
+    icon = flame_negative
+    development_growth_factor = -1
+    development_decline = 1
+    tax_mult = -0.2
+    monthly_county_control_decline_factor = 0.5
+    stationed_maa_toughness_add = 15
+}

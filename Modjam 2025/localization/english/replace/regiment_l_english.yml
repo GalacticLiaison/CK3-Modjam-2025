@@ -1,0 +1,23 @@
+﻿l_english:
+ #Base MaA
+ light_footmen: "[Select_CString(GetPlayer.GetGovernment.IsType( 'pirate_government' ), 'Seasoned Pirates', 'Light Footmen')]"
+ bowmen: "Bowmen"
+ light_horsemen: "[Select_CString(GetPlayer.GetGovernment.IsType( 'pirate_government' ), 'Light Landlubbers', 'Light Horsemen')]"
+ pikemen_unit: "[Select_CString(GetPlayer.GetGovernment.IsType( 'pirate_government' ), 'Harpooneers', 'Pikemen')]"
+ armored_footmen: "[Select_CString(GetPlayer.GetGovernment.IsType( 'pirate_government' ), 'Armored Pirates', 'Armored Footmen')]"
+ armored_horsemen: "[Select_CString(GetPlayer.GetGovernment.IsType( 'pirate_government' ), 'Armored Landlubbers', 'Armored Horsemen')]"
+ crossbowmen: "Crossbowmen"
+ 
+ #Siege MaA
+ siege_weapon: "[siege_weapons|E]"
+ onager: "Onagers"
+ mangonel: "Mangonels"
+ trebuchet: "Trebuchets"
+ bombard: "[Select_CString(GetPlayer.GetGovernment.IsType( 'pirate_government' ), 'Cannons', 'Bombards')]"
+ 
+ #Regional MaA
+ war_elephant: "[Select_CString(GetPlayer.GetGovernment.IsType( 'pirate_government' ), 'Exotic Landlubbers', 'War Elephants')]"
+ camel_rider: "[Select_CString(GetPlayer.GetGovernment.IsType( 'pirate_government' ), 'Humped Landlubbers', 'Camel Riders')]"
+
+ ARMY_VIEW_LEVIES: "[Select_CString(GetPlayer.GetGovernment.IsType( 'pirate_government' ), 'Pirates', 'Levies')]"
+ ARMY_VIEW_LEVIES_TOOLTIP: "#T [Select_CString(GetPlayer.GetGovernment.IsType( 'pirate_government' ), 'Pirates', 'Levies')]#!"
