@@ -29,7 +29,5 @@
  pirate_government_realm: "Pirate Ship"
  pirate_government_desc: "\n$game_concept_pirate_desc$\n\n#F For pirates, moving is their way of life. Every ruler is only as strong as the strength of their people.#!"
  PIRATE_CONTRACT: "Pirate Contract"
- ignores_faith_marriage_penalties: "#indent_newline:3 Ignores [faith|E] when arranging [marriages|E] with [GetGovernment( 'pirate_government' ).GetName], [GetGovernment( 'nomad_government' ).GetName], or [GetGovernment( 'herder_government' ).GetName] [rulers|E] or their [tributaries|E]#!"
- is_pirate_title: "Is [GetGovernment( 'pirate_government' ).GetName] Pirate Ship [title|E]"
 
  pirate_government_vassals_label: "Pirate [obligations|E] are based on each [vassal|E]'s [vassal_contract|E]"
