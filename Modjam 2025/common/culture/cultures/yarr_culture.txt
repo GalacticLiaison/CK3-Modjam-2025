@@ -9,7 +9,7 @@ pirate_culture = {
 	head_determination = head_determination_domain
 	traditions = {
 		tradition_seafaring
-        tradition_adaptive_skirmishing
+		tradition_adaptive_skirmishing
 	}
 	
 	name_list = name_list_english

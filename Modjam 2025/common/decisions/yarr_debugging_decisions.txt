@@ -10,7 +10,7 @@
 
 	is_shown = {
 		is_ai = no
-        debug_only = yes
+		debug_only = yes
 	}
 
 	ai_goal = no
@@ -39,7 +39,7 @@ set_pirate_government = {
 
 	is_shown = {
 		is_ai = no
-        debug_only = yes
+		debug_only = yes
 	}
 
 	ai_goal = no

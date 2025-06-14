@@ -1,175 +1,175 @@
 ﻿template = {
-    yarr_jolly_roger_coa = {
-        pattern = "pattern_solid.dds"
-        color1 = list "yarr_bg_colors"
+	yarr_jolly_roger_coa = {
+		pattern = "pattern_solid.dds"
+		color1 = list "yarr_bg_colors"
 
-        colored_emblem = {
-            texture = "ce_yarr_skull.dds"
-            color1 = list "yarr_fg_colors"
-            instance = { position = { 0.5 0.35 } scale = { 0.6 0.6 }  }
-        }
-        colored_emblem = {
-            texture = "ce_yarr_bones_flat.dds"
-            color1 = list "yarr_fg_colors"
-            instance = { position = { 0.5 0.7 } scale = { 0.7 0.7 }  }
-        }
-    }
+		colored_emblem = {
+			texture = "ce_yarr_skull.dds"
+			color1 = list "yarr_fg_colors"
+			instance = { position = { 0.5 0.35 } scale = { 0.6 0.6 }  }
+		}
+		colored_emblem = {
+			texture = "ce_yarr_bones_flat.dds"
+			color1 = list "yarr_fg_colors"
+			instance = { position = { 0.5 0.7 } scale = { 0.7 0.7 }  }
+		}
+	}
 
-    yarr_very_basic = {
-        pattern = "pattern_solid.dds"
-        color1 = list "yarr_bg_colors"
+	yarr_very_basic = {
+		pattern = "pattern_solid.dds"
+		color1 = list "yarr_bg_colors"
 
 		colored_emblem = {
 			texture = list "yarr_primary_charge_list"
-            color1 = list "yarr_fg_colors"
+			color1 = list "yarr_fg_colors"
 			instance = { position = { 0.5 0.5 }  scale = { 0.7 0.7 }  }
 		}
-    }
-    yarr_three_charges = {
-        pattern = "pattern_solid.dds"
-        color1 = list "yarr_bg_colors"
+	}
+	yarr_three_charges = {
+		pattern = "pattern_solid.dds"
+		color1 = list "yarr_bg_colors"
 
 		colored_emblem = {
 			texture = list "yarr_primary_charge_list"
-            color1 = list "yarr_fg_colors"
+			color1 = list "yarr_fg_colors"
 			instance = { position = { 0.25 0.5 }  scale = { 0.25 0.25 }  }
 			instance = { position = { 0.5 0.5 }   scale = { 0.25 0.25 }  }
 			instance = { position = { 0.75 0.5 }  scale = { 0.25 0.25 }  }
 		}
-    }
-    yarr_one_on_three = {
-        pattern = "pattern_solid.dds"
-        color1 = list "yarr_bg_colors"
+	}
+	yarr_one_on_three = {
+		pattern = "pattern_solid.dds"
+		color1 = list "yarr_bg_colors"
 
 		colored_emblem = {
 			texture = list "yarr_primary_charge_list"
-            color1 = list "yarr_fg_colors"
+			color1 = list "yarr_fg_colors"
 			instance = { position = { 0.5 0.35 }  scale = { 0.5 0.5 }  }
 		}
 		colored_emblem = {
 			texture = list "yarr_secondary_charge_list"
-            color1 = list "yarr_fg_colors"
+			color1 = list "yarr_fg_colors"
 			instance = { position = { 0.25 0.7 }  scale = { 0.25 0.25 }  }
 			instance = { position = { 0.5 0.7 }   scale = { 0.25 0.25 }  }
 			instance = { position = { 0.75 0.7 }  scale = { 0.25 0.25 }  }
 		}
-    }
-    yarr_one_and_two = {
-        pattern = "pattern_solid.dds"
-        color1 = list "yarr_bg_colors"
+	}
+	yarr_one_and_two = {
+		pattern = "pattern_solid.dds"
+		color1 = list "yarr_bg_colors"
 
 		colored_emblem = {
 			texture = list "yarr_primary_charge_list"
-            color1 = list "yarr_fg_colors"
+			color1 = list "yarr_fg_colors"
 			instance = { position = { 0.5 0.5 }  scale = { 0.5 0.5 }  }
 		}
 		colored_emblem = {
 			texture = list "yarr_secondary_charge_list"
-            color1 = list "yarr_fg_colors"
+			color1 = list "yarr_fg_colors"
 			instance = { position = { 0.25 0.5 }  scale = { 0.2 0.2 }  }
 			instance = { position = { 0.75 0.5 }  scale = { 0.2 0.2 }  }
 		}
-    }
-    yarr_charge_on_bones = {
-        pattern = "pattern_solid.dds"
-        color1 = list "yarr_bg_colors"
-
-        colored_emblem = {
-            texture = list "yarr_primary_charge_list"
-            color1 = list "yarr_fg_colors"
-            instance = { position = { 0.5 0.3 } scale = { 0.6 0.6 }  }
-        }
-        colored_emblem = {
-            texture = "ce_yarr_bones_flat.dds"
-            color1 = list "yarr_fg_colors"
-            instance = { position = { 0.5 0.7 } scale = { 0.7 0.7 }  }
-        }
-    }
-
-    yarr_jolly_roger_coa_inv = {
-        pattern = "pattern_solid.dds"
-        color1 = list "yarr_inv_bg_colors"
-
-        colored_emblem = {
-            texture = "ce_yarr_skull.dds"
-            color1 = list "yarr_inv_fg_colors"
-            instance = { position = { 0.5 0.35 } scale = { 0.6 0.6 }  }
-        }
-        colored_emblem = {
-            texture = "ce_yarr_bones_flat.dds"
-            color1 = list "yarr_inv_fg_colors"
-            instance = { position = { 0.5 0.7 } scale = { 0.7 0.7 }  }
-        }
-    }
-
-    yarr_very_basic_inv = {
-        pattern = "pattern_solid.dds"
-        color1 = list "yarr_inv_bg_colors"
+	}
+	yarr_charge_on_bones = {
+		pattern = "pattern_solid.dds"
+		color1 = list "yarr_bg_colors"
 
 		colored_emblem = {
 			texture = list "yarr_primary_charge_list"
-            color1 = list "yarr_inv_fg_colors"
+			color1 = list "yarr_fg_colors"
+			instance = { position = { 0.5 0.3 } scale = { 0.6 0.6 }  }
+		}
+		colored_emblem = {
+			texture = "ce_yarr_bones_flat.dds"
+			color1 = list "yarr_fg_colors"
+			instance = { position = { 0.5 0.7 } scale = { 0.7 0.7 }  }
+		}
+	}
+
+	yarr_jolly_roger_coa_inv = {
+		pattern = "pattern_solid.dds"
+		color1 = list "yarr_inv_bg_colors"
+
+		colored_emblem = {
+			texture = "ce_yarr_skull.dds"
+			color1 = list "yarr_inv_fg_colors"
+			instance = { position = { 0.5 0.35 } scale = { 0.6 0.6 }  }
+		}
+		colored_emblem = {
+			texture = "ce_yarr_bones_flat.dds"
+			color1 = list "yarr_inv_fg_colors"
+			instance = { position = { 0.5 0.7 } scale = { 0.7 0.7 }  }
+		}
+	}
+
+	yarr_very_basic_inv = {
+		pattern = "pattern_solid.dds"
+		color1 = list "yarr_inv_bg_colors"
+
+		colored_emblem = {
+			texture = list "yarr_primary_charge_list"
+			color1 = list "yarr_inv_fg_colors"
 			instance = { position = { 0.5 0.5 }  scale = { 0.7 0.7 }  }
 		}
-    }
-    yarr_three_charges_inv = {
-        pattern = "pattern_solid.dds"
-        color1 = list "yarr_inv_bg_colors"
+	}
+	yarr_three_charges_inv = {
+		pattern = "pattern_solid.dds"
+		color1 = list "yarr_inv_bg_colors"
 
 		colored_emblem = {
 			texture = list "yarr_primary_charge_list"
-            color1 = list "yarr_inv_fg_colors"
+			color1 = list "yarr_inv_fg_colors"
 			instance = { position = { 0.25 0.5 }  scale = { 0.25 0.25 }  }
 			instance = { position = { 0.5 0.5 }   scale = { 0.25 0.25 }  }
 			instance = { position = { 0.75 0.5 }  scale = { 0.25 0.25 }  }
 		}
-    }
-    yarr_one_on_three_inv = {
-        pattern = "pattern_solid.dds"
-        color1 = list "yarr_inv_bg_colors"
+	}
+	yarr_one_on_three_inv = {
+		pattern = "pattern_solid.dds"
+		color1 = list "yarr_inv_bg_colors"
 
 		colored_emblem = {
 			texture = list "yarr_primary_charge_list"
-            color1 = list "yarr_inv_fg_colors"
+			color1 = list "yarr_inv_fg_colors"
 			instance = { position = { 0.5 0.35 }  scale = { 0.5 0.5 }  }
 		}
 		colored_emblem = {
 			texture = list "yarr_secondary_charge_list"
-            color1 = list "yarr_inv_fg_colors"
+			color1 = list "yarr_inv_fg_colors"
 			instance = { position = { 0.25 0.7 }  scale = { 0.25 0.25 }  }
 			instance = { position = { 0.5 0.7 }   scale = { 0.25 0.25 }  }
 			instance = { position = { 0.75 0.7 }  scale = { 0.25 0.25 }  }
 		}
-    }
-    yarr_one_and_two_inv = {
-        pattern = "pattern_solid.dds"
-        color1 = list "yarr_bg_colors"
+	}
+	yarr_one_and_two_inv = {
+		pattern = "pattern_solid.dds"
+		color1 = list "yarr_bg_colors"
 
 		colored_emblem = {
 			texture = list "yarr_primary_charge_list"
-            color1 = list "yarr_inv_fg_colors"
+			color1 = list "yarr_inv_fg_colors"
 			instance = { position = { 0.5 0.5 }  scale = { 0.5 0.5 }  }
 		}
 		colored_emblem = {
 			texture = list "yarr_secondary_charge_list"
-            color1 = list "yarr_inv_fg_colors"
+			color1 = list "yarr_inv_fg_colors"
 			instance = { position = { 0.25 0.5 }  scale = { 0.2 0.2 }  }
 			instance = { position = { 0.75 0.5 }  scale = { 0.2 0.2 }  }
 		}
-    }
-    yarr_charge_on_bones_inv = {
-        pattern = "pattern_solid.dds"
-        color1 = list "yarr_inv_bg_colors"
+	}
+	yarr_charge_on_bones_inv = {
+		pattern = "pattern_solid.dds"
+		color1 = list "yarr_inv_bg_colors"
 
-        colored_emblem = {
-            texture = list "yarr_primary_charge_list"
-            color1 = list "yarr_inv_fg_colors"
-            instance = { position = { 0.5 0.3 } scale = { 0.6 0.6 }  }
-        }
-        colored_emblem = {
-            texture = "ce_yarr_bones_flat.dds"
-            color1 = list "yarr_inv_fg_colors"
-            instance = { position = { 0.5 0.7 } scale = { 0.7 0.7 }  }
-        }
-    }
+		colored_emblem = {
+			texture = list "yarr_primary_charge_list"
+			color1 = list "yarr_inv_fg_colors"
+			instance = { position = { 0.5 0.3 } scale = { 0.6 0.6 }  }
+		}
+		colored_emblem = {
+			texture = "ce_yarr_bones_flat.dds"
+			color1 = list "yarr_inv_fg_colors"
+			instance = { position = { 0.5 0.7 } scale = { 0.7 0.7 }  }
+		}
+	}
 }
