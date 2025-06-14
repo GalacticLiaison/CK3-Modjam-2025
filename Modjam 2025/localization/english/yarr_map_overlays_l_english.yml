@@ -1,0 +1,5 @@
+﻿l_english:
+ yar_icon_desc: "#clickable +100 @gold_icon!"
+ yar_icon_request: "Travel or move your army here to claim the treasure\n$yar_icon_desc$"
+ yar_button_desc: "$yar_icon_desc$"
+ yar_button_request: "Click me to recieve $yar_icon_desc$"

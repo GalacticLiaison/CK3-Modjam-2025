@@ -1,0 +1,30 @@
+﻿# group = yar_overlay_group
+# variables: yar_map, yar_button
+# the variables are used by UI to hide the normal contract and to add a button
+
+yar_icon = {
+  group = yar_overlay_group
+	icon = "gfx/interface/icons/message_feed/stewardship.dds"
+
+	valid_to_create = { is_ai = no }
+  valid_to_accept = { always = no }
+
+  on_create = { scope:contract = { set_variable = yar_map } }
+
+	task_contract_reward = {
+		success = {	effect = { task_contract_taker = { add_gold = 100 } } }
+	}
+}
+
+yar_button = {
+  group = yar_overlay_group
+	icon = "gfx/interface/icons/message_feed/stewardship.dds"
+
+	valid_to_create = { is_ai = no }
+
+  on_create = { scope:contract = { set_variable = yar_map set_variable = yar_button } }
+
+	task_contract_reward = {
+		success = {	effect = { task_contract_taker = { add_gold = 100 } } }
+	}
+}
