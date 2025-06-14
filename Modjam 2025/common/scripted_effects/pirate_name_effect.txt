@@ -1,0 +1,520 @@
+﻿#FUN FACT: You don't need these to be localized keys
+
+pirate_male_name_effect = {
+    random_list = {
+        1= {
+            change_first_name = Rrrr
+        }
+        1= {
+            change_first_name = Gaytriarch
+        }
+        1= {
+            change_first_name = Tobbs
+        }
+        1= {
+            change_first_name = Nezaros
+        }
+        1= {
+            change_first_name = Jaco
+        }
+        1= {
+            change_first_name = Trin
+        }
+        1= {
+            change_first_name = Midge
+        }
+        1= {
+            change_first_name = Derland
+        }
+        1= {
+            change_first_name = Dell
+        }
+        1= {
+            change_first_name = Anscom
+        }
+        1= {
+            change_first_name = Graves
+        }
+        1= {
+            change_first_name = Sterling
+        }
+        1= {
+            change_first_name = Kerwin
+        }
+        1= {
+            change_first_name = Earlham
+        }
+        1= {
+            change_first_name = Spike
+        }
+        1= {
+            change_first_name = Wayland
+        }
+        1= {
+            change_first_name = Jack
+        }
+        1= {
+            change_first_name = Kody
+        }
+        1= {
+            change_first_name = Kingswell
+        }
+        1= {
+            change_first_name = Milford
+        }
+        1= {
+            change_first_name = Castox
+        }
+        1= {
+            change_first_name = Stik
+        }
+        1= {
+            change_first_name = Hockley
+        }
+        1= {
+            change_first_name = Bristol
+        }
+        1= {
+            change_first_name = Darrow
+        }
+        1= {
+            change_first_name = Cedric
+        }
+        1= {
+            change_first_name = Hawkins
+        }
+        1= {
+            change_first_name = Sparc
+        }
+        1= {
+            change_first_name = Currier
+        }
+        1= {
+            change_first_name = Hooper
+        }
+        1= {
+            change_first_name = West
+        }
+        1= {
+            change_first_name = Manley
+        }
+        1= {
+            change_first_name = King
+        }
+        1= {
+            change_first_name = Covington
+        }
+        1= {
+            change_first_name = Vance
+        }
+        1= {
+            change_first_name = Everild
+        }
+        1= {
+            change_first_name = Burr
+        }
+        1= {
+            change_first_name = Nelson
+        }
+        1= {
+            change_first_name = Greeley
+        }
+        1= {
+            change_first_name = Langley
+        }
+        1= {
+            change_first_name = JB
+        }
+        1= {
+            change_first_name = Tomato
+        }
+        1= {
+            change_first_name = Egerton
+        }
+        1= {
+            change_first_name = Warburton
+        }
+        1= {
+            change_first_name = Blackburn
+        }
+        1= {
+            change_first_name = Stanislaw
+        }
+        1= {
+            change_first_name = Kipp
+        }
+        1= {
+            change_first_name = Davis
+        }
+        1= {
+            change_first_name = Slade
+        }
+        1= {
+            change_first_name = Slade
+        }
+        1= {
+            change_first_name = Slade
+        }
+        1= {
+            change_first_name = Rutledge
+        }
+        1= {
+            change_first_name = Fraser
+        }
+        1= {
+            change_first_name = Fulke
+        }
+        1= {
+            change_first_name = Generalist
+        }
+        1= {
+            change_first_name = Ryland
+        }
+        1= {
+            change_first_name = Otis
+        }
+        1= {
+            change_first_name = Ashley
+        }
+        1= {
+            change_first_name = Autry
+        }
+        1= {
+            change_first_name = Brad
+        }
+        1= {
+            change_first_name = Fielding
+        }
+        1= {
+            change_first_name = Gresham
+        }
+        1= {
+            change_first_name = Thaw
+        }
+        1= {
+            change_first_name = Milbank
+        }
+        1= {
+            change_first_name = Crandall
+        }
+        1= {
+            change_first_name = Spencer
+        }
+        1= {
+            change_first_name = Branwell
+        }
+        1= {
+            change_first_name = Dester
+        }
+        1= {
+            change_first_name = Silverton
+        }
+        1= {
+            change_first_name = Skinner
+        }
+        1= {
+            change_first_name = Howland
+        }
+        1= {
+            change_first_name = Tarleton
+        }
+        1= {
+            change_first_name = Breckinridge
+        }
+        1= {
+            change_first_name = Xangelo
+        }
+        1= {
+            change_first_name = Harm
+        }
+        1= {
+            change_first_name = Gibb
+        }
+        1= {
+            change_first_name = Tarkus
+        }
+        1= {
+            change_first_name = East
+        }
+        1= {
+            change_first_name = Celt
+        }
+        1= {
+            change_first_name = Khan
+        }
+        1= {
+            change_first_name = Zach
+        }
+        1= {
+            change_first_name = Agami
+        }
+        1= {
+            change_first_name = Sililex
+        }
+        1= {
+            change_first_name = Xavier
+        }
+        1= {
+            change_first_name = Sandberg
+        }
+        1= {
+            change_first_name = Biscut
+        }
+        1= {
+            change_first_name = Garson
+        }
+        1= {
+            change_first_name = Hewson
+        }
+        1= {
+            change_first_name = Seger
+        }
+        1= {
+            change_first_name = Hawes
+        }
+        1= {
+            change_first_name = Amtep
+        }
+        1= {
+            change_first_name = Fleetwood
+        }
+        1= {
+            change_first_name = Birch
+        }
+        1= {
+            change_first_name = Payton
+        }
+        1= {
+            change_first_name = Nix
+        }
+        1= {
+            change_first_name = Emrys
+        }
+        1= {
+            change_first_name = Byford
+        }
+        1= {
+            change_first_name = Tawani
+        }
+        1= {
+            change_first_name = Herkles
+        }
+    }
+}
+pirate_female_name_effect = {
+    random_list = {
+        1= {
+            change_first_name = Le Sithia
+        }
+        1= {
+            change_first_name = Dee
+        }
+        1= {
+            change_first_name = Morgan
+        }
+        1= {
+            change_first_name = Albina
+        }
+        1= {
+            change_first_name = Myrl
+        }
+        1= {
+            change_first_name = Alberta
+        }
+        1= {
+            change_first_name = Rose
+        }
+        1= {
+            change_first_name = Tilda
+        }
+        1= {
+            change_first_name = Darby
+        }
+        1= {
+            change_first_name = Linnie
+        }
+        1= {
+            change_first_name = Dewsy
+        }
+        1= {
+            change_first_name = Pollie
+        }
+        1= {
+            change_first_name = Zenobia
+        }
+        1= {
+            change_first_name = Marie
+        }
+        1= {
+            change_first_name = Jesse
+        }
+        1= {
+            change_first_name = Veva
+        }
+        1= {
+            change_first_name = Elleree
+        }
+        1= {
+            change_first_name = Leo
+        }
+        1= {
+            change_first_name = Elaine
+        }
+        1= {
+            change_first_name = Demelza
+        }
+        1= {
+            change_first_name = Nealie
+        }
+        1= {
+            change_first_name = Wilhelmine
+        }
+        1= {
+            change_first_name = Louisa
+        }
+        1= {
+            change_first_name = Garnet
+        }
+        1= {
+            change_first_name = Fern
+        }
+        1= {
+            change_first_name = Cornelia
+        }
+        1= {
+            change_first_name = Bessie
+        }
+        1= {
+            change_first_name = Elizabeth
+        }
+        1= {
+            change_first_name = Aurora
+        }
+        1= {
+            change_first_name = Kinsey
+        }
+        1= {
+            change_first_name = Joy
+        }
+        1= {
+            change_first_name = Chappell
+        }
+        1= {
+            change_first_name = Savannah
+        }
+        1= {
+            change_first_name = Poppy
+        }
+        1= {
+            change_first_name = Irene
+        }
+        1= {
+            change_first_name = Suzanne
+        }
+        1= {
+            change_first_name = Ashton
+        }
+        1= {
+            change_first_name = Esther
+        }
+        1= {
+            change_first_name = Prudence
+        }
+        1= {
+            change_first_name = Lucretia
+        }
+        1= {
+            change_first_name = Georgina
+        }
+        1= {
+            change_first_name = Virgie
+        }
+        1= {
+            change_first_name = Natalie
+        }
+        1= {
+            change_first_name = Glade
+        }
+        1= {
+            change_first_name = Beverly
+        }
+        1= {
+            change_first_name = Veronica
+        }
+        1= {
+            change_first_name = Ashley
+        }
+        1= {
+            change_first_name = Wilfreda
+        }
+        1= {
+            change_first_name = Phoebe
+        }
+        1= {
+            change_first_name = Gail
+        }
+        1= {
+            change_first_name = Ibah
+        }
+        1= {
+            change_first_name = Lizzie
+        }
+        1= {
+            change_first_name = Delila
+        }
+        1= {
+            change_first_name = George
+        }
+        1= {
+            change_first_name = Lydia
+        }
+        1= {
+            change_first_name = Haley
+        }
+        1= {
+            change_first_name = Opal
+        }
+        1= {
+            change_first_name = Pearle
+        }
+        1= {
+            change_first_name = Missouri
+        }
+        1= {
+            change_first_name = Monna
+        }
+        1= {
+            change_first_name = Pinkie
+        }
+        1= {
+            change_first_name = Taylor
+        }
+        1= {
+            change_first_name = Donie
+        }
+        1= {
+            change_first_name = Josephine
+        }
+        1= {
+            change_first_name = John
+        }
+        1= {
+            change_first_name = Sally
+        }
+        1= {
+            change_first_name = Langley
+        }
+        1= {
+            change_first_name = Carmen
+        }
+        1= {
+            change_first_name = Sherry
+        }
+        1= {
+            change_first_name = Lonely
+        }
+        1= {
+            change_first_name = Cara
+        }
+    }
+}

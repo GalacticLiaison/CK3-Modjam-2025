@@ -1,0 +1,18 @@
+﻿is_pirate_name = {
+    scope = character
+    is_shown = {
+		government_has_flag = government_is_pirate
+	}
+}
+random_pirate_male_name = {
+    scope = character
+    effect = {
+        pirate_male_name_effect = yes
+    }
+}
+random_pirate_female_name = {
+    scope = character
+    effect = {
+        pirate_male_name_effect = yes
+    }
+}
