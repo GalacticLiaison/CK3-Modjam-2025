@@ -40,7 +40,7 @@ set_pirate_government = {
 	is_shown = {
 		is_ai = no
 		debug_only = yes
-		NOT = { has_government = pirate_government }
+		NOT = { government_has_flag = government_is_pirate }
 	}
 
 	ai_goal = no

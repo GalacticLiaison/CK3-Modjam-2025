@@ -21,7 +21,6 @@ pirate_authority = {
 		flag = title_revocation_allowed
 		flag = uses_pirate_authority
 		flag = imprisonment_toggle_enable
-		
 		can_pass = {
 			has_realm_law = pirate_authority_2
 		}

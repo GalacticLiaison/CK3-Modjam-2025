@@ -1,4 +1,4 @@
-become_pirate_government = {
+﻿become_pirate_government = {
 	if = { # Don't change government if already a pirate
 		limit = {
 			NOT = { has_government = pirate_government }
