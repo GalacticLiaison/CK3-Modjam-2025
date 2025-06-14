@@ -1,0 +1,191 @@
+﻿# Find pieces of a treasure map
+yar_treasure_map_effect = {
+    if = {
+        limit = {
+            AND = {
+                has_variable = yar_search_treasure
+                location.county = title:c_chandax
+                NOT = {has_variable = yar_treasure_map_piece_1}
+            }
+        }
+        trigger_event = {id = yar_treasure_map_travel_events.0001}
+    }
+    else_if = {
+        limit = {
+            AND = {
+            has_variable = yar_search_treasure
+            location.county = title:c_zadar
+                NOT = {has_variable = yar_treasure_map_piece_2}
+            }
+        }
+        trigger_event = {id = yar_treasure_map_travel_events.0002}
+    }
+    else_if = {
+        limit = {
+            AND = {
+            has_variable = yar_search_treasure
+            location.county = title:c_palermo
+                NOT = {has_variable = yar_treasure_map_piece_3}
+            }
+        }
+        trigger_event = {id = yar_treasure_map_travel_events.0003}
+    }
+    else_if = {
+        limit = {
+            AND = {
+            has_variable = yar_search_treasure
+            location.county = title:c_rhodos
+                NOT = {has_variable = yar_treasure_map_piece_4}
+            }
+        }
+        trigger_event = {id = yar_treasure_map_travel_events.0004}
+    }
+    else_if = {
+        limit = {
+            AND = {
+            has_variable = yar_search_treasure
+            location.county = title:c_malta
+                NOT = {has_variable = yar_treasure_map_piece_5}
+            }
+        }
+        trigger_event = {id = yar_treasure_map_travel_events.0005}
+    }
+    else_if = {
+        limit = {
+            AND = {
+            has_variable = yar_search_treasure
+            location.county = title:c_tunis
+                NOT = {has_variable = yar_treasure_map_piece_6}
+            }
+        }
+        trigger_event = {id = yar_treasure_map_travel_events.0006}
+    }
+    else = {}
+}
+
+yar_spawn_pirate_map_piece_effect = {
+	create_artifact = {	
+		name = $NAME$
+		description = pirate_map_piece_desc
+		visuals = pirate_map_piece
+		type = miscellaneous
+		modifier = yar_map_piece_artifact_modifier
+		rarity = common
+		wealth = 20
+		quality = 20
+        generate_history = no
+        max_durability = 10
+		save_scope_as = newly_created_artifact
+	}
+}
+yar_spawn_pirate_map_effect = {
+	create_artifact = {	
+		name = pirate_treasure_map
+		description = pirate_treasure_map_desc
+		visuals = pirate_map_piece
+		type = miscellaneous
+		modifier = yar_map_artifact_modifier
+		rarity = illustrious
+		wealth = 90
+		quality = 90
+        generate_history = no
+        max_durability = 40
+		save_scope_as = newly_created_artifact
+	}
+}
+yar_spawn_pirate_treasure_effect = {
+	create_artifact = {	
+		name = yar_pirate_treasure
+		description = yar_pirate_treasure_desc
+		visuals = pirate_treasure
+		type = miscellaneous
+		modifier = yar_treasure_modifier
+		rarity = illustrious
+		wealth = 90
+		quality = 90
+        generate_history = no
+        max_durability = 100
+		save_scope_as = newly_created_artifact
+	}
+}
+
+yar_reconstruct_treasure_map_effect = {
+    every_character_artifact = {
+        limit = {
+            has_artifact_modifier = yar_map_piece_artifact_modifier
+        }
+        save_scope_as = this_artifact
+        destroy_artifact = scope:this_artifact
+    }
+    yar_spawn_pirate_map_effect = yes
+}
+
+yar_expedition_where_am_i_effect = {
+    if = {
+        limit = {
+            AND = {
+                has_variable = yar_on_an_expedition
+                location = province:4562
+            }
+        }
+        trigger_event = {id = yar_treasure_map_travel_events.0011}
+    }
+    else_if = {
+        limit = {
+            AND = {
+                has_variable = yar_on_an_expedition
+                location = province:747
+            }
+        }
+        trigger_event = {id = yar_treasure_map_travel_events.0021}
+    }
+    else_if = {
+        limit = {
+            AND = {
+                has_variable = yar_on_an_expedition
+                location = province:2611
+            }
+        }
+        trigger_event = {id = yar_treasure_map_travel_events.0031}
+    }
+    else_if = {
+        limit = {
+            AND = {
+                has_variable = yar_on_an_expedition
+                location = province:2646
+            }
+        }
+        trigger_event = {id = yar_treasure_map_travel_events.0041}
+    }
+    else_if = {
+        limit = {
+            AND = {
+                has_variable = yar_on_an_expedition
+                location = province:4678
+            }
+        }
+        trigger_event = {id = yar_treasure_map_travel_events.0051}
+    }
+    else_if = {
+        limit = {
+            AND = {
+                has_variable = yar_on_an_expedition
+                location = province:2664
+            }
+        }
+        trigger_event = {id = yar_treasure_map_travel_events.0061}
+    }
+    else = {}
+}
+
+yar_sell_treasure_effect = {
+    every_character_artifact = {
+        limit = {
+            has_artifact_modifier = yar_treasure_modifier
+        }
+        save_scope_as = this_artifact
+        destroy_artifact = scope:this_artifact
+    }
+    trigger_event = {id = yar_treasure_map_travel_events.0080}
+    add_gold = 3000
+}

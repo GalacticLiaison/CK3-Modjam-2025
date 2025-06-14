@@ -1,0 +1,26 @@
+yar_treasure_map_all_pieces_trigger = {
+	custom_tooltip = {
+		text = yar_treasure_map_all_pieces_desc
+		AND = {
+			has_variable = yar_treasure_map_piece_1
+			has_variable = yar_treasure_map_piece_2
+			has_variable = yar_treasure_map_piece_3
+			has_variable = yar_treasure_map_piece_4
+			has_variable = yar_treasure_map_piece_5
+			has_variable = yar_treasure_map_piece_6
+		}
+	}
+}
+
+yar_has_treasure_map_trigger = {
+    NOT = {
+        any_character_artifact = {
+            has_artifact_modifier = yar_map_artifact_modifier
+        }
+    }
+}
+yar_has_treasure_trigger = {
+        any_character_artifact = {
+            has_artifact_modifier = yar_treasure_modifier
+        }
+}

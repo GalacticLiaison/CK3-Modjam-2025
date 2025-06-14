@@ -21,3 +21,15 @@ illustrious_pirate_short_sword_modifier = {
 	prowess = 4
 	dread_baseline_add = 10
 }
+
+yar_map_piece_artifact_modifier = {
+	stress_gain_mult = 0.05
+}
+
+yar_map_artifact_modifier = {
+	stress_gain_mult = 0.50
+}
+
+yar_treasure_modifier = {
+	monthly_prestige = 10
+}

@@ -1,0 +1,9 @@
+﻿# on_travel_plan_movement = { 
+# 	on_actions = { yar_treasure_map_action } 
+# }
+
+# yar_treasure_map_action = {
+#   	effect = {
+#     	yar_treasure_map_effect = yes
+# 	}
+# }
