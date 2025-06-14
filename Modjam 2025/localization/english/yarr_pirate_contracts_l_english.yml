@@ -1,0 +1,138 @@
+﻿l_english:
+  pirate_contract_1_contract:0 "Transport Contract"
+  pirate_contract_1_desc_title:0 "Take Her Away"
+  pirate_contract_1_desc:0 "My courtier, Lady PLACEHOLDER, needs to travel to PLACEHOLDER_LOCATION but the seas are very dangerous of late. I wish to hire you to get her there safely"
+  pirate_contract_1_request:0 "This is a [transport_task_contract|E], requiring you to [travel|E] to a distant [county|E]"
+
+  pirate_contract_events.001.title:0 "TRANSPORT PIRATE CONTACT EVENT"
+  pirate_contract_events.001.desc:0 "TRANSPORT EVENT PLACEHOLDER"
+  pirate_contract_events.001.a:0 "BEGIN"
+
+  pirate_contract_2_contract:0 "Smuggling Contract"
+  pirate_contract_2_desc_title:0 "Keep It Secret, Keep It Safe"
+  pirate_contract_2_desc:0 "A distant acquaintance of mine has ordered a shipment from me Id rather keep away from prying eyes. Get it to them without alerting the proper authorities"
+  pirate_contract_2_request:0 "This is a [transport_task_contract|E], requiring you to [travel|E] to a distant [county|E]"
+
+  pirate_contract_3_contract:0 "Delivery Contract"
+  pirate_contract_3_desc_title:0 "Postage Not Included"
+  pirate_contract_3_desc:0 "I have a parcel of great importance I need delivered safely to LORD PLACEHOLDER. Can you handle it?"
+  pirate_contract_3_request:0 "This is a [transport_task_contract|E], requiring you to [travel|E] to a distant [county|E]"
+
+  pirate_contract_4_contract:0 "Ship Raid"
+  pirate_contract_4_desc_title:0 "A Fine Prize Indeed"
+  pirate_contract_4_desc:0 "I've received a tip from a trusted source that a merchant vessel filled with valuable cargo is scheduled to leave the ports of [TaskContract.GetEmployer.GetFullName] and pass not far from here. Gold and glory awaits for any pirate with the skill to take her."
+  pirate_contract_4_request:0 "This is a pirate [task_contract|E]"
+
+  new_pirate_contract_available:0 "A New Pirate Contract Is Available"
+  pirate_raid_tooltip:0 "A merchant ship is leaving [contract_creator.GetFullNamePossessive] port"
+
+  pirate_contract_events.0041.title:0 "Preparing the Raid"
+  pirate_contract_events.0041.desc:0 ""The contract is sealed: a fat merchant ship, laden with silks and silver, is set to sail through our waters in the coming weeks. Your crew buzzes with anticipation, their eyes glinting with greed as you bark orders to ready the ship for the hunt.\n\nThe seas are fickle, and a raid like this demands more than a sturdy hull and sharp blades. You gather your first mate and quartermaster to plan—time is short, and every choice weighs heavy. How will you prepare your ship and crew to ensure this prize doesn’t slip through your fingers?""
+  pirate_contract_events.0041.a:0 "Overhaul the Ship"
+  pirate_contract_events.0041.a.flavor:0 "Strip the hull, patch the sails, and mount fresh rigging. A swifter ship means a better chase, but the dockhands don’t work cheap\n#P +10% Success Chance to catch the merchant ship#!"
+  pirate_contract_events.0041.b:0 "Drill the Crew"
+  pirate_contract_events.0041.b.flavor:0 "Run the lads ragged with boarding drills and blade-work. They’ll curse your name, but they’ll fight like devils when the time comes.\n#P +10% Success Chance to catch the merchant ship#!"
+  pirate_contract_events.0041.c:0 "Bribe a Harbor Rat"
+  pirate_contract_events.0041.c.flavor:0 "Send coin to a dockside informant for word on the merchant’s route and cargo. Knowledge is power, but loose lips breed mistrust and the fear of betrayal will taint this endeavor.\n#P +5% Success Chance to catch the merchant ship\n+5% Loot if merchant ship is captured#!"
+  pirate_contract_events.0041.d:0 "Rouse the Crew with Grog and Glory"
+  pirate_contract_events.0041.d.flavor:0 "Break open the rum casks and spin tales of plunder to fire their blood. They’ll love you for it, but drunken bravado may dull their edge.\n#P +5% Success Chance to catch the merchant ship\n#N -5% Penalty To Ship Combat"
+  pirate_contract_events.0041.e:0 "Proceed as Planned"
+  pirate_contract_events.0041.e.flavor:0 "No need for fancy tricks—trust in the ship and your crew’s grit to see this through."
+
+  pirate_contract_events.00411.title:0 "Preparing the Raid"
+  pirate_contract_events.00411.desc.a:0 "The ship gleams like a predator, her sails taut and hull sleek, ready to outrun any quarry."
+  pirate_contract_events.00411.desc.b:0 "The deck echoes with clashing steel and shouted curses, your crew honed to a razor’s edge."
+  pirate_contract_events.00411.desc.c:0 "A greasy pouch changes hands in a shadowed tavern, and whispers of the merchant’s path reach your ears."
+  pirate_contract_events.00411.desc.d:0 "The crew roars with laughter and song, their spirits high as the mainmast, ready to seize their share of glory."
+  pirate_contract_events.00411.desc.e:0 "You nod to your first mate, content to rely on what’s served you well before. The sea will decide the rest."
+
+  pirate_contract_events.00411.a:0 "Now we wait"
+
+  pirate_contract_events.0042.title:0 "The Chase Is On"
+  pirate_contract_events.0042.desc:0 "Days of lying in wait, scanning the horizon, have set your crew’s tempers ablaze. Suddenly, a cry rings out from the crow’s nest: 'Sails! Merchant ship, dead ahead!' The deck erupts in snarls and shouts as all eyes fix on the distant vessel—its hull low with cargo, the prize you swore to claim.\n\nThe ship surges forward, but the merchant ship’s captain is no fool; their sails billow as they veer to outrun you. The chase is on, and the sea’s whims will test your ship’s speed and your crew’s grit. How will you drive the ship to seize your quarry?"
+
+  pirate_contract_events.0042.a:0 "Full Chase"
+  pirate_contract_events.0042.a.flavor:0 "Hoist every sail and push the crew to the oars—run her down with all we’ve got!"
+  pirate_contract_events.0042.a.tooltip:0 ""
+
+  pirate_contract_events.0042.b:0 "Push the Ship to Its Breaking Point"
+  pirate_contract_events.0042.b.flavor:0 "Overload the sails and ignore the creaking timbers—speed now, or lose the prize forever!"
+  pirate_contract_events.0042.b.tooltip_1:0 "#P +15% Success Chance To Catch the Merchant Ship#!
+  pirate_contract_events.0042.b.tooltip_2:0 "#N +10% Chance The Ship Is Damaged#!"
+
+  pirate_contract_events.0042.c:0 "Whip the Crew to Exhaustion"
+  pirate_contract_events.0042.c.flavor:0 "Scream orders and drive the oarsmen till they drop—faster, you curs, or we’ll starve!"
+  pirate_contract_events.0042.c.tooltip_1:0 "#P +10% Success Chance To Catch the Merchant Ship#!
+  pirate_contract_events.0042.c.tooltip_2:0 "#N -10% Penalty To Ship Combat#!
+
+  pirate_contract_events.0042.d:0 "Cut Across the Reefs"
+  pirate_contract_events.0042.d.flavor:0 "Take a daring shortcut through the jagged reefs—risky, but it’ll put us ahead if we don’t wreck."
+  pirate_contract_events.0042.d.tooltip_1:0 "#P +10% Success Chance To Catch the Merchant Ship#!
+  pirate_contract_events.0042.d.tooltip_2:0 "#N +10% Chance The Ship Is Damaged#!"
+
+  pirate_contract_events.00421.title:0 "The Chase Is On"
+  pirate_contract_events.00421.desc.a:0 "The ship cuts through the waves, sails straining and oars pounding, every hand bent to the chase."
+  pirate_contract_events.00421.desc.b:0 "The ship screams under the wind’s lash, her timbers groaning as she claws closer to the merchant’s wake."
+  pirate_contract_events.00421.desc.c:0 "The crew bend their backs, curses mingling with the oars’ rhythm, their sweat fueling the ship’s surge."
+  pirate_contract_events.00421.desc.d:0 "The ship weaves through the reefs, your heart hammering as rocks graze the hull, the merchant ship growing larger in your sights."
+  pirate_contract_events.00421.a:0 "She'll soon be ours!"
+
+  pirate_contract_events.0043.title:0 "Boarding Party"
+  pirate_contract_events.0043.desc:0 "The ship draws alongside the merchant ship, her hull groaning as waves batter both vessels. Your crew, blades glinting and eyes wild, hurl grappling hooks to bind the ships, planks slamming down to bridge the gap. The merchant’s crew, outnumbered but desperate, bristle with pikes and cutlasses, ready to defend their cargo to the death.\n\nShouts and curses fill the air as your raiders prepare to storm across. Yet, a fleeting chance remains to avoid bloodshed—call out to their captain, or lead the charge yourself? The sea waits for no hesitation, and the prize hangs in the balance."
+
+  pirate_contract_events.0043.a:0 "Lead the Boarding Assault"
+  pirate_contract_events.0043.a.flavor:0 "@skill_prowess_icon!#HIGH Prowess Challenge:#! Rally the crew and charge across the planks—cut them down and take the ship by force!"
+  pirate_contract_events.0043.a.success:0 "#P You and your crew successfully board the ship#!"
+  pirate_contract_events.0043.a.fail:0 "#N You and your crew are repelled#!"
+
+  pirate_contract_events.0043.b:0 "Attempt to Intimidate a Surrender"
+  pirate_contract_events.0043.b.flavor:0 "@skill_diplomacy_icon!#HIGH Diplomacy Challenge#! Shout across the gap, demanding their surrender—make them fear the wrath of your crew!"
+  pirate_contract_events.0043.b.success:0 "#P You and your crew successfully board the ship#!"
+  pirate_contract_events.0043.b.fail:0 "#N You and your crew are repelled#!"
+
+  pirate_contract_events.0043.c:0 "Feint and Flank"
+  pirate_contract_events.0043.c.flavor:0 "@skill_intrigue_icon!#HIGH Intrigue Challenge#! Send a small party across the planks to distract, while others swing from the rigging to hit their flank—cunning over brute force."
+  pirate_contract_events.0043.c.success:0 "#P You and your crew successfully board the ship#!"
+  pirate_contract_events.0043.c.fail:0 "#N You and your crew are repelled#!"
+
+  pirate_contract_events.00431.title:0 "Boarding Party - Success"
+  pirate_contract_events.00431.desc.a:0 "Steel clashes and blood stains the deck, but your crew’s ferocity carries the day. The merchant’s flag falls, and the ship is yours"
+  pirate_contract_events.00431.desc.b:0 "Your voice booms like thunder, and the merchant captain’s nerve breaks. Their crew drops their weapons, and the ship yields without a fight."
+  pirate_contract_events.00431.desc.c:0 "The feint draws their eyes, and your flankers strike true, sowing panic. The merchant’s deck falls swiftly under your cunning."
+  pirate_contract_events.00431.a:0 "YARRR!"
+
+  pirate_contract_events.00432.title:0 "Boarding Party - Failure"
+  pirate_contract_events.00432.desc.a:0 "The merchant’s crew fight like cornered beasts, driving you back across the planks. Your ship limps away, your prize lost"
+  pirate_contract_events.00432.desc.b:0 "Your words fall flat, and the merchant’s crew jeer, their resolve hardened. In your delay to attempt the boarding the merchants crew were given time to organize. Your gang planks are knocked aside and flaming torches tossed upon your deck. As your crew run about among the chaos trying to extinguish the blaze, you can only stare on as the merchant vessel makes its escape."
+  pirate_contract_events.00432.desc.c:0 "The plan unravels—your flankers are cut down, and the merchant’s crew rally, forcing you to flee in disarray"
+  pirate_contract_events.00432.a:0 "...yarr"
+
+  pirate_contract_events.0044.title:0 "Plundering the Prize"
+  pirate_contract_events.0044.desc.a:0 "The merchant ship lies subdued, its deck slick with blood and its crew broken or bound. Your raiders swarm the hold, hauling up chests of coin, bolts of silk, and casks of rare wine. Your crew cheers, their greed sated—for now. Yet, the ship’s passengers, a mix of trembling merchants and defiant sailors, kneel before you, their fates in your hands.\n\nYour first mate tallies the loot, grinning as the pile grows, while the captured captain glares from his bonds. Will you slaughter the survivors to send a message, hold them for ransom, or tempt some to join your crew? The sea watches, and your choices will echo beyond this day."
+  pirate_contract_events.0044.desc.b:0 "The merchant ship lies quiet, its crew disarmed and its sails lowered at your command. Your words swayed their captain to yield without a drop of blood spilled, and now your raiders stride unchallenged across the deck, prying open crates of coin, silks, and spices. The haul is lighter than a bloody sacking might have yielded, but the victory feels sharp all the same.\n\nThe passengers—merchants clutching ledgers, sailors with bowed heads—stand under guard, their eyes wary but alive. Your first mate counts the loot with a grudging nod, while the merchant captain watches, tight-lipped. Will you cut down these captives to cement your name in fear, hold them for ransom, sway some to your banner, or let them walk free? Your crew awaits your word, and the sea keeps score."
+  pirate_contract_events.0044.a:0 "Execute the Passengers"
+  pirate_contract_events.0044.a.flavor:0 "Put them all to the blade—let their deaths cow other merchants into fearing the SHIP_NAME."
+  pirate_contract_events.0044.b:0 "Kidnap for Ransom"
+  pirate_contract_events.0044.b.flavor:0 "Spare the wealthy ones for ransom—gold flows sweeter than blood, if their kin pay up"
+  pirate_contract_events.0044.c:0 "Recruit the Willing"
+  pirate_contract_events.0044.c.flavor:0 "A couple of capable sailors have offered to join your crew if you promise to show the remaining passengers of their ship mercy"
+  pirate_contract_events.0044.d:0 "Take Loot and Leave"
+  pirate_contract_events.0044.d.flavor:0 "Put them all to the blade—let their deaths cow other merchants into fearing the SHIP_NAME."
+
+  pirate_contract_events.00441.title:0 "Plundering the Prize"
+  pirate_contract_events.00441.desc.a:0 "Your blade signals the end, and the deck stains red despite their surrender. Tales of your merciless hand will echo in every port."
+  pirate_contract_events.00441.desc.b:0 "The passengers are herded below, their whispers of coin and kin a promise of wealth. But their allies may not take kindly to your demands."
+  pirate_contract_events.00441.desc.c:0 "A handful of sailors swear to you, their oaths uneasy but binding. The rest are cut loose, while your crew eyes the newcomers with suspicion."
+  pirate_contract_events.00441.desc.d:0 "The passengers are left with a skiff and their lives, their cargo now yours. The SHIP_NAME sails laden, but your mercy may mark you as weak"
+  pirate_contract_events.00441.a:0 "Now to the spoils"
+
+
+  pirate_contract_5_contract:0 "Mercenary Contract"
+  pirate_contract_5_desc_title:0 "For The Right Price"
+  pirate_contract_5_desc:0 "I wage war on the despicable LORD PLACEHOLDER and am in urgent need of more men. I would pay good coin for you and your crew to attack him from the sea--if you think your up to the task.."
+  pirate_contract_5_request:0 "This is a [mercenary_task_contract|E], requiring you to aid in a [war|E]"
+
+  pirate_contract_6_contract:0 "Treasure Hunt"
+  pirate_contract_6_desc_title:0 "There Be Gold"
+  pirate_contract_6_desc:0 "I picked this map up off a roguish criminal I sent to the gallows. He tried to buy his freedom with it, claiming it led to a great treasure. I have no wish to waste time chasing such nonsense, perhaps you would buy the thing from me. Ill give you a great deal."
+  pirate_contract_6_request:0 "This is a [task_contract|E], requiring you to [travel|E] to a distant [county|E]"

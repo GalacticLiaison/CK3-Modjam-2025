@@ -1,0 +1,1277 @@
+﻿pirate_contract_1 = { # Transport
+	# for grouping together contract types, e.g. mercenary, potentially determines map icon
+	group = pirate_contract_group
+
+	icon = "gfx/interface/icons/government_types/government_type_herder.dds"
+	
+	# Range setting
+	# yes - uses diplomatic range to contract employer
+	# no - uses ADVENTURER_DISTANCE_RESTRICTION define as radius
+	use_diplomatic_range = yes
+
+	# Contract owner should travel to contract location to accept and stay there for the duration of the contract
+	travel = yes
+
+	# Validity Triggers
+	## Can contract appear? (if triggers are true)
+	# root - contract owner
+	# scope:employer - contract employer, can be empty
+	valid_to_create = { 
+		# settlement_issue_valid_to_create_default_trigger = yes
+		has_government = pirate_government
+	}
+
+	# Should not taken contract invalidate? (if triggers are false)
+	# root - existing contract
+	valid_to_keep = { 
+		# settlement_issue_valid_to_keep_default_trigger = yes
+		always = yes
+	}
+
+	# Should contract invalidate? (if triggers are false)
+	# root - existing contract
+	valid_to_continue = { 
+		always = yes
+		# settlement_issue_valid_to_continue_default_trigger = yes 
+	}
+
+	# Can contract be accepted? (if triggers are true)
+	# root - contract owner
+	# scope:employer - contract employer, can be empty
+	valid_to_accept = { 
+		always = yes
+	}
+
+	# On-Action Effects
+	## Effects called when contract is created (create_task_contract effect)
+	on_create = { 
+		debug_log = "PIRATE CONTRACT CREATED"
+		# settlement_issue_on_create_effect = yes 
+		scope:contract = {
+			# Make our gold rewards static.
+			grab_gold_fuzz_number_effect = yes
+			save_scope_as = task_contract
+			set_variable = {
+				name = gold_success_standard
+				value = task_contract_taker.task_contract_success_gold_gain_half_value
+			}
+			# Make sure critical values are a bit higher.
+			save_scope_value_as = { name = gold_safety_margin value = flag:yes }
+			set_variable = {
+				name = gold_success_critical
+				value = task_contract_taker.task_contract_success_gold_gain_half_value
+			}
+		}
+	}
+
+	## Effects called when contract is accepted (accept_task_contract effect)
+	on_accepted = {
+		# settlement_issue_on_accepted_default_effect = {
+		# 	NUMBER = 1
+		# 	ARRIVAL_ID = 0005
+		# 	RESET_ID = 0003
+		# }
+		save_scope_as = task_contract
+		task_contract_taker = {
+			set_variable = nomadic_migration_contract_1
+		}
+
+		debug_log = "PIRATE CONTRACT ACCEPTED"
+	}
+
+	# Effects called when contract is completed successfully, along with rewards (complete_task_contract effect)
+	on_completed = {
+		task_contract_taker = { remove_variable = pirate_contract_1 }
+	}
+
+	# Effects called when contract is invalidated (valid_to_continue is false, or invalidate_task_contract effect)
+	on_invalidated = {
+		settlement_issue_on_invalidated_default_effect = yes
+	}
+
+	# Contract Reward Effects
+	task_contract_reward = {
+		success_standard = {
+			should_print_on_complete = yes
+			effect = {
+				task_contract_taker = { play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_success_on_contract" }
+				# Camp building extra Criminal Rewards: +50%.
+				# if = {
+				# 	limit = {
+				# 		task_contract_taker.domicile ?= { has_domicile_parameter = camp_improved_criminal_contract_rewards }
+				# 	}
+				# 	save_scope_value_as = { name = extra_reward value = flag:yes }
+				# }
+				# else = {
+				# 	save_scope_value_as = { name = extra_reward value = flag:no }
+				# }
+
+				if = {
+					limit = {
+						NOT = { exists = scope:suppress_gold_warning }
+					}
+					custom_tooltip = laamp_base_1041.tt.gold_rewards_depend_on_travellers
+				}
+				else = { custom_tooltip = laamp_base_1041.tt.haul_actual }
+				# Standard Rewards.
+				laamp_rewards_disburse_ordinary_currency_effect = {
+					GOLD = scope:task_contract.var:gold_success_standard
+					PRESTIGE = 0
+					PIETY = 0
+					PROVISIONS = 0
+					OPINION = task_contract_opinion_standard_reward_value
+					OPINION_TYPE = succeeded_task_contract_opinion
+					CONTACT = no
+					CONTACT_HOOK = no
+					EXTRA_REWARD = scope:extra_reward
+				}
+				# # Update gallowsbait score.
+				# task_contract_taker = {
+				# 	laamp_rewards_apply_criminal_xp_effect = {
+				# 		TRACK = bandit
+				# 		XP_MAX = gallowsbait_xp_medium_gain
+				# 		XP_MIN = gallowsbait_xp_medium_gain
+				# 	}
+				# }
+
+				# TODO: UPDATE PIRATE TRAIT XP
+			}
+		}
+		failure_standard = {
+			positive = no
+			should_print_on_complete = yes
+			effect = {
+				task_contract_taker = { play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_failure_on_contract" }
+				save_scope_value_as = { name = extra_reward value = flag:no }
+				# Standard Penalties.
+				laamp_rewards_disburse_ordinary_currency_effect = {
+					GOLD = 0
+					PRESTIGE = task_contract_failure_prestige_loss_crime_value
+					PIETY = 0
+					PROVISIONS = 0
+					OPINION = task_contract_opinion_crime_failure_value
+					OPINION_TYPE = attempted_criminal_contract_against_me_opinion
+					CONTACT = no
+					CONTACT_HOOK = no
+					EXTRA_REWARD = scope:extra_reward
+				}
+				# # Update gallowsbait score.
+				# task_contract_taker = {
+				# 	laamp_rewards_apply_criminal_xp_effect = {
+				# 		TRACK = bandit
+				# 		XP_MAX = gallowsbait_xp_minor_gain
+				# 		XP_MIN = gallowsbait_xp_minor_gain
+				# 	}
+				# }
+			}
+		}
+
+		# control = { effect = { settlement_issue_control_reward_effect = yes } }
+
+		# herd = { effect = { settlement_issue_herd_reward_effect = yes } }
+
+		# fertility = { effect = { settlement_issue_fertility_reward_effect = yes } }
+	}
+
+	# scripted value how likely this contract type is to be picked when populating for area
+	# root - contract owner
+	# scope:employer - contract employer, can be empty
+	# weight = {
+	# 	value = 90
+	# }
+}
+
+pirate_contract_2 = { # Smuggling
+	# for grouping together contract types, e.g. mercenary, potentially determines map icon
+	group = pirate_contract_group
+
+	icon = "gfx/interface/icons/government_types/government_type_herder.dds"
+	
+	# Range setting
+	# yes - uses diplomatic range to contract employer
+	# no - uses ADVENTURER_DISTANCE_RESTRICTION define as radius
+	use_diplomatic_range = yes
+
+	# Contract owner should travel to contract location to accept and stay there for the duration of the contract
+	travel = yes
+
+	# Validity Triggers
+	## Can contract appear? (if triggers are true)
+	# root - contract owner
+	# scope:employer - contract employer, can be empty
+	valid_to_create = { 
+		# settlement_issue_valid_to_create_default_trigger = yes
+		has_government = pirate_government
+	}
+
+	# Should not taken contract invalidate? (if triggers are false)
+	# root - existing contract
+	valid_to_keep = { 
+		# settlement_issue_valid_to_keep_default_trigger = yes
+		always = yes
+	}
+
+	# Should contract invalidate? (if triggers are false)
+	# root - existing contract
+	valid_to_continue = { 
+		always = yes
+		# settlement_issue_valid_to_continue_default_trigger = yes 
+	}
+
+	# Can contract be accepted? (if triggers are true)
+	# root - contract owner
+	# scope:employer - contract employer, can be empty
+	valid_to_accept = { 
+		always = yes
+	}
+
+	# On-Action Effects
+	## Effects called when contract is created (create_task_contract effect)
+	on_create = { 
+		debug_log = "PIRATE CONTRACT CREATED"
+		# settlement_issue_on_create_effect = yes 
+		scope:contract = {
+			# Make our gold rewards static.
+			grab_gold_fuzz_number_effect = yes
+			save_scope_as = task_contract
+			set_variable = {
+				name = gold_success_standard
+				value = task_contract_taker.task_contract_success_gold_gain_half_value
+			}
+			# Make sure critical values are a bit higher.
+			save_scope_value_as = { name = gold_safety_margin value = flag:yes }
+			set_variable = {
+				name = gold_success_critical
+				value = task_contract_taker.task_contract_success_gold_gain_half_value
+			}
+		}
+	}
+
+	## Effects called when contract is accepted (accept_task_contract effect)
+	on_accepted = {
+		# settlement_issue_on_accepted_default_effect = {
+		# 	NUMBER = 1
+		# 	ARRIVAL_ID = 0005
+		# 	RESET_ID = 0003
+		# }
+		save_scope_as = task_contract
+		task_contract_taker = {
+			set_variable = nomadic_migration_contract_1
+		}
+
+		debug_log = "PIRATE CONTRACT ACCEPTED"
+	}
+
+	# Effects called when contract is completed successfully, along with rewards (complete_task_contract effect)
+	on_completed = {
+		task_contract_taker = { remove_variable = pirate_contract_1 }
+	}
+
+	# Effects called when contract is invalidated (valid_to_continue is false, or invalidate_task_contract effect)
+	on_invalidated = {
+		settlement_issue_on_invalidated_default_effect = yes
+	}
+
+	# Contract Reward Effects
+	task_contract_reward = {
+		success_standard = {
+			should_print_on_complete = yes
+			effect = {
+				task_contract_taker = { play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_success_on_contract" }
+				# Camp building extra Criminal Rewards: +50%.
+				# if = {
+				# 	limit = {
+				# 		task_contract_taker.domicile ?= { has_domicile_parameter = camp_improved_criminal_contract_rewards }
+				# 	}
+				# 	save_scope_value_as = { name = extra_reward value = flag:yes }
+				# }
+				# else = {
+				# 	save_scope_value_as = { name = extra_reward value = flag:no }
+				# }
+
+				if = {
+					limit = {
+						NOT = { exists = scope:suppress_gold_warning }
+					}
+					custom_tooltip = laamp_base_1041.tt.gold_rewards_depend_on_travellers
+				}
+				else = { custom_tooltip = laamp_base_1041.tt.haul_actual }
+				# Standard Rewards.
+				laamp_rewards_disburse_ordinary_currency_effect = {
+					GOLD = scope:task_contract.var:gold_success_standard
+					PRESTIGE = 0
+					PIETY = 0
+					PROVISIONS = 0
+					OPINION = task_contract_opinion_standard_reward_value
+					OPINION_TYPE = succeeded_task_contract_opinion
+					CONTACT = no
+					CONTACT_HOOK = no
+					EXTRA_REWARD = scope:extra_reward
+				}
+				# # Update gallowsbait score.
+				# task_contract_taker = {
+				# 	laamp_rewards_apply_criminal_xp_effect = {
+				# 		TRACK = bandit
+				# 		XP_MAX = gallowsbait_xp_medium_gain
+				# 		XP_MIN = gallowsbait_xp_medium_gain
+				# 	}
+				# }
+
+				# TODO: UPDATE PIRATE TRAIT XP
+			}
+		}
+		failure_standard = {
+			positive = no
+			should_print_on_complete = yes
+			effect = {
+				task_contract_taker = { play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_failure_on_contract" }
+				save_scope_value_as = { name = extra_reward value = flag:no }
+				# Standard Penalties.
+				laamp_rewards_disburse_ordinary_currency_effect = {
+					GOLD = 0
+					PRESTIGE = task_contract_failure_prestige_loss_crime_value
+					PIETY = 0
+					PROVISIONS = 0
+					OPINION = task_contract_opinion_crime_failure_value
+					OPINION_TYPE = attempted_criminal_contract_against_me_opinion
+					CONTACT = no
+					CONTACT_HOOK = no
+					EXTRA_REWARD = scope:extra_reward
+				}
+				# # Update gallowsbait score.
+				# task_contract_taker = {
+				# 	laamp_rewards_apply_criminal_xp_effect = {
+				# 		TRACK = bandit
+				# 		XP_MAX = gallowsbait_xp_minor_gain
+				# 		XP_MIN = gallowsbait_xp_minor_gain
+				# 	}
+				# }
+			}
+		}
+
+		# control = { effect = { settlement_issue_control_reward_effect = yes } }
+
+		# herd = { effect = { settlement_issue_herd_reward_effect = yes } }
+
+		# fertility = { effect = { settlement_issue_fertility_reward_effect = yes } }
+	}
+
+	# scripted value how likely this contract type is to be picked when populating for area
+	# root - contract owner
+	# scope:employer - contract employer, can be empty
+	# weight = {
+	# 	value = 90
+	# }
+}
+
+pirate_contract_3 = { # Delivery
+	# for grouping together contract types, e.g. mercenary, potentially determines map icon
+	group = pirate_contract_group
+
+	icon = "gfx/interface/icons/government_types/government_type_herder.dds"
+	
+	# Range setting
+	# yes - uses diplomatic range to contract employer
+	# no - uses ADVENTURER_DISTANCE_RESTRICTION define as radius
+	use_diplomatic_range = yes
+
+	# Contract owner should travel to contract location to accept and stay there for the duration of the contract
+	travel = yes
+
+	# Validity Triggers
+	## Can contract appear? (if triggers are true)
+	# root - contract owner
+	# scope:employer - contract employer, can be empty
+	valid_to_create = { 
+		# settlement_issue_valid_to_create_default_trigger = yes
+		has_government = pirate_government
+	}
+
+	# Should not taken contract invalidate? (if triggers are false)
+	# root - existing contract
+	valid_to_keep = { 
+		# settlement_issue_valid_to_keep_default_trigger = yes
+		always = yes
+	}
+
+	# Should contract invalidate? (if triggers are false)
+	# root - existing contract
+	valid_to_continue = { 
+		always = yes
+		# settlement_issue_valid_to_continue_default_trigger = yes 
+	}
+
+	# Can contract be accepted? (if triggers are true)
+	# root - contract owner
+	# scope:employer - contract employer, can be empty
+	valid_to_accept = { 
+		always = yes
+	}
+
+	# On-Action Effects
+	## Effects called when contract is created (create_task_contract effect)
+	on_create = { 
+		debug_log = "PIRATE CONTRACT CREATED"
+		# settlement_issue_on_create_effect = yes 
+		scope:contract = {
+			# Make our gold rewards static.
+			grab_gold_fuzz_number_effect = yes
+			save_scope_as = task_contract
+			set_variable = {
+				name = gold_success_standard
+				value = task_contract_taker.task_contract_success_gold_gain_half_value
+			}
+			# Make sure critical values are a bit higher.
+			save_scope_value_as = { name = gold_safety_margin value = flag:yes }
+			set_variable = {
+				name = gold_success_critical
+				value = task_contract_taker.task_contract_success_gold_gain_half_value
+			}
+		}
+	}
+
+	## Effects called when contract is accepted (accept_task_contract effect)
+	on_accepted = {
+		# settlement_issue_on_accepted_default_effect = {
+		# 	NUMBER = 1
+		# 	ARRIVAL_ID = 0005
+		# 	RESET_ID = 0003
+		# }
+		save_scope_as = task_contract
+		task_contract_taker = {
+			set_variable = nomadic_migration_contract_1
+		}
+
+		debug_log = "PIRATE CONTRACT ACCEPTED"
+	}
+
+	# Effects called when contract is completed successfully, along with rewards (complete_task_contract effect)
+	on_completed = {
+		task_contract_taker = { remove_variable = pirate_contract_1 }
+	}
+
+	# Effects called when contract is invalidated (valid_to_continue is false, or invalidate_task_contract effect)
+	on_invalidated = {
+		settlement_issue_on_invalidated_default_effect = yes
+	}
+
+	# Contract Reward Effects
+	task_contract_reward = {
+		success_standard = {
+			should_print_on_complete = yes
+			effect = {
+				task_contract_taker = { play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_success_on_contract" }
+				# Camp building extra Criminal Rewards: +50%.
+				# if = {
+				# 	limit = {
+				# 		task_contract_taker.domicile ?= { has_domicile_parameter = camp_improved_criminal_contract_rewards }
+				# 	}
+				# 	save_scope_value_as = { name = extra_reward value = flag:yes }
+				# }
+				# else = {
+				# 	save_scope_value_as = { name = extra_reward value = flag:no }
+				# }
+
+				if = {
+					limit = {
+						NOT = { exists = scope:suppress_gold_warning }
+					}
+					custom_tooltip = laamp_base_1041.tt.gold_rewards_depend_on_travellers
+				}
+				else = { custom_tooltip = laamp_base_1041.tt.haul_actual }
+				# Standard Rewards.
+				laamp_rewards_disburse_ordinary_currency_effect = {
+					GOLD = scope:task_contract.var:gold_success_standard
+					PRESTIGE = 0
+					PIETY = 0
+					PROVISIONS = 0
+					OPINION = task_contract_opinion_standard_reward_value
+					OPINION_TYPE = succeeded_task_contract_opinion
+					CONTACT = no
+					CONTACT_HOOK = no
+					EXTRA_REWARD = scope:extra_reward
+				}
+				# # Update gallowsbait score.
+				# task_contract_taker = {
+				# 	laamp_rewards_apply_criminal_xp_effect = {
+				# 		TRACK = bandit
+				# 		XP_MAX = gallowsbait_xp_medium_gain
+				# 		XP_MIN = gallowsbait_xp_medium_gain
+				# 	}
+				# }
+
+				# TODO: UPDATE PIRATE TRAIT XP
+			}
+		}
+		failure_standard = {
+			positive = no
+			should_print_on_complete = yes
+			effect = {
+				task_contract_taker = { play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_failure_on_contract" }
+				save_scope_value_as = { name = extra_reward value = flag:no }
+				# Standard Penalties.
+				laamp_rewards_disburse_ordinary_currency_effect = {
+					GOLD = 0
+					PRESTIGE = task_contract_failure_prestige_loss_crime_value
+					PIETY = 0
+					PROVISIONS = 0
+					OPINION = task_contract_opinion_crime_failure_value
+					OPINION_TYPE = attempted_criminal_contract_against_me_opinion
+					CONTACT = no
+					CONTACT_HOOK = no
+					EXTRA_REWARD = scope:extra_reward
+				}
+				# # Update gallowsbait score.
+				# task_contract_taker = {
+				# 	laamp_rewards_apply_criminal_xp_effect = {
+				# 		TRACK = bandit
+				# 		XP_MAX = gallowsbait_xp_minor_gain
+				# 		XP_MIN = gallowsbait_xp_minor_gain
+				# 	}
+				# }
+			}
+		}
+
+		# control = { effect = { settlement_issue_control_reward_effect = yes } }
+
+		# herd = { effect = { settlement_issue_herd_reward_effect = yes } }
+
+		# fertility = { effect = { settlement_issue_fertility_reward_effect = yes } }
+	}
+
+	# scripted value how likely this contract type is to be picked when populating for area
+	# root - contract owner
+	# scope:employer - contract employer, can be empty
+	# weight = {
+	# 	value = 90
+	# }
+}
+
+
+
+# accept raid contract
+# Lye in wait for ship to pass
+# Ship performance check to see if your men can catch the ship (Based on domicile upgrades)
+#  
+
+pirate_contract_4 = { # Ship Raid
+	# for grouping together contract types, e.g. mercenary, potentially determines map icon
+	group = pirate_contract_group
+
+	icon = "gfx/interface/icons/contract_types/pirate_contract.dds"
+	
+	# Range setting
+	# yes - uses diplomatic range to contract employer
+	# no - uses ADVENTURER_DISTANCE_RESTRICTION define as radius
+	use_diplomatic_range = yes
+
+	# Contract owner should travel to contract location to accept and stay there for the duration of the contract
+	travel = no
+
+	# Validity Triggers
+	## Can contract appear? (if triggers are true)
+	# root - contract owner
+	# scope:employer - contract employer, can be empty
+	valid_to_create = { 
+		# settlement_issue_valid_to_create_default_trigger = yes
+		has_government = pirate_government
+	}
+
+	# Should not taken contract invalidate? (if triggers are false)
+	# root - existing contract
+	valid_to_keep = { 
+		# settlement_issue_valid_to_keep_default_trigger = yes
+		always = yes
+	}
+
+	# Should contract invalidate? (if triggers are false)
+	# root - existing contract
+	valid_to_continue = { 
+		always = yes
+		# settlement_issue_valid_to_continue_default_trigger = yes 
+	}
+
+	# Can contract be accepted? (if triggers are true)
+	# root - contract owner
+	# scope:employer - contract employer, can be empty
+	valid_to_accept = { 
+		always = yes
+	}
+
+	# On-Action Effects
+	## Effects called when contract is created (create_task_contract effect)
+	on_create = { 
+		debug_log = "PIRATE CONTRACT CREATED"
+		task_contract_employer = {
+			save_scope_as = merchant_ship_owner
+		}
+
+		# settlement_issue_on_create_effect = yes 
+		scope:contract = {
+			# Make our gold rewards static.
+			grab_gold_fuzz_number_effect = yes
+			save_scope_as = task_contract
+			set_variable = {
+				name = gold_success_standard
+				value = task_contract_taker.task_contract_success_gold_gain_half_value
+			}
+			# Make sure critical values are a bit higher.
+			save_scope_value_as = { name = gold_safety_margin value = flag:yes }
+			set_variable = {
+				name = gold_success_critical
+				value = task_contract_taker.task_contract_success_gold_gain_half_value
+			}
+		}
+	}
+
+	## Effects called when contract is accepted (accept_task_contract effect)
+	on_accepted = {
+		# settlement_issue_on_accepted_default_effect = {
+		# 	NUMBER = 1
+		# 	ARRIVAL_ID = 0005
+		# 	RESET_ID = 0003
+		# }
+		save_scope_as = task_contract
+		task_contract_employer = {
+			save_scope_as = merchant_ship_owner
+		}
+		task_contract_taker = {
+			trigger_event = pirate_contract_events.0041
+		}
+
+		debug_log = "PIRATE CONTRACT ACCEPTED"
+	}
+
+	# Effects called when contract is completed successfully, along with rewards (complete_task_contract effect)
+	on_completed = {
+		task_contract_taker = { remove_variable = pirate_contract_1 }
+	}
+
+	# Effects called when contract is invalidated (valid_to_continue is false, or invalidate_task_contract effect)
+	on_invalidated = {
+		settlement_issue_on_invalidated_default_effect = yes
+	}
+
+	# Contract Reward Effects
+	task_contract_reward = {
+		success_standard = {
+			should_print_on_complete = yes
+			effect = {
+				task_contract_taker = { play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_success_on_contract" }
+				task_contract_taker = { save_scope_as = taker }
+				task_contract_employer = { save_scope_as = employer }
+
+				scope:taker = {
+					if = {
+						limit = { $OPINION$ != 0 }
+						reverse_add_opinion = {
+							modifier = raided_my_ship
+							target = scope:employer
+							opinion = -50
+						}
+					}
+				}
+				# TODO: make bonus actually match what tooltip says it will be
+				# Bribed Harbor Rat 
+				if = {
+					limit = {
+						task_contract_taker = {
+							has_variable = bribed_harbor_rat
+						}
+					}
+					save_scope_value_as = { name = extra_reward value = flag:yes }
+					task_contract_taker = {
+						remove_variable = bribed_harbor_rat
+					}
+				}
+				else = {
+					save_scope_value_as = { name = extra_reward value = flag:no }
+				}
+
+				# if = {
+				# 	limit = {
+				# 		NOT = { exists = scope:suppress_gold_warning }
+				# 	}
+				# 	custom_tooltip = laamp_base_1041.tt.gold_rewards_depend_on_travellers
+				# }
+				# else = { custom_tooltip = laamp_base_1041.tt.haul_actual }
+				# Standard Rewards.
+				# laamp_rewards_disburse_ordinary_currency_effect = {
+				# 	GOLD = scope:task_contract.var:gold_success_standard
+				# 	PRESTIGE = 0
+				# 	PIETY = 0
+				# 	PROVISIONS = 0
+				# 	OPINION = task_contract_opinion_standard_reward_value
+				# 	OPINION_TYPE = succeeded_task_contract_opinion
+				# 	CONTACT = no
+				# 	CONTACT_HOOK = no
+				# 	EXTRA_REWARD = scope:extra_reward
+				# }
+
+				scope:taker = {
+					add_trait_xp = {
+						trait = yarr_pirate
+						value = {
+							integer_range = {
+								min = small_lifestyle_random_xp_low
+								max = small_lifestyle_random_xp_high
+							}
+						}
+					}
+
+					add_gold = medium_gold_value
+					add_prestige = medium_prestige_value
+				}
+
+
+
+				# # Update gallowsbait score.
+				# task_contract_taker = {
+				# 	laamp_rewards_apply_criminal_xp_effect = {
+				# 		TRACK = bandit
+				# 		XP_MAX = gallowsbait_xp_medium_gain
+				# 		XP_MIN = gallowsbait_xp_medium_gain
+				# 	}
+				# }
+
+				# TODO: UPDATE PIRATE TRAIT XP
+			}
+		}
+		failure_standard = {
+			positive = no
+			should_print_on_complete = yes
+			effect = {
+				task_contract_taker = { play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_failure_on_contract" }
+				task_contract_taker = { save_scope_as = taker }
+				task_contract_employer = { save_scope_as = employer }
+
+				scope:taker = {
+					if = {
+						limit = { $OPINION$ != 0 }
+						reverse_add_opinion = {
+							modifier = raided_my_ship
+							target = scope:employer
+							opinion = -50
+						}
+					}
+				}
+
+				# save_scope_value_as = { name = extra_reward value = flag:no }
+				# # Standard Penalties.
+				# laamp_rewards_disburse_ordinary_currency_effect = {
+				# 	GOLD = 0
+				# 	PRESTIGE = task_contract_failure_prestige_loss_crime_value
+				# 	PIETY = 0
+				# 	PROVISIONS = 0
+				# 	OPINION = task_contract_opinion_crime_failure_value
+				# 	OPINION_TYPE = attempted_criminal_contract_against_me_opinion
+				# 	CONTACT = no
+				# 	CONTACT_HOOK = no
+				# 	EXTRA_REWARD = scope:extra_reward
+				# }
+				# # Update gallowsbait score.
+				# task_contract_taker = {
+				# 	laamp_rewards_apply_criminal_xp_effect = {
+				# 		TRACK = bandit
+				# 		XP_MAX = gallowsbait_xp_minor_gain
+				# 		XP_MIN = gallowsbait_xp_minor_gain
+				# 	}
+				# }
+			}
+		}
+
+		# control = { effect = { settlement_issue_control_reward_effect = yes } }
+
+		# herd = { effect = { settlement_issue_herd_reward_effect = yes } }
+
+		# fertility = { effect = { settlement_issue_fertility_reward_effect = yes } }
+	}
+
+	# scripted value how likely this contract type is to be picked when populating for area
+	# root - contract owner
+	# scope:employer - contract employer, can be empty
+	# weight = {
+	# 	value = 90
+	# }
+}
+
+pirate_contract_5 = { # Mercenary For Lord
+	# for grouping together contract types, e.g. mercenary, potentially determines map icon
+	group = pirate_contract_group
+
+	icon = "gfx/interface/icons/trait_level_tracks/mercenary.dds"
+	
+	travel = no
+	use_diplomatic_range = no
+
+	# Validity Triggers
+	valid_to_create = {
+		# Standard triggers.
+		valid_laamp_basic_trigger = {
+			EMPLOYER = scope:employer
+			LAAMP = root
+		}
+		employer_has_treasury_to_offer_job_trigger = yes
+		# Specific flavour triggers.
+		scope:employer = {
+			any_character_war = {
+				ep3_adventurer_mercenary_war_trigger = {
+					EMPLOYER = scope:employer
+					LAAMP = root
+				}
+				save_temporary_scope_as = temp_war
+			}
+		}
+		#don't spawn contracts for the same wars
+		NOT = {
+			any_character_task_contract = {
+				has_task_contract_type = laamp_join_war_contract
+				var:task_contract_war ?= scope:temp_war
+			}
+		}
+		#or if you are already an ally in a war with someone in that war, to prevent being an ally and an enemy at the same time
+		scope:temp_war = {
+			any_war_participant = {
+				NOT = {
+					is_allied_in_war = root
+				}
+			}
+		}
+	}
+	valid_to_accept = {
+		# Standard triggers.
+		valid_laamp_basic_accept_only_trigger = yes
+		valid_laamp_basic_trigger = {
+			EMPLOYER = scope:employer
+			LAAMP = root
+		}
+		custom_tooltip = {
+			text = laamp_join_war_contract.valid_war
+			any_character_task_contract = {
+				has_task_contract_type = laamp_join_war_contract
+				exists = var:task_contract_war
+				task_contract_employer = scope:employer
+			}
+		}
+	}
+	valid_to_continue = {
+		# Standard triggers.
+		valid_laamp_basic_trigger = {
+			EMPLOYER = root.task_contract_employer
+			LAAMP = root.task_contract_taker
+		}
+	}
+	valid_to_keep = {
+		exists = root.var:task_contract_war
+		# Standard triggers.
+		valid_laamp_basic_trigger = {
+			EMPLOYER = root.task_contract_employer
+			LAAMP = root.task_contract_taker
+		}
+	}
+
+	weight = {
+		# Standard weights.
+		value = task_contract_weight_interesting_very_rare_value
+		add = laamp_contracts_weight_up_mercenary_value
+		add = laamp_contracts_weight_up_martial_slight_value
+		add = task_contract_weight_employer_contact_list_value
+		scope:employer = { multiply = task_contract_weight_by_tier_value }
+	}
+
+	on_create = {
+		scope:contract = {
+			save_scope_as = task_contract
+			task_contract_employer = {
+				random_character_war = {
+					limit = {
+						is_war_leader = prev
+						OR = {
+							using_civil_war_cb_trigger = yes
+							using_non_ghw_holy_war_cb_trigger = yes
+							using_de_jure_cb_trigger = yes
+							using_conquest_cb_trigger = yes
+						}
+						any_war_participant = {
+							NOT = { this = scope:task_contract.task_contract_taker }
+						}
+					}
+					save_scope_as = task_contract_war
+				}
+				save_scope_as = task_contract_employer
+			}
+			set_variable = {
+				name = task_contract_war
+				value = scope:task_contract_war
+			}
+			set_variable = {
+				name = task_contract_employer
+				value = scope:task_contract_employer
+			}
+			scope:task_contract_war = {
+				if = {
+					limit = {
+						is_attacker = scope:task_contract_employer
+					}
+					primary_defender = {
+						save_scope_as = task_contract_target
+					}
+				}
+				else = {
+					primary_attacker = {
+						save_scope_as = task_contract_target
+					}
+				}
+			}
+			set_task_contract_target = scope:task_contract_target
+			set_variable = {
+				name = task_contract_target
+				value = scope:task_contract_target
+			}
+		}
+	}
+
+	# On_Actions
+	on_accepted = {
+		task_contract_taker = { play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_accept_contract" }
+		save_scope_as = task_contract
+		task_contract_taker = {
+			trigger_event = ep3_contract_event.0008
+		}
+		set_variable = {
+			name = task_contract_grace_period
+			days = 90
+		}
+	}
+
+	on_invalidated = {
+		if = {
+			limit = {
+				root.task_contract_taker = {
+					any_character_active_contract = {
+						this = root
+					}
+				}
+			}
+			task_contract_employer = {
+				save_scope_as = task_contract_employer
+			}
+			save_scope_value_as = {
+				name = task_contract_tier
+				value = root.task_contract_tier
+			}
+			var:task_contract_target = {
+				save_scope_as = task_contract_target
+			}
+			task_contract_taker = {
+				set_variable = {
+					name = invalidated_task_contract_type
+					value = flag:laamp_join_war_contract
+				}
+			}
+
+			if = {
+				limit = {
+					task_contract_employer = {
+						is_alive = no
+					}
+				}
+				task_contract_employer.primary_title.holder ?= {
+					save_scope_as = employer_heir
+				}
+				task_contract_taker = {
+					save_scope_value_as = {
+						name = task_contract_invalidation_reason
+						value = flag:employer_dead
+					}
+					trigger_event = ep3_contract_event.0012
+				
+				}
+			}
+			else_if = {
+				limit = {
+					scope:task_contract_target = {
+						is_alive = no
+					}
+				}
+				task_contract_taker = {
+					save_scope_value_as = {
+						name = task_contract_invalidation_reason
+						value = flag:target_dead
+					}
+					trigger_event = ep3_contract_event.0012
+				}
+			}
+		}
+	}
+
+	task_contract_reward = {
+		success_standard = {
+			effect = {
+				task_contract_taker = { play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_success_on_contract" }
+				save_scope_as = task_contract
+				var:task_contract_war = {
+					save_scope_as = war
+				}
+				task_contract_employer = {
+					save_scope_as = task_contract_employer
+					save_scope_as = attacker
+				}
+				task_contract_taker = {
+					save_scope_as = task_contract_taker
+					save_scope_as = defender
+					custom_tooltip = laamp_join_war_contract.contribution_based_reward_gold
+					if = {
+						limit = {
+							faith != scope:task_contract.var:task_contract_target.faith
+						}
+						custom_tooltip = laamp_join_war_contract.contribution_based_reward_piety
+					}
+					save_scope_value_as = {
+						name = task_contract_reward
+						value = flag:success_standard
+					}
+					save_scope_value_as = {
+						name = war_contribution_value
+						value = "scope:war.war_contribution(scope:task_contract_taker)"
+					}
+					if = {
+						limit = {
+							exists = scope:task_contract_employer.var:valuable_prisoners
+						}
+						save_scope_value_as = {
+							name = war_valuable_prisoners
+							value = scope:task_contract_employer.var:valuable_prisoners
+						}
+					}
+					save_scope_value_as = {
+						name = task_contract_tier
+						value = scope:task_contract.task_contract_tier
+					}
+					trigger_event = ep3_contract_event.0013
+					# Huck 'em into our contact list.
+					add_contact = scope:task_contract_employer
+					# Give hook as well as contact
+					add_hook_if_possible_default_length_effect = {
+						TARGET = scope:task_contract_employer 
+						TYPE = contact_list_weak_hook
+					}
+					war_contracts_completed_tracker_effect = yes
+				}
+			}
+		}
+		failure_standard = {
+			positive = no
+			effect = {
+				task_contract_taker = { play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_failure_on_contract" }
+				if = {
+					limit = {
+						NOT = { has_variable = task_contract_grace_period }
+					}
+					save_scope_as = task_contract
+					var:task_contract_war = {
+						save_scope_as = war
+					}
+					task_contract_employer = {
+						save_scope_as = task_contract_employer
+					}
+					task_contract_taker = {
+						add_prestige = task_contract_failure_prestige_loss_full_value
+						save_scope_value_as = {
+							name = task_contract_reward
+							value = flag:failure_standard
+						}
+						save_scope_value_as = {
+							name = task_contract_tier
+							value = scope:task_contract.task_contract_tier
+						}
+						trigger_event = ep3_contract_event.0013
+					}
+				}
+			}
+		}
+	}
+}
+
+pirate_contract_6 = { # Treasure Hunt
+	# for grouping together contract types, e.g. mercenary, potentially determines map icon
+	group = pirate_contract_group
+
+	icon = "gfx/interface/icons/government_types/government_type_herder.dds"
+	
+	# Range setting
+	# yes - uses diplomatic range to contract employer
+	# no - uses ADVENTURER_DISTANCE_RESTRICTION define as radius
+	use_diplomatic_range = yes
+
+	# Contract owner should travel to contract location to accept and stay there for the duration of the contract
+	travel = yes
+
+	# Validity Triggers
+	## Can contract appear? (if triggers are true)
+	# root - contract owner
+	# scope:employer - contract employer, can be empty
+	valid_to_create = { 
+		# settlement_issue_valid_to_create_default_trigger = yes
+		has_government = pirate_government
+	}
+
+	# Should not taken contract invalidate? (if triggers are false)
+	# root - existing contract
+	valid_to_keep = { 
+		# settlement_issue_valid_to_keep_default_trigger = yes
+		always = yes
+	}
+
+	# Should contract invalidate? (if triggers are false)
+	# root - existing contract
+	valid_to_continue = { 
+		always = yes
+		# settlement_issue_valid_to_continue_default_trigger = yes 
+	}
+
+	# Can contract be accepted? (if triggers are true)
+	# root - contract owner
+	# scope:employer - contract employer, can be empty
+	valid_to_accept = { 
+		always = yes
+	}
+
+	# On-Action Effects
+	## Effects called when contract is created (create_task_contract effect)
+	on_create = { 
+		debug_log = "PIRATE CONTRACT CREATED"
+		# settlement_issue_on_create_effect = yes 
+		scope:contract = {
+			# Make our gold rewards static.
+			grab_gold_fuzz_number_effect = yes
+			save_scope_as = task_contract
+			set_variable = {
+				name = gold_success_standard
+				value = task_contract_taker.task_contract_success_gold_gain_half_value
+			}
+			# Make sure critical values are a bit higher.
+			save_scope_value_as = { name = gold_safety_margin value = flag:yes }
+			set_variable = {
+				name = gold_success_critical
+				value = task_contract_taker.task_contract_success_gold_gain_half_value
+			}
+		}
+	}
+
+	## Effects called when contract is accepted (accept_task_contract effect)
+	on_accepted = {
+		# settlement_issue_on_accepted_default_effect = {
+		# 	NUMBER = 1
+		# 	ARRIVAL_ID = 0005
+		# 	RESET_ID = 0003
+		# }
+		save_scope_as = task_contract
+		task_contract_taker = {
+			set_variable = nomadic_migration_contract_1
+		}
+
+		debug_log = "PIRATE CONTRACT ACCEPTED"
+	}
+
+	# Effects called when contract is completed successfully, along with rewards (complete_task_contract effect)
+	on_completed = {
+		task_contract_taker = { remove_variable = pirate_contract_1 }
+	}
+
+	# Effects called when contract is invalidated (valid_to_continue is false, or invalidate_task_contract effect)
+	on_invalidated = {
+		settlement_issue_on_invalidated_default_effect = yes
+	}
+
+	# Contract Reward Effects
+	task_contract_reward = {
+		success_standard = {
+			should_print_on_complete = yes
+			effect = {
+				task_contract_taker = { play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_success_on_contract" }
+				# Camp building extra Criminal Rewards: +50%.
+				# if = {
+				# 	limit = {
+				# 		task_contract_taker.domicile ?= { has_domicile_parameter = camp_improved_criminal_contract_rewards }
+				# 	}
+				# 	save_scope_value_as = { name = extra_reward value = flag:yes }
+				# }
+				# else = {
+				# 	save_scope_value_as = { name = extra_reward value = flag:no }
+				# }
+
+				if = {
+					limit = {
+						NOT = { exists = scope:suppress_gold_warning }
+					}
+					custom_tooltip = laamp_base_1041.tt.gold_rewards_depend_on_travellers
+				}
+				else = { custom_tooltip = laamp_base_1041.tt.haul_actual }
+				# Standard Rewards.
+				laamp_rewards_disburse_ordinary_currency_effect = {
+					GOLD = scope:task_contract.var:gold_success_standard
+					PRESTIGE = 0
+					PIETY = 0
+					PROVISIONS = 0
+					OPINION = task_contract_opinion_standard_reward_value
+					OPINION_TYPE = succeeded_task_contract_opinion
+					CONTACT = no
+					CONTACT_HOOK = no
+					EXTRA_REWARD = scope:extra_reward
+				}
+				# # Update gallowsbait score.
+				# task_contract_taker = {
+				# 	laamp_rewards_apply_criminal_xp_effect = {
+				# 		TRACK = bandit
+				# 		XP_MAX = gallowsbait_xp_medium_gain
+				# 		XP_MIN = gallowsbait_xp_medium_gain
+				# 	}
+				# }
+
+				# TODO: UPDATE PIRATE TRAIT XP
+			}
+		}
+		failure_standard = {
+			positive = no
+			should_print_on_complete = yes
+			effect = {
+				task_contract_taker = { play_sound_effect = "event:/DLC/EP3/SFX/UI/Contracts/ep3_ui_contracts_failure_on_contract" }
+				save_scope_value_as = { name = extra_reward value = flag:no }
+				# Standard Penalties.
+				laamp_rewards_disburse_ordinary_currency_effect = {
+					GOLD = 0
+					PRESTIGE = task_contract_failure_prestige_loss_crime_value
+					PIETY = 0
+					PROVISIONS = 0
+					OPINION = task_contract_opinion_crime_failure_value
+					OPINION_TYPE = attempted_criminal_contract_against_me_opinion
+					CONTACT = no
+					CONTACT_HOOK = no
+					EXTRA_REWARD = scope:extra_reward
+				}
+				# # Update gallowsbait score.
+				# task_contract_taker = {
+				# 	laamp_rewards_apply_criminal_xp_effect = {
+				# 		TRACK = bandit
+				# 		XP_MAX = gallowsbait_xp_minor_gain
+				# 		XP_MIN = gallowsbait_xp_minor_gain
+				# 	}
+				# }
+			}
+		}
+
+		# control = { effect = { settlement_issue_control_reward_effect = yes } }
+
+		# herd = { effect = { settlement_issue_herd_reward_effect = yes } }
+
+		# fertility = { effect = { settlement_issue_fertility_reward_effect = yes } }
+	}
+
+	# scripted value how likely this contract type is to be picked when populating for area
+	# root - contract owner
+	# scope:employer - contract employer, can be empty
+	# weight = {
+	# 	value = 90
+	# }
+}
