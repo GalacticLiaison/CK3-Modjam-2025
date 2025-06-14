@@ -1,0 +1,33 @@
+﻿l_english:
+ decision_group_type_pirate: "Pirate Decisions"
+
+ set_pirate_government: "Become a Pirate"
+ set_pirate_government_desc: "Become a Pirate and sail the seas with your crew."
+ set_pirate_government_tooltip: "$set_pirate_government_desc$"
+ landed_becomes_pirate: "$set_pirate_government$"
+ landed_becomes_pirate_desc: "I hold territory girt by sea, and my standing in the world would let me swiftly become a pirate lord. I could sail the seas with my crew for plunder and glory!"
+ capital_county_is_coastal: "Your capital county is coastal."
+ landed_becomes_pirate_confirm: "Yo ho, yo ho, a pirate's life for me!"
+ laamp_becomes_pirate: "$set_pirate_government$"
+ laamp_becomes_pirate_desc: "The sea calls to this wandering heart! If I were to take up piracy, I could sail the seas with my crew and plunder the riches of the world."
+ laamp_becomes_pirate_confirm: "Yo ho, yo ho, a pirate's life for me!"
+
+ quit_piracy_as_feudal: "Become Feudal Lord"
+ quit_piracy_as_feudal_desc: "My holdings and hold on my crew both are as strong as any lord's claim to the land. Yet as a pirate, this hold is unstable and unrecognized by the world at large. With enough gold and influence, I can become a feudal lord and claim my rightful place in the world."
+ quit_piracy_as_feudal_tooltip: "Quit piracy and formalize your rule as a feudal lord."
+ quit_piracy_as_feudal_confirm: "I will become a feudal lord and claim my rightful place in the world."
+
+ quit_piracy_as_tribal: "Become Tribal Chief"
+ quit_piracy_as_tribal_desc: "My motly band has become a strong tribe, and if I so wished it, I would likely be able to claim the title of chief with little resistance."
+ quit_piracy_as_tribal_tooltip: "Quit piracy and formalize your rule as a tribal chief."
+ quit_piracy_as_tribal_confirm: "Hail to the chief!"
+
+ quit_piracy_as_landless: "Quit Piracy"
+ quit_piracy_as_landless_desc: "This continual piracy is not sustainable. I must find a new way to live."
+ quit_piracy_as_landless_tooltip: "Quit piracy and become a landless adventurer."
+ quit_piracy_as_landless_confirm: "Yarr, me heart is not in this."
+
+ quit_piracy_as_nomadic: "Become Nomadic"
+ quit_piracy_as_nomadic_desc: "This here land is ruled by naught but herders and sheep! The freedom of the sea calls to me, but the sea of grass may be the greener. I can become a nomad and roam these plains with my crew."
+ quit_piracy_as_nomadic_tooltip: "Quit piracy and become a nomad."
+ quit_piracy_as_nomadic_confirm: "Get me a horse and a herd, I am going native!"

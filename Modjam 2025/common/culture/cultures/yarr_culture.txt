@@ -10,6 +10,8 @@ pirate_culture = {
 	traditions = {
 		tradition_seafaring
 		tradition_adaptive_skirmishing
+		tradition_coastal_warriors
+		tradition_maritime_mercantilism
 	}
 	
 	name_list = name_list_english

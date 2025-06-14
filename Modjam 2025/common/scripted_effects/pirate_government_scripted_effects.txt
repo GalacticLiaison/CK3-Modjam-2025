@@ -1,0 +1,14 @@
+become_pirate_government = {
+	if = { # Don't change government if already a pirate
+		limit = {
+			NOT = { has_government = pirate_government }
+		}
+		change_government = pirate_government
+	}
+	if = { # Don't add trait if already has it
+		limit = {
+			NOT = { has_trait = yarr_pirate_track }
+		}
+		add_trait = yarr_pirate_track
+	}
+}
