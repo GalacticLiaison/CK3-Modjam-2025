@@ -12,6 +12,7 @@ yar_search_for_treasure_map = {
         NOT = {has_variable = yar_search_treasure}
 	}
 	is_valid = {
+is_available = yes
 		#government_has_flag = government_is_pirate
         #NOT = {has_variable = yar_search_treasure}
 	}
@@ -46,6 +47,7 @@ yar_reconstruct_treasure_map = {
         #yar_has_treasure_map_trigger = yes
 	}
 	is_valid = {
+		is_available = yes
 		yar_treasure_map_all_pieces_trigger = yes
 	}
 	ai_goal = no
@@ -76,6 +78,7 @@ yar_search_for_treasure = {
         NOT = {yar_has_treasure_map_trigger = yes}
 	}
 	is_valid = {
+		is_available = yes
 		#government_has_flag = government_is_pirate
         #NOT = {has_variable = yar_search_treasure}
 	}
@@ -217,6 +220,7 @@ yar_sell_treasure = {
 		yar_has_treasure_trigger = yes
 	}
 	is_valid = {
+		is_available = yes
 		yar_has_treasure_trigger = yes
 	}
 	ai_goal = no

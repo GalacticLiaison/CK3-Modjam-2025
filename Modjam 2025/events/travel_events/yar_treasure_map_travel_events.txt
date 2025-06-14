@@ -190,7 +190,7 @@ yar_treasure_map_travel_events.0009 = {
         }
         option = {
             name = yar_treasure_map_travel_events.0011.a
-            trigger_event = yar_treasure_map_travel_events.0012
+            trigger_event = {id = yar_treasure_map_travel_events.0012}
         }
     }
     # Find a bay

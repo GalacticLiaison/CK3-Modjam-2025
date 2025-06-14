@@ -11,11 +11,11 @@
  yar_reconstruct_treasure_map_confirm: "Reconstruct the Treasure Map"
  yar_reconstruct_treasure_map_decision: "Reconstruct the Treasure Map"
  yar_reconstruct_treasure_map_desc: "Reconstruct the Treasure Map"
- yar_reconstruct_treasure_map_tt: "Reconstruct the Treasure Map"
+ yar_reconstruct_treasure_map_decision_tt: "Reconstruct the Treasure Map"
 
  yar_search_for_treasure: "Go on an Expedition to Search for the Treasure"
  yar_search_for_treasure_desc: "I unroll the map once more, careful not to tear its brittle edges.\n\nThe ink has faded with age, but I can still make out rough sketches — a crescent-shaped bay, a cluster of jagged isles, something that might be a ruined tower. No names. No directions. Just signs.\n\nIt could be anywhere. Somewhere along the Mediterranean, perhaps." 
- yar_search_for_treasure_tt: "o on an Expedition"
+ yar_search_for_treasure_tt: "Search for the Treasure"
  yar_search_for_treasure_confirm: "Let's leave now"
  yar_search_for_treasure_decision: "Go on an Expedition"
  yar_treasure_hunting_contract_decision_effect: "Travel to a location that ressemble my treasure map, and try to find the treasure"

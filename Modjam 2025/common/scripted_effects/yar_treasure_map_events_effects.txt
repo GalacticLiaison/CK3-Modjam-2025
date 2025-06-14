@@ -125,7 +125,7 @@ yar_expedition_where_am_i_effect = {
         limit = {
             AND = {
                 has_variable = yar_on_an_expedition
-                location = province:4562
+                location.county = title:c_djerba
             }
         }
         trigger_event = {id = yar_treasure_map_travel_events.0011}
@@ -134,7 +134,7 @@ yar_expedition_where_am_i_effect = {
         limit = {
             AND = {
                 has_variable = yar_on_an_expedition
-                location = province:747
+                location = title:c_ionia
             }
         }
         trigger_event = {id = yar_treasure_map_travel_events.0021}
@@ -143,7 +143,7 @@ yar_expedition_where_am_i_effect = {
         limit = {
             AND = {
                 has_variable = yar_on_an_expedition
-                location = province:2611
+                location = title:c_napoli
             }
         }
         trigger_event = {id = yar_treasure_map_travel_events.0031}
@@ -152,7 +152,7 @@ yar_expedition_where_am_i_effect = {
         limit = {
             AND = {
                 has_variable = yar_on_an_expedition
-                location = province:2646
+                location = title:c_malta
             }
         }
         trigger_event = {id = yar_treasure_map_travel_events.0041}
@@ -161,7 +161,7 @@ yar_expedition_where_am_i_effect = {
         limit = {
             AND = {
                 has_variable = yar_on_an_expedition
-                location = province:4678
+                location = title:c_melilla
             }
         }
         trigger_event = {id = yar_treasure_map_travel_events.0051}
@@ -170,7 +170,7 @@ yar_expedition_where_am_i_effect = {
         limit = {
             AND = {
                 has_variable = yar_on_an_expedition
-                location = province:2664
+                location = title:c_logudoro
             }
         }
         trigger_event = {id = yar_treasure_map_travel_events.0061}
