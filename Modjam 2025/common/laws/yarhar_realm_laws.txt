@@ -21,6 +21,10 @@ pirate_authority = {
 		flag = title_revocation_allowed
 		flag = uses_pirate_authority
 		flag = imprisonment_toggle_enable
+
+		can_keep = {
+			realm_law_uses_pirate_authority = yes
+		}
 		can_pass = {
 			has_realm_law = pirate_authority_2
 		}
@@ -49,6 +53,9 @@ pirate_authority = {
 		flag = imprisonment_toggle_on
 		flag = title_revocation_allowed
 
+		can_keep = {
+			realm_law_uses_pirate_authority = yes
+		}
 		can_pass = {
 			custom_tooltip = {
 				text = "pirate_authority_2_level_requirement"
@@ -119,6 +126,9 @@ pirate_authority = {
 		}
 		flag = vassal_retraction_allowed
 
+		can_keep = {
+			realm_law_uses_pirate_authority = yes
+		}
 		can_pass = {
 			custom_tooltip = {
 				text = "pirate_authority_3_level_requirement"
@@ -187,6 +197,9 @@ pirate_authority = {
 			vassal_limit_max = 15
 		}
 
+		can_keep = {
+			realm_law_uses_pirate_authority = yes
+		}
 		can_pass = {
 			custom_tooltip = {
 				text = "pirate_authority_4_level_requirement"
@@ -257,6 +270,9 @@ pirate_authority = {
 		}
 		flag = max_authority_level
 
+		can_keep = {
+			realm_law_uses_pirate_authority = yes
+		}
 		can_pass = {
 			has_realm_law = pirate_authority_4
 			custom_description = { 

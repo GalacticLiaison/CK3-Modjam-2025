@@ -29,7 +29,7 @@
 				}
 			}
 		}
-		realm_size < 3
+		realm_size < 4
 	}
 
 	ai_goal = no
