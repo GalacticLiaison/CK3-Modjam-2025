@@ -1,0 +1,16 @@
+reaver_chronicle = {
+    properties = {
+        ancestor = character
+    }
+
+    chapters = {
+        opening = legend_chapter_opening_debug
+		motivation = legend_chapter_motivation_debug
+		discovery = legend_chapter_discovery_debug
+		hunt = legend_chapter_hunt_debug
+		battle = legend_chapter_battle_debug
+		famous_deed = legend_chapter_famous_deed_debug
+		extra_deed = legend_chapter_extra_deed_debug
+		conclusion = legend_chapter_conclusion_debug
+    }
+}

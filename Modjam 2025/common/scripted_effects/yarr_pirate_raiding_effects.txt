@@ -1,0 +1,10 @@
+﻿pirate_spread_legend_effect = {
+    scope:raider = {
+        promoted_legend = {
+            save_scope_as = pirate_legend
+        }
+    }
+    scope:barony.title_province = {
+        add_legend_spread = scope:pirate_legend
+    }
+}

@@ -1,0 +1,32 @@
+﻿namespace = yarr_reaver_legend
+
+yarr_reaver_legend.0001 = { #pure flavor
+    type = character_event
+	title = yarr_reaver_legend.0001.t
+	desc = yarr_reaver_legend.0001.desc
+	theme = legend
+	left_portrait = root
+
+    option = {
+        name = yarr_reaver_legend.0001.a
+    }
+}
+
+yarr_reaver_legend.0002 = {
+    type = character_event
+	window = fullscreen_event
+	title = yarr_reaver_legend.0002.t
+	desc = yarr_reaver_legend.0002.desc
+	
+	theme = legend
+	override_background = { reference = fp2_fullscreen_hostility }
+	
+	immediate = {
+		promoted_legend = { set_variable = my_legend_var }
+	}
+
+    option = {
+        name = yarr_reaver_legend.0002.a
+        custom_tooltip = yarr_reaver_legend.0002.a.tt
+    }
+}

@@ -1,0 +1,26 @@
+﻿on_raid_action_completion = {
+    on_actions = {
+        yarr_pirate_raid_legend_on_actions
+    }
+}
+
+### This allows pirates to spread their legend via raiding, since legends don't spread very well for small realms ###
+
+yarr_pirate_raid_legend_on_actions = {
+    trigger = {
+        scope:raider = {
+            has_government = pirate_government
+            promoted_legend = {
+                OR = {
+                    legend_type = legend_type:reaver
+                    #legend_type = legend_type:smuggler
+                    #legend_type = legend_type:anarchist
+                }
+            }
+        }
+    }
+
+    effect = {
+        pirate_spread_legend_effect = yes
+    }
+}
