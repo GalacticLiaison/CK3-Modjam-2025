@@ -1,0 +1,66 @@
+## REMOVE ACCESS TO PILLAGE INTENT FOR PIRATE GOVERNMENT
+pillage_intent = {
+	on_return_raid_loot = {
+		scope:raider = {
+			send_interface_message = {
+				type = event_raid_good
+				title = raiding.0011.t
+
+				right_icon = root.army_commander
+				add_gold = scope:raid_loot
+				add_prestige = {
+					value = scope:raid_loot
+					multiply = -1.5
+				}
+			}
+		}
+	}
+
+	ai_will_do = {
+		value = 100
+	}
+
+	is_shown = {
+		NOR = {
+			government_has_flag = government_is_pirate
+			government_has_flag = government_is_nomadic
+			government_has_flag = government_is_tribal
+			faith = { has_doctrine_parameter = faith_can_raid }
+		}
+	}
+}
+## PIRATE RAID INTENT
+yar_pirate_intent = {
+	on_return_raid_loot = {
+		scope:raider = {
+			send_interface_message = {
+				type = event_raid_good
+				title = raiding.0011.t
+
+				right_icon = root.army_commander
+				add_gold = {
+					value = scope:raid_loot
+					multiply = 1.5
+				}
+                add_prestige = {
+					value = scope:raid_loot
+					multiply = 0.1
+				}
+			}
+		}
+	}
+
+	modifier = { 
+		raid_speed = -0.5
+		movement_speed_land_raiding = -0.50
+		hostile_county_attrition_raiding = 0.50
+	}
+
+	ai_will_do = {
+		value = 10
+	}
+
+	is_shown = {
+		government_has_flag = government_is_pirate
+	}
+}
