@@ -2,7 +2,11 @@
 
 	is_shown = {
 		has_ep3_dlc_trigger = yes
-		is_landless_adventurer = yes
+		# For testing purposes
+		OR = {
+			is_landless_adventurer = yes
+			is_a_pirate_ruler = yes
+		}
 		is_adult = yes
 	}
 
@@ -15,7 +19,11 @@
 		scope:host = {
 			is_alive = yes
 			is_imprisoned = no
-			is_landless_adventurer = yes
+			# For testing purposes
+			OR = {
+				is_landless_adventurer = yes
+				is_a_pirate_ruler = yes
+			}
 			NOT = { is_incapable = yes }
 		}
 	}
@@ -104,24 +112,22 @@
 	phases = {
 		phase_visit_port = {
 			is_predefined = yes
-			location_source = pickable
-
-			ai_will_do = {
-				value = 0
-				add = {
-					value = 30
-					desc = "Base test value"
-				}
-			}
 
 			on_phase_active = {
 				if = {
 					limit = { this = scope:host }
 
 					scope:host = {
-						trigger_event = pirate_visit_port.8888
+						trigger_event = pirate_visit_port.0001
 					}
 				}
+			}
+			on_end = {
+				# Run conclusion stuff here
+				# if = {
+				# 	limit = { this = scope:host }
+				# 	scope:activity = { progress_activity_phase_after = { weeks = 2 } }
+				# }
 			}
 		}
 	}
