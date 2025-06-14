@@ -1,0 +1,342 @@
+types YARR {
+  type task_contract_location_icon = widget {
+    name = "task_contract_icon" # This name is used by reactive advise - do not change it
+    allow_outside = yes
+    datacontext = "[GetPlayer]"
+
+    state = {
+      name = _hide
+      alpha = 0
+      delay = 1
+      duration = 0.3
+    }
+
+    state = {
+      name = "map_zoom_close"
+      # We animate the size, and not the scale, so the flowcontainer works nicely
+      size = { 84 85 }
+      duration = 0.25
+      trigger_when = "[LessThan_int32( GetZoomLevel, '(int32)14' )]"
+    }
+
+    state = {
+      name = "map_zoom_far"
+      # We animate the size, and not the scale, so the flowcontainer works nicely
+      size = { 42 43 }
+      duration = 0.25
+      trigger_when = "[GreaterThan_int32( GetZoomLevel, '(int32)13' )]"
+    }
+
+    size = { 66 67 }
+    alwaystransparent = no
+
+    # yar
+    widget = {
+      size = { 66 66 }
+      parentanchor = center
+      visible = "[TaskContract.MakeScope.Var('yar_map').IsSet]"
+
+      # tooltip = "[TaskContract.GetTaskContractDescription]"
+      tooltip = "[TaskContract.GetTaskContractRequest]"
+
+      button_round = {
+        size = { 100% 100%  }
+        visible = "[TaskContract.MakeScope.Var('yar_button').IsSet]"
+        onclick = "[GetScriptedGui('finish_yar_overlay').Execute( GuiScope.SetRoot( TaskContract.MakeScope ).AddScope('player', GetPlayer.MakeScope ).End )]"
+
+        button = {
+          size = { 75% 75% }
+          alwaystransparent = yes
+          parentanchor = center
+          texture = "[TaskContract.GetType.GetIcon]"
+        }
+      }
+
+      icon = {
+        alwaystransparent = yes
+        parentanchor = center
+        visible = "[Not(TaskContract.MakeScope.Var('yar_button').IsSet)]"
+        texture = "[TaskContract.GetType.GetIcon]"
+        size = { 100% 100% }
+      }
+
+      # we can show some text, then complete the task
+      text_single = {
+        default_format = "#high"
+        fontsize = 24
+
+        state = {
+          name = _show
+          position_y = -30
+          duration = 0.3
+          next = "hide"
+        }
+        state = {
+          name = hide
+          delay = 0.8
+          alpha = 0
+          duration = 0.3
+          on_finish = "[GetScriptedGui('finish_yar_overlay').Execute( GuiScope.SetRoot( TaskContract.MakeScope ).AddScope('player', GetPlayer.MakeScope ).End )]"
+        }
+        raw_text = "[TaskContract.GetTaskContractDescription]"
+        visible = "[TaskContract.MakeScope.Var('finished_yar').IsSet]"
+      }
+
+      # if we want an animated icon
+      # progressbar = {
+      #   visible = "[EqualTo_string(TaskContract.GetType.GetName, 'shipwreck_homm_contract')]"
+      #   size = { 64 64 }
+      #   framesize = { 64 64 }
+      #   gfxtype = framedprogressbargfx
+      #   texture = "[TaskContract.GetType.GetIcon]"
+      #   scale = 2
+      #   max = 0
+      # }
+    }
+
+    # vanilla
+    widget = {
+      size = { 100% 100% }
+      alwaystransparent = yes
+
+      # yar
+      visible = "[Not(TaskContract.MakeScope.Var('yar_map').IsSet)]"
+
+      icon = {
+        visible = "[Not( TaskContract.IsOpened)]"
+        texture = "gfx/interface/colors/white.dds"
+        using = Color_Bright_Yellow
+        size = { 100% 100% }
+        parentanchor = center
+
+        ### Glow shine animation
+        state = {
+          name = "a"
+          next = "b"
+          trigger_on_create = yes
+          alpha = 1
+
+          modify_texture = {
+            name = "glow_1"
+            rotate_uv = 0
+          }
+
+          modify_texture = {
+            name = "glow_2"
+            rotate_uv = 0
+          }
+        }
+
+        state = {
+          name = "b"
+          next = "a"
+          duration = 15
+
+          modify_texture = {
+            name = "glow_1"
+            rotate_uv = 360
+          }
+
+          modify_texture = {
+            name = "glow_2"
+            rotate_uv = 360
+          }
+        }
+
+        modify_texture = {
+          name = "glow_1"
+          texture = "gfx/interface/component_masks/mask_glow.dds"
+          blend_mode = alphamultiply
+        }
+
+        modify_texture = {
+          name = "glow_2"
+          texture = "gfx/interface/component_masks/mask_glow.dds"
+          blend_mode = alphamultiply
+          mirror = horizontal
+        }
+      }
+
+      ### Contract inside accept range
+      button = {
+        visible = "[Not(GetPlayer.GetGovernment.IsType('nomad_government'))]"
+
+        size = { 100% 100% }
+        video_icon = {
+          visible = "[Not( TaskContract.IsOpened)]"
+          size = { 95% 95% }
+          gfxtype = videogfx
+          shaderfile = ""
+          video = "gfx/interface/video/header_animation.bk2"
+          loop = yes
+
+          modify_texture = {
+            texture = "gfx/interface/component_masks/mask_glow.dds"
+            blend_mode = alphamultiply
+            alpha = 0.2
+          }
+
+          modify_texture = {
+            texture = "gfx/interface/component_masks/mask_fade_horizontal_middle_thick.dds"
+            blend_mode = alphamultiply
+            alpha = 0.9
+          }
+
+          modify_texture = {
+            texture = "gfx/interface/component_masks/mask_fade_textured_vertical_up.dds"
+            blend_mode = alphamultiply
+            alpha = 0.5
+          }
+        }
+
+        icon = {
+          size = { 100% 100% }
+          texture = "gfx/interface/window_contract/contract_arrow.dds"
+        }
+
+        icon = {
+          visible = "[And( TaskContract.IsEasy, Not(TaskContract.IsCriminal) )]"
+          size = { 100% 100% }
+          texture = "gfx/interface/window_contract/pin_contract_1.dds"
+        }
+
+        icon = {
+          visible = "[And( TaskContract.IsEasy, TaskContract.IsCriminal )]"
+          size = { 100% 100% }
+          texture = "gfx/interface/window_contract/pin_contract_1_crime.dds"
+        }
+
+        icon = {
+          visible = "[And( TaskContract.IsMedium, Not(TaskContract.IsCriminal) )]"
+          size = { 100% 100% }
+          texture = "gfx/interface/window_contract/pin_contract_2.dds"
+        }
+
+        icon = {
+          visible = "[And( TaskContract.IsMedium, TaskContract.IsCriminal )]"
+          size = { 100% 100% }
+          texture = "gfx/interface/window_contract/pin_contract_2_crime.dds"
+        }
+
+        icon = {
+          visible = "[And( TaskContract.IsHard, Not(TaskContract.IsCriminal) )]"
+          size = { 100% 100% }
+          texture = "gfx/interface/window_contract/pin_contract_3.dds"
+        }
+
+        icon = {
+          visible = "[And( TaskContract.IsHard, TaskContract.IsCriminal )]"
+          size = { 100% 100% }
+          texture = "gfx/interface/window_contract/pin_contract_3_crime.dds"
+        }
+
+        highlight_icon = {
+          parentanchor = center
+          alwaystransparent = yes
+          texture = "[TaskContract.GetType.GetIcon]"
+          size = { 40% 40% }
+          position = { 0 -2 }
+        }
+
+        icon = {
+          visible = "[Not( TaskContract.IsOpened)]"
+          texture = "gfx/interface/window_contract/contract_map_pin_highlight.dds"
+          size = { 64% 64% }
+          parentanchor = center
+          position = { 0 -3 }
+        }
+
+        onclick = "[ToggleGameViewData('task_contract', TaskContract.Self )]"
+        tooltip = "[TaskContract.GetName]"
+        using = tooltip_ne
+      }
+
+      ### Nomadic Contract inside accept range
+      button = {
+        state = {
+          name = "map_zoom_close"
+          # We animate the size, and not the scale, so the flowcontainer works nicely
+          size = { 84 85 }
+          duration = 0.25
+          trigger_when = "[LessThan_int32( GetZoomLevel, '(int32)14' )]"
+        }
+
+        state = {
+          name = "map_zoom_far"
+          # We animate the size, and not the scale, so the flowcontainer works nicely
+          size = { 45 44 }
+          duration = 0.25
+          trigger_when = "[GreaterThan_int32( GetZoomLevel, '(int32)13' )]"
+        }
+
+        visible = "[GetPlayer.GetGovernment.IsType('nomad_government')]"
+
+        size = { 100% 100% }
+        video_icon = {
+          visible = "[Not( TaskContract.IsOpened)]"
+          size = { 95% 95% }
+          gfxtype = videogfx
+          shaderfile = ""
+          video = "gfx/interface/video/header_animation.bk2"
+          loop = yes
+
+          modify_texture = {
+            texture = "gfx/interface/component_masks/mask_glow.dds"
+            blend_mode = alphamultiply
+            alpha = 0.2
+          }
+
+          modify_texture = {
+            texture = "gfx/interface/component_masks/mask_fade_horizontal_middle_thick.dds"
+            blend_mode = alphamultiply
+            alpha = 0.9
+          }
+
+          modify_texture = {
+            texture = "gfx/interface/component_masks/mask_fade_textured_vertical_up.dds"
+            blend_mode = alphamultiply
+            alpha = 0.5
+          }
+        }
+
+        icon = {
+          visible = "[And( TaskContract.IsEasy, Not(TaskContract.IsCriminal) )]"
+          size = { 100% 100% }
+          texture = "gfx/interface/window_contract/nomad_pin_contract_1.dds"
+        }
+
+        icon = {
+          visible = "[And( TaskContract.IsMedium, Not(TaskContract.IsCriminal) )]"
+          size = { 100% 100% }
+          texture = "gfx/interface/window_contract/nomad_pin_contract_2.dds"
+        }
+
+        icon = {
+          visible = "[And( TaskContract.IsHard, Not(TaskContract.IsCriminal) )]"
+          size = { 100% 100% }
+          texture = "gfx/interface/window_contract/nomad_pin_contract_3.dds"
+        }
+
+        highlight_icon = {
+          parentanchor = center
+          alwaystransparent = yes
+          texture = "[TaskContract.GetType.GetIcon]"
+          size = { 40% 40% }
+          position = { 0 5 }
+        }
+
+        icon = {
+          visible = "[Not( TaskContract.IsOpened)]"
+          texture = "gfx/interface/window_contract/contract_map_pin_highlight.dds"
+          size = { 65% 65% }
+          parentanchor = center
+          position = { 0 5 }
+        }
+
+        onclick = "[ToggleGameViewData('task_contract', TaskContract.Self )]"
+        tooltip = "[TaskContract.GetName]"
+        using = tooltip_ne
+      }
+    }
+  }
+}
