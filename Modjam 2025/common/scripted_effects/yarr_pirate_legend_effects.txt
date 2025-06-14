@@ -1,0 +1,81 @@
+yarr_reaver_legend_famed_complete_effect = {
+    add_trait = viking #in case you don't already have it I guess
+    add_gold = 500
+    add_prestige = 500
+    add_dread = 50
+    root.house = {
+        add_house_modifier = {
+            years = 25
+            modifier = yarr_famed_reaver_house_modifier
+        }
+    }
+}
+
+yarr_reaver_legend_illustrious_complete_effect = {
+    add_trait = viking #in case you don't already have it I guess
+    add_gold = 800
+    add_prestige = 1000
+    add_dread = 100
+    root.house = {
+        add_house_modifier = {
+            years = 50
+            modifier = yarr_famed_reaver_house_modifier
+        }
+    }
+    custom_tooltip = {
+        text = yarr_reaver_legend_illustrious_complete_effect_tt
+        root.promoted_legend = {
+            every_spread_province = {
+                add_province_modifier = {
+                    years = 25
+                    modifier = yarr_reaver_legend_province_looted
+                }
+            }
+        }
+    }
+}
+
+yarr_reaver_legend_mythical_complete_effect = {
+    add_trait = viking #in case you don't already have it I guess
+    add_gold = 1600
+    add_prestige = 2500
+    add_dread = 150
+    root.house = {
+        add_house_modifier = {
+            years = 150
+            modifier = yarr_famed_reaver_house_modifier
+        }
+    }
+    custom_tooltip = {
+        text = yarr_reaver_legend_mythical_complete_effect_tt
+        root.promoted_legend = {
+            every_spread_province = {
+                add_province_modifier = {
+                    years = 25
+                    modifier = yarr_reaver_legend_province_looted
+                }
+                destroy_random_building_variable_effect = yes
+                destroy_random_building_effect = yes
+                destroy_random_building_variable_effect = yes
+                destroy_random_building_effect = yes
+                destroy_random_building_variable_effect = yes
+                destroy_random_building_effect = yes
+                destroy_random_building_variable_effect = yes
+                destroy_random_building_effect = yes
+            }
+            every_spread_province.barony.holder = {
+                random_courtier = {
+                    add_to_list = characters_to_kidnap_from
+                }
+            }
+            every_in_list = {
+                list = characters_to_kidnap_from
+                save_scope_as = abductee
+                rightfully_imprison_character_less_verbose_effect = {
+                    TARGET = scope:abductee
+                    IMPRISONER = root
+                }
+            }
+        }
+    }
+}

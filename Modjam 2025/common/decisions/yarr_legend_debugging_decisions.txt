@@ -1,0 +1,35 @@
+﻿create_reaver_legend_seed = {
+	desc = "create_reaver_legend_seed_desc"
+	selection_tooltip = "create_reaver_legend_seed_tt"
+	
+	picture = {
+		reference = "gfx/interface/illustrations/event_scenes/fp1_ocean.dds"
+	}
+
+	decision_group_type = debug
+
+	is_shown = {
+		is_ai = no
+        debug_only = yes
+	}
+
+	ai_goal = no
+	# ai_will_do = {
+	# 	value = 0
+	# }
+	ai_potential = {
+		always = no
+	}
+	ai_check_interval = 0
+
+	effect = {
+		create_legend_seed ={
+            type = reaver
+            quality = famed
+            chronicle = reaver_chronicle
+            properties = {
+                ancestor = root
+            }
+        }
+	}
+}
