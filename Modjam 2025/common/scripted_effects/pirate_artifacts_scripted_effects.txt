@@ -49,12 +49,12 @@ spawn_pirate_sword = {
 		# rarity = masterwork
 		wealth = scope:wealth
 		quality = scope:quality
-		history = {
-			location = scope:location
-			# actor = scope:adventurer
-			recipient = root
-			type = discovered
-		}
+        history = {
+            location = scope:location
+            # actor = scope:adventurer
+            recipient = root
+            type = discovered
+        }
 		save_scope_as = newly_created_artifact
 	}
 }

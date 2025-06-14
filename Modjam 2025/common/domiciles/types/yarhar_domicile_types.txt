@@ -120,8 +120,9 @@
 	}
 
 	domicile_asset = {
-		background = "gfx/interface/window_domiciles/camp_terrain_green_bg.dds"
-		foreground = "gfx/interface/window_domiciles/camp_terrain_green_fg.dds"
-		ambience = "event:/DLC/EP3/SFX/Ambience/2D/Domicile/ep3_amb_2d_domicile_green_lands"
+		background = "gfx/interface/window_domiciles/pirate_domicile.dds"
+		# foreground = "gfx/interface/window_domiciles/pirate_domicile.dds"
+		# ambience = "event:/DLC/EP3/SFX/Ambience/2D/Domicile/ep3_amb_2d_domicile_green_lands"
+		ambience = "event:/DLC/EP3/SFX/Ambience/2D/Domicile/ep3_amb_2d_domicile_wetlands"
 	}
 }
