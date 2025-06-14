@@ -1,4 +1,10 @@
 ﻿l_english: 
+
+ yar_treasure_map_travel_events.0007.t: "Whispers of Gold"
+ yar_treasure_map_travel_events.0007.desc: "They speak of it in hushed tones — in smoky taverns, on creaking docks, passed from sailor to sailor like contraband. A treasure beyond reckoning, older than kings, hidden away before empires rose and fell.\n\nAnd somewhere, they say, there’s a map. Torn apart, scattered to the winds, cursed maybe, but real. I’ve heard it all before. Every pirate has.\n\nBut lately... I can’t stop thinking about it. What if it’s true? What if some old sea dog wasn’t lying through his rum-soaked grin?\n\nIf there’s any truth to it, the clues would be where the tides are oldest — along the coasts of the Mediterranean, where ruins sleep beneath the cliffs and bones of ancient ships still litter the sea.\n\nMaybe it’s madness."
+ yar_treasure_map_travel_events.0007.a: "But maybe... it’s the start of something."
+
+
 #chandax
 #zadar
 #parlermo
@@ -36,7 +42,7 @@
  yar_treasure_map_travel_events.0006.b: "This isn't worth my time"
 
 #Adventure 1 - Djerba Island
-yar_treasure_map_travel_events.0011.t: "Arrival"
+yar_treasure_map_travel_events.0011.t: "Arrival on Djerba"
 yar_treasure_map_travel_events.0011.desc: "The sails slacken as we near Djerba, the fabled isle off the North African coast.\n\nThe shoreline is low and strange, speckled with palms and crumbling watchtowers.\n\nMany say pirates and smugglers call this place home — fitting, if this map is worth anything.\n\nWe anchor by a shallow cove and disembark into silence and sand."
 yar_treasure_map_travel_events.0011.a: "We'll survey the shores"
 yar_treasure_map_travel_events.0012.t: "This might be the right bay..."
@@ -50,7 +56,7 @@ yar_treasure_map_travel_events.0014.desc: "We search beneath the tower’s slope
 yar_treasure_map_travel_events.0014.a: "It's time to go home"
 
 #Adventure 2 - Bodrum
-yar_treasure_map_travel_events.0021.t: "Arrival"
+yar_treasure_map_travel_events.0021.t: "Arrival in Bodrum"
 yar_treasure_map_travel_events.0021.desc: "The Anatolian coast rises ahead — steep and stony, dotted with olive groves and half-ruined Byzantine watchposts.\n\nBodrum, once Halicarnassus, now lies forgotten by kings but not by my map.\n\nWe drop anchor in a small bay beneath a crescent ridge.\n\nI’ve got a feeling about this one."
 yar_treasure_map_travel_events.0021.a: "We'll survey the shores"
 yar_treasure_map_travel_events.0022.t: "This might be the right bay..."
@@ -64,7 +70,7 @@ yar_treasure_map_travel_events.0024.desc: "We search until our torches burn low.
 yar_treasure_map_travel_events.0024.a: "It's time to go home"
 
 #Adventure 3 - Amalfi
-yar_treasure_map_travel_events.0031.t: "Arrival"
+yar_treasure_map_travel_events.0031.t: "Arrival in Amalfi"
 yar_treasure_map_travel_events.0031.desc: "The cliffs of Amalfi rise like jagged teeth from the sea, pale stone kissed by green vines and sea mist.\n\nIt’s a dangerous harbor, but the shape of the coast matches the old map well enough.\n\nWe drop anchor near a narrow inlet and ready ourselves.\n\nIf there’s truth to be found, it may be here."
 yar_treasure_map_travel_events.0031.a: "We'll survey the shores"
 yar_treasure_map_travel_events.0032.t: "This might be the right bay..."
@@ -78,7 +84,7 @@ yar_treasure_map_travel_events.0034.desc: "The crew combs every ravine and shado
 yar_treasure_map_travel_events.0034.a: "It's time to go home"
 
 #Adventure 4 - Success - Malta
-yar_treasure_map_travel_events.0041.t: "Arrival"
+yar_treasure_map_travel_events.0041.t: "Arrival in Malta"
 yar_treasure_map_travel_events.0041.desc: "The island rises from the sea like an ancient promise.\n\nMalta — crossroad of fleets and whispers.\n\nI’ve seen this coast in dreams.\n\nAs the ship draws near, I recognize the ridge, the rock formations, even the way the land cradles the bay.\n\nThe map burns in my hand.\n\nWe’ve reached something."
 yar_treasure_map_travel_events.0041.a: "We'll survey the shores"
 yar_treasure_map_travel_events.0042.t: "This might be the right bay..."
@@ -88,38 +94,43 @@ yar_treasure_map_travel_events.0043.t: "That's the tower ..."
 yar_treasure_map_travel_events.0043.desc: "Across the ridge, the ruin stands exactly where it should — a toppled beacon, its silhouette still proud against the sky.\n\nThe same lean, the same broken edge.\n\nIt's not a marker of defense...\n\nit's a sign.\n\nThe final alignment is complete."
 yar_treasure_map_travel_events.0043.a: "Let's find the cave entrance"
 yar_treasure_map_travel_events.0044.t: "The cave ! The cave !"
-yar_treasure_map_travel_events.0044.desc: "We push through overgrowth near the base of the cliff, hands raw from stone and thorns.\n\nThen, one of the crew calls out.\n\nHidden behind a curtain of twisted roots and jagged rock is a narrow opening — a cave mouth, black as pitch.\n\nThe cold air that spills out smells of wet earth and old silence.\n\nI light a torch and duck inside, heart hammering like a war drum.\n\nThe passage winds downward, each step echoing through centuries of dust.\n\nIf this is a trap, I welcome it.\n\nIf it’s nothing...\n\nI’ll break the island apart to be sure."
+yar_treasure_map_travel_events.0044.desc: "We push through overgrowth near the base of the cliff, hands raw from stone and thorns. Then, one of the crew calls out.\n\nHidden behind a curtain of twisted roots and jagged rock is a narrow opening — a cave mouth, black as pitch.\n\nThe cold air that spills out smells of wet earth and old silence.\n\nI light a torch and duck inside, heart hammering like a war drum.\n\nThe passage winds downward, each step echoing through centuries of dust. If this is a trap, I welcome it.\n\nIf it’s nothing... I’ll break the island apart to be sure."
 yar_treasure_map_travel_events.0044.a: "Finally"
 yar_treasure_map_travel_events.0045.t: "Is this real ?"
 yar_treasure_map_travel_events.0045.desc: "The tunnel opens into a wide chamber, and the torchlight catches on something unnatural — gleam.\n\nGold, piled in heaps.\n\nGoblets, crowns, plates, coins, relics… a sea of riches long lost to time.\n\nThere are symbols on the wall, old and worn, but the treasure needs no translation.\n\nMy legs nearly give out.\n\nI walk among it, stunned, reverent.\n\nThis is what I’ve searched for.\n\nThis is what the map guarded.\n\nThe fortune that pulled me across storms, betrayal, and blood.\n\nI could laugh, cry, scream.\n\nBut instead, I reach down...\n\nand take what is finally mine."
 yar_treasure_map_travel_events.0045.a: "I ... am ... speechless ..."
 
 #Adventure 5 - Melilla 
-yar_treasure_map_travel_events.001.t: "Arrival"
-yar_treasure_map_travel_events.001.desc: "The cliffs of Amalfi rise like jagged teeth from the sea, pale stone kissed by green vines and sea mist.\n\nIt’s a dangerous harbor, but the shape of the coast matches the old map well enough.\n\nWe drop anchor near a narrow inlet and ready ourselves.\n\nIf there’s truth to be found, it may be here."
-yar_treasure_map_travel_events.001.a: "We'll survey the shores"
-yar_treasure_map_travel_events.002.t: "This might be the right bay..."
-yar_treasure_map_travel_events.002.desc: "A narrow goat path takes us above the inlet — and there it is: a curved bay, golden sand nestled in a ring of rock.\n\nIt’s unmistakable.\n\nIt matches the parchment stroke for stroke.\n\nThe map may have faded...\n\nbut its meaning burns brighter than ever."
-yar_treasure_map_travel_events.002.a: "Now, let's find the tower on the horizon"
-yar_treasure_map_travel_events.003.t: "That's the tower ..."
-yar_treasure_map_travel_events.003.desc: "I turn inland and see it — a squat stone tower clinging to the ridge, half-consumed by time.\n\nIt’s where it should be.\n\nA landmark left by a hand long gone.\n\nThe map is right.\n\nAt least, so far."
-yar_treasure_map_travel_events.003.a: "Let's find the cave entrance"
-yar_treasure_map_travel_events.004.t: "Where is this cave ?"
-yar_treasure_map_travel_events.004.desc: "The crew combs every ravine and shadow.\n\nWe search behind waterfalls, beneath outcrops.\n\nStill — no cave.\n\nThe map has led us here, but to what? I feel the doubt returning.\n\nTreasure or mirage — I can’t yet say."
-yar_treasure_map_travel_events.004.a: "It's time to go home"
+yar_treasure_map_travel_events.0051.t: "Arrival in Melilla"
+yar_treasure_map_travel_events.0051.desc: "The coast of Berber lands emerges through the morning haze — cliffs veined with dry rivers, the scent of dust and salt heavy in the air.\n\nJust east of Melilla, the shoreline takes on the familiar bend.\n\nI’ve seen it before, drawn in trembling ink on a torn map.\n\nWe drop anchor. The land waits."
+yar_treasure_map_travel_events.0051.a: "We'll survey the shores"
+yar_treasure_map_travel_events.0052.t: "This might be the right bay..."
+yar_treasure_map_travel_events.0052.desc: "We press eastward by foot, passing wild fig trees and rusted arrowheads, until we see it: a bay carved into the coast, shielded by sharp black stone.\n\nThe shape is perfect. Just like the sketch.\n\nIt feels untouched — quiet, old, watching us."
+yar_treasure_map_travel_events.0052.a: "Now, let's find the tower on the horizon"
+yar_treasure_map_travel_events.0053.t: "That's the tower ..."
+yar_treasure_map_travel_events.0053.desc: "I climb a ridge behind the beach and there it is — a crumbling tower on a distant rise, slouched as if exhausted from centuries of waiting.\n\nIt’s no longer a warning post or a home. It’s a symbol now.\n\nA beacon meant for one purpose: to guide a thief like me to what was hidden."
+yar_treasure_map_travel_events.0053.a: "Let's find the cave entrance"
+yar_treasure_map_travel_events.0054.t: "Where is this cave ?"
+yar_treasure_map_travel_events.0054.desc: "We search the slopes below the ridge, between weathered rocks and thorny ravines, probing every shadow where stone meets earth.\n\nThe tower aligns. The bay matches. But the cave — the final mark — is nowhere to be found.\n\nPerhaps it collapsed. Perhaps it was buried over time. Or perhaps it never existed at all.\n\nThe crew grows restless. Some mutter about curses, others about fools' errands.\n\nThe treasure may lie inches away, or miles.\n\nBut for now... it remains hidden."
+yar_treasure_map_travel_events.0054.a: "It's time to go home"
 
 #Adventure  - Porto Torres
-yar_treasure_map_travel_events.001.t: "Arrival"
-yar_treasure_map_travel_events.001.desc: "The cliffs of Amalfi rise like jagged teeth from the sea, pale stone kissed by green vines and sea mist.\n\nIt’s a dangerous harbor, but the shape of the coast matches the old map well enough.\n\nWe drop anchor near a narrow inlet and ready ourselves.\n\nIf there’s truth to be found, it may be here."
-yar_treasure_map_travel_events.001.a: "We'll survey the shores"
-yar_treasure_map_travel_events.002.t: "This might be the right bay..."
-yar_treasure_map_travel_events.002.desc: "A narrow goat path takes us above the inlet — and there it is: a curved bay, golden sand nestled in a ring of rock.\n\nIt’s unmistakable.\n\nIt matches the parchment stroke for stroke.\n\nThe map may have faded...\n\nbut its meaning burns brighter than ever."
-yar_treasure_map_travel_events.002.a: "Now, let's find the tower on the horizon"
-yar_treasure_map_travel_events.003.t: "That's the tower ..."
-yar_treasure_map_travel_events.003.desc: "I turn inland and see it — a squat stone tower clinging to the ridge, half-consumed by time.\n\nIt’s where it should be.\n\nA landmark left by a hand long gone.\n\nThe map is right.\n\nAt least, so far."
-yar_treasure_map_travel_events.003.a: "Let's find the cave entrance"
-yar_treasure_map_travel_events.004.t: "Where is this cave ?"
-yar_treasure_map_travel_events.004.desc: "The crew combs every ravine and shadow.\n\nWe search behind waterfalls, beneath outcrops.\n\nStill — no cave.\n\nThe map has led us here, but to what? I feel the doubt returning.\n\nTreasure or mirage — I can’t yet say."
-yar_treasure_map_travel_events.004.a: "It's time to go home"
+yar_treasure_map_travel_events.0061.t: "Arrival in Porto Torres"
+yar_treasure_map_travel_events.0061.desc: "The wind stills as we draw near Sardinia’s northwest coast.\n\nPorto Torres sits behind us now — we aim for the rugged peninsula beyond.\n\nThe map shows a crescent bay.\n\nThe shape of the headland matches.\n\nThe terrain feels right.\n\nI order the ship to halt. The chase has led us here.\n\nOne more step."
+yar_treasure_map_travel_events.0061.a: "We'll survey the shores"
+yar_treasure_map_travel_events.0062.t: "This might be the right bay..."
+yar_treasure_map_travel_events.0062.desc: "We descend a narrow trail toward the sea and find it — a flawless half-moon bay nestled beneath white cliffs.\n\nWaves roll in gently, sheltered from wind and war.\n\nI check the map again, and the hairs on my arms rise.\n\nThis is it.\n\nIt must be."
+yar_treasure_map_travel_events.0062.a: "Now, let's find the tower on the horizon"
+yar_treasure_map_travel_events.0063.t: "That's the tower ..."
+yar_treasure_map_travel_events.0063.desc: "From the high ridge to the east, a tower ruin crowns a grassy knoll.\n\nNothing defensive about it — just bones of stone left to rot in the wind.\n\nIt’s exactly where the map marks it.\n\nI don’t know who built it or when.\n\nAll I know is that it’s real."
+yar_treasure_map_travel_events.0063.a: "Let's find the cave entrance"
+yar_treasure_map_travel_events.0064.t: "Where is this cave ?"
+yar_treasure_map_travel_events.0064.desc: "We comb the base of the cliff until our hands are scratched raw and boots worn through.\n\nThe land follows the map — bay, tower, ridge — all accounted for.\n\nBut the cave eludes us.\n\nWe've pried at loose stones, dug at hollows, followed every trickle of wind that felt unnatural.\n\nNothing.\n\nThe men look to me, waiting for some reassurance. I have none. The map brought us this far — but not far enough."
+yar_treasure_map_travel_events.0064.a: "It's time to go home"
 
 TRAVEL_POINT_OF_INTEREST_TT_yar_poi_treasure_map: "Historical Pirate Location"
+
+# No window
+ yar_treasure_map_travel_events.0099.t: "yar_treasure_map_travel_events.0099.t"
+ yar_treasure_map_travel_events.0099.desc: "yar_treasure_map_travel_events.0099.desc"
+ yar_treasure_map_travel_events.0099.a: "yar_treasure_map_travel_events.0099.a"

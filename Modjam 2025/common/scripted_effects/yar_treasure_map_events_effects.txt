@@ -126,54 +126,66 @@ yar_expedition_where_am_i_effect = {
             AND = {
                 has_variable = yar_on_an_expedition
                 location.county = title:c_djerba
+                NOT = {has_variable = yar_treasure_hunt_1}
             }
         }
         trigger_event = {id = yar_treasure_map_travel_events.0011}
+        set_variable = yar_treasure_hunt_1
     }
     else_if = {
         limit = {
             AND = {
                 has_variable = yar_on_an_expedition
-                location = title:c_ionia
+                location.county = title:c_ionia
+                NOT = {has_variable = yar_treasure_hunt_2}
             }
         }
         trigger_event = {id = yar_treasure_map_travel_events.0021}
+        set_variable = yar_treasure_hunt_2
     }
     else_if = {
         limit = {
             AND = {
                 has_variable = yar_on_an_expedition
-                location = title:c_napoli
+                location.county = title:c_napoli
+                NOT = {has_variable = yar_treasure_hunt_3}
             }
         }
         trigger_event = {id = yar_treasure_map_travel_events.0031}
+        set_variable = yar_treasure_hunt_3
     }
     else_if = {
         limit = {
             AND = {
                 has_variable = yar_on_an_expedition
-                location = title:c_malta
+                location.county = title:c_malta
+                NOT = {has_variable = yar_treasure_hunt_4}
             }
         }
         trigger_event = {id = yar_treasure_map_travel_events.0041}
+        set_variable = yar_treasure_hunt_4
     }
     else_if = {
         limit = {
             AND = {
                 has_variable = yar_on_an_expedition
-                location = title:c_melilla
+                location.county = title:c_melilla
+                NOT = {has_variable = yar_treasure_hunt_5}
             }
         }
         trigger_event = {id = yar_treasure_map_travel_events.0051}
+        set_variable = yar_treasure_hunt_5
     }
     else_if = {
         limit = {
             AND = {
                 has_variable = yar_on_an_expedition
-                location = title:c_logudoro
+                location.county = title:c_logudoro
+                NOT = {has_variable = yar_treasure_hunt_6}
             }
         }
         trigger_event = {id = yar_treasure_map_travel_events.0061}
+        set_variable = yar_treasure_hunt_6
     }
     else = {}
 }
