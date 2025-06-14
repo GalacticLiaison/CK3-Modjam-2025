@@ -9,3 +9,6 @@
   spawn_pirate_artifact:0 "Spawn A Pirate Artifact"
   spawn_pirate_artifact_tooltip:0 "Spawn A Pirate Artifact"
   spawn_pirate_artifact_confirm:0 "Yarr"
+  spawn_pirate_sword:0 "Spawn A Pirate Artifact"
+  spawn_pirate_sword_tooltip:0 "Spawn A Pirate Artifact"
+  spawn_pirate_sword_confirm:0 "Yarr"

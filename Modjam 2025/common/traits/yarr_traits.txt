@@ -16,8 +16,8 @@ yarr_pirate_track = {
 	#legitimacy_gain_mult = -0.25
 	#legitimacy_loss_mult = 0.25
 
-    # Localized Icons
-	    icon = {
+	# Localized Icons
+		icon = {
 		first_valid = {
 			triggered_desc = {
 				trigger = {
@@ -84,7 +84,7 @@ yarr_pirate_track = {
 		}
 	}
 	# Localized Names
-        name = {
+		name = {
 		first_valid = {
 			# HIGH/LOW
 			triggered_desc = {
@@ -161,7 +161,7 @@ yarr_pirate_track = {
 		}
 	}
 	# Localized Descs
-	    desc = {
+		desc = {
 		first_valid = {
 			# HIGH/LOW
 			triggered_desc = {
@@ -236,54 +236,54 @@ yarr_pirate_track = {
 			}
 		}
 	}
-    # Tracks
-	    tracks = {
+	# Tracks
+		tracks = {
 		# Successfully scheming gives XP
 		yarr_track_1 = {
 			20 = {
 				monthly_martial_lifestyle_xp_gain_mult = 0.05
 				independent_ruler_opinion = 5
-                martial = 1
-                monthly_prestige_gain_per_dread_add = 0.01
-                provisions_gain_mult = 0.05
-                coastal_advantage = 1
-                naval_movement_speed_mult = 0.25
+				martial = 1
+				monthly_prestige_gain_per_dread_add = 0.01
+				provisions_gain_mult = 0.05
+				coastal_advantage = 1
+				naval_movement_speed_mult = 0.25
 			}
 			40 = {
 				monthly_martial_lifestyle_xp_gain_mult = 0.05
 				independent_ruler_opinion = 5
-                martial = 1
-                monthly_prestige_gain_per_dread_add = 0.01
-                provisions_gain_mult = 0.05
-                coastal_advantage = 1
-                naval_movement_speed_mult = 0.25
+				martial = 1
+				monthly_prestige_gain_per_dread_add = 0.01
+				provisions_gain_mult = 0.05
+				coastal_advantage = 1
+				naval_movement_speed_mult = 0.25
 			}
 			60 = {
 				monthly_martial_lifestyle_xp_gain_mult = 0.05
 				independent_ruler_opinion = 5
-                martial = 1
-                monthly_prestige_gain_per_dread_add = 0.01
-                provisions_gain_mult = 0.05
-                coastal_advantage = 1
-                naval_movement_speed_mult = 0.25
+				martial = 1
+				monthly_prestige_gain_per_dread_add = 0.01
+				provisions_gain_mult = 0.05
+				coastal_advantage = 1
+				naval_movement_speed_mult = 0.25
 			}
 			80 = {
 				monthly_martial_lifestyle_xp_gain_mult = 0.05
 				independent_ruler_opinion = 5
-                martial = 1
-                monthly_prestige_gain_per_dread_add = 0.01
-                provisions_gain_mult = 0.05
-                coastal_advantage = 1
-                naval_movement_speed_mult = 0.25
+				martial = 1
+				monthly_prestige_gain_per_dread_add = 0.01
+				provisions_gain_mult = 0.05
+				coastal_advantage = 1
+				naval_movement_speed_mult = 0.25
 			}
 			100 = {
 				monthly_martial_lifestyle_xp_gain_mult = 0.05
 				independent_ruler_opinion = 5
-                martial = 1
-                monthly_prestige_gain_per_dread_add = 0.01
-                provisions_gain_mult = 0.05
-                coastal_advantage = 1
-                naval_movement_speed_mult = 0.25
+				martial = 1
+				monthly_prestige_gain_per_dread_add = 0.01
+				provisions_gain_mult = 0.05
+				coastal_advantage = 1
+				naval_movement_speed_mult = 0.25
 			}
 			
 			
@@ -296,7 +296,7 @@ yarr_pirate_track = {
 				independent_ruler_opinion = -5
 				dread_baseline_add = 2
 				#monthly_prestige = -0.5
-                raid_speed = 0.2
+				raid_speed = 0.2
 			}
 			40 = {
 				general_opinion = -5
@@ -304,7 +304,7 @@ yarr_pirate_track = {
 				independent_ruler_opinion = -5
 				dread_baseline_add = 2
 				#monthly_prestige = -0.5
-                raid_speed = 0.2
+				raid_speed = 0.2
 			}
 			60 = {
 				general_opinion = -5
@@ -312,7 +312,7 @@ yarr_pirate_track = {
 				independent_ruler_opinion = -5
 				dread_baseline_add = 2
 				#monthly_prestige = -0.5
-                raid_speed = 0.2
+				raid_speed = 0.2
 			}
 			80 = {
 				general_opinion = -5
@@ -320,7 +320,7 @@ yarr_pirate_track = {
 				independent_ruler_opinion = -5
 				dread_baseline_add = 2
 				#monthly_prestige = -0.5
-                raid_speed = 0.2
+				raid_speed = 0.2
 			}
 			100 = {
 				general_opinion = -5
@@ -328,15 +328,15 @@ yarr_pirate_track = {
 				independent_ruler_opinion = -5
 				dread_baseline_add = 2
 				#monthly_prestige = -0.5
-                raid_speed = 0.2
+				raid_speed = 0.2
 			}
 		}	
 	}
 	# Compatibility
-	    compatibility = {
+		compatibility = {
 		honest = @neg_compat_low
-        just = @neg_compat_low
-        gallowsbait = @pos_compat_high
+		just = @neg_compat_low
+		gallowsbait = @pos_compat_high
 	}
 }
 

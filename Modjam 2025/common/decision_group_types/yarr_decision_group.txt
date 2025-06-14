@@ -1,0 +1,4 @@
+pirate = {
+	sort_order = 200
+	gui_tags = { big_button }
+}

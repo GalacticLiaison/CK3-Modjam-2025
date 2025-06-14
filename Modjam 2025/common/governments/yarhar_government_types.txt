@@ -21,7 +21,6 @@ pirate_government = {
 
 	primary_holding = pirate_holding
 	valid_holdings = { pirate_holding castle_holding tribal_holding }
-	required_county_holdings = { pirate_holding }
 
 	affected_by_development = no
 	max_dread = 150
@@ -57,6 +56,7 @@ pirate_government = {
 	flag = ignores_faith_marriage_penalties
 	flag = can_raze_holdings
 	flag = cannot_be_vassal_or_liege
+	flag = government_is_landless_adventurer
 
 	# These flags only exist for loc and in-game descriptions
 	color = { 255 127 80 }
