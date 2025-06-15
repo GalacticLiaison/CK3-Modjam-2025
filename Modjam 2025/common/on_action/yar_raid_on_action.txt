@@ -1,0 +1,3 @@
+on_army_enter_province = {
+    yar_deliver_raid_loot_effect = yes
+}

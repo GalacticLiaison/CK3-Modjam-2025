@@ -1,0 +1,18 @@
+yar_deliver_raid_loot_effect = {
+    if = {
+        limit = {
+            scope:army.location = scope:root.domicile.location
+            government_has_flag = government_is_pirate
+        }
+
+        add_gold = scope:army.raid_loot
+        
+        scope:army = {
+            add_loot = {
+                value = scope:army.raid_loot
+                multiply = -1
+            }
+        }
+    }
+    
+}
