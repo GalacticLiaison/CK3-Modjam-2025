@@ -1,0 +1,66 @@
+﻿l_english:
+
+ ## modifiers
+ yarr_famed_reaver_house_modifier: "Feared Reavers"
+ yarr_famed_reaver_house_modifier_desc: "This house is feared for their destructive tendencies, and ruthless pursuit of plunder."
+ yarr_reaver_legend_province_looted: "Ravaged by Pirates"
+ yarr_reaver_legend_province_looted_desc: "This province was left in ruins after savage pirates took from it all that it had."
+ yarr_spared_peasant_legend: "Weak-Willed Reaver"
+ yarr_savage_peasant_killer: "Truly Savage Reaver"
+ yarr_revitalized_peasant: "Revitalized Peasant"
+
+
+ ## legends
+ legend_reaver: "Reaver Legend"
+ legend_reaver_desc: "a legend forged in blood..."
+ legend_reaver_name: "Reaver Legend"
+ legend_chronicle_reaver_chronicle: "The Great Reaver"
+ legend_chronicle_reaver_chronicle_desc: "Some pirates look for freedom, some for booty, but us? We want only blood!"
+
+ ## Chronicle
+ reaver_chronicle_opening: "There once was a pirate so fierce no scurvy dog might step to [reaver.GetHerHim]. The crew that fought with [reaver.GetHerHim] were well paid in grog and gold. They could want for nothing, and yet it could never be enough for so fiery a crew. That crew served the legendary [reaver.GetTitledFirstName]."
+ reaver_chronicle_motivation: "Under the guidance of [reaver.GetTitledFirstName], what was once a ragtag band of marauders slowly evolved beyond mere plunderers. The very meaning of the baubles they dragged aboard carried no meaning, except the stains of blood coating their shining loot. To seek greater purpose than just gold... that would be the new Pirate's Code!"
+ reaver_chronicle_famous_deed: "But what such purpose could motivate these scallywags? [reaver.GetTitledFirstName] responded with a declaration that the blood itself is all that a pirate needs to keep the Code. The crew thrived when they were tested, and this new endeavour would be their harshest test yet."
+ reaver_chronicle_extra_deed: "To destroy all civilization, and leave behind a beautiful world, that is purpose, so says captain [reaver.GetFirstName]. The world is polluted by civilization, but we shall end it, starting now, [reaver.GetHerHim] added."
+ reaver_chronicle_conclusion: "And so, the world wept, for the reavers had arrived, and for the sin of weakness, the people will be punished. [reaver.GetTitledFirstName] shall be the one to dole out these punishments, and with time, the strong will stand at their proper place, atop a pile of treasure."
+
+ ## custom tooltips
+ yarr_reaver_legend_famed_event_tt: "yarr!"
+ yarr_reaver_legend_illustrious_complete_effect_tt: "Every province your legend has spread to will be looted."
+ yarr_reaver_legend_mythical_complete_effect_tt: "Decimate every county your legend has spread to, and capture some prisoners from the noble courts in those locations."
+
+ ## events
+ yarr_reaver_legend.0001.t: "The Nature of Pirate Legends"
+ yarr_reaver_legend.0001.desc: "While the landlubbers of this world love their stories, they tell them through words. Simple words cannot convey the power of our people, and if we want to be heard, we must make ourselves known.\n\nNormally, a legend spreads with music, and poems and other trivialities, but our legend will spread through the blood written in the sand!\n\nYarr!!"
+ yarr_reaver_legend.0001.a: "It's Reaving Time!"
+ yarr_reaver_legend.0001.a.tt: "Your legend will spread to any province you raid, and while it can still spread by traditional means, that just wouldn't be very pirate-like, would it? GET RAIDING! YARRR!!!"
+ yarr_reaver_legend.0002.t: "The Great Pillage"
+ yarr_reaver_legend.0002.desc: "The world has always been beset by what some might call 'savages' or 'outlaws.' They do not understand us. They could never understand us.\n\nTo take is to live; it's the way of nature, and one which the fat landlubbers have, for too long, attempted to bend to their will. We have returned at least some of this world to the natural order. Here's hoping it may stay that way.\n\nYARRR!!"
+ yarr_reaver_legend.0002.a: "The Reaving has only just begun..."
+ yarr_reaver_legend.0002.a.tt: "Now that you've completed the legend, you can earn another Reaver Legend Seed by raiding more land!"
+
+ yarr_reaver_random_events.0001.t: "Fresh Reavers"
+ yarr_reaver_random_events.0001.desc: "Word of my legend has spread far and wide, which has motivated two proper buccaneers to join my crew. The bloodlust of both [pirate_recruit_1.GetFirstName] and [pirate_recruit_2.GetFirstName] is unrivaled, but of course, they are still pirates.\n\nThey demand pay, the scurvy dogs, and perhaps they deserve it..."
+ yarr_reaver_random_events.0001.a: "You! [pirate_recruit_1.GetFirstName] come aboard before I change my mind!"
+ yarr_reaver_random_events.0001.b: "Perhaps [pirate_recruit_2.GetFirstName] will earn a place in my crew."
+ yarr_reaver_random_events.0001.c: "They drive a hard bargain, but good crew-mates are hard to come by..."
+ yarr_reaver_random_events.0001.d: "Give them cutlasses! May the best pirate win!"
+ yarr_reaver_random_events.0001.e: "You scurvy scallywags will earn plenty of plunder with me!"
+ yarr_reaver_random_events.0001.f: "You're both a waste of grog! Away!"
+ yarr_reaver_random_events.0002.t: "The Ill-Fated Peasant"
+ yarr_reaver_random_events.0002.desc: "Life is not fair. Never has been, probably never will be, and me and my crew are reminded of that when we pass by a truly cursed peasant. [passing_peasant.GetFirstName] is a truly sad sight. What parts of this creature are not missing, are ragged, weak, and perhaps even diseased.\n\nSome of my more... enthusiastic... crew are asking me if we're going to be robbing this peasant. Normally someone like this would not be worth my time, but now I've got an image to keep up don't I?"
+ yarr_reaver_random_events.0002.a: "Some people truly do deserve a break..."
+ yarr_reaver_random_events.0002.b: "The weak are weak, and shall be exploited!"
+ yarr_reaver_random_events.0002.c: "Give the poor thing a chance!"
+ yarr_reaver_random_events.0003.t: "The Gift of Life"
+ yarr_reaver_random_events.0003.desc: "That old peasant we adopted, [passing_peasant.GetFirstName] has woken up today with renewed vigor! The destitute creator has, somehow, fully recovered and more! The missing limbs? They're back! The weak muscles? Renewed with what must be magical force!\n\nThe more cynical among my crew believe this to be an entirely different person, while my imaginative crew think perhaps the peasant has been given another chance by whatever forces above us are out there.\n\nRegardless, I suppose my choice to spare the poor thing has paid off..."
+ yarr_keen_eye_for_talent_legend: "Keen Eye for Talent"
+ yarr_keen_eye_for_talent_legend_desc: "Where everyone saw weakness, you saw strength."
+ yarr_reaver_random_events.0004.t: "A Piratic Demonstration"
+ yarr_reaver_random_events.0004.desc: "Sometimes, my ship can be a rowdy place. There's always someone fighting, and always someone drinking looking to start a fight, but I keep myself away from those things. I've got to keep an image of propriety don't I?\n\nWell my crew disagrees. I'm a legend among pirates now, and I've got to prove I still have what it takes to fight! Some of my most talented reavers are demanding that I fight, and I really don't have a choice, as the fighting circle has already closed in on me..."
+ yarr_reaver_random_events.0004.a: "Bring it on you Scurvy Scallywags!"
+ yarr_reaver_random_events.0005.t: "A Piratic Demonstration: Outcome"
+ yarr_reaver_random_events.0005.victor.desc: "Looks like I'm still the top dog. [sc_loser.GetFirstName] put up a formidable fight, but after taking a deep cut from my cutlass, the fight is over. My crew members have learned a lot from our fight, and the grog is overflowing! My talents as a reaver are unrivaled!"
+ yarr_reaver_random_events.0005.loser.desc: "Yarr! I can't believe I was bested by this scurvy dog! [sc_winner.GetFirstName] has bested me, and all the crew knows it. Some are calling it a fluke, and some are whispering of mutiny...\n\nHow embarrassing!"
+ yarr_reaver_random_events.0005.a: "Yarr!"
+ yarr_reaver_random_events.0005.b: "Yarr..."

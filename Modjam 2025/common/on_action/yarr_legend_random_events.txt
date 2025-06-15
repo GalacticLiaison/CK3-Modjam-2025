@@ -1,0 +1,22 @@
+﻿yearly_playable_pulse = {
+    on_actions = {
+        yarr_reaver_random_legend_events
+    }
+}
+
+yarr_reaver_random_legend_events = {
+    trigger = {
+        promoted_legend = {
+            legend_type = legend_type:reaver
+        }
+    }
+
+    random_events = {
+        1 = yarr_reaver_random_events.0001
+        1 = yarr_reaver_random_events.0002
+        1 = yarr_reaver_random_events.0004
+        chance_of_no_event = {
+            value = 5
+        }
+    }
+}

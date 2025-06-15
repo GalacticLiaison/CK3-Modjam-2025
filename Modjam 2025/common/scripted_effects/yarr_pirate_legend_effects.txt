@@ -1,8 +1,12 @@
-yarr_reaver_legend_famed_complete_effect = {
+﻿yarr_reaver_legend_famed_complete_effect = {
     add_trait = viking #in case you don't already have it I guess
     add_gold = 500
     add_prestige = 500
     add_dread = 50
+    add_trait_xp = {
+        trait = yarr_pirate_track
+        value = 20
+    }
     root.house = {
         add_house_modifier = {
             years = 25
@@ -16,6 +20,10 @@ yarr_reaver_legend_illustrious_complete_effect = {
     add_gold = 800
     add_prestige = 1000
     add_dread = 100
+    add_trait_xp = {
+        trait = yarr_pirate_track
+        value = 40
+    }
     root.house = {
         add_house_modifier = {
             years = 50
@@ -40,6 +48,10 @@ yarr_reaver_legend_mythical_complete_effect = {
     add_gold = 1600
     add_prestige = 2500
     add_dread = 150
+    add_trait_xp = {
+        trait = yarr_pirate_track
+        value = 75
+    }
     root.house = {
         add_house_modifier = {
             years = 150
@@ -71,6 +83,7 @@ yarr_reaver_legend_mythical_complete_effect = {
             every_in_list = {
                 list = characters_to_kidnap_from
                 save_scope_as = abductee
+                add_gold = 50
                 rightfully_imprison_character_less_verbose_effect = {
                     TARGET = scope:abductee
                     IMPRISONER = root
