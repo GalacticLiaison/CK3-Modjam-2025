@@ -17,7 +17,7 @@
 	domicile_building_slots = {
 		main_slot = {
 			slot_type = main
-			position = { 28.2% 13.2% }
+			position = { 80.2% 13.2% }
 			size = { 28.6% 37% }
 
 			empty_slot_asset = {
@@ -33,90 +33,92 @@
 			}
 		}
 
-		external_slot_1 = {
-			position = { 18% 4% }
-			size = { 15% 30% }
+		sails_slot = {
+			slot_type = external
+			position = { 1.5% -2.8% }
+			size = { 84% 84% }
 
 			empty_slot_asset = {
 				icon = "gfx/interface/icons/flat_icons/plus.dds"
-				texture = "gfx/interface/window_domiciles/yurt_empty_slot_01.dds"
+				texture = "gfx/interface/window_domiciles/pirate_domicile_sails.dds"
 				intersectionmask_texture = "gfx/interface/window_domiciles/yurt_empty_slot_01_mask.png"
 			}
 
 			construction_slot_asset = {
 				icon = "gfx/interface/icons/flat_icons/plus.dds"
-				texture = "gfx/interface/window_domiciles/under_construction_yurt.dds"
+				texture = "gfx/interface/window_domiciles/pirate_domicile_sails.dds"
 				intersectionmask_texture = "gfx/interface/window_domiciles/under_construction_yurt_mask.png"
 			}
 		}
 
-		external_slot_2 = {
-			position = { 4% 19% }
-			size = { 15% 30% }
+		hull_slot = {
+			slot_type = external
+			position = { 0% 27% }
+			size = { 87% 55% }
 
 			empty_slot_asset = {
 				icon = "gfx/interface/icons/flat_icons/plus.dds"
-				texture = "gfx/interface/window_domiciles/yurt_empty_slot_02.dds"
+				texture = "gfx/interface/window_domiciles/pirate_domicile_hull_cropped.dds"
 				intersectionmask_texture = "gfx/interface/window_domiciles/yurt_empty_slot_02_mask.png"
 			}
 
 			construction_slot_asset = {
 				icon = "gfx/interface/icons/flat_icons/plus.dds"
-				texture = "gfx/interface/window_domiciles/under_construction_yurt.dds"
+				texture = "gfx/interface/window_domiciles/pirate_domicile_hull_cropped.dds"
 				intersectionmask_texture = "gfx/interface/window_domiciles/under_construction_yurt_mask.png"
 			}
 		}
 
-		external_slot_3 = {
-			position = { 14% 46% }
-			size = { 15% 30% }
+		# external_slot_3 = {
+		# 	position = { 14% 46% }
+		# 	size = { 15% 30% }
 
-			empty_slot_asset = {
-				icon = "gfx/interface/icons/flat_icons/plus.dds"
-				texture = "gfx/interface/window_domiciles/yurt_empty_slot_03.dds"
-				intersectionmask_texture = "gfx/interface/window_domiciles/yurt_empty_slot_03_mask.png"
-			}
+		# 	empty_slot_asset = {
+		# 		icon = "gfx/interface/icons/flat_icons/plus.dds"
+		# 		texture = "gfx/interface/window_domiciles/yurt_empty_slot_03.dds"
+		# 		intersectionmask_texture = "gfx/interface/window_domiciles/yurt_empty_slot_03_mask.png"
+		# 	}
 
-			construction_slot_asset = {
-				icon = "gfx/interface/icons/flat_icons/plus.dds"
-				texture = "gfx/interface/window_domiciles/under_construction_yurt.dds"
-				intersectionmask_texture = "gfx/interface/window_domiciles/under_construction_yurt_mask.png"
-			}
-		}
+		# 	construction_slot_asset = {
+		# 		icon = "gfx/interface/icons/flat_icons/plus.dds"
+		# 		texture = "gfx/interface/window_domiciles/under_construction_yurt.dds"
+		# 		intersectionmask_texture = "gfx/interface/window_domiciles/under_construction_yurt_mask.png"
+		# 	}
+		# }
 
-		external_slot_4 = {
-			position = { 53% 3% }
-			size = { 15% 30% }
+		# external_slot_4 = {
+		# 	position = { 53% 3% }
+		# 	size = { 15% 30% }
 
-			empty_slot_asset = {
-				icon = "gfx/interface/icons/flat_icons/plus.dds"
-				texture = "gfx/interface/window_domiciles/yurt_empty_slot_04.dds"
-				intersectionmask_texture = "gfx/interface/window_domiciles/yurt_empty_slot_04_mask.png"
-			}
+		# 	empty_slot_asset = {
+		# 		icon = "gfx/interface/icons/flat_icons/plus.dds"
+		# 		texture = "gfx/interface/window_domiciles/yurt_empty_slot_04.dds"
+		# 		intersectionmask_texture = "gfx/interface/window_domiciles/yurt_empty_slot_04_mask.png"
+		# 	}
 			
-			construction_slot_asset = {
-				icon = "gfx/interface/icons/flat_icons/plus.dds"
-				texture = "gfx/interface/window_domiciles/under_construction_yurt.dds"
-				intersectionmask_texture = "gfx/interface/window_domiciles/under_construction_yurt_mask.png"
-			}
-		}
+		# 	construction_slot_asset = {
+		# 		icon = "gfx/interface/icons/flat_icons/plus.dds"
+		# 		texture = "gfx/interface/window_domiciles/under_construction_yurt.dds"
+		# 		intersectionmask_texture = "gfx/interface/window_domiciles/under_construction_yurt_mask.png"
+		# 	}
+		# }
 
-		external_slot_5 = {
-			position = { 61% 31% }
-			size = { 15% 30% }
+		# external_slot_5 = {
+		# 	position = { 61% 31% }
+		# 	size = { 15% 30% }
 
-			empty_slot_asset = {
-				icon = "gfx/interface/icons/flat_icons/plus.dds"
-				texture = "gfx/interface/window_domiciles/yurt_empty_slot_05.dds"
-				intersectionmask_texture = "gfx/interface/window_domiciles/yurt_empty_slot_05_mask.png"
-			}
+		# 	empty_slot_asset = {
+		# 		icon = "gfx/interface/icons/flat_icons/plus.dds"
+		# 		texture = "gfx/interface/window_domiciles/yurt_empty_slot_05.dds"
+		# 		intersectionmask_texture = "gfx/interface/window_domiciles/yurt_empty_slot_05_mask.png"
+		# 	}
 
-			construction_slot_asset = {
-				icon = "gfx/interface/icons/flat_icons/plus.dds"
-				texture = "gfx/interface/window_domiciles/under_construction_yurt.dds"
-				intersectionmask_texture = "gfx/interface/window_domiciles/under_construction_yurt_mask.png"
-			}
-		}
+		# 	construction_slot_asset = {
+		# 		icon = "gfx/interface/icons/flat_icons/plus.dds"
+		# 		texture = "gfx/interface/window_domiciles/under_construction_yurt.dds"
+		# 		intersectionmask_texture = "gfx/interface/window_domiciles/under_construction_yurt_mask.png"
+		# 	}
+		# }
 	}
 
 	domicile_asset = {

@@ -310,6 +310,74 @@ pirate_ship_main_06 = {
 	}
 }
 
+
+##################
+# PIRATE SHIP SAILS
+
+pirate_ship_sails_01 = {
+	slot_type = external
+	construction_time = 1
+	internal_slots = 1
+	allowed_domicile_types = { pirate_ship }
+
+	cost = { prestige = 1 }
+
+	character_modifier = {
+		domicile_travel_speed = 0.05
+		character_travel_speed= 0.05
+	}
+
+	province_modifier = {
+
+	}
+
+	ai_value = {
+		value = 100
+	}
+
+	asset = {
+		icon = "gfx/interface/icons/domicile_building/domicile_yurt_main.dds"
+		texture = "gfx/interface/window_domiciles/pirate_domicile_sails.dds"
+		intersectionmask_texture = "gfx/interface/window_domiciles/main_yurt_01_mask.png"
+		soundeffect = "event:/DLC/CE2/UI/camp_buildings/ce2_ui_domicile_buildings_mainYurt"
+	}
+}
+
+
+##################
+# PIRATE SHIP SAILS
+
+pirate_ship_hull_01 = {
+	# slot_type = external
+	construction_time = 1
+	internal_slots = 1
+	allowed_domicile_types = { pirate_ship }
+
+	cost = { prestige = 1 }
+
+	character_modifier = {
+		sea_travel_danger = low_sea_danger_reduction
+		coastal_sea_travel_danger = low_sea_danger_reduction
+	}
+
+	province_modifier = {
+
+	}
+
+	ai_value = {
+		value = 100
+	}
+
+	asset = {
+		icon = "gfx/interface/icons/domicile_building/domicile_yurt_main.dds"
+		texture = "gfx/interface/window_domiciles/pirate_domicile_hull_cropped.dds"
+		# texture = "gfx/interface/window_domiciles/laamp_building_pavillion_level_01.dds"
+		# intersectionmask_texture = "gfx/interface/window_domiciles/main_yurt_01_mask.png"
+		soundeffect = "event:/DLC/CE2/UI/camp_buildings/ce2_ui_domicile_buildings_mainYurt"
+	}
+}
+
+
 ##################
 # MAIN PIRATE SHIP INTERNAL ROOMS
 
