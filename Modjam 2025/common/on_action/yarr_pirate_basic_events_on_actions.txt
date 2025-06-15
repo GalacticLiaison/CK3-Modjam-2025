@@ -1,0 +1,84 @@
+﻿
+random_yearly_playable_pulse = {
+	on_actions = {
+		delay = { days = { 8 288 } } # 8
+		yarr_pirate_basic_events_yearly_pulse
+	}
+}
+
+
+
+# Common events - covers the most ordinary and mundane happenings like picking your nose or eating baklava
+yarr_pirate_basic_events_yearly_pulse = {
+	trigger = {
+		is_available_adult = yes
+		is_a_pirate_ruler = yes
+	}
+	random_events = {
+		chance_of_no_event = {
+			value = 20
+			if = {
+				limit = {
+					has_game_rule = VIET_event_frequency_low
+				}
+				add = 5
+			}
+			if = {
+				limit = {
+					has_game_rule = VIET_event_frequency_very_low
+				}
+				add = 10
+			}
+			if = {
+				limit = {
+					has_game_rule = VIET_event_frequency_high
+				}
+				subtract = 5
+			}
+			if = {
+				limit = {
+					has_game_rule = VIET_event_frequency_very_high
+				}
+				subtract = 10
+			}
+			if = {
+				limit = {
+					is_at_war = yes # Won't get spammed while at war
+				}
+				add = 20
+			}
+		}
+		
+		5000 = 0
+		
+		100 = pirate_flavor_events.0001		# Crew member can't say Shiver me timbers properly!
+		100 = pirate_flavor_events.0002		# Thinking about the pirate code
+		100 = pirate_flavor_events.0003		# Crew is singing sea shanties
+		100 = pirate_flavor_events.0004		# Find a tiny bit of treasure from a useless treasure map
+		100 = pirate_flavor_events.0005		# Come across dead pirates who were hanged
+		100 = pirate_flavor_events.0006		# Running out of rum!
+		100 = pirate_flavor_events.0007		# Best way to avoid mutinies?
+		100 = pirate_flavor_events.0008		# Buy some hardtack?
+		100 = pirate_flavor_events.0009		# Crew member gets into a brawl with other pirates
+		100 = pirate_flavor_events.0010		# Old pirates complain about young pirates
+		100 = pirate_flavor_events.0011		# Studying the seven seas?
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

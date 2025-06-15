@@ -67,14 +67,6 @@ set_pirate_government = {
 			add_domicile_building = pirate_ship_hull_01
 		}
 
-		# random_domicile = {
-		# 	limit = {
-		# 		is_domicile_type = pirate_ship
-		# 		owner = root
-		# 	}
-		# 	add_domicile_building = pirate_ship_sails_01
-		# 	add_domicile_building = pirate_ship_hull_01
-		# }
-
+		add_trait = yarr_pirate
 	}
 }

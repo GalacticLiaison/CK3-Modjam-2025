@@ -2,7 +2,8 @@
 
 	is_shown = {
 		has_ep3_dlc_trigger = yes
-		is_landless_adventurer = yes
+		# For testing purposes
+		is_a_pirate_ruler = yes
 		is_adult = yes
 	}
 
@@ -15,8 +16,12 @@
 		scope:host = {
 			is_alive = yes
 			is_imprisoned = no
-			is_landless_adventurer = yes
+			# For testing purposes
+			is_a_pirate_ruler = yes
 			NOT = { is_incapable = yes }
+			location.county ?= {
+				is_coastal_county = yes
+			}
 		}
 	}
 
@@ -39,8 +44,12 @@
 		}
 	}
 
-	province_filter = domicile_domain
-	ai_province_filter = domicile_domain
+	# is_location_valid = {
+	# 	is_coastal = yes
+	# }
+
+	province_filter = capital
+	ai_province_filter = capital
 
 	max_province_icons = 1
 	allow_zero_guest_invites = no
@@ -58,7 +67,7 @@
 		gold = {
 			add = {
 				add = {
-					value = standard_camp_party_activity_cost
+					value = minor_gold_value
 					desc = hunt_base_cost
 				}
 				if =  {
@@ -77,14 +86,14 @@
 	ui_predicted_cost = {
 		gold = {
 			# Base Cost
-			value = standard_camp_party_activity_cost
+			value = minor_gold_value
 			# Options 
 			add = { # Pomp Option 
 				value = 0 # Appropriate Cost
 				add = 50 # Extra Cost
 				add = 100 # Extra Cost
 				# Scale option costs by tier and era
-				multiply = activity_cost_scale_by_tier
+				#multiply = activity_cost_scale_by_tier
 				# Divide by the number of option levels to get an average option cost
 				divide = 3
 			}
@@ -104,24 +113,22 @@
 	phases = {
 		phase_visit_port = {
 			is_predefined = yes
-			location_source = pickable
-
-			ai_will_do = {
-				value = 0
-				add = {
-					value = 30
-					desc = "Base test value"
-				}
-			}
 
 			on_phase_active = {
 				if = {
 					limit = { this = scope:host }
 
 					scope:host = {
-						trigger_event = pirate_visit_port.8888
+						trigger_event = pirate_visit_port.0001
 					}
 				}
+			}
+			on_end = {
+				# Run conclusion stuff here
+				# if = {
+				# 	limit = { this = scope:host }
+				# 	scope:activity = { progress_activity_phase_after = { weeks = 2 } }
+				# }
 			}
 		}
 	}
@@ -361,13 +368,13 @@
 	###################
 
 	host_intents = {
-		default = reduce_stress_intent
-		intents = { reduce_stress_intent befriend_attendee_intent }
+		intents = { pirate_visit_adventure_intent pirate_visit_reputation_intent pirate_visit_rumors_intent }
+		default = pirate_visit_adventure_intent
 	}
 
 	guest_intents = {
-		intents = { reduce_stress_intent befriend_attendee_intent }
-		default = reduce_stress_intent
+		intents = { pirate_visit_adventure_intent pirate_visit_reputation_intent pirate_visit_rumors_intent }
+		default = pirate_visit_adventure_intent
 	}
 
 	can_be_activity_guest = {
@@ -389,11 +396,11 @@
 	max_guests = 50 #Theoretically everyone, practically only around 2-10 usually
 
 	guest_join_chance = {
-		base = 0
+		base = 100
 		base_activity_modifier = yes
 
 		# Scripted Modifiers
-		activity_guest_shared_ai_accept_modifier = yes
+		#activity_guest_shared_ai_accept_modifier = yes
 	}
 
 	###################

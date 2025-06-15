@@ -1,0 +1,565 @@
+﻿# Simple flavor events
+
+namespace = pirate_flavor_events
+
+# Crew member can't say Shiver me timbers properly!
+pirate_flavor_events.0001 = {
+	type = character_event
+	title = pirate_flavor_events.0001.t
+	desc = pirate_flavor_events.0001.desc
+	theme = friendly
+	override_background = { reference = ocean }
+	
+	left_portrait = {
+		character = scope:landlubber
+		animation = shame
+	}	
+	
+	right_portrait = {
+		character = root
+		animation = idle
+	}	
+
+	cooldown = { years = 20 }
+	
+
+	trigger = {
+		any_courtier = {
+			is_available_ai_adult = yes
+		}
+	}
+
+	weight_multiplier = {
+		base = 1
+	}
+	
+	immediate = {
+		random_courtier = {
+			limit = {
+				is_available_ai_adult = yes
+			}
+			save_scope_as = landlubber
+			add_character_modifier = {
+				modifier = yarr_bad_at_pirate_language
+				years = 10
+			}
+		}
+	}
+	
+	option = { # Hahaha!
+		name = pirate_flavor_events.0001.a
+		add_dread = 10
+		scope:landlubber = {
+			add_opinion = {
+				target = root
+				modifier = insulted_opinion
+				opinion = -10
+			}
+		}	
+		stress_impact = {
+			compassionate = miniscule_stress_impact_gain
+			content = miniscule_stress_impact_gain
+			humble = miniscule_stress_impact_gain
+		}
+	}
+	
+	option = { # try!
+		name = pirate_flavor_events.0001.b
+		add_prestige = miniscule_prestige_gain
+		# scope:landlubber = {
+		# 	add_opinion = {
+		# 		target = root
+		# 		modifier = insulted_opinion
+		# 		opinion = -10
+		# 	}
+		# }	
+		stress_impact = {
+			callous = miniscule_stress_impact_gain
+			sadistic = miniscule_stress_impact_gain
+			impatient = miniscule_stress_impact_gain
+			arrogant = miniscule_stress_impact_gain
+		}
+	}
+	
+	option = { # be nice!
+		name = pirate_flavor_events.0001.c
+		add_prestige = miniscule_prestige_loss
+		scope:landlubber = {
+			add_opinion = {
+				target = scope:actor
+				modifier = grateful_opinion
+				opinion = 15
+			}
+		}	
+		stress_impact = {
+			callous = miniscule_stress_impact_gain
+			sadistic = miniscule_stress_impact_gain
+			impatient = miniscule_stress_impact_gain
+			arrogant = miniscule_stress_impact_gain
+		}
+	}
+}
+
+# Thinking about the pirate code
+pirate_flavor_events.0002 = {
+	type = character_event
+	title = pirate_flavor_events.0002.t
+	desc = pirate_flavor_events.0002.desc
+	theme = corruption
+	override_background = { reference = ocean }
+
+	
+	right_portrait = {
+		character = root
+		animation = thinking
+	}	
+
+	cooldown = { years = 20 }
+
+	trigger = {
+		NOR = {
+			has_character_modifier = yarr_believes_in_pirate_code
+			has_character_modifier = yarr_doesnt_believe_in_pirate_code
+		}
+	}
+	
+	weight_multiplier = {
+		base = 1
+	}
+	
+	option = { # yes!
+		name = pirate_flavor_events.0002.a
+		add_character_modifier = {
+			modifier = yarr_believes_in_pirate_code
+			years = 10
+		}	
+		stress_impact = {
+			callous = miniscule_stress_impact_gain
+			sadistic = miniscule_stress_impact_gain
+			arbitrary = miniscule_stress_impact_gain
+			greedy = miniscule_stress_impact_gain
+		}
+	}
+	
+	option = { # no!
+		name = pirate_flavor_events.0002.b
+		add_character_modifier = {
+			modifier = yarr_doesnt_believe_in_pirate_code
+			years = 10
+		}	
+		stress_impact = {
+			compassionate = miniscule_stress_impact_gain
+			diligent = miniscule_stress_impact_gain
+			humble = miniscule_stress_impact_gain
+			just = miniscule_stress_impact_gain
+		}
+	}
+}
+
+# Crew is singing sea shanties
+pirate_flavor_events.0003 = {
+	type = character_event
+	title = pirate_flavor_events.0003.t
+	desc = pirate_flavor_events.0003.desc
+	theme = friendly
+	override_background = { reference = ocean }
+
+	
+	right_portrait = {
+		character = root
+		animation = admiration
+	}	
+
+	cooldown = { years = 20 }
+	
+	weight_multiplier = {
+		base = 1
+	}
+	
+	option = { # yes!
+		name = pirate_flavor_events.0003.a
+		stress_impact = {
+			base = miniscule_stress_impact_loss
+			gregarious = miniscule_stress_impact_loss
+		}
+	}
+	
+	option = { # yes!
+		name = pirate_flavor_events.0003.b
+		add_prestige = miniscule_prestige_gain
+	}
+}
+
+# Find a tiny bit of treasure from a useless treasure map
+pirate_flavor_events.0004 = {
+	type = character_event
+	title = pirate_flavor_events.0004.t
+	desc = pirate_flavor_events.0004.desc
+	theme = stewardship_wealth_focus
+	override_background = { reference = bp3_coast }
+
+	
+	right_portrait = {
+		character = root
+		animation = personality_callous
+	}	
+
+	cooldown = { years = 20 }
+	
+	weight_multiplier = {
+		base = 1
+	}
+	
+	option = { # yes!
+		name = pirate_flavor_events.0004.a
+		add_gold = { 1 25 }
+	}
+}
+
+# Come across dead pirates who were hanged
+pirate_flavor_events.0005 = {
+	type = character_event
+	title = pirate_flavor_events.0005.t
+	desc = pirate_flavor_events.0005.desc
+	theme = martial_authority_focus
+	override_background = { reference = gallows }
+
+	
+	right_portrait = {
+		character = root
+		animation = personality_callous
+	}	
+
+	cooldown = { years = 20 }
+	
+	weight_multiplier = {
+		base = 1
+	}
+	
+	option = { # yes!
+		name = pirate_flavor_events.0005.a
+		add_prestige = minor_prestige_gain
+		stress_impact = {
+			compassionate = miniscule_stress_impact_gain
+			trusting = miniscule_stress_impact_gain
+			patient = miniscule_stress_impact_gain
+		}
+	}
+	
+	option = { # yes!
+		name = pirate_flavor_events.0005.b
+		add_piety = minor_piety_gain
+		stress_impact = {
+			callous = miniscule_stress_impact_gain
+			sadistic = miniscule_stress_impact_gain
+			arbitrary = miniscule_stress_impact_gain
+			arrogant = miniscule_stress_impact_gain
+		}
+	}
+}
+
+# Running out of rum!
+pirate_flavor_events.0006 = {
+	type = character_event
+	title = pirate_flavor_events.0006.t
+	desc = pirate_flavor_events.0006.desc
+	theme = unfriendly
+	override_background = { reference = bp3_coast }
+
+	
+	right_portrait = {
+		character = root
+		animation = worry
+	}	
+
+	cooldown = { years = 20 }
+	
+	weight_multiplier = {
+		base = 1
+	}
+	
+	option = { # yes!
+		name = pirate_flavor_events.0006.a
+		remove_short_term_gold = 20
+		add_character_modifier = {
+			modifier = yarr_bought_good_rum
+			years = 5
+		}
+	}
+	
+	option = { # yes!
+		name = pirate_flavor_events.0006.b
+		stress_impact = {
+			base = miniscule_stress_impact_gain
+			drunkard = minor_stress_impact_gain
+			gregarious = miniscule_stress_impact_gain
+			lustful = miniscule_stress_impact_gain
+			gluttonous = miniscule_stress_impact_gain
+		}
+	}
+}
+
+# Best way to avoid mutinies?
+pirate_flavor_events.0007 = {
+	type = character_event
+	title = pirate_flavor_events.0007.t
+	desc = pirate_flavor_events.0007.desc
+	theme = unfriendly
+	override_background = { reference = bp1_bonfire }
+
+	
+	right_portrait = {
+		character = root
+		animation = personality_cynical
+	}	
+
+	cooldown = { years = 20 }
+	
+	weight_multiplier = {
+		base = 1
+	}
+	
+	option = { # yes!
+		name = pirate_flavor_events.0007.a
+		add_character_modifier = {
+			modifier = yarr_ruthless_pirate_captain
+			years = 10
+		}
+		stress_impact = {
+			compassionate = miniscule_stress_impact_gain
+			trusting = minor_stress_impact_gain
+			calm = miniscule_stress_impact_gain
+			generous = miniscule_stress_impact_gain
+			content = miniscule_stress_impact_gain
+			forgiving = miniscule_stress_impact_gain
+		}
+	}
+	
+	option = { # yes!
+		name = pirate_flavor_events.0007.b
+		add_character_modifier = {
+			modifier = yarr_benevolent_pirate_captain
+			years = 10
+		}
+		stress_impact = {
+			callous = miniscule_stress_impact_gain
+			sadistic = miniscule_stress_impact_gain
+			paranoid = minor_stress_impact_gain
+			wrathful = miniscule_stress_impact_gain
+			greedy = miniscule_stress_impact_gain
+			vengeful = miniscule_stress_impact_gain
+			impatient = miniscule_stress_impact_gain
+		}
+	}
+}
+
+# Buy some hardtack?
+pirate_flavor_events.0008 = {
+	type = character_event
+	title = pirate_flavor_events.0008.t
+	desc = pirate_flavor_events.0008.desc
+	theme = travel
+	override_background = { reference = docks }
+
+	
+	right_portrait = root
+
+	cooldown = { years = 20 }
+	
+	weight_multiplier = {
+		base = 1
+	}
+	
+	option = { # yes!
+		name = pirate_flavor_events.0008.a
+		remove_short_term_gold = 20
+		add_character_modifier = {
+			modifier = yarr_bought_hardtack
+			years = 10
+		}
+		stress_impact = {
+			gluttonous = minor_stress_impact_gain
+		}
+	}
+	
+	option = { # yes!
+		name = pirate_flavor_events.0008.b
+		stress_impact = {
+			diligent = minor_stress_impact_gain
+		}
+	}
+}
+
+
+
+# Crew member gets into a brawl with other pirates
+pirate_flavor_events.0009 = {
+	type = character_event
+	title = pirate_flavor_events.0009.t
+	desc = pirate_flavor_events.0009.desc
+	theme = unfriendly
+	override_background = { reference = docks }
+	
+	left_portrait = {
+		character = scope:brawler
+		animation = severelywounded
+	}	
+	
+	right_portrait = {
+		character = root
+		animation = idle
+	}	
+
+	cooldown = { years = 20 }
+	
+
+	trigger = {
+		any_courtier = {
+			is_available_healthy_ai_adult = yes
+			NOR = {
+				has_trait = shy
+				has_trait = calm
+				has_trait = forgiving
+			}
+		}
+	}
+
+	weight_multiplier = {
+		base = 1
+	}
+	
+	immediate = {
+		random_courtier = {
+			limit = {
+				is_available_healthy_ai_adult = yes
+				NOR = {
+					has_trait = shy
+					has_trait = calm
+					has_trait = forgiving
+				}
+			}
+			save_scope_as = brawler
+			increase_wounds_no_death_effect = { REASON = fight }
+		}
+	}
+	
+	option = { # Hahaha!
+		name = pirate_flavor_events.0009.a
+		add_prestige = miniscule_prestige_gain
+		stress_impact = {
+			arbitrary = miniscule_stress_impact_gain
+			vengeful = miniscule_stress_impact_gain
+			wrathful = miniscule_stress_impact_gain
+		}
+	}
+	
+	option = { # try!
+		name = pirate_flavor_events.0009.b
+		add_dread = 10
+		scope:brawler = {
+			add_opinion = {
+				target = root
+				modifier = insulted_opinion
+				opinion = -10
+			}
+		}
+		stress_impact = {
+			compassionate = miniscule_stress_impact_gain
+			calm = miniscule_stress_impact_gain
+			forgiving = miniscule_stress_impact_gain
+		}	
+	}
+	
+	option = { # be nice!
+		name = pirate_flavor_events.0009.c
+		scope:brawler = {
+			add_opinion = {
+				target = scope:actor
+				modifier = grateful_opinion
+				opinion = 10
+			}
+		}	
+		stress_impact = {
+			callous = miniscule_stress_impact_gain
+			sadistic = miniscule_stress_impact_gain
+			arrogant = miniscule_stress_impact_gain
+		}
+	}
+}
+
+# Old pirates complain about young pirates
+pirate_flavor_events.0010 = {
+	type = character_event
+	title = pirate_flavor_events.0010.t
+	desc = pirate_flavor_events.0010.desc
+	theme = travel
+	override_background = { reference = docks }
+
+	
+	right_portrait = {
+		character = root
+		animation = thinking
+	}
+
+	cooldown = { years = 20 }
+	
+	weight_multiplier = {
+		base = 1
+	}
+	
+	option = { # yes!
+		name = pirate_flavor_events.0010.a
+		add_dread = 10
+	}
+	
+	option = { # yes!
+		name = pirate_flavor_events.0010.b
+		add_prestige = miniscule_prestige_gain
+	}
+}
+
+# Studying the seven seas?
+pirate_flavor_events.0011 = {
+	type = character_event
+	title = pirate_flavor_events.0011.t
+	desc = pirate_flavor_events.0011.desc
+	theme = learning
+	override_background = { reference = ocean }
+
+	
+	left_portrait = {
+		character = root
+		animation = chancellor
+	}
+
+	cooldown = { years = 20 }
+	
+	weight_multiplier = {
+		base = 1
+	}
+	
+	option = { # yes!
+		name = pirate_flavor_events.0011.a
+		add_character_modifier = {
+			modifier = yarr_stuyding_the_seven_seas
+			years = 10
+		}
+		stress_impact = {
+			base = medium_stress_impact_gain
+			lazy = medium_stress_impact_gain
+		}
+	}
+	
+	option = { # yes!
+		name = pirate_flavor_events.0011.b
+		stress_impact = {
+			diligent = minor_stress_impact_gain
+			ambitious = minor_stress_impact_gain
+		}
+	}
+}
+
+
+
+
+
