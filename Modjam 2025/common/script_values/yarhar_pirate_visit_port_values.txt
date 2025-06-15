@@ -7,7 +7,7 @@ pirate_visit_port_gambling_gain_min = {
 }
 
 pirate_visit_port_gambling_gain_max = {
-	value = minor_gold_value
+	value = medium_gold_value
 	if = {
 		limit = {
 			scope:activity = {
