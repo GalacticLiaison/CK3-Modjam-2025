@@ -1,0 +1,65 @@
+﻿# root is army owner
+# scope:army
+on_army_enter_province = {
+  on_actions = {
+    oa_yar
+  }
+}
+
+# root is character
+on_travel_plan_movement = {
+  on_actions = {
+    oa_yar
+  }
+}
+
+# when an army or the player enters the province with a task icon
+oa_yar = {
+  trigger = {
+    is_ai = no
+    any_character_task_contract = {
+      has_task_contract_type = yar_icon
+    }
+  }
+  effect = {
+    # save location, either your or the army's
+    if = {
+      limit = { exists = scope:army }
+      scope:army.location = {
+        save_scope_as = province
+      }
+    }
+    else = {
+      location = {
+        save_scope_as = province
+      }
+    }
+
+    # accept and complete the contract in that location
+    if = {
+      limit = {
+        any_task_contract = {
+          has_task_contract_type = yar_icon
+          task_contract_location = scope:province
+        }
+      }
+
+      every_task_contract = {
+        limit = {
+          has_task_contract_type = yar_icon
+          task_contract_location = scope:province
+        }
+
+        # yes, we need to accept it first
+        # root = {
+        #   accept_task_contract = prev
+        # }
+
+        # complete_task_contract = success
+
+        # alternatively, mark it for completion instead, so we can show a text first
+        set_variable = finished_yar
+      }
+    }
+  }
+}

@@ -1,0 +1,758 @@
+﻿namespace = pirate_contract_events
+
+pirate_contract_events.001 = {
+	type = character_event
+	title = pirate_contract_events.001.title
+	desc = pirate_contract_events.001.desc
+
+	left_portrait = {
+		character = root
+		animation = personality_content
+	}
+
+	theme = pirate
+
+	immediate = {
+
+	}
+
+	option = {
+		name = pirate_contract_events.001.a
+	}
+}
+
+pirate_contract_events.0041 = { # PIRATE SHIP RAID PREP
+	type = character_event
+	title = pirate_contract_events.0041.title
+	desc = pirate_contract_events.0041.desc
+
+	left_portrait = {
+		character = root
+		animation = debating
+	}
+
+	theme = pirate
+
+	immediate = {
+
+	}
+
+	option = {
+		name = pirate_contract_events.0041.a
+		flavor = pirate_contract_events.0041.a.flavor
+		add_gold = -50
+		set_variable = {
+			name = prep_option
+			value = 1
+		}
+	}
+
+	option = {
+		name = pirate_contract_events.0041.b
+		flavor = pirate_contract_events.0041.b.flavor
+		every_courtier = {
+			add_opinion = {
+				target = root
+				modifier = hurt_crew_morale
+			}
+		}
+		set_variable = {
+			name = prep_option
+			value = 2
+		}
+	}
+	option = {
+		name = pirate_contract_events.0041.c
+		flavor = pirate_contract_events.0041.c.flavor
+		add_gold = -25
+		set_variable = {
+			name = prep_option
+			value = 3
+		}
+		stress_impact = {
+            base = 5
+        }
+	}
+	option = {
+		name = pirate_contract_events.0041.d
+		flavor = pirate_contract_events.0041.d.flavor
+		add_gold = -10
+		every_courtier = {
+			add_opinion = {
+				target = root
+				modifier = boosted_crew_morale
+			}
+		}
+		set_variable = {
+			name = prep_option
+			value = 4
+		}
+	}
+	option = {
+		name = pirate_contract_events.0041.e
+		flavor = pirate_contract_events.0041.e.flavor
+		set_variable = {
+			name = prep_option
+			value = 5
+		}
+	}
+
+	after = {
+		trigger_event = pirate_contract_events.00411
+	}
+}
+
+pirate_contract_events.00411 = { # PIRATE SHIP RAID PREP Pt 2
+	type = character_event
+	title = pirate_contract_events.00411.title
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:prep_option = 1}
+				desc =  pirate_contract_events.00411.desc.a
+			}
+			triggered_desc = {
+				trigger = { var:prep_option = 2}
+				desc =  pirate_contract_events.00411.desc.b
+			}
+			triggered_desc = {
+				trigger = { var:prep_option = 3}
+				desc =  pirate_contract_events.00411.desc.c
+			}
+			triggered_desc = {
+				trigger = { var:prep_option = 4}
+				desc =  pirate_contract_events.00411.desc.d
+			}
+			triggered_desc = {
+				trigger = { var:prep_option = 5}
+				desc =  pirate_contract_events.00411.desc.e
+			}
+		}
+	}
+
+	left_portrait = {
+		character = root
+		animation = personality_content
+	}
+
+	theme = pirate
+
+	immediate = {
+
+	}
+
+	option = {
+		name = pirate_contract_events.00411.a
+		trigger_event = {
+			id = pirate_contract_events.0042
+			days = {7 21}
+		}
+	}
+}
+
+pirate_contract_events.0042 = { # MERCHANT SHIP SPOTTED
+	type = character_event
+	title = pirate_contract_events.0042.title
+	desc = pirate_contract_events.0042.desc
+
+	left_portrait = {
+		character = root
+		animation = survey
+	}
+
+	theme = pirate
+
+	immediate = {
+
+	}
+
+	option = {
+		name = pirate_contract_events.0042.a
+		flavor = pirate_contract_events.0042.a.flavor
+
+		custom_tooltip = {
+			text = pirate_contract_events.0042.a.tooltip
+		}
+		set_variable = {
+			name = chase_option
+			value = 1
+		}
+	}
+
+	option = {
+		name = pirate_contract_events.0042.b
+		flavor = pirate_contract_events.0042.b.flavor
+		custom_tooltip = {
+			text = pirate_contract_events.0042.b.tooltip_1
+		}
+		custom_tooltip = {
+			text = pirate_contract_events.0042.b.tooltip_2
+		}
+		set_variable = {
+			name = chase_option
+			value = 2
+		}
+	}
+
+	option = {
+		name = pirate_contract_events.0042.c
+		flavor = pirate_contract_events.0042.c.flavor
+		custom_tooltip = {
+			text = pirate_contract_events.0042.c.tooltip_1
+		}
+		custom_tooltip = {
+			text = pirate_contract_events.0042.c.tooltip_2
+		}
+
+		every_courtier = {
+			add_opinion = {
+				target = root
+				modifier = hurt_crew_morale
+			}
+		}
+
+		set_variable = {
+			name = chase_option
+			value = 3
+		}
+	}
+
+	option = {
+		name = pirate_contract_events.0042.d
+		flavor = pirate_contract_events.0042.d.flavor
+
+		custom_tooltip = {
+			text = pirate_contract_events.0042.d.tooltip_1
+		}
+		custom_tooltip = {
+			text = pirate_contract_events.0042.d.tooltip_2
+		}
+
+		set_variable = {
+			name = chase_option
+			value = 4
+		}
+	}
+
+	after = {
+		trigger_event = pirate_contract_events.00421
+	}
+}
+
+pirate_contract_events.00421 = { # MERCHANT SHIP SPOTTED Pt 2
+	type = character_event
+	title = pirate_contract_events.00421.title
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:chase_option = 1}
+				desc =  pirate_contract_events.00421.desc.a
+			}
+			triggered_desc = {
+				trigger = { var:chase_option = 2}
+				desc =  pirate_contract_events.00421.desc.b
+			}
+			triggered_desc = {
+				trigger = { var:chase_option = 3}
+				desc =  pirate_contract_events.00421.desc.c
+			}
+			triggered_desc = {
+				trigger = { var:chase_option = 4}
+				desc =  pirate_contract_events.00421.desc.d
+			}
+		}
+	}
+
+	left_portrait = {
+		character = root
+		animation = celebrate_sword
+	}
+
+	theme = pirate
+
+	immediate = {
+
+	}
+
+	option = {
+		name = pirate_contract_events.00421.a
+		trigger_event = {
+			id = pirate_contract_events.0043
+			days = {5 7}
+		}
+	}
+}
+
+pirate_contract_events.0043 = { # BOARDING THE MERCHANT SHIP
+	type = character_event
+	title = pirate_contract_events.0043.title
+	desc = pirate_contract_events.0043.desc
+
+	left_portrait = {
+		character = root
+		animation = aggressive_sword
+	}
+
+	theme = pirate
+
+	immediate = {
+
+	}
+
+	option = { # Frontal Assault
+		name = pirate_contract_events.0043.a
+		flavor = pirate_contract_events.0043.a.flavor
+
+		random_list = {
+			50 = { # Success
+				modifier = { add = frontal_assault_success_modifier_value }
+
+				custom_tooltip = {
+					text = pirate_contract_events.0043.a.success
+				}
+
+				trigger_event = pirate_contract_events.00431
+			}
+			50 = { # Fail
+				custom_tooltip = {
+					text = pirate_contract_events.0043.a.fail
+				}
+
+				trigger_event = pirate_contract_events.00432
+			}
+		}
+
+		set_variable = {
+			name = boarding_option
+			value = 1
+		}
+	}
+
+	option = { # Convince To Surrender
+		name = pirate_contract_events.0043.b
+		flavor = pirate_contract_events.0043.b.flavor
+		random_list = {
+			20 = { # Success
+				modifier = { add = frontal_assault_success_modifier_value }
+				custom_tooltip = {
+					text = pirate_contract_events.0043.b.success
+				}
+
+				trigger_event = pirate_contract_events.00431
+			}
+			80 = { # Fail
+				custom_tooltip = {
+					text = pirate_contract_events.0043.b.fail
+				}
+
+				trigger_event = pirate_contract_events.00432
+			}
+		}
+
+		set_variable = {
+			name = boarding_option
+			value = 2
+		}
+	}
+
+	option = { # Feint And Flank
+		name = pirate_contract_events.0043.c
+		flavor = pirate_contract_events.0043.c.flavor
+		random_list = {
+			20 = { # Success
+				modifier = { add = feint_and_flank_success_modifier_value }
+
+				custom_tooltip = {
+					text = pirate_contract_events.0043.c.success
+				}
+
+
+				trigger_event = pirate_contract_events.00431
+			}
+			80 = { # Fail
+				custom_tooltip = {
+					text = pirate_contract_events.0043.c.fail
+				}
+
+				trigger_event = pirate_contract_events.00432
+			}
+		}
+
+		set_variable = {
+			name = boarding_option
+			value = 3
+		}
+	}
+}
+
+pirate_contract_events.00431 = { # BOARDING THE MERCHANT SHIP PT 2 SUCCESS
+	type = character_event
+	title = pirate_contract_events.00431.title
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:boarding_option = 1 }
+				desc =  pirate_contract_events.00431.desc.a
+			}
+			triggered_desc = {
+				trigger = { var:boarding_option = 2 }
+				desc =  pirate_contract_events.00431.desc.b
+			}
+			triggered_desc = {
+				trigger = { var:boarding_option = 3 }
+				desc =  pirate_contract_events.00431.desc.c
+			}
+		}
+	}
+
+	left_portrait = {
+		character = root
+		animation = sword_coup_degrace
+	}
+
+	theme = pirate
+
+	immediate = {
+		if = {
+			limit = {
+				var:boarding_option = 1
+			}
+			add_martial_lifestyle_xp = major_lifestyle_xp
+		}
+		if = {
+			limit = {
+				var:boarding_option = 2
+			}
+			add_diplomacy_lifestyle_xp = major_lifestyle_xp
+		}
+		if = {
+			limit = {
+				var:boarding_option = 3
+			}
+			add_intrigue_lifestyle_xp = major_lifestyle_xp
+		}
+	}
+
+	option = {
+		name = pirate_contract_events.00431.a
+		trigger_event = pirate_contract_events.0044
+	}
+}
+
+pirate_contract_events.00432 = { # BOARDING THE MERCHANT SHIP PT 2 FAIL
+	type = character_event
+	title = pirate_contract_events.00432.title
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:boarding_option = 1 }
+				desc =  pirate_contract_events.00432.desc.a
+			}
+			triggered_desc = {
+				trigger = { var:boarding_option = 2 }
+				desc =  pirate_contract_events.00432.desc.b
+			}
+			triggered_desc = {
+				trigger = { var:boarding_option = 3 }
+				desc =  pirate_contract_events.00432.desc.c
+			}
+		}
+	}
+
+	left_portrait = {
+		character = root
+		animation = severelywounded
+	}
+
+	right_portrait = {
+		character = scope:crew_member
+		animation = sadness
+	}
+
+	theme = pirate
+
+	immediate = {
+		stress_impact = {
+            base = 20
+        }
+		debug_log = "COMPLETE PIRATE CONTRACT EVENT"
+		debug_log_scopes = yes
+
+		random_courtier = {
+			save_scope_as = crew_member
+		}
+	}
+
+	option = {
+		name = pirate_contract_events.00432.a
+		scope:task_contract = {
+			complete_task_contract = failure_standard
+		}
+	}
+}
+
+pirate_contract_events.0044 = { # DECIDE THE MERCHANT SHIP'S FATE
+	type = character_event
+	title = pirate_contract_events.0044.title
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					OR = {
+						var:boarding_option = 1 
+						var:boarding_option = 3
+					}
+				}
+				desc =  pirate_contract_events.0044.desc.a
+			}
+			triggered_desc = {
+				trigger = { var:boarding_option = 2 }
+				desc =  pirate_contract_events.0044.desc.b
+			}
+		}
+	}
+
+	left_portrait = {
+		character = root
+		animation = personality_content
+	}
+
+	theme = pirate
+
+	immediate = {
+		debug_log = "COMPLETE PIRATE CONTRACT EVENT"
+		debug_log_scopes = yes
+
+		create_character = {
+			template = merchant_ship_captain_template
+			location = root.location
+			save_scope_as = ship_captain
+		}
+
+		create_character = {
+			template = merchant_sailor_template
+			location = root.location
+			save_scope_as = sailor_1
+		}
+
+		create_character = {
+			template = merchant_sailor_template
+			location = root.location
+			save_scope_as = sailor_2
+		}
+
+		create_character = {
+			template = merchant_passenger_template
+			location = root.location
+			save_scope_as = merchant_passenger
+		}
+
+		scope:ship_captain = {
+			add_to_list = merchant_crew
+		}
+		scope:sailor_1 = {
+			add_to_list = merchant_crew
+		}
+		scope:sailor_2 = {
+			add_to_list = merchant_crew
+		}
+		scope:merchant_passenger = {
+			add_to_list = merchant_crew
+		}
+
+	}
+
+	option = {
+		name = pirate_contract_events.0044.a
+		flavor = pirate_contract_events.0044.a.flavor
+		set_variable = {
+			name = merchant_ship_decision
+			value = 1
+		}
+
+		add_prestige = medium_prestige_value
+		dynasty = {
+			add_dynasty_prestige = minor_dynasty_prestige_gain
+		}
+
+		every_in_list = {
+			list = merchant_crew
+			death = {
+				death_reason = death_head_ripped_off
+				killer = root
+			}
+		}
+
+		stress_impact = { 
+            wrathful = -20
+            vengeful = -20
+            forgiving = 20
+			just = 20
+			arbitrary = -10
+			compassionate = 50
+			callous = -30
+			sadistic = -50
+        }
+
+		trigger_event = pirate_contract_events.00441
+
+	}
+
+	option = {
+		name = pirate_contract_events.0044.b
+		flavor = pirate_contract_events.0044.b.flavor
+		set_variable = {
+			name = merchant_ship_decision
+			value = 2
+		}
+
+		every_in_list = {
+			list = merchant_crew
+			save_scope_as = prisoner
+			root = {
+				imprison = {
+					target = scope:prisoner
+					type = dungeon
+				}
+			}
+		}
+
+		trigger_event = pirate_contract_events.00441
+
+	}
+
+	option = {
+		name = pirate_contract_events.0044.c
+		flavor = pirate_contract_events.0044.c.flavor
+		set_variable = {
+			name = merchant_ship_decision
+			value = 3
+		}
+
+		add_courtier = scope:sailor_1
+		add_courtier = scope:sailor_2
+
+		hidden_effect = {
+			scope:merchant_passenger = {
+				death = {
+					death_reason = death_vanished
+				}
+			}
+			scope:ship_captain = {
+				death = {
+					death_reason = death_vanished
+				}
+			}
+		}
+
+		trigger_event = pirate_contract_events.00441
+	}
+
+	option = {
+		name = pirate_contract_events.0044.d
+		flavor = pirate_contract_events.0044.d.flavor
+		set_variable = {
+			name = merchant_ship_decision
+			value = 4
+		}
+
+		add_piety = 50
+
+		stress_impact = { 
+            wrathful = 20
+            vengeful = 20
+            forgiving = -20
+			just = -20
+			arbitrary = 10
+			compassionate = -50
+			callous = 30
+			sadistic = 50
+        }
+
+		hidden_effect = {
+			scope:merchant_passenger = {
+				death = {
+					death_reason = death_vanished
+				}
+			}
+			scope:ship_captain = {
+				death = {
+					death_reason = death_vanished
+				}
+			}
+			scope:sailor_1 = {
+				death = {
+					death_reason = death_vanished
+				}
+			}
+			scope:sailor_2 = {
+				death = {
+					death_reason = death_vanished
+				}
+			}
+		}
+
+		trigger_event = pirate_contract_events.00441
+	}
+}
+
+pirate_contract_events.00441 = { # DECIDE THE MERCHANT SHIP'S FATE - Pt 2
+	type = character_event
+	title = pirate_contract_events.00441.title
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {var:merchant_ship_decision = 1 }
+				desc =  pirate_contract_events.00441.desc.a
+			}
+			triggered_desc = {
+				trigger = { var:merchant_ship_decision = 2 }
+				desc =  pirate_contract_events.00441.desc.b
+			}
+			triggered_desc = {
+				trigger = { var:merchant_ship_decision = 3 }
+				desc =  pirate_contract_events.00441.desc.c
+			}
+			triggered_desc = {
+				trigger = { var:merchant_ship_decision = 4 }
+				desc =  pirate_contract_events.00441.desc.d
+			}
+		}
+	}
+
+	left_portrait = {
+		character = root
+		animation = hero
+	}
+
+	right_portrait = {
+		character = scope:crew_member
+		animation = throne_room_cheer_2
+	}
+
+	theme = pirate
+
+	immediate = {
+		debug_log = "COMPLETE PIRATE CONTRACT EVENT"
+		debug_log_scopes = yes
+
+		random_courtier = {
+			save_scope_as = crew_member
+		}
+	}
+
+	option = {
+		name = pirate_contract_events.00441.a
+		flavor = pirate_contract_events.00441.a.flavor
+
+		scope:task_contract = {
+			complete_task_contract = success_standard
+		}
+	}
+}
