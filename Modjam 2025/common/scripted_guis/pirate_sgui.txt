@@ -13,6 +13,6 @@ random_pirate_male_name = {
 random_pirate_female_name = {
     scope = character
     effect = {
-        pirate_male_name_effect = yes
+        pirate_female_name_effect = yes
     }
 }
