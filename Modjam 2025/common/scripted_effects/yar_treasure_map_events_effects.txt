@@ -199,5 +199,10 @@ yar_sell_treasure_effect = {
         destroy_artifact = scope:this_artifact
     }
     trigger_event = {id = yar_treasure_map_travel_events.0080}
-    add_gold = 3000
+    add_gold = {
+        value = {
+				value = 3000
+				multiply = activity_cost_scale_by_era
+			}
+    }
 }

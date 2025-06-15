@@ -1,4 +1,4 @@
-
+﻿
 # Update points_of_interest_tracker_effect when you change this!
 
 # Pirate Historical Locations

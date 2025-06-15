@@ -743,28 +743,27 @@ yar_treasure_map_travel_events.0009 = {
         }
     }
 
-
-
-
-
-
-# Cancel Adventure
-yar_treasure_map_travel_events.0099 = {
+#Sell the Treasure
+yar_treasure_map_travel_events.0080 = {
     type = character_event
-	#window = big_event_window
+    #window = big_event_window
     #widget = event_window_widget_enter_text
-	title = {
-		desc = yar_treasure_map_travel_events.0099.t
-	}
-	desc = yar_treasure_map_travel_events.0099.desc
-
+    title = {
+        desc = yar_treasure_map_travel_events.0080.t
+    }
+    desc = yar_treasure_map_travel_events.0080.desc
+    immediate = {
+        
+    }
     theme = travel_sea
     right_portrait = {
-		character = ROOT
-        animation = sadness
-	}
+        character = ROOT
+        animation = thinking
+    }
     option = {
-		name = yar_treasure_map_travel_events.0099.a
-        add_gold = 250
-	}
+        name = yar_treasure_map_travel_events.0080.a
+        
+    }
 }
+
+yar_treasure_map_travel_events.0099 = {}

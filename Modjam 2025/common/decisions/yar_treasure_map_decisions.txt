@@ -1,17 +1,18 @@
-yar_search_for_treasure_map = {
+﻿yar_search_for_treasure_map = {
     desc = yar_search_for_treasure_map_desc
     selection_tooltip = yar_search_for_treasure_map_tt
     picture = {
 		reference = "gfx/interface/illustrations/event_scenes/fp1_ocean.dds"
 	}
 
-	decision_group_type = decisions
+	decision_group_type = major
 
 	is_shown = {
 		#government_has_flag = government_is_pirate
         NOT = {has_variable = yar_search_treasure}
 		NOT = {has_variable = yar_map_reconstructed}
 		NOT = {has_variable = yar_on_an_expedition}
+		yar_has_treasure_map_trigger = yes
 	}
 	is_valid = {
 		is_available = yes
@@ -40,7 +41,7 @@ yar_reconstruct_treasure_map = {
 		reference = "gfx/interface/illustrations/event_scenes/fp1_ocean.dds"
 	}
 
-	decision_group_type = decisions
+	decision_group_type = major
 
 	is_shown = {
 		#government_has_flag = government_is_pirate
@@ -60,7 +61,14 @@ yar_reconstruct_treasure_map = {
 		always = no
 	}
 	ai_check_interval = 0
-    cost = {gold = 100}
+    cost = {
+		gold = {
+			value = {
+				value = 100
+				multiply = activity_cost_scale_by_era
+			}
+		}
+	}
 	effect = {
 		yar_reconstruct_treasure_map_effect = yes
 		set_variable = yar_map_reconstructed
@@ -74,7 +82,7 @@ yar_search_for_treasure = {
 		reference = "gfx/interface/illustrations/event_scenes/fp1_ocean.dds"
 	}
 
-	decision_group_type = decisions
+	decision_group_type = major
 
 	is_shown = {
 		#government_has_flag = government_is_pirate
@@ -93,7 +101,14 @@ yar_search_for_treasure = {
 		always = no
 	}
 	ai_check_interval = 0
-    cost = {gold = 250}
+    cost = {
+		gold = {
+			value = {
+				value = 250
+				multiply = activity_cost_scale_by_era
+			}
+		}
+	}
 
     widget = {
 		gui = "decision_view_widget_option_list_generic"
@@ -199,11 +214,10 @@ yar_search_for_treasure = {
 		}
 		set_variable = {
 			name = yar_on_an_expedition
-			days = 500
+			days = 5000
 		}
         start_travel_plan = {
             destination = var:yar_adventure_destination
-            on_start_on_action = yar_treasure_map_travel_events.0010
             on_travel_planner_cancel_on_action = yar_treasure_map_travel_events.0099
             on_arrival_event = yar_treasure_map_travel_events.0009
             on_arrival_destinations = all_but_last
@@ -221,7 +235,7 @@ yar_sell_treasure = {
 		reference = "gfx/interface/illustrations/event_scenes/fp1_ocean.dds"
 	}
 
-	decision_group_type = decisions
+	decision_group_type = major
 
 	is_shown = {
 		yar_has_treasure_trigger = yes
@@ -245,44 +259,7 @@ yar_sell_treasure = {
 	}
 }
 
-yar_search_for_treasure_map = {
-    desc = yar_search_for_treasure_map_desc
-    selection_tooltip = yar_search_for_treasure_map_tt
-    picture = {
-		reference = "gfx/interface/illustrations/event_scenes/fp1_ocean.dds"
-	}
-
-	decision_group_type = decisions
-
-	is_shown = {
-		#government_has_flag = government_is_pirate
-        NOT = {has_variable = yar_search_treasure}
-		NOT = {has_variable = yar_map_reconstructed}
-		NOT = {has_variable = yar_on_an_expedition}
-	}
-	is_valid = {
-		is_available = yes
-		government_has_flag = government_is_pirate
-	}
-    ai_goal = no
-	# ai_will_do = {
-	# 	value = 0
-	# }
-	ai_potential = {
-		always = no
-	}
-	ai_check_interval = 0
-
-	effect = {
-		set_variable = yar_search_treasure
-		trigger_event = yar_treasure_map_travel_events.0007
-	}
-}
-
 yar_debug_fire_events_for_all_treasure_map_fragments = {
-	desc = "yar_find_all_treasure_map_fragments_desc"
-	selection_tooltip = "yar_find_all_treasure_map_fragments_tt"
-	
 	picture = {
 		reference = "gfx/interface/illustrations/event_scenes/fp1_ocean.dds"
 	}
@@ -314,9 +291,6 @@ yar_debug_fire_events_for_all_treasure_map_fragments = {
 }
 
 yar_debug_fire_treasure_hunt_1_event = {
-	desc = "yar_find_all_treasure_map_fragments_desc"
-	selection_tooltip = "yar_find_all_treasure_map_fragments_tt"
-	
 	picture = {
 		reference = "gfx/interface/illustrations/event_scenes/fp1_ocean.dds"
 	}
@@ -343,9 +317,6 @@ yar_debug_fire_treasure_hunt_1_event = {
 }
 
 yar_debug_fire_treasure_hunt_2_event = {
-	desc = "yar_find_all_treasure_map_fragments_desc"
-	selection_tooltip = "yar_find_all_treasure_map_fragments_tt"
-	
 	picture = {
 		reference = "gfx/interface/illustrations/event_scenes/fp1_ocean.dds"
 	}
@@ -372,9 +343,6 @@ yar_debug_fire_treasure_hunt_2_event = {
 }
 
 yar_debug_fire_treasure_hunt_3_event = {
-	desc = "yar_find_all_treasure_map_fragments_desc"
-	selection_tooltip = "yar_find_all_treasure_map_fragments_tt"
-	
 	picture = {
 		reference = "gfx/interface/illustrations/event_scenes/fp1_ocean.dds"
 	}
@@ -401,9 +369,6 @@ yar_debug_fire_treasure_hunt_3_event = {
 }
 
 yar_debug_fire_treasure_hunt_4_event = {
-	desc = "yar_find_all_treasure_map_fragments_desc"
-	selection_tooltip = "yar_find_all_treasure_map_fragments_tt"
-	
 	picture = {
 		reference = "gfx/interface/illustrations/event_scenes/fp1_ocean.dds"
 	}
@@ -430,9 +395,6 @@ yar_debug_fire_treasure_hunt_4_event = {
 }
 
 yar_debug_fire_treasure_hunt_5_event = {
-	desc = "yar_find_all_treasure_map_fragments_desc"
-	selection_tooltip = "yar_find_all_treasure_map_fragments_tt"
-	
 	picture = {
 		reference = "gfx/interface/illustrations/event_scenes/fp1_ocean.dds"
 	}
@@ -459,9 +421,6 @@ yar_debug_fire_treasure_hunt_5_event = {
 }
 
 yar_debug_fire_treasure_hunt_6_event = {
-	desc = "yar_find_all_treasure_map_fragments_desc"
-	selection_tooltip = "yar_find_all_treasure_map_fragments_tt"
-	
 	picture = {
 		reference = "gfx/interface/illustrations/event_scenes/fp1_ocean.dds"
 	}

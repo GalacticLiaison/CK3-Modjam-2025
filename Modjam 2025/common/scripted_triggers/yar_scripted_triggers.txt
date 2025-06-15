@@ -1,4 +1,4 @@
-yar_treasure_map_all_pieces_trigger = {
+﻿yar_treasure_map_all_pieces_trigger = {
 	custom_tooltip = {
 		text = yar_treasure_map_all_pieces_desc
 		AND = {

@@ -98,7 +98,7 @@ yar_treasure_map_travel_events.0044.desc: "We push through overgrowth near the b
 yar_treasure_map_travel_events.0044.a: "Finally"
 yar_treasure_map_travel_events.0045.t: "Is this real ?"
 yar_treasure_map_travel_events.0045.desc: "The tunnel opens into a wide chamber, and the torchlight catches on something unnatural — gleam.\n\nGold, piled in heaps.\n\nGoblets, crowns, plates, coins, relics… a sea of riches long lost to time.\n\nThere are symbols on the wall, old and worn, but the treasure needs no translation.\n\nMy legs nearly give out.\n\nI walk among it, stunned, reverent.\n\nThis is what I’ve searched for.\n\nThis is what the map guarded.\n\nThe fortune that pulled me across storms, betrayal, and blood.\n\nI could laugh, cry, scream.\n\nBut instead, I reach down...\n\nand take what is finally mine."
-yar_treasure_map_travel_events.0045.a: "I ... am ... speechless ..."
+yar_treasure_map_travel_events.0045.a: "YAAARRR!!!"
 
 #Adventure 5 - Melilla 
 yar_treasure_map_travel_events.0051.t: "Arrival in Melilla"
@@ -128,9 +128,10 @@ yar_treasure_map_travel_events.0064.t: "Where is this cave ?"
 yar_treasure_map_travel_events.0064.desc: "We comb the base of the cliff until our hands are scratched raw and boots worn through.\n\nThe land follows the map — bay, tower, ridge — all accounted for.\n\nBut the cave eludes us.\n\nWe've pried at loose stones, dug at hollows, followed every trickle of wind that felt unnatural.\n\nNothing.\n\nThe men look to me, waiting for some reassurance. I have none. The map brought us this far — but not far enough."
 yar_treasure_map_travel_events.0064.a: "It's time to go home"
 
-TRAVEL_POINT_OF_INTEREST_TT_yar_poi_treasure_map: "Historical Pirate Location"
+# Sell the treasure
+yar_treasure_map_travel_events.0080.t: "The end of a journey"
+yar_treasure_map_travel_events.0080.desc: "Gold doesn’t sing like legend, but it buys silence, loyalty, and power. The treasure lies before me — jewels, relics, coins older than memory. Worth more than some kingdoms.\n\nI could hoard it. But I didn’t drag this fortune from the dark just to let it rot.\n\nThe buyers come quietly. Merchants, smugglers, lords with too many secrets. They don’t ask. I don’t tell. One by one, the pieces vanish into velvet and shadow.\n\nAnd in their place: heavy sacks of gold — glintin’, quiet, and cold as a dead man’s breath. No lies, no legends. Just coin."
+yar_treasure_map_travel_events.0080.a: "YAAARRR!"
 
-# No window
- yar_treasure_map_travel_events.0099.t: "yar_treasure_map_travel_events.0099.t"
- yar_treasure_map_travel_events.0099.desc: "yar_treasure_map_travel_events.0099.desc"
- yar_treasure_map_travel_events.0099.a: "yar_treasure_map_travel_events.0099.a"
+
+TRAVEL_POINT_OF_INTEREST_TT_yar_poi_treasure_map: "Historical Pirate Location"
