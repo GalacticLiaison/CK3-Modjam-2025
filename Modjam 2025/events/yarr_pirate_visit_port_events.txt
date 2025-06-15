@@ -1,0 +1,257 @@
+﻿namespace = pirate_visit_port
+
+
+# Intro event
+pirate_visit_port.0001 = {
+	type = activity_event
+	title = pirate_visit_port.0001.title
+	desc = {
+		desc = pirate_visit_port.0001.desc
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						has_activity_option = {
+							category = special_type
+							option = pirate_visit_port_type_carousing
+						}
+					}
+				}
+				desc =  pirate_visit_port.0001.desc.carousing
+			}
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						has_activity_option = {
+							category = special_type
+							option = pirate_visit_port_type_recruitment
+						}
+					}
+				}
+				desc =  pirate_visit_port.0001.desc.recruitment
+			}
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						has_activity_option = {
+							category = special_type
+							option = pirate_visit_port_type_gambling
+						}
+					}
+				}
+				desc =  pirate_visit_port.0001.desc.gambling
+			}
+		}
+	}
+
+	left_portrait = {
+		character = root
+		animation = personality_greedy
+	}
+
+	theme = travel
+	override_background = { reference = docks }
+
+	immediate = {
+
+	}
+
+	option = {
+		name = pirate_visit_port.0001.a
+	}
+
+	after = {
+		if = {
+			limit = {
+				scope:activity = {
+					has_activity_option = {
+						category = special_type
+						option = pirate_visit_port_type_carousing
+					}
+				}	
+			}
+			trigger_event = {
+				days = { 3 5 }
+				id = pirate_visit_port.0010
+			}
+		}
+		else_if = {
+			limit = {
+				scope:activity = {
+					has_activity_option = {
+						category = special_type
+						option = pirate_visit_port_type_recruitment
+					}
+				}	
+			}
+			trigger_event = {
+				days = { 3 5 }
+				id = pirate_visit_port.0020
+			}
+		}
+		else_if = {
+			limit = {
+				scope:activity = {
+					has_activity_option = {
+						category = special_type
+						option = pirate_visit_port_type_gambling
+					}
+				}	
+			}
+			trigger_event = {
+				days = { 3 5 }
+				id = pirate_visit_port.0030
+			}
+		}
+	}
+}
+
+# Carousing intro
+pirate_visit_port.0010 = {
+	type = activity_event
+	title = pirate_visit_port.0010.title
+	desc = pirate_visit_port.0010.desc
+
+	left_portrait = {
+		character = root
+		animation = personality_greedy
+	}
+
+	theme = travel
+	override_background = { reference = fp1_ocean }
+
+	immediate = {
+
+	}
+
+	option = {
+		name = pirate_visit_port.0010.a
+		scope:activity = {
+			add_activity_log_entry = {
+				key = pirate_visit_port_carousing_stress_log
+				tags = { good }
+				# this line below adds the entry to the Effects section of the conclusion UI
+				show_in_conclusion = yes
+				character = scope:host	
+				scope:host = {
+					stress_impact = {
+						base = miniscule_stress_impact_loss	
+					}
+				}
+			}
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			scope:activity = {
+				hidden_effect = { skip_activity_phase = yes }
+			}
+		}
+	}
+}
+
+# Recruitment intro
+pirate_visit_port.0020 = {
+	type = activity_event
+	title = pirate_visit_port.0020.title
+	desc = pirate_visit_port.0020.desc
+
+	left_portrait = {
+		character = root
+		animation = personality_greedy
+	}
+
+	theme = travel
+	override_background = { reference = fp1_ocean }
+
+	immediate = {
+		create_character = {
+			template = bandit_character
+			location = root.location
+			dynasty = none
+			culture = root.location.county.culture
+			faith = root.location.county.faith
+			save_scope_as = pirate
+		}
+	}
+
+	option = {
+		name = pirate_visit_port.0020.a
+		scope:activity = {
+			add_activity_log_entry = {
+				key = pirate_visit_port_recruit_log
+				tags = { good }
+				# this line below adds the entry to the Effects section of the conclusion UI
+				show_in_conclusion = yes
+				character = scope:host	
+				scope:host = {
+					remove_short_term_gold = 50
+					add_courtier = scope:pirate
+				}
+			}
+		}
+	}
+
+	option = {
+		name = pirate_visit_port.0020.b
+		hidden_effect = {
+			scope:pirate = {
+				death = {
+					death_reason = death_vanished 
+				}
+			}
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			scope:activity = {
+				hidden_effect = { skip_activity_phase = yes }
+			}
+		}
+	}
+}
+
+# Gambling intro
+pirate_visit_port.0030 = {
+	type = activity_event
+	title = pirate_visit_port.0030.title
+	desc = pirate_visit_port.0030.desc
+
+	left_portrait = {
+		character = root
+		animation = personality_greedy
+	}
+
+	theme = travel
+	override_background = { reference = fp1_ocean }
+
+	immediate = {
+
+	}
+
+	option = {
+		name = pirate_visit_port.0030.a
+		scope:activity = {
+			add_activity_log_entry = {
+				key = pirate_visit_port_gambling_log
+				tags = { good }
+				# this line below adds the entry to the Effects section of the conclusion UI
+				show_in_conclusion = yes
+				character = scope:host	
+				scope:host = {
+					add_gold = 25
+				}
+			}
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			scope:activity = {
+				hidden_effect = { skip_activity_phase = yes }
+			}
+		}
+	}
+}
