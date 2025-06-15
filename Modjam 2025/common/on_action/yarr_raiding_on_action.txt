@@ -1,8 +1,17 @@
-﻿on_raid_action_completion = {
+﻿
+
+# root is the raid army
+# scope:raider is the person owning the raid army
+# scope:barony is the barony title that got raided
+# scope:county is the county title for the barony
+
+
+on_raid_action_completion = {
     on_actions = {
         yarr_pirate_raid_legend_on_actions
         yarr_pirate_experience
         yarr_pirate_earn_legend_seed_on_action
+        yarr_pirate_earn_loot
     }
 }
 
@@ -11,7 +20,7 @@
 yarr_pirate_raid_legend_on_actions = {
     trigger = {
         scope:raider = {
-            has_government_flag = government_is_pirate
+            government_has_flag = government_is_pirate
             promoted_legend = {
                 OR = {
                     legend_type = legend_type:reaver
@@ -71,6 +80,7 @@ yarr_pirate_earn_legend_seed_on_action = {
                     land = scope:barony
                 }
             }
+            add_character_flag = has_a_reaver_seed
         }
         if = {
             limit = {
@@ -206,6 +216,63 @@ yarr_pirate_earn_legend_seed_on_action = {
                     }
                 }
             }
+        }
+    }
+}
+
+on_raid_action_start = {
+    yarr_assign_loot_value
+}
+
+yarr_assign_loot_value = {
+    trigger = {
+        scope:raider = {
+            government_has_flag = government_is_pirate
+        }
+    }
+
+    effect = {
+        set_variable = {
+            name = starting_raid_loot
+            value = scope:barony.title_province.available_loot
+        }
+    }
+}
+
+yarr_pirate_earn_loot = {
+    trigger = {
+        scope:raider = {
+            government_has_flag = government_is_pirate
+        }
+    }
+
+    effect = {
+        debug_log = "pirate loot check"
+        debug_log_scopes = yes
+        scope:raider = {
+            add_gold = {
+                value = 15
+            }
+        }
+    }
+}
+
+on_army_enter_province = {
+    on_actions = {
+        yarr_clear_loot
+    }
+}
+
+yarr_clear_loot = {
+    trigger = {
+        government_has_flag = government_is_pirate
+    }
+
+    effect = {
+        debug_log = "pirate clear loot check"
+        debug_log_scopes = yes
+        scope:army = {
+            add_loot = -15
         }
     }
 }
