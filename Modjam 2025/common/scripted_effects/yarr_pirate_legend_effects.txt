@@ -4,7 +4,7 @@
     add_prestige = 500
     add_dread = 50
     add_trait_xp = {
-        trait = yarr_pirate_track
+        trait = yarr_pirate
         value = 20
     }
     root.house = {
@@ -21,7 +21,7 @@ yarr_reaver_legend_illustrious_complete_effect = {
     add_prestige = 1000
     add_dread = 100
     add_trait_xp = {
-        trait = yarr_pirate_track
+        trait = yarr_pirate
         value = 40
     }
     root.house = {
@@ -49,7 +49,7 @@ yarr_reaver_legend_mythical_complete_effect = {
     add_prestige = 2500
     add_dread = 150
     add_trait_xp = {
-        trait = yarr_pirate_track
+        trait = yarr_pirate
         value = 75
     }
     root.house = {
