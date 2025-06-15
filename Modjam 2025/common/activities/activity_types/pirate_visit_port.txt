@@ -3,7 +3,10 @@
 	is_shown = {
 		has_ep3_dlc_trigger = yes
 		# For testing purposes
-		is_a_pirate_ruler = yes
+		OR = {
+			is_a_pirate_ruler = yes
+			is_landless_adventurer = yes
+		}
 		is_adult = yes
 	}
 
@@ -17,9 +20,12 @@
 			is_alive = yes
 			is_imprisoned = no
 			# For testing purposes
-			is_a_pirate_ruler = yes
+			OR = {
+				is_a_pirate_ruler = yes
+				is_landless_adventurer = yes
+			}
 			NOT = { is_incapable = yes }
-			location = {
+			location ?= {
 				is_coastal = yes
 			}
 		}
@@ -44,9 +50,9 @@
 		}
 	}
 
-	is_location_valid = {
-		is_coastal = yes
-	}
+	# is_location_valid = {
+	# 	is_coastal = yes
+	# }
 
 	province_filter = domicile_domain
 	ai_province_filter = domicile_domain

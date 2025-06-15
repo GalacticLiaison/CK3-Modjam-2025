@@ -114,11 +114,11 @@ pirate_visit_port.0010 = {
 
 	left_portrait = {
 		character = root
-		animation = personality_greedy
+		animation = drink_goblet
 	}
 
 	theme = travel
-	override_background = { reference = fp1_ocean }
+	override_background = { reference = tavern }
 
 	immediate = {
 
@@ -159,11 +159,16 @@ pirate_visit_port.0020 = {
 
 	left_portrait = {
 		character = root
-		animation = personality_greedy
+		animation = bribing
+	}
+
+	right_portrait = {
+		character = scope:pirate
+		animation = personality_dishonorable
 	}
 
 	theme = travel
-	override_background = { reference = fp1_ocean }
+	override_background = { reference = docks }
 
 	immediate = {
 		create_character = {
@@ -221,11 +226,11 @@ pirate_visit_port.0030 = {
 
 	left_portrait = {
 		character = root
-		animation = personality_greedy
+		animation = betting
 	}
 
 	theme = travel
-	override_background = { reference = fp1_ocean }
+	override_background = { reference = tavern }
 
 	immediate = {
 
