@@ -3,10 +3,7 @@
 	is_shown = {
 		has_ep3_dlc_trigger = yes
 		# For testing purposes
-		OR = {
-			is_a_pirate_ruler = yes
-			is_landless_adventurer = yes
-		}
+		is_a_pirate_ruler = yes
 		is_adult = yes
 	}
 
@@ -20,10 +17,7 @@
 			is_alive = yes
 			is_imprisoned = no
 			# For testing purposes
-			OR = {
-				is_a_pirate_ruler = yes
-				is_landless_adventurer = yes
-			}
+			is_a_pirate_ruler = yes
 			NOT = { is_incapable = yes }
 			location.county ?= {
 				is_coastal_county = yes

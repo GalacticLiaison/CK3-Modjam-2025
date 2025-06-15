@@ -64,11 +64,19 @@ laamp_becomes_pirate = {
 	is_valid = {
 		is_adult = yes
 		is_imprisoned = no
-		culture = {
-			OR = {
-				has_cultural_tradition = tradition_seafaring
-				has_cultural_tradition = tradition_fp1_coastal_warriors
-				has_cultural_tradition = tradition_maritime_mercantilism
+		OR = {
+			custom_tooltip = {
+				domicile.domicile_location.county = {
+					is_coastal_county = yes
+				}
+				text = "capital_county_is_coastal"
+			}
+			culture = {
+				OR = {
+					has_cultural_tradition = tradition_seafaring
+					has_cultural_tradition = tradition_fp1_coastal_warriors
+					has_cultural_tradition = tradition_maritime_mercantilism
+				}
 			}
 		}
 		has_realm_law = camp_purpose_brigands
@@ -85,6 +93,7 @@ laamp_becomes_pirate = {
 
 	effect = {
 		become_pirate_government = yes
+		add_trait = yarr_pirate
 	}
 }
 
