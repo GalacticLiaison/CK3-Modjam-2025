@@ -1,4 +1,4 @@
-﻿ l_english: 
+﻿l_english: 
 
  yar_pirate_intent: "Piracy"
  yar_pirate_intent_desc: "$yar_pirate_intent_loot$\n\n$yar_pirate_intent_effects$\n\n$yar_pirate_intent_modifiers$\n$yar_pirate_intent_flavor$"

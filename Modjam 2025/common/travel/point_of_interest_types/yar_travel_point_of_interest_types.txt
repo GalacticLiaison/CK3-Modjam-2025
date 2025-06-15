@@ -1,0 +1,18 @@
+﻿
+# Update points_of_interest_tracker_effect when you change this!
+
+# Pirate Historical Locations
+yar_poi_treasure_map = {
+	build_province_list = {
+		province:480 = { add_to_list = provinces } # chandax
+		province:465 = { add_to_list = provinces } # zadar
+		province:2635 = { add_to_list = provinces } # parlermo
+		province:483 = { add_to_list = provinces } # rhodos
+		province:2646 = { add_to_list = provinces } # malta
+		province:4582 = { add_to_list = provinces } # tunis
+	}
+
+	on_visit = {
+		yar_treasure_map_effect = yes
+	}
+}

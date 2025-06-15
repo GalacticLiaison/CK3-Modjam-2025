@@ -1,3 +1,15 @@
 ﻿l_english:
   pirate_sword_name:0 "$artifact_name_prefix$ Pirate Short Sword"
   pirate_sword_desc:3 "A [SCOPE.Custom('ArtifactQuality')] curved [newly_created_artifact.GetFeatureText( 'blade_metal' )] sword commonly used by bandits of the sea."
+
+  pirate_map_piece_desc: "A piece of what looks like a map to a large hidden treasure. If only I could find all pieces of this map, maybe I could find the treasure."
+  pirate_map_piece_name_1: "Piece of a Treasure Map"
+  pirate_map_piece_name_2: "Piece of a Treasure Map"
+  pirate_map_piece_name_3: "Piece of a Treasure Map"
+  pirate_map_piece_name_4: "Piece of a Treasure Map"
+  pirate_map_piece_name_5: "Piece of a Treasure Map"
+  pirate_map_piece_name_6: "Piece of a Treasure Map"
+  pirate_treasure_map: "Treasure Map"
+  pirate_treasure_map_desc: "A Treasure Map reconstructed from fragments of maps found on the shores of the Mediterranean Sea. Perhaps, the beginning of fortune."
+  yar_pirate_treasure: "Pirate Treasure Chest"
+  yar_pirate_treasure_desc: "A treasure chest filled with jewels, pearls, and bars of gold"
