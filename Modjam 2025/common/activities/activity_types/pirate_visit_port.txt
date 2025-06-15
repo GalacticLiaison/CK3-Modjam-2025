@@ -73,7 +73,7 @@
 		gold = {
 			add = {
 				add = {
-					value = standard_camp_party_activity_cost
+					value = minor_gold_value
 					desc = hunt_base_cost
 				}
 				if =  {
@@ -92,7 +92,7 @@
 	ui_predicted_cost = {
 		gold = {
 			# Base Cost
-			value = standard_camp_party_activity_cost
+			value = minor_gold_value
 			# Options 
 			add = { # Pomp Option 
 				value = 0 # Appropriate Cost

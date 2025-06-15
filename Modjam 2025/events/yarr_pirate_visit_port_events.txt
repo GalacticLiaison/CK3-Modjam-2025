@@ -135,7 +135,19 @@ pirate_visit_port.0010 = {
 				character = scope:host	
 				scope:host = {
 					stress_impact = {
-						base = miniscule_stress_impact_loss	
+						base = minor_stress_impact_loss	
+						gregarious = miniscule_stress_impact_loss	
+						lustful = miniscule_stress_impact_loss	
+						gluttonous = miniscule_stress_impact_loss	
+						lifestyle_reveler = miniscule_stress_impact_loss	
+						drunkard = miniscule_stress_impact_loss	
+					}
+				}
+				every_attending_character = {
+					limit = { NOT = { this = scope:host } }
+					custom = EVERY_ACTIVITY_PARTICIPANT_EFFECT
+					stress_impact = {
+						base = minor_stress_impact_loss
 					}
 				}
 			}
@@ -232,21 +244,326 @@ pirate_visit_port.0030 = {
 	theme = travel
 	override_background = { reference = tavern }
 
-	immediate = {
-
+	option = {
+		name = pirate_visit_port.0030.a
+		random_list = {
+			50 = {
+				custom_tooltip = pirate_visit_port.0030.a.failure
+				trigger_event = pirate_visit_port.0031
+			}
+			50 = {
+				custom_tooltip = pirate_visit_port.0030.a.success
+				trigger_event = pirate_visit_port.0032
+			}
+		}
 	}
 
 	option = {
-		name = pirate_visit_port.0030.a
+		name = pirate_visit_port.0030.b
+		# Try to cheat
+		duel = {
+			skill = intrigue
+			value = medium_skill_rating
+			10 = {
+				desc = pirate_visit_port.0030.b.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -0.7
+				}
+				custom_tooltip = pirate_visit_port.0030.b.failure.tooltip
+				hidden_effect = {
+					random_list = {
+						50 = {
+							trigger_event = pirate_visit_port.0033
+						}
+						50 = {
+							trigger_event = pirate_visit_port.0034
+						}
+					}
+				}
+			}
+			10 = {
+				desc = pirate_visit_port.0030.b.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 0.7
+				}
+				custom_tooltip = pirate_visit_port.0030.b.success.tooltip
+				trigger_event = pirate_visit_port.0035
+			}
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			scope:activity = {
+				hidden_effect = { skip_activity_phase = yes }
+			}
+		}
+	}
+}
+
+# Gambling - fail to win anything
+pirate_visit_port.0031 = {
+	type = activity_event
+	title = pirate_visit_port.0031.title
+	desc = pirate_visit_port.0031.desc
+
+	right_portrait = {
+		character = root
+		animation = sadness
+	}
+
+	theme = travel
+	override_background = { reference = tavern }
+
+	option = {
+		name = pirate_visit_port.0031.a
 		scope:activity = {
 			add_activity_log_entry = {
-				key = pirate_visit_port_gambling_log
+				key = pirate_visit_port_gambling_lost_money_log
+				tags = { bad }
+				# this line below adds the entry to the Effects section of the conclusion UI
+				show_in_conclusion = yes
+				character = scope:host	
+				scope:host = {
+					#custom_tooltip = pirate_visit_port_gambling_lost_money_tooltip
+					stress_impact = {
+						base = miniscule_stress_impact_gain
+						greedy = minor_stress_impact_gain
+						wrathful = miniscule_stress_impact_gain
+					}
+				}
+			}
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			scope:activity = {
+				hidden_effect = { skip_activity_phase = yes }
+			}
+		}
+	}
+}
+
+# Gambling - win money
+pirate_visit_port.0032 = {
+	type = activity_event
+	title = pirate_visit_port.0032.title
+	desc = pirate_visit_port.0032.desc
+
+	right_portrait = {
+		character = root
+		animation = sadness
+	}
+
+	theme = travel
+	override_background = { reference = tavern }
+
+	option = {
+		name = pirate_visit_port.0032.a
+		add_gold = { pirate_visit_port_gambling_gain_min pirate_visit_port_gambling_gain_max }
+		scope:activity = {
+			add_activity_log_entry = {
+				key = pirate_visit_port_gambling_won_money_log
 				tags = { good }
 				# this line below adds the entry to the Effects section of the conclusion UI
 				show_in_conclusion = yes
 				character = scope:host	
 				scope:host = {
-					add_gold = 25
+					custom_tooltip = pirate_visit_port_gambling_won_money_tooltip
+					stress_impact = {
+						greedy = miniscule_stress_impact_loss
+					}
+				}
+			}
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			scope:activity = {
+				hidden_effect = { skip_activity_phase = yes }
+			}
+		}
+	}
+}
+
+# Gambling - got caught trying to cheat
+pirate_visit_port.0033 = {
+	type = activity_event
+	title = pirate_visit_port.0033.title
+	desc = pirate_visit_port.0033.desc
+
+	right_portrait = {
+		character = root
+		animation = fear
+	}
+
+	theme = travel
+	override_background = { reference = tavern }
+
+	# Pay the fine
+	option = {
+		name = pirate_visit_port.0033.a
+		scope:activity = {
+			add_activity_log_entry = {
+				key = pirate_visit_port_gambling_paid_fine_log
+				tags = { bad }
+				# this line below adds the entry to the Effects section of the conclusion UI
+				show_in_conclusion = yes
+				character = scope:host	
+				scope:host = {
+					remove_short_term_gold = minor_gold_value
+					stress_impact = {
+						greedy = miniscule_stress_impact_gain
+						stubborn = miniscule_stress_impact_gain
+						brave = miniscule_stress_impact_gain
+						wrathful = miniscule_stress_impact_gain
+						arrogant = miniscule_stress_impact_gain
+						deceitful = miniscule_stress_impact_gain
+					}
+				}
+			}
+		}
+	}
+
+	# Try to make a run for it
+	option = {
+		name = pirate_visit_port.0033.b
+		stress_impact = {
+			honest = miniscule_stress_impact_gain
+			just = miniscule_stress_impact_gain
+			craven = miniscule_stress_impact_gain
+		}
+		duel = {
+			skills = { diplomacy intrigue prowess }
+			value = medium_skill_rating
+			10 = {
+				desc = pirate_visit_port.0033.b.failure
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -0.7
+				}
+				scope:activity = {
+					add_activity_log_entry = {
+						key = pirate_visit_port_gambling_ran_away_failure_log
+						tags = { bad }
+						# this line below adds the entry to the Effects section of the conclusion UI
+						show_in_conclusion = yes
+						character = scope:host	
+						scope:host = {
+							remove_short_term_gold = minor_gold_value
+							increase_wounds_no_death_effect = { REASON = fight }
+						}
+					}
+				}
+			}
+			10 = {
+				desc = pirate_visit_port.0033.b.success
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 0.7
+				}
+				scope:activity = {
+					add_activity_log_entry = {
+						key = pirate_visit_port_gambling_ran_away_success_log
+						tags = { good }
+						# this line below adds the entry to the Effects section of the conclusion UI
+						show_in_conclusion = yes
+						character = scope:host	
+						scope:host = {
+							add_prestige = miniscule_prestige_gain
+						}
+					}
+				}
+			}
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			scope:activity = {
+				hidden_effect = { skip_activity_phase = yes }
+			}
+		}
+	}
+}
+
+# Gambling - cheating fails
+pirate_visit_port.0034 = {
+	type = activity_event
+	title = pirate_visit_port.0034.title
+	desc = pirate_visit_port.0034.desc
+
+	right_portrait = {
+		character = root
+		animation = sadness
+	}
+
+	theme = travel
+	override_background = { reference = tavern }
+
+	option = {
+		name = pirate_visit_port.0034.a
+		scope:activity = {
+			add_activity_log_entry = {
+				key = pirate_visit_port_gambling_lost_money_log
+				tags = { bad }
+				# this line below adds the entry to the Effects section of the conclusion UI
+				show_in_conclusion = yes
+				character = scope:host	
+				scope:host = {
+					custom_tooltip = pirate_visit_port_gambling_lost_money_tooltip
+					stress_impact = {
+						greedy = minor_stress_impact_gain
+						wrathful = miniscule_stress_impact_gain
+					}
+				}
+			}
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			scope:activity = {
+				hidden_effect = { skip_activity_phase = yes }
+			}
+		}
+	}
+}
+
+
+# Gambling - cheating win money success
+pirate_visit_port.0035 = {
+	type = activity_event
+	title = pirate_visit_port.0035.title
+	desc = pirate_visit_port.0035.desc
+
+	right_portrait = {
+		character = root
+		animation = scheme
+	}
+
+	theme = travel
+	override_background = { reference = tavern }
+
+	option = {
+		name = pirate_visit_port.0035.a
+		add_gold = { pirate_visit_port_gambling_gain_cheating_min pirate_visit_port_gambling_gain_cheating_max }
+		scope:activity = {
+			add_activity_log_entry = {
+				key = pirate_visit_port_gambling_won_money_log
+				tags = { good }
+				# this line below adds the entry to the Effects section of the conclusion UI
+				show_in_conclusion = yes
+				character = scope:host	
+				scope:host = {
+					custom_tooltip = pirate_visit_port_gambling_won_money_tooltip
+					stress_impact = {
+						greedy = miniscule_stress_impact_loss
+					}
 				}
 			}
 		}
