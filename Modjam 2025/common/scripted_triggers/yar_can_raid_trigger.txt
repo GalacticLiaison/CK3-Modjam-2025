@@ -65,3 +65,15 @@ can_raid_trigger = {
 	}
 }
 
+# Disable raiding the ruler where your ship is located.
+valid_raid_target_trigger = {
+	save_scope_as = potential_raid_target
+    NOR = {
+		has_raid_immunity_against = root
+		is_allied_to = root
+		has_truce = root
+		target_is_vassal_or_below = root
+		top_liege = root.top_liege
+        top_liege = root.domicile.domicile_location.county_owner.top_liege #pirate/landless rule
+	}
+}
