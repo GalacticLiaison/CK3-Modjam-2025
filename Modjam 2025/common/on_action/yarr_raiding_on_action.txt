@@ -1,6 +1,8 @@
 ﻿on_raid_action_completion = {
     on_actions = {
         yarr_pirate_raid_legend_on_actions
+        yarr_pirate_experience
+        yarr_pirate_earn_legend_see_on_action
     }
 }
 
@@ -22,5 +24,176 @@ yarr_pirate_raid_legend_on_actions = {
 
     effect = {
         pirate_spread_legend_effect = yes
+    }
+}
+
+yarr_pirate_experience = {
+    trigger = {
+        scope:raider = {
+            has_trait = yarr_pirate_track
+        }
+    }
+
+    effect = {
+        scope:raider = {
+            random = {
+                chance = 20
+                add_trait_xp = {
+                    trait = yarr_pirate_track
+                    value = 1
+                }
+            }
+        }
+    }
+}
+
+### the Reaver legend is earned by raiding, and has a higher chance of spawning if your fame is high. You can only have one reaver seed at a time ###
+
+yarr_pirate_earn_legend_see_on_action = {
+    trigger = {
+        scope:raider = {
+            has_government = pirate_government
+            NOT = {
+                has_character_flag = has_a_reaver_seed
+            }
+        }
+    }
+
+    effect = {
+        if = {
+            limit = {
+                scope:raider = {
+                    prestige_level = 1
+                }
+            }
+            scope:raider = {
+                random = {
+                    chance = 1
+                    scope:raider = {
+                        random = {
+                            chance = 10
+                            add_character_flag = has_a_reaver_seed
+                            create_legend_seed = {
+                                type = reaver
+                                quality = famed
+                                chronicle = reaver_chronicle
+                                properties = {
+                                    pillaged = scope:barony.holder
+                                    reaver = scope:raider
+                                    land = scope:barony
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                scope:raider = {
+                    prestige_level = 2
+                }
+            }
+            scope:raider = {
+                random = {
+                    chance = 5
+                    scope:raider = {
+                        random = {
+                            chance = 10
+                            add_character_flag = has_a_reaver_seed
+                            create_legend_seed = {
+                                type = reaver
+                                quality = famed
+                                chronicle = reaver_chronicle
+                                properties = {
+                                    pillaged = scope:barony.holder
+                                    reaver = scope:raider
+                                    land = scope:barony
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                scope:raider = {
+                    prestige_level = 3
+                }
+            }
+            scope:raider = {
+                random = {
+                    chance = 10
+                    scope:raider = {
+                        random = {
+                            chance = 10
+                            add_character_flag = has_a_reaver_seed
+                            create_legend_seed = {
+                                type = reaver
+                                quality = famed
+                                chronicle = reaver_chronicle
+                                properties = {
+                                    pillaged = scope:barony.holder
+                                    reaver = scope:raider
+                                    land = scope:barony
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                scope:raider = {
+                    prestige_level = 4
+                }
+            }
+            scope:raider = {
+                random = {
+                    chance = 25
+                    scope:raider = {
+                        random = {
+                            chance = 10
+                            add_character_flag = has_a_reaver_seed
+                            create_legend_seed = {
+                                type = reaver
+                                quality = famed
+                                chronicle = reaver_chronicle
+                                properties = {
+                                    pillaged = scope:barony.holder
+                                    reaver = scope:raider
+                                    land = scope:barony
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        else = {
+            scope:raider = {
+                random = {
+                    chance = 50
+                    scope:raider = {
+                        random = {
+                            chance = 10
+                            add_character_flag = has_a_reaver_seed
+                            create_legend_seed = {
+                                type = reaver
+                                quality = famed
+                                chronicle = reaver_chronicle
+                                properties = {
+                                    pillaged = scope:barony.holder
+                                    reaver = scope:raider
+                                    land = scope:barony
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

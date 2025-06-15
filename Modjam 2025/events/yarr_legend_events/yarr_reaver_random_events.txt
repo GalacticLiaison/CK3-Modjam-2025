@@ -1,0 +1,489 @@
+﻿namespace = yarr_reaver_random_events
+
+yarr_reaver_random_events.0001 = { #particularly cruel recruits come to join the crew
+    type = character_event
+	title = yarr_reaver_random_events.0001.t
+	desc = yarr_reaver_random_events.0001.desc
+	theme = legend
+	left_portrait = root
+    lower_left_portrait = scope:pirate_recruit_1
+    lower_right_portrait = scope:pirate_recruit_2
+
+    immediate = {
+        add_character_flag = {
+            flag = had_recent_reaver_event
+            years = 2
+        }
+        random_neighboring_top_liege_realm = {
+            random_county = {
+                save_scope_as = random_nearby_county_1
+            }
+        }
+        random_neighboring_top_liege_realm = {
+            random_county = {
+                limit = {
+                    NOT = {
+                        this.culture = scope:random_nearby_county_1.culture
+                        this.faith = scope:random_nearby_county_1.faith
+                    }
+                }
+                save_scope_as = random_nearby_county_2
+            }
+        }
+        create_character = {
+            age = { 16 40 }
+            gender_female_chance = 10
+            random_traits = yes
+            trait = sadistic
+            trait = viking
+            random_traits_list = {
+                count = 1
+                education_martial_2 = {}
+                education_martial_3 = {}
+                education_martial_4 = {}
+            }
+            location = root.location
+            faith = scope:random_nearby_county_1.faith
+            culture = scope:random_nearby_county_1.culture
+            diplomacy = { 3 7 }
+            martial = { 6 10 }
+            stewardship = { 2 9 }
+            intrigue = { 4 8 }
+            learning = { 1 4 }
+            prowess = { 8 14 }
+
+            after_creation = {
+                save_scope_as = pirate_recruit_1
+                add_trait = yarr_pirate_track
+            }
+        }
+        create_character = {
+            age = { 16 40 }
+            gender_female_chance = 10
+            random_traits = yes
+            trait = sadistic
+            trait = viking
+            random_traits_list = {
+                count = 1
+                education_stewardship_2 = {}
+                education_stewardship_3 = {}
+                education_stewardship_4 = {}
+            }
+            location = root.location
+            faith = scope:random_nearby_county_2.faith
+            culture = scope:random_nearby_county_2.culture
+            diplomacy = { 5 8 }
+            martial = { 4 7 }
+            stewardship = { 6 10 }
+            intrigue = { 3 5 }
+            learning = { 4 6 }
+            prowess = { 4 8 }
+
+            after_creation = {
+                save_scope_as = pirate_recruit_2
+                add_trait = yarr_pirate_track
+            }
+        }
+    }
+
+    option = { #recruit the first guy
+        name = yarr_reaver_random_events.0001.a
+        add_courtier = scope:pirate_recruit_1
+        pay_short_term_gold = {
+            target = scope:pirate_recruit_1
+            gold = 35
+        }
+    }
+
+    option = { #recruit the second one
+        name = yarr_reaver_random_events.0001.b
+        add_courtier = scope:pirate_recruit_2
+        pay_short_term_gold = {
+            target = scope:pirate_recruit_2
+            gold = 35
+        }
+    }
+
+    option = { #recruit both - expensive
+        name = yarr_reaver_random_events.0001.c
+        add_courtier = scope:pirate_recruit_1
+        pay_short_term_gold = {
+            target = scope:pirate_recruit_1
+            gold = 45
+        }
+        add_courtier = scope:pirate_recruit_2
+        pay_short_term_gold = {
+            target = scope:pirate_recruit_2
+            gold = 45
+        }
+    }
+
+    option = { #sadistic, callous, torturer, overseer - make them duel, the winner is recruited and gets improved stat
+        name = yarr_reaver_random_events.0001.d
+        trigger = {
+            OR = {
+                has_trait = sadistic
+                has_trait = callous
+                has_trait = torturer
+                has_trait = overseer
+            }
+        }
+        random_list = {
+            50 = {
+                scope:pirate_recruit_1 = {
+                    death = {
+                        killer = scope:pirate_recruit_2
+                        death_reason = death_fight
+                    }
+                }
+                scope:pirate_recruit_2 = {
+                    add_diplomacy_skill = 5
+                    add_martial_skill = 5
+                    add_stewardship_skill = 5
+                    add_intrigue_skill = 5
+                    add_learning_skill = 5
+                    add_prowess_skill = 5
+                }
+                root = {
+                    pay_short_term_gold = {
+                        target = scope:pirate_recruit_2
+                        gold = 90
+                    }
+                }
+            }
+            50 = {
+                scope:pirate_recruit_2 = {
+                    death = {
+                        killer = scope:pirate_recruit_1
+                        death_reason = death_fight
+                    }
+                }
+                scope:pirate_recruit_1 = {
+                    add_diplomacy_skill = 5
+                    add_martial_skill = 5
+                    add_stewardship_skill = 5
+                    add_intrigue_skill = 5
+                    add_learning_skill = 5
+                    add_prowess_skill = 5
+                }
+                root = {
+                    pay_short_term_gold = {
+                        target = scope:pirate_recruit_1
+                        gold = 90
+                    }
+                }
+            }
+        }
+    }
+
+    option = { #greedy, avaricious - recruit them both, but don't pay them. Free recruits, but they gain disloyal
+        name = yarr_reaver_random_events.0001.e
+        trigger = {
+            OR = {
+                has_trait = greedy
+                has_trait = avaricious
+            }
+        }
+        add_courtier = scope:pirate_recruit_1
+        add_courtier = scope:pirate_recruit_2
+        scope:pirate_recruit_1 = {
+            add_trait = disloyal
+        }
+        scope:pirate_recruit_2 = {
+            add_trait = disloyal
+        }
+    }
+
+    option = { #no recruit
+        name = yarr_reaver_random_events.0001.f
+        hidden_effect = {
+            scope:pirate_recruit_1 = {
+                death = {
+                    death_reason = death_vanished
+                }
+            }
+            scope:pirate_recruit_2 = {
+                death = {
+                    death_reason = death_vanished
+                }
+            }
+        }
+    }
+}
+
+yarr_reaver_random_events.0002 = { #crippled peasants pass by, what do we do?
+    type = character_event
+	title = yarr_reaver_random_events.0002.t
+	desc = yarr_reaver_random_events.0002.desc
+	theme = legend
+	left_portrait = root
+    right_portrait = scope:passing_peasant
+
+    immediate = {
+        add_character_flag = {
+            flag = had_recent_reaver_event
+            years = 2
+        }
+        create_character = {
+            location = root.location
+            template = random_barrel_character
+            after_creation = {
+                save_scope_as = passing_peasant
+                add_trait = one_legged
+                add_trait = blind
+                add_trait = maimed
+                add_trait = weak
+                add_trait = clubfooted
+            }
+        }
+    }
+
+    option = { #what are we doing? Let him pass! - not very reaver like lil bro
+        name = yarr_reaver_random_events.0002.a
+        root.promoted_legend = {
+            add_legend_owner_modifier = {
+                years = 5
+                modifier = yarr_spared_peasant_legend
+            }
+        }
+    }
+
+    option = { #kill the peasant, but you feel kind of bad
+        name = yarr_reaver_random_events.0002.b
+        stress_impact = {
+            base = 50
+            compassionate = 100
+            just = 25
+            sadistic = -100
+            torturer = -100
+        }
+        root.promoted_legend = {
+            add_legend_owner_modifier = {
+                years = 5
+                modifier = yarr_savage_peasant_killer
+            }
+        }
+        root = {
+            random = {
+                chance = 5
+                remove_trait = compassionate
+                add_trait = sadistic
+            }
+        }
+    }
+
+    option = { #maybe we can make something of this one...
+        name = yarr_reaver_random_events.0002.c
+        trigger = {
+            has_trait = compassionate
+        }
+        stress_impact = {
+            compassionate = -100
+        }
+        add_courtier = scope:passing_peasant
+        scope:passing_peasant = {
+            add_character_modifier = {
+                modifier = yarr_revitalized_peasant
+                months = 6
+            }
+        }
+        hidden_effect = { #chance that this character becomes a GIGACHAD
+            random = {
+                chance = 4
+                trigger_event = {
+                    id = yarr_reaver_random_events.0003
+                    months = { 1 4 }
+                }
+                scope:passing_peasant = {
+                    add_character_flag = will_become_gigachad
+                }
+            }
+        }
+    }
+}
+
+yarr_reaver_random_events.0003 = { #the peasant recovers miraculously!
+    type = character_event
+	title = yarr_reaver_random_events.0003.t
+	desc = yarr_reaver_random_events.0003.desc
+	theme = legend
+	left_portrait = root
+    right_portrait = scope:passing_peasant
+
+    trigger = {
+        any_courtier = {
+            has_character_flag = will_become_gigachad
+        }
+    }
+
+    immediate = {
+        add_character_flag = {
+            flag = had_recent_reaver_event
+            years = 2
+        }
+        random_courtier = {
+            limit = {
+                has_character_flag = will_become_gigachad
+            }
+            save_scope_as = passing_peasant
+        }
+    }
+
+    option = {
+        scope:passing_peasant = {
+            remove_character_modifier = yarr_revitalized_peasant
+            remove_trait = one_legged
+            remove_trait = blind
+            remove_trait = maimed
+            remove_trait = weak
+            remove_trait = clubfooted
+            add_trait = strong
+            add_trait = shrewd
+            add_trait = loyal
+            add_diplomacy_skill = 8
+            add_martial_skill = 8
+            add_stewardship_skill = 8
+            add_intrigue_skill = 8
+            add_learning_skill = 8
+            add_prowess_skill = 8
+            add_trait = yarr_pirate_track
+            if = {
+                limit = {
+                    this = {
+                        is_female = yes
+                    }
+                }
+                pirate_female_name_effect = yes
+            }
+            else = {
+                pirate_male_name_effect = yes
+            }
+        }
+        root.promoted_legend = {
+            remove_legend_owner_modifier = yarr_spared_peasant_legend
+            add_legend_owner_modifier = {
+                modifier = yarr_keen_eye_for_talent_legend
+                years = 10
+            }
+        }
+    }
+}
+
+yarr_reaver_random_events.0004 = { #the boys want a brawl
+    type = character_event
+	title = yarr_reaver_random_events.0004.t
+	desc = yarr_reaver_random_events.0004.desc
+	theme = legend
+	left_portrait = root
+    right_portrait = scope:pirate_challenger
+
+    immediate = {
+        add_character_flag = {
+            flag = had_recent_reaver_event
+            years = 2
+        }
+        random_courtier = {
+            weight = {
+                base = 10
+                modifier = {
+                    add = 10
+                    prowess >= 6
+                }
+                modifier = {
+                    add = 20
+                    prowess >= 12
+                }
+                modifier = {
+                    add = 30
+                    prowess >= 18
+                }
+                modifier = {
+                    add = 30
+                    prowess >= 22
+                }
+                modifier = {
+                    add = -100
+                    has_trait = craven
+                }
+            }
+            save_scope_as = scope:pirate_challenger
+        }
+    }
+
+    option = {
+        name = yarr_reaver_random_events.0004.a
+        configure_start_single_combat_effect = {
+            SC_INITIATOR = root
+            SC_ATTACKER = root
+            SC_DEFENDER = scope:pirate_challenger
+            FATALITY = no
+            FIXED = no
+            LOCALE = terrain_scope
+            OUTPUT_EVENT = yarr_reaver_random_events.0005
+            INVALIDATION_EVENT = single_combat.1006
+        }
+    }
+}
+
+yarr_reaver_random_events.0005 = { #duel outcome
+    type = character_event
+	title = yarr_reaver_random_events.0005.t
+	theme = legend
+
+    left_portrait = {
+		character = root
+		triggered_animation = {
+			trigger = {
+				root = scope:sc_loser
+			}
+			animation = severelywounded
+		}
+	}
+	right_portrait = {
+		character = scope:pirate_challenger
+		triggered_animation = {
+			trigger = {
+				root = scope:sc_victor
+			}
+			animation = severelywounded
+		}
+	}
+    desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { this = scope:sc_victor }
+				desc = yarr_reaver_random_events.0005.victor.desc
+			}
+			triggered_desc = {
+				trigger = { this = scope:sc_loser }
+				desc = yarr_reaver_random_events.0005.loser.desc
+			}
+		}
+	}
+
+    option = { #if you win
+        name = yarr_reaver_random_events.0005.a
+        trigger = { this = scope:sc_winner }
+
+        every_courtier = {
+            add_prowess_skill = 2
+        }
+
+        scope:sc_winner = {
+            add_prestige = 400
+        }
+
+        scope:sc_loser = {
+            add_prestige = -400
+        }
+    }
+
+    option = { #if you lose
+        name = yarr_reaver_random_events.0005.b
+        trigger = { this = scope:sc_loser }
+
+        scope:sc_loser = {
+            add_prestige = -750
+        }
+    }
+}

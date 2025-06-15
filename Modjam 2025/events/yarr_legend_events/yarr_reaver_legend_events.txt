@@ -9,6 +9,7 @@ yarr_reaver_legend.0001 = { #pure flavor
 
     option = {
         name = yarr_reaver_legend.0001.a
+		custom_tooltip = yarr_reaver_legend.0001.a.tt
     }
 }
 
