@@ -13,247 +13,142 @@ yarr_pirate = {
 	ai_honor = -50
 	ai_energy = 40
 	same_opinion = 30
-	#legitimacy_gain_mult = -0.25
-	#legitimacy_loss_mult = 0.25
-
+	legitimacy_gain_mult = -0.5
+	legitimacy_loss_mult = 0.5
+	general_opinion = -10
+	courtier_and_guest_opinion = 10
     # Localized Icons
-	icon = {
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					NOT = { exists = this }
-				}
-				desc = yarr_pirate_trait.dds
-			}
-			triggered_desc = {
-				trigger = {
-					has_trait_xp = {
-						trait = yarr_pirate
-						value >= 90
-					}
-				}
-				desc = yarr_pirate_trait_high_low.dds
-			}
-			triggered_desc = {
-				trigger = {
-					has_trait_xp = {
-						trait = yarr_pirate
-						value >= 70
-					}
-				}
-				desc = yarr_pirate_trait_high_high.dds
-			}
-			triggered_desc = {
-				trigger = {
-					has_trait_xp = {
-						trait = yarr_pirate
-						value >= 0
-					}
-				}
-				desc = yarr_pirate_trait_low_high.dds
-			}
-			desc = yarr_pirate_trait.dds
-		}
-	}
+	icon = "yar_pirate_trait.dds"
 	# Localized Names
     name = {
 		first_valid = {
-			# HIGH/LOW
 			triggered_desc = {
 				trigger = {
 					exists = this
-					AND = {
-						has_trait_xp = {
-							trait = yarr_pirate_track
-							track = yarr_track_1
-							value >= 90
+					has_trait_xp = {
+							trait = yarr_pirate
+							value >= 100
 						}
-						has_trait_xp = {
-							trait = yarr_pirate_track
-							track = yarr_track_2
-							value <= 40
-						}
+				}
+				desc = yarr_pirate_trait_level_4
+			}
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = {
+						trait = yarr_pirate
+						value >= 75
 					}
 				}
-				desc = trait_yarr_high_low_male
+				desc = yarr_pirate_trait_level_3
 			}
-			# HIGH/HIGH
 			triggered_desc = {
 				trigger = {
 					exists = this
-					AND = {
-						has_trait_xp = {
-							trait = yarr_pirate_track
-							track = yarr_track_1
-							value >= 70
-						}
-						has_trait_xp = {
-							trait = yarr_pirate_track
-							track = yarr_track_2
-							value >= 70
-						}
-					}
-				}
-				desc = trait_yarr_high_high
-			}
-			# LOW/HIGH
-			triggered_desc = {
-				trigger = {
-					exists = this
-					AND = {
-						has_trait_xp = {
-							trait = yarr_pirate_track
-							track = yarr_track_1
-							value >= 0
-						}
-						has_trait_xp = {
-							trait = yarr_pirate_track
-							track = yarr_track_2
+					has_trait_xp = {
+							trait = yarr_pirate
 							value >= 50
 						}
-					}
 				}
-				desc = trait_yarr_low_high
+				desc = yarr_pirate_trait_level_2
 			}
 			# Low-Level Pirate / Unlevelled
 			triggered_desc = {
 				trigger = {
 					exists = this
-					AND = {
-						has_trait_xp = {
-							trait = yarr_pirate_track
-							track = yarr_track_1
-							value >= 0
+					has_trait_xp = {
+							trait = yarr_pirate
+							value >= 25
 						}
-					}
 				}
-				desc = trait_yarr_default
+				desc = yarr_pirate_trait_level_1
 			}
-			desc = trait_yarr_default
+			desc = yarr_pirate_trait_level_0
 		}
 	}
 	# Localized Descs
 	desc = {
 		first_valid = {
-			# HIGH/LOW
 			triggered_desc = {
 				trigger = {
 					exists = this
-					AND = {
-						has_trait_xp = {
-							trait = yarr_pirate_track
-							track = yarr_track_1
-							value >= 90
+					has_trait_xp = {
+							trait = yarr_pirate
+							value >= 100
 						}
-						has_trait_xp = {
-							trait = yarr_pirate_track
-							track = yarr_track_2
-							value <= 40
-						}
+				}
+				desc = yarr_pirate_trait_level_4_desc
+			}
+			triggered_desc = {
+				trigger = {
+					exists = this
+					has_trait_xp = {
+						trait = yarr_pirate
+						value >= 75
 					}
 				}
-				desc = trait_yarr_high_low_desc
+				desc = yarr_pirate_trait_level_3_desc
 			}
-			# HIGH/HIGH
 			triggered_desc = {
 				trigger = {
 					exists = this
-					AND = {
-						has_trait_xp = {
-							trait = yarr_pirate_track
-							track = yarr_track_1
-							value >= 70
-						}
-						has_trait_xp = {
-							trait = yarr_pirate_track
-							track = yarr_track_2
-							value >= 70
-						}
-					}
-				}
-				desc = trait_yarr_high_high_desc
-			}
-			# LOW/HIGH
-			triggered_desc = {
-				trigger = {
-					exists = this
-					AND = {
-						has_trait_xp = {
-							trait = yarr_pirate_track
-							track = yarr_track_1
-							value >= 0
-						}
-						has_trait_xp = {
-							trait = yarr_pirate_track
-							track = yarr_track_2
+					has_trait_xp = {
+							trait = yarr_pirate
 							value >= 50
 						}
-					}
 				}
-				desc = trait_yarr_low_high_desc
+				desc = yarr_pirate_trait_level_2_desc
 			}
-			# LOW LEVEL PIRATE
+			# Low-Level Pirate / Unlevelled
 			triggered_desc = {
 				trigger = {
 					exists = this
-					AND = {
-						has_trait_xp = {
-							trait = yarr_pirate_track
-							track = yarr_track_1
-							value >= 0
+					has_trait_xp = {
+							trait = yarr_pirate
+							value >= 25
 						}
-					}
 				}
-				desc = trait_yarr_default_desc
+				desc = yarr_pirate_trait_level_1_desc
 			}
+			desc = yarr_pirate_trait_level_0_desc
 		}
 	}
     # Tracks
 	track = {
-		# Successfully scheming gives XP
-		20 = {
+		25 = {
+			general_opinion = -10
+			courtier_and_guest_opinion = 10
 			monthly_martial_lifestyle_xp_gain_mult = 0.05
-			independent_ruler_opinion = 5
 			martial = 1
 			monthly_prestige_gain_per_dread_add = 0.01
-			provisions_gain_mult = 0.05
-			coastal_advantage = 1
+			coastal_advantage = 2
 			naval_movement_speed_mult = 0.25
 		}
-		40 = {
+		50 = {
+			general_opinion = -10
+			courtier_and_guest_opinion = 10
 			monthly_martial_lifestyle_xp_gain_mult = 0.05
-			independent_ruler_opinion = 5
 			martial = 1
 			monthly_prestige_gain_per_dread_add = 0.01
-			provisions_gain_mult = 0.05
-			coastal_advantage = 1
+			coastal_advantage = 2
 			naval_movement_speed_mult = 0.25
 		}
-		60 = {
+		75 = {
+			general_opinion = -10
+			courtier_and_guest_opinion = 10
 			monthly_martial_lifestyle_xp_gain_mult = 0.05
-			independent_ruler_opinion = 5
 			martial = 1
 			monthly_prestige_gain_per_dread_add = 0.01
-			provisions_gain_mult = 0.05
-			coastal_advantage = 1
-			naval_movement_speed_mult = 0.25
-		}
-		80 = {
-			monthly_martial_lifestyle_xp_gain_mult = 0.05
-			independent_ruler_opinion = 5
-			martial = 1
-			monthly_prestige_gain_per_dread_add = 0.01
-			provisions_gain_mult = 0.05
-			coastal_advantage = 1
+			coastal_advantage = 2
 			naval_movement_speed_mult = 0.25
 		}
 		100 = {
+			general_opinion = -10
+			courtier_and_guest_opinion = 10
 			monthly_martial_lifestyle_xp_gain_mult = 0.05
-			independent_ruler_opinion = 5
 			martial = 1
 			monthly_prestige_gain_per_dread_add = 0.01
-			provisions_gain_mult = 0.05
-			coastal_advantage = 1
+			coastal_advantage = 2
 			naval_movement_speed_mult = 0.25
 		}
 	}
