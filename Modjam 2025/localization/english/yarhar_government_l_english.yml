@@ -23,6 +23,8 @@
  government_is_pirate: "Has access to a [pirate_ship|E]"
 
  receive_a_ship_tooltip:0 "You gain a ship to captain" 
+ give_away_titles_tooltip:0 "You give all your landed titles away to your trusted courtier [new_lord.GetFullName]" 
+
   
  # Pirates
  pirate_government: "Pirates"
