@@ -12,3 +12,30 @@ yarr_reaver_legend_province_looted = {
     monthly_county_control_decline_factor = 0.5
     stationed_maa_toughness_add = 15
 }
+
+yarr_spared_peasant_legend = {
+    icon = health_negative
+    dread_decay_mult = 0.5
+    prowess = -2
+    martial = -2
+}
+
+yarr_savage_peasant_killer = {
+    icon = dread_positive
+    owned_legend_spread_mult = 0.5
+    dread_gain_mult = 0.2
+    monthly_dread = 1
+    monthly_prestige_gain_per_dread_add = 0.005
+}
+
+yarr_revitalized_peasant = {
+    icon = health_positive
+    health = 2.5
+}
+
+yarr_keen_eye_for_talent_legend = {
+    icon = martial_positive
+    martial = 2
+    prowess = 4
+    general_opinion = 10
+}
