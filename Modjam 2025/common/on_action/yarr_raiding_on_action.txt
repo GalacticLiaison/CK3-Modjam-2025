@@ -30,7 +30,7 @@ yarr_pirate_raid_legend_on_actions = {
 yarr_pirate_experience = {
     trigger = {
         scope:raider = {
-            has_trait = yarr_pirate_track
+            has_trait = yarr_pirate
         }
     }
 
@@ -39,7 +39,7 @@ yarr_pirate_experience = {
             random = {
                 chance = 20
                 add_trait_xp = {
-                    trait = yarr_pirate_track
+                    trait = yarr_pirate
                     value = 1
                 }
             }

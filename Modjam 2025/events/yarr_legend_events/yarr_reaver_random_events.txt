@@ -54,7 +54,7 @@ yarr_reaver_random_events.0001 = { #particularly cruel recruits come to join the
 
             after_creation = {
                 save_scope_as = pirate_recruit_1
-                add_trait = yarr_pirate_track
+                add_trait = yarr_pirate
             }
         }
         create_character = {
@@ -81,7 +81,7 @@ yarr_reaver_random_events.0001 = { #particularly cruel recruits come to join the
 
             after_creation = {
                 save_scope_as = pirate_recruit_2
-                add_trait = yarr_pirate_track
+                add_trait = yarr_pirate
             }
         }
     }
@@ -346,7 +346,7 @@ yarr_reaver_random_events.0003 = { #the peasant recovers miraculously!
             add_intrigue_skill = 8
             add_learning_skill = 8
             add_prowess_skill = 8
-            add_trait = yarr_pirate_track
+            add_trait = yarr_pirate
             if = {
                 limit = {
                     this = {
