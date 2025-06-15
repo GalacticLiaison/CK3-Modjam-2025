@@ -361,8 +361,8 @@ pirate_visit_port.0020 = {
 				scope:host = {
 					remove_short_term_gold = 50
 					add_courtier = scope:pirate
+					pirate_complete_port_visit_activity_effect = yes
 				}
-				pirate_complete_port_visit_activity_effect = yes
 			}
 		}
 	}
@@ -376,7 +376,9 @@ pirate_visit_port.0020 = {
 				# this line below adds the entry to the Effects section of the conclusion UI
 				show_in_conclusion = yes
 				character = root	
-				pirate_complete_port_visit_activity_effect = yes
+				scope:host = {
+					pirate_complete_port_visit_activity_effect = yes
+				}
 			}
 		}
 		hidden_effect = {
@@ -688,13 +690,13 @@ pirate_visit_port.0034 = {
 		name = pirate_visit_port.0034.a
 		scope:activity = {
 			add_activity_log_entry = {
-				key = pirate_visit_port_gambling_lost_money_log
+				key = pirate_visit_port_gambling_cheating_lost_money_log
 				tags = { completed }
 				# this line below adds the entry to the Effects section of the conclusion UI
 				show_in_conclusion = yes
 				character = root	
 				scope:host = {
-					custom_tooltip = pirate_visit_port_gambling_lost_money_tooltip
+					#custom_tooltip = pirate_visit_port_gambling_cheating_lost_money_tooltip
 					stress_impact = {
 						greedy = minor_stress_impact_gain
 						wrathful = miniscule_stress_impact_gain
