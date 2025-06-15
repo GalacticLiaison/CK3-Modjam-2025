@@ -495,7 +495,7 @@
 		}
 		special_selection = {
 			trigger = {
-				scope:culture = { has_coa_gfx = pirate_coa_gfx }
+				government_has_flag = government_is_pirate
 			}
 			5000 = yarr_very_basic
 			5000 = yarr_three_charges
