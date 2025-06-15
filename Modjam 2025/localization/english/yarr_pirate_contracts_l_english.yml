@@ -67,8 +67,8 @@
 
   pirate_contract_events.0042.d:0 "Cut Across the Reefs"
   pirate_contract_events.0042.d.flavor:0 "Take a daring shortcut through the jagged reefs—risky, but it’ll put us ahead if we don’t wreck."
-  pirate_contract_events.0042.d.tooltip_1:0 "#P +10% Success Chance To Catch the Merchant Ship#!
-  pirate_contract_events.0042.d.tooltip_2:0 "#N +10% Chance The Ship Is Damaged#!"
+  pirate_contract_events.0042.d.tooltip_1:0 "#P +20% Success Chance To Catch the Merchant Ship#!
+  pirate_contract_events.0042.d.tooltip_2:0 "#N +20% Chance The Ship Is Damaged#!"
 
   pirate_contract_events.00421.title:0 "The Chase Is On"
   pirate_contract_events.00421.desc.a:0 "The ship cuts through the waves, sails straining and oars pounding, every hand bent to the chase."
@@ -76,6 +76,17 @@
   pirate_contract_events.00421.desc.c:0 "The crew bend their backs, curses mingling with the oars’ rhythm, their sweat fueling the ship’s surge."
   pirate_contract_events.00421.desc.d:0 "The ship weaves through the reefs, your heart hammering as rocks graze the hull, the merchant ship growing larger in your sights."
   pirate_contract_events.00421.a:0 "She'll soon be ours!"
+
+  pirate_contract_events.00422.title:0 "Failed Pursuit"
+  pirate_contract_events.00422.desc:0 "The [ROOT.Char.GetDomicile.GetNamePossessive] sails strain and her oars churn, but the merchant ship slips beyond your grasp, her hull vanishing into the sea’s haze. The crow’s nest falls silent, and your crew’s snarls turn to curses as the promise of silks and silver fades. The sea has mocked your hunt, and the contract lies unfulfilled.\n\nYour first mate glares at the horizon, spitting into the wind. 'We pushed her hard, Captain, but she was too swift—or we too slow.' The crew’s eyes bore into you, their greed soured by failure."
+  pirate_contract_events.00422.a:0 "Blame and Punish"
+  pirate_contract_events.00422.a.flavor:0 "Single out a slacker—flog them to show the crew failure has a price"
+  pirate_contract_events.00422.b:0 "...yarr"
+  pirate_contract_events.00422.tooltip:0 "Pirate Raid Contract Has Ended in Failure"
+
+  pirate_contract_events.00423.title:0 "Failed Pursuit - Ship Damaged"
+  pirate_contract_events.00423.desc.a:0 "The [ROOT.Char.GetDomicile.GetNamePossessive] sails rip under the brutal wind, her timbers shrieking as you pushed her beyond her limits to chase the merchant ship. A sickening crack echoes—spars splinter, and the mainmast sways dangerously. The merchant’s sails fade into the mist, your prize lost, and now your ship limps, battered by your own ambition.\n\nYour first mate curses, kicking a frayed rope. 'We near tore her apart, Captain, and for naught!' The crew’s glares burn hotter than the sun, their greed curdling into despair."
+  pirate_contract_events.00423.desc.b:0 "The [ROOT.Char.GetDomicile.GetName] weaves through jagged reefs in a daring bid to cut off the merchant ship, but the sea betrays you. A grinding crunch shakes the hull as rocks tear through her planks, water seeping below decks. The merchant ship slips away, her sails mocking you against the horizon, while your wounded vessel lists in defeat.\n\nYour first mate clings to the rail, snarling. 'Damn those reefs, Captain—we risked all and lost!' The crew’s fury churns like the waves, their dreams of plunder drowned in salt."
 
   pirate_contract_events.0043.title:0 "Boarding Party"
   pirate_contract_events.0043.desc:0 "The ship draws alongside the merchant ship, her hull groaning as waves batter both vessels. Your crew, blades glinting and eyes wild, hurl grappling hooks to bind the ships, planks slamming down to bridge the gap. The merchant’s crew, outnumbered but desperate, bristle with pikes and cutlasses, ready to defend their cargo to the death.\n\nShouts and curses fill the air as your raiders prepare to storm across. Yet, a fleeting chance remains to avoid bloodshed—call out to their captain, or lead the charge yourself? The sea waits for no hesitation, and the prize hangs in the balance."
@@ -125,6 +136,7 @@
   pirate_contract_events.00441.desc.c:0 "A handful of sailors swear to you, their oaths uneasy but binding. The rest are cut loose, while your crew eyes the newcomers with suspicion."
   pirate_contract_events.00441.desc.d:0 "The passengers are left with a skiff and their lives, their cargo now yours. The SHIP_NAME sails laden, but your mercy may mark you as weak"
   pirate_contract_events.00441.a:0 "Now to the spoils"
+  pirate_contract_events.00441.a.tooltip.artifact:0 "You found a pirate [artifact|E]!"
 
 
   pirate_contract_5_contract:0 "Mercenary Contract"
