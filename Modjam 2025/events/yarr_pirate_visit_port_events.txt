@@ -142,6 +142,7 @@ pirate_visit_port.0010 = {
 						lifestyle_reveler = miniscule_stress_impact_loss	
 						drunkard = miniscule_stress_impact_loss	
 					}
+					pirate_complete_port_visit_activity_effect = yes
 				}
 				every_attending_character = {
 					limit = { NOT = { this = scope:host } }
@@ -183,13 +184,132 @@ pirate_visit_port.0020 = {
 	override_background = { reference = docks }
 
 	immediate = {
-		create_character = {
-			template = bandit_character
-			location = root.location
-			dynasty = none
-			culture = root.location.county.culture
-			faith = root.location.county.faith
-			save_scope_as = pirate
+		if = {
+			limit = {
+				scope:activity = {
+					has_activity_option = {
+						category = pirate_visit_port_purse_type
+						option = pirate_visit_port_purse_type_small
+					}
+				}
+			}
+			random_list = {
+				80 = {
+					create_character = {
+						template = pirate_recruit_character_level_1
+						location = root.location
+						dynasty = none
+						culture = root.location.county.culture
+						faith = root.location.county.faith
+						save_scope_as = pirate
+					}
+				}
+				15 = {
+					create_character = {
+						template = pirate_recruit_character_level_2
+						location = root.location
+						dynasty = none
+						culture = root.location.county.culture
+						faith = root.location.county.faith
+						save_scope_as = pirate
+					}
+				}
+				5 = {
+					create_character = {
+						template = pirate_recruit_character_level_3
+						location = root.location
+						dynasty = none
+						culture = root.location.county.culture
+						faith = root.location.county.faith
+						save_scope_as = pirate
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				scope:activity = {
+					has_activity_option = {
+						category = pirate_visit_port_purse_type
+						option = pirate_visit_port_purse_type_medium
+					}
+				}
+			}
+			random_list = {
+				20 = {
+					create_character = {
+						template = pirate_recruit_character_level_1
+						location = root.location
+						dynasty = none
+						culture = root.location.county.culture
+						faith = root.location.county.faith
+						save_scope_as = pirate
+					}
+				}
+				40 = {
+					create_character = {
+						template = pirate_recruit_character_level_2
+						location = root.location
+						dynasty = none
+						culture = root.location.county.culture
+						faith = root.location.county.faith
+						save_scope_as = pirate
+					}
+				}
+				20 = {
+					create_character = {
+						template = pirate_recruit_character_level_3
+						location = root.location
+						dynasty = none
+						culture = root.location.county.culture
+						faith = root.location.county.faith
+						save_scope_as = pirate
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				scope:activity = {
+					has_activity_option = {
+						category = pirate_visit_port_purse_type
+						option = pirate_visit_port_purse_type_large
+					}
+				}
+			}
+
+			random_list = {
+				10 = {
+					create_character = {
+						template = pirate_recruit_character_level_1
+						location = root.location
+						dynasty = none
+						culture = root.location.county.culture
+						faith = root.location.county.faith
+						save_scope_as = pirate
+					}
+				}
+				40 = {
+					create_character = {
+						template = pirate_recruit_character_level_2
+						location = root.location
+						dynasty = none
+						culture = root.location.county.culture
+						faith = root.location.county.faith
+						save_scope_as = pirate
+					}
+				}
+				50 = {
+					create_character = {
+						template = pirate_recruit_character_level_3
+						location = root.location
+						dynasty = none
+						culture = root.location.county.culture
+						faith = root.location.county.faith
+						save_scope_as = pirate
+					}
+				}
+			}
 		}
 	}
 
@@ -206,12 +326,23 @@ pirate_visit_port.0020 = {
 					remove_short_term_gold = 50
 					add_courtier = scope:pirate
 				}
+				pirate_complete_port_visit_activity_effect = yes
 			}
 		}
 	}
 
 	option = {
 		name = pirate_visit_port.0020.b
+		scope:activity = {
+			add_activity_log_entry = {
+				key = pirate_visit_port_recruit_failure_log
+				tags = { good }
+				# this line below adds the entry to the Effects section of the conclusion UI
+				show_in_conclusion = yes
+				character = scope:host	
+				pirate_complete_port_visit_activity_effect = yes
+			}
+		}
 		hidden_effect = {
 			scope:pirate = {
 				death = {
@@ -333,6 +464,7 @@ pirate_visit_port.0031 = {
 						greedy = minor_stress_impact_gain
 						wrathful = miniscule_stress_impact_gain
 					}
+					pirate_complete_port_visit_activity_effect = yes
 				}
 			}
 		}
@@ -376,6 +508,7 @@ pirate_visit_port.0032 = {
 					stress_impact = {
 						greedy = miniscule_stress_impact_loss
 					}
+					pirate_complete_port_visit_activity_effect = yes
 				}
 			}
 		}
@@ -424,12 +557,13 @@ pirate_visit_port.0033 = {
 						arrogant = miniscule_stress_impact_gain
 						deceitful = miniscule_stress_impact_gain
 					}
+					pirate_complete_port_visit_activity_effect = yes
 				}
 			}
 		}
 	}
 
-	# Try to make a run for it
+	# Try to make a run for it and escape
 	option = {
 		name = pirate_visit_port.0033.b
 		stress_impact = {
@@ -464,6 +598,7 @@ pirate_visit_port.0033 = {
 							scope:host = {
 								remove_short_term_gold = minor_gold_value
 								increase_wounds_no_death_effect = { REASON = fight }
+								pirate_complete_port_visit_activity_effect = yes
 							}
 						}
 					}					
@@ -478,7 +613,7 @@ pirate_visit_port.0033 = {
 				send_interface_toast = {
 					left_icon = ROOT
 					type = event_toast_effect_good
-					title = pirate_visit_port.0033.b.failure
+					title = pirate_visit_port.0033.b.success
 					add_prestige = miniscule_prestige_gain
 				}	
 				hidden_effect = {
@@ -491,6 +626,7 @@ pirate_visit_port.0033 = {
 							character = scope:host	
 							scope:host = {
 								add_prestige = miniscule_prestige_gain
+								pirate_complete_port_visit_activity_effect = yes
 							}
 						}
 					}					
@@ -536,6 +672,7 @@ pirate_visit_port.0034 = {
 					stress_impact = {
 						greedy = minor_stress_impact_gain
 						wrathful = miniscule_stress_impact_gain
+						pirate_complete_port_visit_activity_effect = yes
 					}
 				}
 			}
@@ -581,6 +718,7 @@ pirate_visit_port.0035 = {
 					stress_impact = {
 						greedy = miniscule_stress_impact_loss
 					}
+					pirate_complete_port_visit_activity_effect = yes
 				}
 			}
 		}

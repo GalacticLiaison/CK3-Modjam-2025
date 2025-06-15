@@ -374,13 +374,13 @@
 	###################
 
 	host_intents = {
-		default = reduce_stress_intent
-		intents = { reduce_stress_intent befriend_attendee_intent }
+		intents = { pirate_visit_adventure_intent pirate_visit_reputation_intent pirate_visit_rumors_intent }
+		default = pirate_visit_adventure_intent
 	}
 
 	guest_intents = {
-		intents = { reduce_stress_intent befriend_attendee_intent }
-		default = reduce_stress_intent
+		intents = { pirate_visit_adventure_intent pirate_visit_reputation_intent pirate_visit_rumors_intent }
+		default = pirate_visit_adventure_intent
 	}
 
 	can_be_activity_guest = {
@@ -402,11 +402,11 @@
 	max_guests = 50 #Theoretically everyone, practically only around 2-10 usually
 
 	guest_join_chance = {
-		base = 0
+		base = 100
 		base_activity_modifier = yes
 
 		# Scripted Modifiers
-		activity_guest_shared_ai_accept_modifier = yes
+		#activity_guest_shared_ai_accept_modifier = yes
 	}
 
 	###################

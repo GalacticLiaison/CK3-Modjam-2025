@@ -1,0 +1,245 @@
+﻿
+pirate_recruit_character_level_1 = {
+	age = { 18 50 }
+	random_traits = no
+	dynasty = none
+	faith = root.location.county.holder.faith
+	culture = root.location.culture
+	random_traits_list = {
+		count = 1
+		education_diplomacy_1 = { weight = { base = 50 } }
+		education_diplomacy_2 = { weight = { base = 20 } }
+		education_diplomacy_3 = { weight = { base = 5 } }
+		education_martial_1 = { weight = { base = 50 } }
+		education_martial_2 = { weight = { base = 20 } }
+		education_martial_3 = { weight = { base = 5 } }
+		education_stewardship_1 = { weight = { base = 50 } }
+		education_stewardship_2 = { weight = { base = 20 } }
+		education_stewardship_3 = { weight = { base = 5 } }
+		education_intrigue_1 = { weight = { base = 50 } }
+		education_intrigue_2 = { weight = { base = 20 } }
+		education_intrigue_3 = { weight = { base = 5 } }
+	}
+	random_traits_list = {
+		count = 2
+		ambitious = {}
+		gregarious = {}
+		impatient = {}
+		wrathful = {}
+		callous = {}
+		stubborn = {}
+		vengeful = {}
+		greedy = {}
+		cynical = {}
+		lazy = {}
+		deceitful = {}
+		arrogant = {}
+		gluttonous = {}
+	}
+	# random_traits_list = {
+	# 	count = 1
+	# 	intellect_bad_1 = { weight = { base = 10 } }
+	# 	intellect_bad_2 = { weight = { base = 10 } }
+	# 	physique_good_1 = { weight = { base = 5 } }
+	# 	physique_good_2 = { weight = { base = 5 } }
+	# 	strong = { weight = { base = 5 } }
+	# 	giant = { weight = { base = 5 } }
+	# 	reckless = { weight = { base = 20 } }
+	# 	rough_terrain_expert = { weight = { base = 20 } }
+	# 	unyielding_defender = { weight = { base = 10 } }
+	# 	flexible_leader = { weight = { base = 10 } }
+	# 	forder = { weight = { base = 10 } }
+	# 	tourney_participant = { weight = { base = 20 } }
+	# }
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
+	diplomacy = {
+		min_template_low_skill
+		max_template_low_skill
+	}
+	martial = {
+		min_template_low_skill
+		max_template_low_skill
+	}
+	stewardship = {
+		min_template_low_skill
+		max_template_low_skill
+	}
+	intrigue = {
+		min_template_low_skill
+		max_template_low_skill
+	}
+	learning = {
+		min_template_low_skill
+		max_template_low_skill
+	}
+	prowess = {
+		min_template_low_skill
+		max_template_low_skill
+	}
+}
+
+pirate_recruit_character_level_2 = {
+	age = { 18 50 }
+	random_traits = no
+	dynasty = none
+	faith = root.location.county.holder.faith
+	culture = root.location.culture
+	random_traits_list = {
+		count = 1
+		education_diplomacy_1 = { weight = { base = 30 } }
+		education_diplomacy_2 = { weight = { base = 20 } }
+		education_diplomacy_3 = { weight = { base = 20 } }
+		education_diplomacy_4 = { weight = { base = 10 } }
+		education_martial_1 = { weight = { base = 30 } }
+		education_martial_2 = { weight = { base = 20 } }
+		education_martial_3 = { weight = { base = 20 } }
+		education_martial_4 = { weight = { base = 10 } }
+		education_stewardship_1 = { weight = { base = 30 } }
+		education_stewardship_2 = { weight = { base = 20 } }
+		education_stewardship_3 = { weight = { base = 20 } }
+		education_stewardship_4 = { weight = { base = 10 } }
+		education_intrigue_1 = { weight = { base = 30 } }
+		education_intrigue_2 = { weight = { base = 20 } }
+		education_intrigue_3 = { weight = { base = 20 } }
+		education_intrigue_4 = { weight = { base = 10 } }
+	}
+	random_traits_list = {
+		count = 2
+		ambitious = {}
+		gregarious = {}
+		impatient = {}
+		wrathful = {}
+		callous = {}
+		stubborn = {}
+		vengeful = {}
+		greedy = {}
+		cynical = {}
+		lazy = {}
+		deceitful = {}
+		arrogant = {}
+		gluttonous = {}
+	}
+	# random_traits_list = {
+	# 	count = 1
+	# 	intellect_bad_1 = { weight = { base = 10 } }
+	# 	intellect_bad_2 = { weight = { base = 10 } }
+	# 	physique_good_1 = { weight = { base = 5 } }
+	# 	physique_good_2 = { weight = { base = 5 } }
+	# 	strong = { weight = { base = 5 } }
+	# 	giant = { weight = { base = 5 } }
+	# 	reckless = { weight = { base = 20 } }
+	# 	rough_terrain_expert = { weight = { base = 20 } }
+	# 	unyielding_defender = { weight = { base = 10 } }
+	# 	flexible_leader = { weight = { base = 10 } }
+	# 	forder = { weight = { base = 10 } }
+	# 	tourney_participant = { weight = { base = 20 } }
+	# }
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
+	diplomacy = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	martial = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	stewardship = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	intrigue = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	learning = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+	prowess = {
+		min_template_decent_skill
+		max_template_decent_skill
+	}
+}
+
+pirate_recruit_character_level_3 = {
+	age = { 18 50 }
+	random_traits = no
+	dynasty = none
+	faith = root.location.county.holder.faith
+	culture = root.location.culture
+	random_traits_list = {
+		count = 1
+		education_diplomacy_1 = { weight = { base = 10 } }
+		education_diplomacy_2 = { weight = { base = 20 } }
+		education_diplomacy_3 = { weight = { base = 30 } }
+		education_diplomacy_4 = { weight = { base = 20 } }
+		education_martial_1 = { weight = { base = 10 } }
+		education_martial_2 = { weight = { base = 20 } }
+		education_martial_3 = { weight = { base = 30 } }
+		education_martial_4 = { weight = { base = 20 } }
+		education_stewardship_1 = { weight = { base = 10 } }
+		education_stewardship_2 = { weight = { base = 20 } }
+		education_stewardship_3 = { weight = { base = 30 } }
+		education_stewardship_4 = { weight = { base = 20 } }
+		education_intrigue_1 = { weight = { base = 10 } }
+		education_intrigue_2 = { weight = { base = 20 } }
+		education_intrigue_3 = { weight = { base = 30 } }
+		education_intrigue_4 = { weight = { base = 20 } }
+	}
+	random_traits_list = {
+		count = 2
+		ambitious = {}
+		gregarious = {}
+		impatient = {}
+		wrathful = {}
+		callous = {}
+		stubborn = {}
+		vengeful = {}
+		greedy = {}
+		cynical = {}
+		lazy = {}
+		deceitful = {}
+		arrogant = {}
+		gluttonous = {}
+	}
+	# random_traits_list = {
+	# 	count = 1
+	# 	intellect_bad_1 = { weight = { base = 10 } }
+	# 	intellect_bad_2 = { weight = { base = 10 } }
+	# 	physique_good_1 = { weight = { base = 5 } }
+	# 	physique_good_2 = { weight = { base = 5 } }
+	# 	strong = { weight = { base = 5 } }
+	# 	giant = { weight = { base = 5 } }
+	# 	reckless = { weight = { base = 20 } }
+	# 	rough_terrain_expert = { weight = { base = 20 } }
+	# 	unyielding_defender = { weight = { base = 10 } }
+	# 	flexible_leader = { weight = { base = 10 } }
+	# 	forder = { weight = { base = 10 } }
+	# 	tourney_participant = { weight = { base = 20 } }
+	# }
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
+	diplomacy = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	martial = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	stewardship = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	intrigue = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	learning = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+	prowess = {
+		min_template_high_skill
+		max_template_high_skill
+	}
+}
