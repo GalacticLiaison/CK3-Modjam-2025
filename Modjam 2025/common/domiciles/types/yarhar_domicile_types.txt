@@ -6,7 +6,7 @@
 	map_pin_texture = "gfx/interface/icons/map_icons/map_icon_camp.dds"
 	map_pin_anchor = up
 
-	provisions = yes
+	#provisions = yes
 	travel = yes
 	culture_and_faith = yes
 

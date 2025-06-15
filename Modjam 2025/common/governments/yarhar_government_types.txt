@@ -1,4 +1,4 @@
-### Brief: pirate_government
+﻿### Brief: pirate_government
 pirate_government = {
 	government_rules = {
 		court_generate_spouses = no
@@ -38,6 +38,7 @@ pirate_government = {
 		long_reign_bonus_mult = -1
 		domicile_travel_speed = -0.75
 		monthly_wanderer_lifestyle_xp_gain_mult = 0.15
+		provisions_use_mult = -1000
 	}
 
 	ai = {
@@ -49,7 +50,7 @@ pirate_government = {
 
 	# Use flags instead of has_government for moddability if possible (i.e., wherever not visible to the player).
 	flag = government_is_pirate
-	flag = government_is_landless_adventurer
+	#flag = government_is_landless_adventurer
 	flag = government_can_raid_rule
 	flag = can_start_war_with_raised_troops
 	flag = ignores_faith_marriage_penalties
