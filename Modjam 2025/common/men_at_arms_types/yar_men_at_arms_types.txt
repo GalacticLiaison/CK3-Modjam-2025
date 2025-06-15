@@ -1,0 +1,257 @@
+
+# standard costs
+@maa_buy_cost = 150
+@maa_low_maintenance_cost = 1.0
+@maa_high_maintenance_cost = 5.0
+@cultural_maa_extra_ai_score = 60 # Equivalent to having 6 extra regiments beyond what the code scoring would indicate (see NEGATIVE_SCORE_PER_EXISTING_REGIMENT)
+
+# Must be synced between files with the values located at "# Provisions Costs #".
+@provisions_cost_infantry_cheap = 3
+@provisions_cost_infantry_moderate = 7
+@provisions_cost_infantry_expensive = 12
+@provisions_cost_infantry_bankrupting = 15
+
+@provisions_cost_cavalry_cheap = 7
+@provisions_cost_cavalry_moderate = 15
+@provisions_cost_cavalry_expensive = 21
+@provisions_cost_cavalry_bankrupting = 30
+
+@provisions_cost_special_cheap = 6
+@provisions_cost_special_moderate = 12
+@provisions_cost_special_expensive = 18
+@provisions_cost_special_bankrupting = 24
+
+yar_maa_archers = {
+	type = archers
+	
+	damage = 22
+	toughness = 15
+	pursuit = 0
+	screen = 20
+	
+	can_recruit = {
+		government_has_flag = government_is_pirate
+	}
+	
+	terrain_bonus = {
+		farmlands = { damage = 2 toughness = 5 }
+		floodplains = { damage = 5 toughness = 5 }
+        wetlands = { damage = 10  toughness = 5 screen = 6 }
+        mountains = { damage = -10 toughness = -10 }
+        hills = { damage = -10 toughness = -10 }
+        desert_mountains = { damage = -10 toughness = -10 }
+        desert = { damage = -10 toughness = -10 }
+        jungle = { damage = -10 toughness = -10 }
+        forest = { damage = -10 toughness = -10 }
+	}
+
+	counters = {
+		heavy_infantry = 1
+	}
+
+	winter_bonus = {
+		normal_winter = { toughness = -3 screen = -3 }
+		harsh_winter = { toughness = -5 screen = -5 }
+	}
+
+	buy_cost = { gold = vigmen_recruitment_cost }
+	low_maintenance_cost = { gold = vigmen_low_maint_cost }
+	high_maintenance_cost = { gold = vigmen_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_cheap
+	
+	stack = 100
+	ai_quality = { value = culture_ai_weight_vigmen }
+	icon = yar_archers
+}
+
+yar_maa_pikemen = {
+	type = pikemen
+	
+	damage = 10
+	toughness = 12
+	pursuit = 8
+	screen = 0
+	
+	can_recruit = {
+		government_has_flag = government_is_pirate
+	}
+	
+	terrain_bonus = {
+		farmlands = { damage = 2 toughness = 5 }
+		floodplains = { damage = 5 toughness = 5 }
+        wetlands = { damage = 10  toughness = 5 }
+        mountains = { damage = -5 toughness = -5 }
+        hills = { damage = -5 toughness = -5 }
+        desert_mountains = { damage = -5 toughness = -5 }
+        desert = { damage = -5 toughness = -5 }
+        jungle = { damage = -5 toughness = -5 }
+        forest = { damage = -5 toughness = -5 }
+	}
+
+	counters = {
+		light_cavalry = 1
+		archers = 1
+	}
+
+	winter_bonus = {
+		normal_winter = { damage = -2 toughness = -2 }
+		harsh_winter = { damage = -4 toughness = -4 }
+	}
+
+	buy_cost = { gold = bondi_recruitment_cost }
+	low_maintenance_cost = { gold = bondi_low_maint_cost }
+	high_maintenance_cost = { gold = bondi_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_cheap
+	
+	stack = 200
+	ai_quality = { value = @cultural_maa_extra_ai_score }
+	icon = yar_pikemen
+}
+
+yar_maa_skirmishers = {
+	type = skirmishers
+	
+	can_recruit = {
+		government_has_flag = government_is_pirate
+	}
+	
+	damage = 24
+	toughness = 24
+	pursuit = 22
+	screen = 30
+	
+	counters = {
+		heavy_infantry = 1
+		archers = 1
+	}
+
+	winter_bonus = {
+		normal_winter = { damage = -8 pursuit = -8 }
+		harsh_winter = { damage = -12 pursuit = -12 }
+	}
+
+	buy_cost = { gold = jomsviking_pirates_recruitment_cost }
+	low_maintenance_cost = { gold = jomsviking_pirates_low_maint_cost }
+	high_maintenance_cost = { gold = jomsviking_pirates_high_maint_cost }
+	provision_cost = @provisions_cost_infantry_cheap
+	
+	stack = 150
+	ai_quality = { value = @cultural_maa_extra_ai_score }
+	icon = yar_skirmishers
+}
+
+# REMOVE HEAVY & LIGHT CAVALRY FOR PIRATE
+
+armored_horsemen = {
+	type = heavy_cavalry
+	
+	damage = 100
+	toughness = 35
+	pursuit = 20
+	screen = 0
+	
+	terrain_bonus = {
+		plains = { damage = 30 }
+		drylands = { damage = 30 }
+		hills = { damage = -20 }
+		mountains = { damage = -75 }
+		desert_mountains = { damage = -75 }
+		wetlands = { damage = -75 toughness = -10 pursuit = -10 }
+	}
+
+	counters = {
+		archers = 1
+	}
+
+	can_recruit = {
+		culture = {
+			has_innovation = innovation_arched_saddle
+		}
+		NOR = {
+			government_has_flag = government_is_nomadic
+			government_has_flag = government_is_herder
+            government_has_flag = government_is_pirate
+		}
+	}
+
+	should_show_when_unavailable = {
+		government_allows = subject_men_at_arms
+		culture = { has_cultural_era_or_later = culture_era_early_medieval }
+		NOT = { has_access_to_maa = nomad_lancers }
+	}
+	
+	access_through_subject = {
+		NOT = { has_access_to_maa = nomad_lancers }
+	}
+
+	winter_bonus = {
+		normal_winter = { damage = -10 toughness = -5 }
+		harsh_winter = { damage = -20 toughness = -10 }
+	}
+
+	buy_cost = { gold = heavy_cavalry_recruitment_cost }
+	low_maintenance_cost = { gold = heavy_cavalry_low_maint_cost }
+	high_maintenance_cost = { gold = heavy_cavalry_high_maint_cost }
+	provision_cost = @provisions_cost_cavalry_expensive
+	
+	stack = 50
+	ai_quality = { value = culture_ai_weight_heavy_cavalry }
+	icon = heavy_cavalry
+}
+
+light_horsemen = {
+	type = light_cavalry
+	
+	damage = 22
+	toughness = 15
+	pursuit = 30
+	screen = 30
+	
+	terrain_bonus = {
+		plains = { damage = 15 }
+		drylands = { damage = 15 }
+		hills = { damage = -5 }
+		mountains = { damage = -10 pursuit = -20 }
+		desert_mountains = { damage = -15 pursuit = -20 }
+		wetlands = { damage = -15 toughness = -10 pursuit = -30 screen = -30 }
+	}
+	
+	counters = {
+		archers = 1
+	}
+
+	can_recruit = {
+		NOR = {
+			government_has_flag = government_is_nomadic
+			government_has_flag = government_is_herder
+            government_has_flag = government_is_pirate
+		}
+	}
+
+	should_show_when_unavailable = {
+		government_allows = subject_men_at_arms
+		NOT = { has_access_to_maa = steppe_raiders }
+	}
+
+	access_through_subject = {
+		NOT = { has_access_to_maa = steppe_raiders }
+	}
+
+	winter_bonus = {
+		harsh_winter = { damage = -5 toughness = -2 }
+	}
+
+	buy_cost = { gold = light_cavalry_recruitment_cost }
+	low_maintenance_cost = { gold = light_cavalry_low_maint_cost }
+	high_maintenance_cost = { gold = light_cavalry_high_maint_cost }
+	provision_cost = @provisions_cost_cavalry_cheap
+
+	holy_order_fallback = yes
+
+	stack = 100
+	ai_quality = { 
+		value = culture_ai_weight_light_cavalry
+		add = counter_synergy_ai_weight_light_cavalry
+	}
+	icon = light_cavalry
+}

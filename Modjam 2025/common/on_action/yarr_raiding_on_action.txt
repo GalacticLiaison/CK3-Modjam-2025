@@ -1,6 +1,17 @@
-﻿on_raid_action_completion = {
+﻿
+
+# root is the raid army
+# scope:raider is the person owning the raid army
+# scope:barony is the barony title that got raided
+# scope:county is the county title for the barony
+
+
+on_raid_action_completion = {
     on_actions = {
         yarr_pirate_raid_legend_on_actions
+        yarr_pirate_experience
+        yarr_pirate_earn_legend_seed_on_action
+        yarr_pirate_earn_loot
     }
 }
 
@@ -9,7 +20,7 @@
 yarr_pirate_raid_legend_on_actions = {
     trigger = {
         scope:raider = {
-            has_government = pirate_government
+            government_has_flag = government_is_pirate
             promoted_legend = {
                 OR = {
                     legend_type = legend_type:reaver
@@ -22,5 +33,246 @@ yarr_pirate_raid_legend_on_actions = {
 
     effect = {
         pirate_spread_legend_effect = yes
+    }
+}
+
+yarr_pirate_experience = {
+    trigger = {
+        scope:raider = {
+            has_trait = yarr_pirate
+        }
+    }
+
+    effect = {
+        scope:raider = {
+            random = {
+                chance = 20
+                add_trait_xp = {
+                    trait = yarr_pirate
+                    value = 1
+                }
+            }
+        }
+    }
+}
+
+### the Reaver legend is earned by raiding, and has a higher chance of spawning if your fame is high. You can only have one reaver seed at a time ###
+
+yarr_pirate_earn_legend_seed_on_action = {
+    trigger = {
+        scope:raider = {
+            has_trait = yarr_pirate
+            NOT = {
+                has_character_flag = has_a_reaver_seed
+            }
+        }
+    }
+
+    effect = { ###DEEEEBUGGGG
+        scope:raider = {
+            create_legend_seed = {
+                type = reaver
+                quality = famed
+                chronicle = reaver_chronicle
+                properties = {
+                    pillaged = scope:barony.holder
+                    reaver = scope:raider
+                    land = scope:barony
+                }
+            }
+            add_character_flag = has_a_reaver_seed
+        }
+        if = {
+            limit = {
+                scope:raider = {
+                    prestige_level = 1
+                }
+            }
+            scope:raider = {
+                random = {
+                    chance = 1
+                    scope:raider = {
+                        random = {
+                            chance = 10
+                            add_character_flag = has_a_reaver_seed
+                            create_legend_seed = {
+                                type = reaver
+                                quality = famed
+                                chronicle = reaver_chronicle
+                                properties = {
+                                    pillaged = scope:barony.holder
+                                    reaver = scope:raider
+                                    land = scope:barony
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                scope:raider = {
+                    prestige_level = 2
+                }
+            }
+            scope:raider = {
+                random = {
+                    chance = 5
+                    scope:raider = {
+                        random = {
+                            chance = 10
+                            add_character_flag = has_a_reaver_seed
+                            create_legend_seed = {
+                                type = reaver
+                                quality = famed
+                                chronicle = reaver_chronicle
+                                properties = {
+                                    pillaged = scope:barony.holder
+                                    reaver = scope:raider
+                                    land = scope:barony
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                scope:raider = {
+                    prestige_level = 3
+                }
+            }
+            scope:raider = {
+                random = {
+                    chance = 10
+                    scope:raider = {
+                        random = {
+                            chance = 10
+                            add_character_flag = has_a_reaver_seed
+                            create_legend_seed = {
+                                type = reaver
+                                quality = famed
+                                chronicle = reaver_chronicle
+                                properties = {
+                                    pillaged = scope:barony.holder
+                                    reaver = scope:raider
+                                    land = scope:barony
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                scope:raider = {
+                    prestige_level = 4
+                }
+            }
+            scope:raider = {
+                random = {
+                    chance = 25
+                    scope:raider = {
+                        random = {
+                            chance = 10
+                            add_character_flag = has_a_reaver_seed
+                            create_legend_seed = {
+                                type = reaver
+                                quality = famed
+                                chronicle = reaver_chronicle
+                                properties = {
+                                    pillaged = scope:barony.holder
+                                    reaver = scope:raider
+                                    land = scope:barony
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        else = {
+            scope:raider = {
+                random = {
+                    chance = 50
+                    scope:raider = {
+                        random = {
+                            chance = 10
+                            add_character_flag = has_a_reaver_seed
+                            create_legend_seed = {
+                                type = reaver
+                                quality = famed
+                                chronicle = reaver_chronicle
+                                properties = {
+                                    pillaged = scope:barony.holder
+                                    reaver = scope:raider
+                                    land = scope:barony
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+on_raid_action_start = {
+    yarr_assign_loot_value
+}
+
+yarr_assign_loot_value = {
+    trigger = {
+        scope:raider = {
+            government_has_flag = government_is_pirate
+        }
+    }
+
+    effect = {
+        set_variable = {
+            name = starting_raid_loot
+            value = scope:barony.title_province.available_loot
+        }
+    }
+}
+
+yarr_pirate_earn_loot = {
+    trigger = {
+        scope:raider = {
+            government_has_flag = government_is_pirate
+        }
+    }
+
+    effect = {
+        debug_log = "pirate loot check"
+        debug_log_scopes = yes
+        scope:raider = {
+            add_gold = {
+                value = 15
+            }
+        }
+    }
+}
+
+on_army_enter_province = {
+    on_actions = {
+        yarr_clear_loot
+    }
+}
+
+yarr_clear_loot = {
+    trigger = {
+        government_has_flag = government_is_pirate
+    }
+
+    effect = {
+        debug_log = "pirate clear loot check"
+        debug_log_scopes = yes
+        scope:army = {
+            add_loot = -15
+        }
     }
 }

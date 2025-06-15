@@ -68,7 +68,7 @@ pirate_ship_main_01 = {
 
 	asset = {
 		icon = "gfx/interface/icons/domicile_building/domicile_yurt_main.dds"
-		texture = "gfx/interface/window_domiciles/main_yurt_01.dds"
+		texture = "gfx/interface/window_domiciles/pirate_domicile_below_deck.dds"
 		intersectionmask_texture = "gfx/interface/window_domiciles/main_yurt_01_mask.png"
 		soundeffect = "event:/DLC/CE2/UI/camp_buildings/ce2_ui_domicile_buildings_mainYurt"
 	}
@@ -324,7 +324,157 @@ pirate_ship_sails_01 = {
 
 	character_modifier = {
 		domicile_travel_speed = 0.05
-		character_travel_speed= 0.05
+		character_travel_speed= 5
+	}
+
+	province_modifier = {
+
+	}
+
+	ai_value = {
+		value = 100
+	}
+
+	asset = {
+		icon = "gfx/interface/icons/domicile_building/domicile_yurt_main.dds"
+		texture = "gfx/interface/window_domiciles/pirate_domicile_sails.dds"
+		intersectionmask_texture = "gfx/interface/window_domiciles/main_yurt_01_mask.png"
+		soundeffect = "event:/DLC/CE2/UI/camp_buildings/ce2_ui_domicile_buildings_mainYurt"
+	}
+}
+
+pirate_ship_sails_02 = {
+	slot_type = external
+	construction_time = 1
+	internal_slots = 1
+	allowed_domicile_types = { pirate_ship }
+	previous_building = pirate_ship_sails_01
+
+	cost = { gold = 50 }
+
+	character_modifier = {
+		domicile_travel_speed = 0.10
+		character_travel_speed= 10
+	}
+
+	province_modifier = {
+
+	}
+
+	ai_value = {
+		value = 100
+	}
+
+	asset = {
+		icon = "gfx/interface/icons/domicile_building/domicile_yurt_main.dds"
+		texture = "gfx/interface/window_domiciles/pirate_domicile_sails.dds"
+		intersectionmask_texture = "gfx/interface/window_domiciles/main_yurt_01_mask.png"
+		soundeffect = "event:/DLC/CE2/UI/camp_buildings/ce2_ui_domicile_buildings_mainYurt"
+	}
+}
+
+pirate_ship_sails_03 = {
+	slot_type = external
+	construction_time = 1
+	internal_slots = 1
+	allowed_domicile_types = { pirate_ship }
+	previous_building = pirate_ship_sails_02
+
+	cost = { gold = 100 }
+
+	character_modifier = {
+		domicile_travel_speed = 0.15
+		character_travel_speed= 15
+	}
+
+	province_modifier = {
+
+	}
+
+	ai_value = {
+		value = 100
+	}
+
+	asset = {
+		icon = "gfx/interface/icons/domicile_building/domicile_yurt_main.dds"
+		texture = "gfx/interface/window_domiciles/pirate_domicile_sails.dds"
+		intersectionmask_texture = "gfx/interface/window_domiciles/main_yurt_01_mask.png"
+		soundeffect = "event:/DLC/CE2/UI/camp_buildings/ce2_ui_domicile_buildings_mainYurt"
+	}
+}
+
+pirate_ship_sails_04 = {
+	slot_type = external
+	construction_time = 1
+	internal_slots = 1
+	allowed_domicile_types = { pirate_ship }
+	previous_building = pirate_ship_sails_03
+
+	cost = { gold = 150 }
+
+	character_modifier = {
+		domicile_travel_speed = 0.20
+		character_travel_speed= 20
+	}
+
+	province_modifier = {
+
+	}
+
+	ai_value = {
+		value = 100
+	}
+
+	asset = {
+		icon = "gfx/interface/icons/domicile_building/domicile_yurt_main.dds"
+		texture = "gfx/interface/window_domiciles/pirate_domicile_sails.dds"
+		intersectionmask_texture = "gfx/interface/window_domiciles/main_yurt_01_mask.png"
+		soundeffect = "event:/DLC/CE2/UI/camp_buildings/ce2_ui_domicile_buildings_mainYurt"
+	}
+}
+
+pirate_ship_sails_05 = {
+	slot_type = external
+	construction_time = 1
+	internal_slots = 1
+	allowed_domicile_types = { pirate_ship }
+	previous_building = pirate_ship_sails_04
+
+	cost = { gold = 200 }
+
+	character_modifier = {
+		domicile_travel_speed = 0.25
+		character_travel_speed= 25
+	}
+
+	province_modifier = {
+
+	}
+
+	ai_value = {
+		value = 100
+	}
+
+	asset = {
+		icon = "gfx/interface/icons/domicile_building/domicile_yurt_main.dds"
+		texture = "gfx/interface/window_domiciles/pirate_domicile_sails.dds"
+		intersectionmask_texture = "gfx/interface/window_domiciles/main_yurt_01_mask.png"
+		soundeffect = "event:/DLC/CE2/UI/camp_buildings/ce2_ui_domicile_buildings_mainYurt"
+	}
+}
+
+pirate_ship_sails_06 = {
+	slot_type = external
+	construction_time = 1
+	internal_slots = 1
+	allowed_domicile_types = { pirate_ship }
+	previous_building = pirate_ship_sails_05
+
+	cost = { gold = 500 }
+
+	character_modifier = {
+		domicile_travel_speed = 0.50
+		character_travel_speed = 50
 	}
 
 	province_modifier = {
@@ -376,6 +526,162 @@ pirate_ship_hull_01 = {
 		soundeffect = "event:/DLC/CE2/UI/camp_buildings/ce2_ui_domicile_buildings_mainYurt"
 	}
 }
+
+pirate_ship_hull_02 = {
+	# slot_type = external
+	construction_time = 10
+	internal_slots = 10
+	allowed_domicile_types = { pirate_ship }
+	previous_building = pirate_ship_hull_01
+
+	cost = { gold = 100 }
+
+	character_modifier = {
+		sea_travel_danger = -30
+		coastal_sea_travel_danger = -30
+	}
+
+	province_modifier = {
+
+	}
+
+	ai_value = {
+		value = 100
+	}
+
+	asset = {
+		icon = "gfx/interface/icons/domicile_building/domicile_yurt_main.dds"
+		texture = "gfx/interface/window_domiciles/pirate_domicile_hull_cropped.dds"
+		# texture = "gfx/interface/window_domiciles/laamp_building_pavillion_level_01.dds"
+		# intersectionmask_texture = "gfx/interface/window_domiciles/main_yurt_01_mask.png"
+		soundeffect = "event:/DLC/CE2/UI/camp_buildings/ce2_ui_domicile_buildings_mainYurt"
+	}
+}
+
+pirate_ship_hull_03 = {
+	# slot_type = external
+	construction_time = 20
+	internal_slots = 1
+	allowed_domicile_types = { pirate_ship }
+	previous_building = pirate_ship_hull_02
+
+	cost = { gold = 150 }
+
+	character_modifier = {
+		sea_travel_danger = -40
+		coastal_sea_travel_danger = -40
+	}
+
+	province_modifier = {
+
+	}
+
+	ai_value = {
+		value = 100
+	}
+
+	asset = {
+		icon = "gfx/interface/icons/domicile_building/domicile_yurt_main.dds"
+		texture = "gfx/interface/window_domiciles/pirate_domicile_hull_cropped.dds"
+		# texture = "gfx/interface/window_domiciles/laamp_building_pavillion_level_01.dds"
+		# intersectionmask_texture = "gfx/interface/window_domiciles/main_yurt_01_mask.png"
+		soundeffect = "event:/DLC/CE2/UI/camp_buildings/ce2_ui_domicile_buildings_mainYurt"
+	}
+}
+
+pirate_ship_hull_04 = {
+	# slot_type = external
+	construction_time = 30
+	internal_slots = 1
+	allowed_domicile_types = { pirate_ship }
+	previous_building = pirate_ship_hull_03
+
+	cost = { gold = 200 }
+
+	character_modifier = {
+		sea_travel_danger = -45
+		coastal_sea_travel_danger = -45
+	}
+
+	province_modifier = {
+
+	}
+
+	ai_value = {
+		value = 100
+	}
+
+	asset = {
+		icon = "gfx/interface/icons/domicile_building/domicile_yurt_main.dds"
+		texture = "gfx/interface/window_domiciles/pirate_domicile_hull_cropped.dds"
+		# texture = "gfx/interface/window_domiciles/laamp_building_pavillion_level_01.dds"
+		# intersectionmask_texture = "gfx/interface/window_domiciles/main_yurt_01_mask.png"
+		soundeffect = "event:/DLC/CE2/UI/camp_buildings/ce2_ui_domicile_buildings_mainYurt"
+	}
+}
+
+pirate_ship_hull_05 = {
+	# slot_type = external
+	construction_time = 40
+	internal_slots = 1
+	allowed_domicile_types = { pirate_ship }
+	previous_building = pirate_ship_hull_04
+
+	cost = { gold = 250 }
+
+	character_modifier = {
+		sea_travel_danger = -50
+		coastal_sea_travel_danger = -50
+	}
+
+	province_modifier = {
+
+	}
+
+	ai_value = {
+		value = 100
+	}
+
+	asset = {
+		icon = "gfx/interface/icons/domicile_building/domicile_yurt_main.dds"
+		texture = "gfx/interface/window_domiciles/pirate_domicile_hull_cropped.dds"
+		# texture = "gfx/interface/window_domiciles/laamp_building_pavillion_level_01.dds"
+		# intersectionmask_texture = "gfx/interface/window_domiciles/main_yurt_01_mask.png"
+		soundeffect = "event:/DLC/CE2/UI/camp_buildings/ce2_ui_domicile_buildings_mainYurt"
+	}
+}
+
+pirate_ship_hull_06 = {
+	# slot_type = external
+	construction_time = 100
+	internal_slots = 1
+	allowed_domicile_types = { pirate_ship }
+	previous_building = pirate_ship_hull_05
+
+	cost = { gold = 500 }
+
+	character_modifier = {
+		sea_travel_danger = -75
+		coastal_sea_travel_danger = -75
+	}
+
+	province_modifier = {
+
+	}
+
+	ai_value = {
+		value = 100
+	}
+
+	asset = {
+		icon = "gfx/interface/icons/domicile_building/domicile_yurt_main.dds"
+		texture = "gfx/interface/window_domiciles/pirate_domicile_hull_cropped.dds"
+		# texture = "gfx/interface/window_domiciles/laamp_building_pavillion_level_01.dds"
+		# intersectionmask_texture = "gfx/interface/window_domiciles/main_yurt_01_mask.png"
+		soundeffect = "event:/DLC/CE2/UI/camp_buildings/ce2_ui_domicile_buildings_mainYurt"
+	}
+}
+
 
 
 ##################

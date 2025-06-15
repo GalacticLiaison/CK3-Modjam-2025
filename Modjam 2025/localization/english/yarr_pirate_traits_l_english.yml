@@ -1,16 +1,16 @@
 ﻿l_english: 
+
 # Pirate Levelled Trait
- trait_yarr_track_desc: "This character is a Pirate"
- trait_yarr_track_character_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] is a pirate"
- trait_track_yarr_track_1: "Track 1"
- trait_track_yarr_track_1_desc: "Track 1 Desc"
- trait_track_yarr_track_2: "Track 2"
- trait_track_yarr_track_2_desc: "Track 2 Desc"
- trait_yarr_high_low_male: "Good Pirate"
- trait_yarr_high_low_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] is a good pirate"
- trait_yarr_high_high: "Ruthless Pirate"
- trait_yarr_high_high_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] is a ruthless pirate"
- trait_yarr_low_high: "Unlawful Pirate"
- trait_yarr_low_high_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] is a unlawful pirate"
- trait_yarr_default: "Basic Pirate"
- trait_yarr_default_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] is basic pirate"
+ yarr_pirate_trait_level_0: "Pirate"
+ yarr_pirate_trait_level_1: "Tide Raider"
+ yarr_pirate_trait_level_2: "Plunder Master"
+ yarr_pirate_trait_level_3: "Dread of the Deep"
+ yarr_pirate_trait_level_4: "Terror of the Tides"
+
+ yarr_pirate_trait_level_0_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] lives by blade and tide, looting merchant ships and dodging justice wherever the wind takes him."
+ yarr_pirate_trait_level_1_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] has taken to the sea, finding no fortress too remote nor merchant too swift."
+ yarr_pirate_trait_level_2_desc: "With a battered sail and a greedy grin, [ROOT.GetCharacter.GetFirstNameNoTooltip] raids shore after shore without pause."
+ yarr_pirate_trait_level_3_desc: "[ROOT.GetCharacter.GetFirstNameNoTooltip] charts no maps and seeks no peace—only spoils, slaughter, and songs of dread."
+ yarr_pirate_trait_level_4_desc: "Sovereigns curse his name, and sailors pray they never see his flag—[ROOT.GetCharacter.GetFirstNameNoTooltip] is death, delivered by wave."
+
+ trait_track_yarr_pirate: "Pirate"

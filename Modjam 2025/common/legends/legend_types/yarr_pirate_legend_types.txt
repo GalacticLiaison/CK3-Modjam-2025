@@ -75,6 +75,7 @@
                         text = yarr_reaver_legend_famed_event_tt
                         trigger_event = yarr_reaver_legend.0002
                     }
+					remove_character_flag = has_a_reaver_seed
 				}
 			}
 			ai_chance = {
@@ -164,6 +165,7 @@
                         text = yarr_reaver_legend_famed_event_tt
                         trigger_event = yarr_reaver_legend.0002
                     }
+					remove_character_flag = has_a_reaver_seed
 				}
 			}
 			ai_chance = {
@@ -259,6 +261,7 @@
                         text = yarr_reaver_legend_famed_event_tt
                         trigger_event = yarr_reaver_legend.0002
                     }
+					remove_character_flag = has_a_reaver_seed
 				}
 			}
 			ai_chance = {

@@ -43,7 +43,6 @@
 
 	effect = {
 		become_pirate_government = yes
-		add_trait = yarr_pirate
 	}
 }
 
@@ -141,7 +140,7 @@ quit_piracy_as_feudal = {
 	ai_check_interval = 0
 
 	effect = {
-		remove_trait = yarr_pirate_track
+		remove_trait = yarr_pirate
 		change_government = feudal_government
 	}
 }
@@ -194,7 +193,7 @@ quit_piracy_as_tribal = {
 	ai_check_interval = 0
 
 	effect = {
-		remove_trait = yarr_pirate_track
+		remove_trait = yarr_pirate
 		change_government = tribal_government
 	}
 }
@@ -242,7 +241,7 @@ quit_piracy_as_landless = {
 	ai_check_interval = 0
 
 	effect = {
-		remove_trait = yarr_pirate_track
+		remove_trait = yarr_pirate
 		change_government = landless_adventurer_government
 	}
 }
@@ -294,7 +293,7 @@ quit_piracy_as_nomadic = {
 	ai_check_interval = 0
 
 	effect = {
-		remove_trait = yarr_pirate_track
+		remove_trait = yarr_pirate
 		create_title_and_vassal_change = {
 			type = conquest
 			save_scope_as = change

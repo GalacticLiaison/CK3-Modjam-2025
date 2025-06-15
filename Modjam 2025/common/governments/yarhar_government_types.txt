@@ -1,4 +1,4 @@
-### Brief: pirate_government
+﻿### Brief: pirate_government
 pirate_government = {
 	government_rules = {
 		court_generate_spouses = no
@@ -6,7 +6,7 @@ pirate_government = {
 		create_cadet_branches = yes
 		rulers_should_have_dynasty = yes
 		landless_playable = yes
-		conditional_maa_refill = yes
+		conditional_maa_refill = no
 		use_title_tier_modifiers = no
 		mercenary = yes
 		allow_out_of_realm_inheritance = yes
@@ -38,6 +38,7 @@ pirate_government = {
 		long_reign_bonus_mult = -1
 		domicile_travel_speed = -0.75
 		monthly_wanderer_lifestyle_xp_gain_mult = 0.15
+		provisions_use_mult = -1000
 	}
 
 	ai = {
