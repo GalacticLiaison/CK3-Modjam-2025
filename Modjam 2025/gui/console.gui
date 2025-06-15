@@ -407,6 +407,15 @@ window = {
 			dockable_button = {
 				layoutpolicy_horizontal = expanding
 				size = { 0 30 }
+				raw_text = "instabuild"
+				onclick = "[ExecuteConsoleCommand('instabuild')]"
+
+				tintcolor = { 350 20 0 0.8 }
+				button_ignore = none
+			}
+			dockable_button = {
+				layoutpolicy_horizontal = expanding
+				size = { 0 30 }
 				raw_text = "Ai.Disable"
 				onclick = "[ExecuteConsoleCommand('Ai.Disable')]"
 
