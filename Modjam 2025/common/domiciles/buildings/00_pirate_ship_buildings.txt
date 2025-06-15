@@ -68,7 +68,7 @@ pirate_ship_main_01 = {
 
 	asset = {
 		icon = "gfx/interface/icons/domicile_building/domicile_yurt_main.dds"
-		texture = "gfx/interface/window_domiciles/main_yurt_01.dds"
+		texture = "gfx/interface/window_domiciles/pirate_domicile_below_deck.dds"
 		intersectionmask_texture = "gfx/interface/window_domiciles/main_yurt_01_mask.png"
 		soundeffect = "event:/DLC/CE2/UI/camp_buildings/ce2_ui_domicile_buildings_mainYurt"
 	}
