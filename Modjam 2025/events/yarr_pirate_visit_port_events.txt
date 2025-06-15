@@ -672,8 +672,8 @@ pirate_visit_port.0034 = {
 					stress_impact = {
 						greedy = minor_stress_impact_gain
 						wrathful = miniscule_stress_impact_gain
-						pirate_complete_port_visit_activity_effect = yes
 					}
+					pirate_complete_port_visit_activity_effect = yes
 				}
 			}
 		}

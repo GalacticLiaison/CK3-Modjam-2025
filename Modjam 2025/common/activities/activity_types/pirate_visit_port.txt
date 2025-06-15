@@ -25,8 +25,8 @@
 				is_landless_adventurer = yes
 			}
 			NOT = { is_incapable = yes }
-			location ?= {
-				is_coastal = yes
+			location.county ?= {
+				is_coastal_county = yes
 			}
 		}
 	}
@@ -99,7 +99,7 @@
 				add = 50 # Extra Cost
 				add = 100 # Extra Cost
 				# Scale option costs by tier and era
-				multiply = activity_cost_scale_by_tier
+				#multiply = activity_cost_scale_by_tier
 				# Divide by the number of option levels to get an average option cost
 				divide = 3
 			}

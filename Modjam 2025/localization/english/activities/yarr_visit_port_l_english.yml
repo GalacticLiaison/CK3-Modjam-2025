@@ -6,7 +6,7 @@
  activity_pirate_visit_port:0 "Visit to a Port"
  activity_pirate_visit_port_desc:0 "Let's visit the local port to recruit new members, drink and be merry, or gamble to try to get some more [gold|E]."
  activity_pirate_visit_port_selection_tooltip: "Visit the local port."
- activity_pirate_visit_port_host_desc: "\n$BULLET_WITH_TAB$xxxxxx" 
+ activity_pirate_visit_port_host_desc: "\n$BULLET$Choose between carousing to lose [stress_loss_i|E] [stress|E], recruiting new [followers|E] for your pirate crew, or gambling to potentially get more [gold_i|E] [gold|E]" 
  activity_pirate_visit_port_guest_desc: "$activity_pirate_visit_port_host_desc$"
  activity_pirate_visit_port_province_desc: ""
  activity_pirate_visit_port_destination_selection: "$activity_pirate_visit_port_province_desc$"
