@@ -21,7 +21,9 @@
  pirate_prestige_high_short: "High"
 
  government_is_pirate: "Has access to a [pirate_ship|E]"
- 
+
+ receive_a_ship_tooltip:0 "You gain a ship to captain" 
+  
  # Pirates
  pirate_government: "Pirates"
  pirate_government_with_icon: "@government_type_adventurer! $pirate_government$"
