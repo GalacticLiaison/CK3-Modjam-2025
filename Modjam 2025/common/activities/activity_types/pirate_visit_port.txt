@@ -3,10 +3,7 @@
 	is_shown = {
 		has_ep3_dlc_trigger = yes
 		# For testing purposes
-		OR = {
-			is_landless_adventurer = yes
-			is_a_pirate_ruler = yes
-		}
+		is_a_pirate_ruler = yes
 		is_adult = yes
 	}
 
@@ -20,11 +17,11 @@
 			is_alive = yes
 			is_imprisoned = no
 			# For testing purposes
-			OR = {
-				is_landless_adventurer = yes
-				is_a_pirate_ruler = yes
-			}
+			is_a_pirate_ruler = yes
 			NOT = { is_incapable = yes }
+			location = {
+				is_coastal = yes
+			}
 		}
 	}
 
@@ -45,6 +42,10 @@
 				trigger_event = activity_system.0331
 			}
 		}
+	}
+
+	is_location_valid = {
+		is_coastal = yes
 	}
 
 	province_filter = domicile_domain

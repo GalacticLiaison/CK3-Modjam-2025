@@ -5,7 +5,44 @@
 pirate_visit_port.0001 = {
 	type = activity_event
 	title = pirate_visit_port.0001.title
-	desc = pirate_visit_port.0001.desc
+	desc = {
+		desc = pirate_visit_port.0001.desc
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						has_activity_option = {
+							category = special_type
+							option = pirate_visit_port_type_carousing
+						}
+					}
+				}
+				desc =  pirate_visit_port.0001.desc.carousing
+			}
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						has_activity_option = {
+							category = special_type
+							option = pirate_visit_port_type_recruitment
+						}
+					}
+				}
+				desc =  pirate_visit_port.0001.desc.recruitment
+			}
+			triggered_desc = {
+				trigger = {
+					scope:activity = {
+						has_activity_option = {
+							category = special_type
+							option = pirate_visit_port_type_gambling
+						}
+					}
+				}
+				desc =  pirate_visit_port.0001.desc.gambling
+			}
+		}
+	}
 
 	left_portrait = {
 		character = root
@@ -22,6 +59,7 @@ pirate_visit_port.0001 = {
 	option = {
 		name = pirate_visit_port.0001.a
 	}
+
 	after = {
 		if = {
 			limit = {
