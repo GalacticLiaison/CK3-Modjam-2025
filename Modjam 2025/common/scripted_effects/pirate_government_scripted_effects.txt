@@ -7,8 +7,30 @@
 	}
 	if = { # Don't add trait if already has it
 		limit = {
-			NOT = { has_trait = yarr_pirate_track }
+			NOT = { has_trait = yarr_pirate }
 		}
-		add_trait = yarr_pirate_track
+		add_trait = yarr_pirate
+	}
+
+	custom_tooltip  = {
+		text = receive_a_ship_tooltip
+		receive_pirate_ship = yes
+		install_initial_ship_parts = yes
+	}
+}
+
+receive_pirate_ship = {
+	create_adventurer_title = {
+		name = pirate_ship
+		holder = root
+		government = pirate_government
+		save_scope_as = title # only here to suppress an error
+	}
+}
+
+install_initial_ship_parts = {
+	domicile = {
+		add_domicile_building = pirate_ship_sails_01
+		add_domicile_building = pirate_ship_hull_01
 	}
 }

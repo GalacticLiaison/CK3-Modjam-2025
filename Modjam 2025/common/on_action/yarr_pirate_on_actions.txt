@@ -1,0 +1,20 @@
+﻿random_yearly_playable_pulse = {
+	trigger = {
+		is_ai = no
+		has_trait = yarr_pirate
+		num_task_contracts <= 4
+	}
+
+	on_actions = {
+		create_pirate_contract_on_action
+	}
+}
+
+
+create_pirate_contract_on_action = {
+	effect = {
+		debug_log = "PIRATE CONTRACT CREATION TRIGGERED"
+
+		create_pirate_contract = yes
+	}
+}

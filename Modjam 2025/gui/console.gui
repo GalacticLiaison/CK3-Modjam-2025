@@ -1,0 +1,492 @@
+textbox = {
+	name = "console_output_item"
+	maximumsize = { 560 -1 }
+	align = left|top
+	using = editor_font
+	multiline = yes
+	autoresize = yes
+	alwaystransparent = no
+	fontsize = 15
+	pseudo_localization_enabled = no
+}
+
+window = {
+	name = "console_window"
+	alwaystransparent = no
+	filter_mouse = all
+	layer = confirmation
+	size = { 600 100% }
+	allow_outside = yes#
+	using = dockable_background
+	resizable = yes
+
+	state = {
+		name = _show
+		position = { 0 0 }
+	}
+	# movable = no
+
+	vbox = {
+		spacing = 3
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		allow_outside = yes
+		margin_bottom = -5
+
+		vbox = {
+			margin = { 10 5 }
+			margin_right = 10
+			layoutpolicy_vertical = expanding
+			layoutpolicy_horizontal = expanding
+			scrollarea = {
+				name = "console_output_scrollarea"
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+
+				scrollwidget = {
+					flowcontainer = {
+						name = "console_output"
+						direction = "vertical"
+						ignoreinvisible = no
+						margin_bottom = 10
+
+						# Help-text to be super-helpful
+						editor_textbox = {
+							maximumsize = { 389 -1 }
+							align = left|top
+							multiline = yes
+							autoresize = yes
+							alwaystransparent = no
+							fontsize = 13
+							pseudo_localization_enabled = no
+							raw_text = "#weak;italic Use 'help <command_name>' for information, and <tab> or <pagedown> to autocomplete commands and arguments."
+						}
+					}
+				}
+
+				scrollbar_vertical = {
+					using = editor_vertical_scrollbar
+				}
+
+				scrollbar_horizontal = {
+					using = editor_horizontal_scrollbar
+				}
+			}
+
+			flowcontainer = {
+				name = "menu"
+				visible = "[ConsoleWindow.IsMenuShown]"
+				spacing = 3
+
+				scrollarea = {
+					name = "menu_scroll_area"
+					size = { 200 505 }
+					scrollbarpolicy_horizontal = always_off
+
+					# background = {
+					# 	using = Debug_Background_Dark
+					# }
+
+					scrollbar_vertical = {
+						using = editor_vertical_scrollbar
+					}
+
+					scrollwidget = {
+						fixedgridbox = {
+							name = "menu_grid"
+							addcolumn = 150
+							addrow = 24
+
+							item = {
+								container = {
+
+									icon = {
+										visible = "[ConsoleMenuItem.IsCurrentGroup]"
+										position = { 0 0 }
+										size = { 106 28 }
+									}
+
+									dockable_button = {
+										position = { 3 3 }
+										size = { 180 22 }
+										onclick = "[ConsoleMenuItem.Select]"
+
+										text = "[ConsoleMenuItem.GetName]"
+
+										tooltip = "[ConsoleMenuItem.GetHelp]"
+										using = tooltip_es
+									}
+								}
+							}
+						}
+					}
+				}
+
+				scrollarea = {
+					name = "command_scroll_area"
+					size = { 400  505 }
+					scrollbarpolicy_horizontal = always_off
+
+					scrollbar_vertical = {
+						using = editor_vertical_scrollbar
+					}
+
+					scrollwidget = {
+						fixedgridbox = {
+							name = "command_grid"
+							position = { 0 0 }
+							addcolumn = 400
+							addrow = 29
+
+							item = {
+								dockable_button = {
+									size = { 400 24 }
+									onclick = "[ConsoleMenuItem.Select]"
+									tooltip = "[ConsoleMenuItem.GetHelp]"
+									text = "[ConsoleMenuItem.GetName]"
+								}
+							}
+						}
+					}
+				}
+			}
+
+			editor_textinput = {
+				layoutpolicy_horizontal = expanding
+				name = "console_edit"
+				size = { 390 140 }
+				alwaystransparent = no
+				focuspolicy = all
+				fontsize = 15
+				focus_on_visible = yes
+			}
+
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				spacing = 5
+				margin = { 0 5 }
+				margin_left = 5
+
+				editor_textbox = {
+					raw_text = "Debug Menus"
+					autoresize = yes
+					fontcolor = { 1 1 1 0.5 }
+					max_width = 150
+					multiline = yes
+				}
+
+				expand = {}
+
+				dockable_button = {
+					name = "run_file_button"
+					onclick = "[ExecuteConsoleCommand('run run.txt')]"
+					raw_tooltip = "Run file #weak (Edit Run.txt to change what this button does)#!"
+					using = tooltip_ne
+
+					icon = {
+						parentanchor = center
+						position = { 1 1 }
+						size = { 30 30 }
+						texture = "gfx/interface/icons/character_interactions/send_poem_interaction.dds"
+					}
+				}
+
+				dockable_button = {
+					name = "ai_observe_button"
+					onclick = "[ExecuteConsoleCommand('observe')]"
+					raw_tooltip = "Go into Observe Mode"
+					using = tooltip_ne
+
+					icon = {
+						parentanchor = center
+						position = { 1 1 }
+						size = { 25 25 }
+						texture = "gfx/interface/icons/icon_commander_trait.dds"
+					}
+				}
+
+				dockable_button = {
+					name = "ai_console_button"
+					onclick = "[ExecuteConsoleCommand('AI.ToggleAll')]"
+					raw_tooltip = "Enable/Disable the AI for all characters"
+					using = tooltip_ne
+
+					icon = {
+						parentanchor = center
+						position = { 1 1 }
+						size = { 25 25 }
+						texture = "gfx/interface/icons/icon_group_of_characters.dds"
+					}
+				}
+
+				dockable_button = {
+					name = "yesmen_console_button"
+					onclick = "[ExecuteConsoleCommand('yesmen')]"
+					onrightclick = "[ExecuteConsoleCommand('yesmen_instant')]"
+					button_ignore = none
+					raw_tooltip = "Enable/Disable Yesmen. Right-click for instant interaction responses"
+					using = tooltip_ne
+
+					icon = {
+						parentanchor = center
+						size = { 25 25 }
+						texture = "gfx/interface/icons/icon_soldier.dds"
+
+						icon = {
+							name = "gold_negative_console_button_minus"
+							position = { 4 7 }
+							size = { 23 23 }
+							texture = "gfx/interface/icons/symbols/icon_check.dds"
+						}
+					}
+				}
+
+				dockable_button = {
+					name = "renown_console_button"
+					onclick = "[ExecuteConsoleCommand('effect = { dynasty = { add_dynasty_prestige = 1000 } }')]"
+					onrightclick = "[ExecuteConsoleCommand('effect = { dynasty = { add_dynasty_prestige = -1000 } }')]"
+					button_ignore = none
+					raw_tooltip = "Left-click: Gain 1000 Renown, Right-click: Lose 1000 Renown"
+					using = tooltip_ne
+
+					icon = {
+						parentanchor = center
+						size = { 30 30 }
+						texture = "gfx/interface/icons/currencies/icon_dynasty_prestige_03.dds"
+					}
+				}
+
+				dockable_button = {
+					name = "legitimacy_console_button"
+					onclick = "[ExecuteConsoleCommand('effect = { add_legitimacy = 100 }')]"
+					onrightclick = "[ExecuteConsoleCommand('effect = { add_legitimacy = -100 }')]"
+					button_ignore = none
+					raw_tooltip = "Left-click: Gain 100 Legitimacy, Right-click: Lose 100 Legitimacy"
+					using = tooltip_ne
+
+					icon = {
+						parentanchor = center
+						position = { 0 1 }
+						size = { 30 30 }
+						texture = "gfx/interface/icons/legitimacy_types/_default.dds"
+					}
+				}
+
+				dockable_button = {
+					name = "prestige_console_button"
+					onclick = "[ExecuteConsoleCommand('prestige 1000')]"
+					onrightclick = "[ExecuteConsoleCommand('prestige -1000')]"
+					button_ignore = none
+
+					raw_tooltip = "Left-click: Gain 1000 Prestige, Right-click: Lose 1000 Prestige"
+					using = tooltip_ne
+
+					icon = {
+						parentanchor = center
+						position = { 0 1 }
+						size = { 30 30 }
+						texture = "gfx/interface/icons/currencies/icon_prestige_04.dds"
+					}
+				}
+
+				dockable_button = {
+					name = "piety_console_button"
+					onclick = "[ExecuteConsoleCommand('piety 1000')]"
+					onrightclick = "[ExecuteConsoleCommand('piety -1000')]"
+					button_ignore = none
+					raw_tooltip = "Left-click: Gain 1000 Piety, Right-click: Lose 1000 Piety"
+					using = tooltip_ne
+
+					icon = {
+						parentanchor = center
+						size = { 30 30 }
+						texture = "gfx/interface/icons/currencies/icon_piety_christian_04.dds"
+					}
+				}
+
+				dockable_button = {
+					name = "gold_console_button"
+					onclick = "[ExecuteConsoleCommand('gold 5000')]"
+					onrightclick = "[ExecuteConsoleCommand('gold -5000')]"
+					button_ignore = none
+					raw_tooltip = "Left-click: Gain 5000 Gold, Right-click: Lose 5000 Gold"
+					using = tooltip_ne
+
+					icon = {
+						parentanchor = center
+						position = { 0 1 }
+						size = { 30 30 }
+						texture = "gfx/interface/icons/icon_gold.dds"
+					}
+				}
+			}
+		}
+
+		# yar
+		hbox = {
+			margin_bottom = 5
+			layoutpolicy_horizontal = expanding
+
+			dockable_button = {
+				layoutpolicy_horizontal = expanding
+				size = { 0 30 }
+				raw_text = "Spawn map icon"
+				onclick = "[GetScriptedGui('test_yar_overlay').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+			}
+
+			dockable_button = {
+				layoutpolicy_horizontal = expanding
+				size = { 0 30 }
+				raw_text = "Spawn map button"
+				onclick = "[GetScriptedGui('test_yar_overlay').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope('button', GetPlayer.MakeScope).End )]"
+			}
+
+			dockable_button = {
+				layoutpolicy_horizontal = expanding
+				size = { 0 30 }
+				raw_text = "Spawn sea chest"
+				onclick = "[GetScriptedGui('see_icon_yar').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+			}
+
+			dockable_button = {
+				layoutpolicy_horizontal = expanding
+				size = { 0 30 }
+				raw_text = "Populate area"
+				onclick = "[GetScriptedGui('populate_yar_tasks').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+				raw_tooltip = "Doesn't work currently"
+			}
+
+			dockable_button = {
+				layoutpolicy_horizontal = expanding
+				size = { 0 30 }
+				raw_text = "Clear all icons"
+				onclick = "[GetScriptedGui('clear_all_yar_overlays').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+			}
+
+			expand = {}
+		}
+
+		hbox = {
+			margin_bottom = 5
+			layoutpolicy_horizontal = expanding
+
+			text_single = {
+				raw_text = "For the domicile:"
+				margin = { 10 0 }
+			}
+
+			dockable_button = {
+				layoutpolicy_horizontal = expanding
+				size = { 0 30 }
+				raw_text = "Create adventurer title"
+				onclick = "[GetScriptedGui('create_adventurer_title_yar').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+			}
+
+			dockable_button = {
+				layoutpolicy_horizontal = expanding
+				size = { 0 30 }
+				raw_text = "Create nomad title"
+				onclick = "[GetScriptedGui('create_nomad_title_yar').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+			}
+
+		}
+
+
+		hbox = {
+			layoutpolicy_horizontal = expanding
+
+			dockable_button = {
+				layoutpolicy_horizontal = expanding
+				size = { 0 30 }
+				raw_text = "instamove"
+				onclick = "[ExecuteConsoleCommand('instamove')]"
+
+				tintcolor = { 350 20 0 0.8 }
+				button_ignore = none
+			}
+			dockable_button = {
+				layoutpolicy_horizontal = expanding
+				size = { 0 30 }
+				raw_text = "Ai.Disable"
+				onclick = "[ExecuteConsoleCommand('Ai.Disable')]"
+
+				tintcolor = { 350 20 0 0.8 }
+				button_ignore = none
+			}
+			dockable_button = {
+				layoutpolicy_horizontal = expanding
+				size = { 0 30 }
+				raw_text = "Ai.Enable"
+				onclick = "[ExecuteConsoleCommand('Ai.Enable')]"
+
+				tintcolor = { 350 20 0 0.8 }
+				button_ignore = none
+			}
+			dockable_button = {
+				layoutpolicy_horizontal = expanding
+				size = { 0 30 }
+				raw_text = "yesmen"
+				onclick = "[ExecuteConsoleCommand('yesmen')]"
+
+				tintcolor = { 350 20 0 0.8 }
+				button_ignore = none
+			}
+		}
+
+		hbox = {
+			layoutpolicy_horizontal = expanding
+
+			dockable_button = {
+				layoutpolicy_horizontal = expanding
+				size = { 0 30 }
+				raw_text = "Error tracker"
+				onclick = "[ExecuteConsoleCommand('release_mode')]"
+				tintcolor = { 0.5 0.5 0.5 0.8 }
+			}
+
+			dockable_button = {
+				layoutpolicy_horizontal = expanding
+				visible = "[Not(InReleaseMode)]"
+				size = { 0 30 }
+				shortcut = undo
+				raw_text = "Clear errors, Ctrl+Z"
+				onclick = "[ClearErrorLog]"
+				tintcolor = { 0.5 0.5 0.5 0.8 }
+			}
+
+			dockable_button = {
+				visible = "[GetVariableSystem.Exists('gui_debug')]"
+				layoutpolicy_horizontal = expanding
+				size = { 0 30 }
+				raw_text = "gui Debug"
+				onclick = "[ExecuteConsoleCommand('gui.Debug')]"
+				tintcolor = { 0.5 0.5 0.5 0.8 }
+			}
+
+			dockable_button = {
+				visible = "[Not(GetVariableSystem.Exists('gui_debug'))]"
+				layoutpolicy_horizontal = expanding
+				size = { 0 30 }
+				raw_text = "gui Debug"
+				onclick = "[ExecuteConsoleCommands('gui.DebugRenderOutsideParent;gui.Debug.DrawUnderMouse;gui.Debug.DrawAll;gui.Debug')]"
+				onclick = "[GetVariableSystem.Set('gui_debug', 'yes')]"
+				tintcolor = { 0.5 0.5 0.5 0.8 }
+			}
+
+			dockable_button = {
+				layoutpolicy_horizontal = expanding
+				size = { 0 30 }
+				raw_text = "Explorer"
+				onclick = "[ExecuteConsoleCommand('explorer')]"
+				tintcolor = { 1 0.5 0.1 0.8 }
+			}
+		}
+	}
+
+	dockable_button = {
+		parentanchor = right
+		size = { 24 24 }
+		raw_text = "M"
+		onclick = "[ConsoleWindow.ToggleMenu]"
+	}
+}

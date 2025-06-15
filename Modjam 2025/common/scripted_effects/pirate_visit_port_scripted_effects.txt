@@ -1,0 +1,60 @@
+﻿
+
+
+pirate_basic_lifestyle_experience_gain_effect = {
+	if = {
+		limit = { has_lifestyle = diplomacy_lifestyle }
+		add_diplomacy_lifestyle_xp = minor_lifestyle_xp
+	}
+	else_if = {
+		limit = { has_lifestyle = martial_lifestyle }
+		add_martial_lifestyle_xp = minor_lifestyle_xp
+	}
+	else_if = {
+		limit = { has_lifestyle = stewardship_lifestyle }
+		add_stewardship_lifestyle_xp = minor_lifestyle_xp
+	}
+	else_if = {
+		limit = { has_lifestyle = intrigue_lifestyle }
+		add_intrigue_lifestyle_xp = minor_lifestyle_xp
+	}
+	else_if = {
+		limit = { has_lifestyle = learning_lifestyle }
+		add_learning_lifestyle_xp = minor_lifestyle_xp
+	}
+	else_if = {
+		limit = { has_lifestyle = wanderer_lifestyle }
+		add_wanderer_lifestyle_xp = minor_lifestyle_xp
+	}
+}
+
+
+pirate_minor_trait_experience_gain_effect = {
+	add_dread = 10
+	add_trait_xp = { 
+		trait = yarr_pirate 
+		value = 1
+	}
+}
+
+pirate_complete_port_visit_activity_effect = {
+	if = {
+		limit = {
+			has_activity_intent = pirate_visit_rumors_intent
+		}
+		pirate_basic_lifestyle_experience_gain_effect = yes
+	}
+	else_if = {
+		limit = {
+			has_activity_intent = pirate_visit_reputation_intent
+		}
+		add_prestige = minor_prestige_gain
+	}
+	else_if = {
+		limit = {
+			has_activity_intent = pirate_visit_adventure_intent
+		}
+		pirate_minor_trait_experience_gain_effect = yes
+	}
+}
+

@@ -1,0 +1,52 @@
+﻿yarr_bad_at_pirate_language = {
+    icon = dread_negative
+    monthly_prestige = -0.1
+    dread_gain_mult = -0.1
+    dread_decay_mult = 0.1
+	learn_language_scheme_phase_duration_add = medium_scheme_phase_duration_malus_value
+}
+
+yarr_believes_in_pirate_code = {
+    icon = letter_positive
+    diplomacy = 1
+    courtier_opinion = 10
+}
+
+yarr_doesnt_believe_in_pirate_code = {
+    icon = blood_positive
+    intrigue = 1
+    owned_hostile_scheme_success_chance_add = 4
+}
+
+yarr_bought_good_rum = {
+    icon = drink_positive
+	stress_gain_mult = -0.1
+    stress_loss_mult = 0.1
+}
+
+yarr_ruthless_pirate_captain = {
+    icon = dread_mixed
+    martial = 1
+    intrigue = 1
+	courtier_opinion = -10
+}
+
+yarr_benevolent_pirate_captain = {
+    icon = county_modifier_control_mixed
+    owned_personal_scheme_success_chance_add = 5
+	courtier_opinion = 10
+    intrigue = -2
+}
+
+yarr_bought_hardtack = {
+    icon = food_positive
+    negate_health_penalty_add = 0.2
+}
+
+yarr_stuyding_the_seven_seas = {
+    icon = compass_positive
+    monthly_lifestyle_xp_gain_mult = 0.03
+	character_travel_speed_mult = 0.1
+	character_travel_safety_mult = 0.1
+}
+

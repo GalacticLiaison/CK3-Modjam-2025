@@ -1,0 +1,40 @@
+debug_create_pirate_contract = {
+	category = interaction_debug_main
+	interface_priority = 1
+	icon = scroll_scales
+
+	desc = debug_create_pirate_contract_desc
+	use_diplomatic_range = no
+	# common_interaction = yes
+	
+	is_shown = {
+		debug_only = yes
+	}
+	
+	# cooldown = {
+
+	# }
+
+	is_valid_showing_failures_only = {
+
+	}
+	
+	on_accept = {
+		scope:actor = {
+			trigger_event = pirate_debugging_events.002
+		}
+	}
+	
+	cost = {
+
+	}
+	
+	auto_accept = yes
+
+	# ai_potential = {
+	# 	is_ai = no
+	# }
+	ai_will_do = {
+		base = 0
+	}
+}

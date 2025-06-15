@@ -15,3 +15,22 @@ quit_piracy_as_landless_prestige_cost = 0
 quit_piracy_as_nomad_gold_cost = 0
 quit_piracy_as_nomad_piety_cost = 0
 quit_piracy_as_nomad_prestige_cost = 0
+
+frontal_assault_success_modifier_value = {
+	value = 0
+	add = prowess
+	multiply = 2
+	subtract = 5
+}
+
+demand_surrender_success_modifier_value = {
+	value = 0
+	add = diplomacy
+	multiply = 4
+}
+
+feint_and_flank_success_modifier_value = {
+	value = 0
+	add = intrigue
+	multiply = 4
+}

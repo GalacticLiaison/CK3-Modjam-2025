@@ -1,0 +1,243 @@
+﻿merchant_ship_captain_template = {
+	age = { 40 65 }
+	random_traits_list = { # Poorly educated commoner
+		count = 1
+		education_martial_1 = {}
+		education_intrigue_1 = {}
+		education_diplomacy_1 = {}
+		education_learning_1 = {}
+		education_stewardship_1 = {}
+	}
+	random_traits_list = {
+		count = 1
+		lifestyle_traveler = {}
+	}
+	random_traits_list = {
+		count = 1
+		strong = {}
+		physique_good_1 = {}
+		brave = {}
+		sadistic = {}
+	}
+	random_traits_list = {
+		count = 1
+		lustful = {}
+		chaste = {}
+		wrathful = {}
+		arrogant = {}
+		impatient = {}
+		patient = {}
+		impatient  = {}
+		ambitious = {}
+		cynical = {}
+		zealous = {}
+		stubborn = {}
+		honest = {}
+		gregarious = {}
+		trusting = {}
+		compassionate = {}
+		generous = {}
+		humble = {}
+		calm = {}
+	}
+	random_traits = no
+	faith = scope:merchant_ship_owner.faith
+	culture = scope:merchant_ship_owner.culture
+	dynasty = none
+	gender_female_chance = 0
+	martial = {
+		min_template_average_skill
+		max_template_average_skill
+	}
+	prowess = {
+		min_template_average_skill
+		max_template_average_skill
+	}
+	after_creation = {
+		add_gold = {20 65}
+
+		if = {
+			limit = { has_trait = lifestyle_traveler }
+			add_trait_xp = {
+				trait = lifestyle_traveler
+				track = travel
+	            value = {
+	                integer_range = {
+	                    min = medium_lifestyle_random_xp_low
+	                    max = medium_lifestyle_random_xp_high
+	                }
+	            }
+			}
+			add_trait_xp = {
+				trait = lifestyle_traveler
+				track = danger
+	            value = {
+	                integer_range = {
+	                    min = medium_lifestyle_random_xp_low
+	                    max = medium_lifestyle_random_xp_high
+	                }
+	            }
+			}
+		}
+	}
+}
+
+merchant_sailor_template = {
+	age = { 18 41 }
+	random_traits_list = { # Poorly educated commoner
+		count = 1
+		education_martial_1 = {}
+		education_intrigue_1 = {}
+		education_diplomacy_1 = {}
+		education_learning_1 = {}
+		education_stewardship_1 = {}
+	}
+	random_traits_list = {
+		count = 1
+		lifestyle_traveler = {}
+	}
+	random_traits_list = {
+		count = 1
+		strong = {}
+		physique_good_1 = {}
+		brave = {}
+		sadistic = {}
+	}
+	random_traits_list = {
+		count = 1
+		lustful = {}
+		chaste = {}
+		wrathful = {}
+		arrogant = {}
+		impatient = {}
+		patient = {}
+		impatient  = {}
+		ambitious = {}
+		cynical = {}
+		zealous = {}
+		stubborn = {}
+		honest = {}
+		gregarious = {}
+		trusting = {}
+		compassionate = {}
+		generous = {}
+		humble = {}
+		calm = {}
+	}
+	random_traits = no
+	faith = scope:merchant_ship_owner.faith
+	culture = scope:merchant_ship_owner.culture
+	dynasty = none
+	gender_female_chance = 0
+	martial = {
+		min_template_average_skill
+		max_template_average_skill
+	}
+	prowess = {
+		min_template_average_skill
+		max_template_average_skill
+	}
+	after_creation = {
+		add_gold = {1 15}
+
+		if = {
+			limit = { has_trait = lifestyle_traveler }
+			add_trait_xp = {
+				trait = lifestyle_traveler
+				track = travel
+	            value = {
+	                integer_range = {
+	                    min = small_lifestyle_random_xp_low
+	                    max = small_lifestyle_random_xp_high
+	                }
+	            }
+			}
+			add_trait_xp = {
+				trait = lifestyle_traveler
+				track = danger
+	            value = {
+	                integer_range = {
+	                    min = small_lifestyle_random_xp_low
+	                    max = small_lifestyle_random_xp_high
+	                }
+	            }
+			}
+		}
+	}
+}
+
+merchant_passenger_template = {
+	age = { 18 35 }
+	random_traits_list = { # Poorly educated commoner
+		count = 1
+		education_martial_1 = {}
+		education_intrigue_1 = {}
+		education_diplomacy_1 = {}
+		education_learning_1 = {}
+		education_stewardship_1 = {}
+	}
+	random_traits_list = {
+		count = 1
+		lifestyle_traveler = {}
+	}
+	random_traits_list = {
+		count = 2
+		lustful = {}
+		chaste = {}
+		wrathful = {}
+		arrogant = {}
+		impatient = {}
+		patient = {}
+		impatient  = {}
+		ambitious = {}
+		cynical = {}
+		zealous = {}
+		stubborn = {}
+		honest = {}
+		gregarious = {}
+		trusting = {}
+		compassionate = {}
+		generous = {}
+		humble = {}
+		calm = {}
+	}
+	random_traits = yes
+	faith = scope:merchant_ship_owner.faith
+	culture = scope:merchant_ship_owner.culture
+	dynasty = generate
+	gender_female_chance = 70
+	martial = {
+		min_template_average_skill
+		max_template_average_skill
+	}
+	prowess = {
+		min_template_average_skill
+		max_template_average_skill
+	}
+	after_creation = {
+		add_gold = {30 75}
+		if = {
+			limit = { has_trait = lifestyle_traveler }
+			add_trait_xp = {
+				trait = lifestyle_traveler
+				track = travel
+	            value = {
+	                integer_range = {
+	                    min = small_lifestyle_random_xp_low
+	                    max = small_lifestyle_random_xp_high
+	                }
+	            }
+			}
+			add_trait_xp = {
+				trait = lifestyle_traveler
+				track = danger
+	            value = {
+	                integer_range = {
+	                    min = small_lifestyle_random_xp_low
+	                    max = small_lifestyle_random_xp_high
+	                }
+	            }
+			}
+		}
+	}
+}

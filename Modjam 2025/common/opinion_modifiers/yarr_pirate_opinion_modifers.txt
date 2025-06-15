@@ -1,0 +1,16 @@
+﻿hurt_crew_morale = {
+	opinion = -10
+	decaying = yes
+	years = 1
+}
+
+boosted_crew_morale = {
+	opinion = 10
+	decaying = yes
+	years = 1
+}
+
+raided_my_ship = {
+	monthly_change = 0.05
+	decaying = yes
+}

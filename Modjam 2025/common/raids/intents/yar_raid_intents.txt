@@ -1,4 +1,4 @@
-## REMOVE ACCESS TO PILLAGE INTENT FOR PIRATE GOVERNMENT
+﻿## REMOVE ACCESS TO PILLAGE INTENT FOR PIRATE GOVERNMENT
 pillage_intent = {
 	on_return_raid_loot = {
 		scope:raider = {

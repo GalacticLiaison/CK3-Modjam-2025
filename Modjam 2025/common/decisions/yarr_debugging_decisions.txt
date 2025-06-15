@@ -54,5 +54,19 @@ set_pirate_government = {
 
 	effect = {
 		become_pirate_government = yes
+
+		create_adventurer_title = {
+			name = pirate_ship
+			holder = root
+			government = pirate_government
+			save_scope_as = title # only here to suppress an error
+		}
+
+		domicile = {
+			add_domicile_building = pirate_ship_sails_01
+			add_domicile_building = pirate_ship_hull_01
+		}
+
+		add_trait = yarr_pirate
 	}
 }

@@ -1,0 +1,4 @@
+﻿
+capital_county_is_coastal = {
+	global = capital_county_is_coastal
+}

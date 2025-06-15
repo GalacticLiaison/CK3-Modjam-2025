@@ -1,0 +1,11 @@
+﻿l_english:
+  yarr: "YARR!"
+  CONFIRM:0 "$yarr$"
+  CONFIRM_COMMAND_ACCEPT: "$yarr$"
+  YES:0 "$yarr$"
+  FINISH:0 "$yarr$"
+  RULER_DESIGNER_FINALIZE: "$yarr$"
+  RULER_DESIGNER_FINALIZE_OVERWRITE_ACCEPT:0 "$yarr$"
+
+  START:0 "Set sail!"
+  JOMINI_MULTIPLAYER_GUI_START: "$START$"

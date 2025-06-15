@@ -1,0 +1,67 @@
+﻿# create_task_contract - create_task_contract = { 
+#  #Mandatory parameters  
+#  task_contract_type = TYPE_NAME 
+#  task_task_contract_tier = VALUE 
+#  location = PROVINCE_SCOPE 
+#  #Optional parameters 
+#  task_contract_employer = CHARACTER_SCOPE 
+#  destination = PROVINCE_SCOPE 
+#  target = CHARACTER_SCOPE 
+#  save_scope_as = new_task_contract # optional 
+# } 
+# Supported Scopes: character
+
+debug_create_pirate_contract = {
+	debug_log = "create_pirate_contract"
+
+	create_task_contract = {
+		task_contract_type = pirate_contract_$NUMBER$
+		task_contract_tier = 2 # How many stars the contract is?
+		location = scope:recipient.location
+		task_contract_employer = scope:recipient
+		save_scope_as = new_pirate_contract
+	}
+	debug_log_scopes = yes
+}
+
+create_pirate_contract = {
+	debug_log = "IM IN create_pirate_contract"
+
+	random_ruler = {
+		limit = {
+			is_ai = yes
+			any_sub_realm_county = {
+				is_coastal_county = yes
+			}
+			in_diplomatic_range = root
+			NOT = {
+				any_character_active_contract = {		
+					has_task_contract_type = pirate_contract_4
+				}
+			}
+		}
+		save_scope_as = contract_creator
+	}
+
+	if = {
+		limit = {
+			exists = scope:contract_creator
+		}
+		root = {
+			create_task_contract = {
+				task_contract_type = pirate_contract_4
+				task_contract_tier = 2 # How many stars the contract is?
+				location = scope:contract_creator.location
+				task_contract_employer = scope:contract_creator
+				save_scope_as = new_pirate_contract
+			}
+	
+			send_interface_message = {
+				type = new_pirate_contract
+				title = new_pirate_contract_available
+				left_icon = scope:contract_creator
+				desc = pirate_raid_tooltip 
+			}
+		}
+	}
+}

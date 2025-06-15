@@ -1,4 +1,5 @@
 ﻿l_english: 
+ game_concept_pirate_ship:0 "Ship"
  camp_domicile_title: "[CHARACTER.GetFirstNamePossessiveNoTooltip] $game_concept_camp$"
  estate_domicile_title: "The [CHARACTER.GetHouse.GetBaseNameNoTooltip] $game_concept_estate$"
  yurt_domicile_title: "The [CHARACTER.GetHouse.GetBaseNameNoTooltip] $game_concept_yurt$"
