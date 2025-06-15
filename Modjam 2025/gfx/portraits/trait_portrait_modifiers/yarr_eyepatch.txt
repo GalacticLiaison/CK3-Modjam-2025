@@ -1,0 +1,18 @@
+﻿yar_one_eyed = {
+  yar_one_eyed = {
+
+    traits = {
+      yarr_pirate
+    }
+    dna_modifiers = {
+      human = {
+        accessory = {
+          mode = add
+          gene = special_headgear_spectacles
+          template = eye_patch
+          value = 0.5
+        }
+      }
+    }
+  }
+}

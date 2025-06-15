@@ -1,0 +1,5 @@
+﻿l_english:
+ no_masters_no_kings_war: "No Masters No Kings"
+ no_masters_no_kings_war_victory_desc: "All duchy, kingdom and empire title in [defender.GetPrimaryTitle.GetBaseName] are destroyed." #\nYou take any occupied coastal counties.
+ no_masters_no_kings_war_white_peace_desc: "Oppression continues as before, and kings laugh at your pitiful rebellion."
+ no_masters_no_kings_war_defeat_desc: "You are imprisoned and killed. Probably a long and painful death, to serve as an example."
