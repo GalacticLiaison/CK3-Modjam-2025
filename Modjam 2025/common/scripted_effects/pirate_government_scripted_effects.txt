@@ -7,9 +7,9 @@
 	}
 	if = { # Don't add trait if already has it
 		limit = {
-			NOT = { has_trait = yarr_pirate_track }
+			NOT = { has_trait = yarr_pirate }
 		}
-		add_trait = yarr_pirate_track
+		add_trait = yarr_pirate
 	}
 
 	custom_tooltip  = {
