@@ -54,8 +54,8 @@
 	# 	is_coastal = yes
 	# }
 
-	province_filter = domicile_domain
-	ai_province_filter = domicile_domain
+	province_filter = capital
+	ai_province_filter = capital
 
 	max_province_icons = 1
 	allow_zero_guest_invites = no

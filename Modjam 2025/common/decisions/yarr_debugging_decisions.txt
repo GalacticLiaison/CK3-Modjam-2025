@@ -54,5 +54,6 @@ set_pirate_government = {
 
 	effect = {
 		become_pirate_government = yes
+		add_trait = yarr_pirate
 	}
 }

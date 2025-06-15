@@ -32,7 +32,7 @@ pirate_basic_lifestyle_experience_gain_effect = {
 pirate_minor_trait_experience_gain_effect = {
 	add_dread = 10
 	add_trait_xp = { 
-		trait = pilgrim 
+		trait = yarr_pirate 
 		value = 1
 	}
 }

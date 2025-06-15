@@ -129,13 +129,51 @@ pirate_visit_port.0010 = {
 		scope:activity = {
 			add_activity_log_entry = {
 				key = pirate_visit_port_carousing_stress_log
-				tags = { good }
+				tags = { completed }
 				# this line below adds the entry to the Effects section of the conclusion UI
 				show_in_conclusion = yes
-				character = scope:host	
+				character = root	
 				scope:host = {
+					if = {
+						limit = {
+							scope:activity = {
+								has_activity_option = {
+									category = pirate_visit_port_purse_type
+									option = pirate_visit_port_purse_type_small
+								}
+							}
+						}
+						stress_impact = {
+							base = minor_stress_impact_loss	
+						}
+					}
+					else_if = {
+						limit = {
+							scope:activity = {
+								has_activity_option = {
+									category = pirate_visit_port_purse_type
+									option = pirate_visit_port_purse_type_medium
+								}
+							}
+						}
+						stress_impact = {
+							base = medium_stress_impact_loss	
+						}
+					}
+					else_if = {
+						limit = {
+							scope:activity = {
+								has_activity_option = {
+									category = pirate_visit_port_purse_type
+									option = pirate_visit_port_purse_type_large
+								}
+							}
+						}
+						stress_impact = {
+							base = major_stress_impact_loss	
+						}
+					}
 					stress_impact = {
-						base = minor_stress_impact_loss	
 						gregarious = miniscule_stress_impact_loss	
 						lustful = miniscule_stress_impact_loss	
 						gluttonous = miniscule_stress_impact_loss	
@@ -156,10 +194,8 @@ pirate_visit_port.0010 = {
 	}
 
 	after = {
-		hidden_effect = {
-			scope:activity = {
-				hidden_effect = { skip_activity_phase = yes }
-			}
+		scope:activity = {
+			hidden_effect = { skip_activity_phase = yes }
 		}
 	}
 }
@@ -318,10 +354,10 @@ pirate_visit_port.0020 = {
 		scope:activity = {
 			add_activity_log_entry = {
 				key = pirate_visit_port_recruit_log
-				tags = { good }
+				tags = { completed }
 				# this line below adds the entry to the Effects section of the conclusion UI
 				show_in_conclusion = yes
-				character = scope:host	
+				character = root	
 				scope:host = {
 					remove_short_term_gold = 50
 					add_courtier = scope:pirate
@@ -336,10 +372,10 @@ pirate_visit_port.0020 = {
 		scope:activity = {
 			add_activity_log_entry = {
 				key = pirate_visit_port_recruit_failure_log
-				tags = { good }
+				tags = { completed }
 				# this line below adds the entry to the Effects section of the conclusion UI
 				show_in_conclusion = yes
-				character = scope:host	
+				character = root	
 				pirate_complete_port_visit_activity_effect = yes
 			}
 		}
@@ -353,10 +389,8 @@ pirate_visit_port.0020 = {
 	}
 
 	after = {
-		hidden_effect = {
-			scope:activity = {
-				hidden_effect = { skip_activity_phase = yes }
-			}
+		scope:activity = {
+			hidden_effect = { skip_activity_phase = yes }
 		}
 	}
 }
@@ -426,10 +460,8 @@ pirate_visit_port.0030 = {
 	}
 
 	after = {
-		hidden_effect = {
-			scope:activity = {
-				hidden_effect = { skip_activity_phase = yes }
-			}
+		scope:activity = {
+			hidden_effect = { skip_activity_phase = yes }
 		}
 	}
 }
@@ -453,10 +485,10 @@ pirate_visit_port.0031 = {
 		scope:activity = {
 			add_activity_log_entry = {
 				key = pirate_visit_port_gambling_lost_money_log
-				tags = { bad }
+				tags = { completed }
 				# this line below adds the entry to the Effects section of the conclusion UI
 				show_in_conclusion = yes
-				character = scope:host	
+				character = root	
 				scope:host = {
 					#custom_tooltip = pirate_visit_port_gambling_lost_money_tooltip
 					stress_impact = {
@@ -471,10 +503,8 @@ pirate_visit_port.0031 = {
 	}
 
 	after = {
-		hidden_effect = {
-			scope:activity = {
-				hidden_effect = { skip_activity_phase = yes }
-			}
+		scope:activity = {
+			hidden_effect = { skip_activity_phase = yes }
 		}
 	}
 }
@@ -499,10 +529,10 @@ pirate_visit_port.0032 = {
 		scope:activity = {
 			add_activity_log_entry = {
 				key = pirate_visit_port_gambling_won_money_log
-				tags = { good }
+				tags = { completed }
 				# this line below adds the entry to the Effects section of the conclusion UI
 				show_in_conclusion = yes
-				character = scope:host	
+				character = root	
 				scope:host = {
 					custom_tooltip = pirate_visit_port_gambling_won_money_tooltip
 					stress_impact = {
@@ -515,10 +545,8 @@ pirate_visit_port.0032 = {
 	}
 
 	after = {
-		hidden_effect = {
-			scope:activity = {
-				hidden_effect = { skip_activity_phase = yes }
-			}
+		scope:activity = {
+			hidden_effect = { skip_activity_phase = yes }
 		}
 	}
 }
@@ -543,10 +571,10 @@ pirate_visit_port.0033 = {
 		scope:activity = {
 			add_activity_log_entry = {
 				key = pirate_visit_port_gambling_paid_fine_log
-				tags = { bad }
+				tags = { completed }
 				# this line below adds the entry to the Effects section of the conclusion UI
 				show_in_conclusion = yes
-				character = scope:host	
+				character = root	
 				scope:host = {
 					remove_short_term_gold = minor_gold_value
 					stress_impact = {
@@ -584,24 +612,24 @@ pirate_visit_port.0033 = {
 					left_icon = ROOT
 					type = event_toast_effect_bad
 					title = pirate_visit_port.0033.b.failure
-					remove_short_term_gold = minor_gold_value
-					increase_wounds_no_death_effect = { REASON = fight }
-				}	
-				hidden_effect = {	
-					scope:activity = {
-						add_activity_log_entry = {
-							key = pirate_visit_port_gambling_ran_away_failure_log
-							tags = { bad }
-							# this line below adds the entry to the Effects section of the conclusion UI
-							show_in_conclusion = yes
-							character = scope:host	
-							scope:host = {
-								remove_short_term_gold = minor_gold_value
-								increase_wounds_no_death_effect = { REASON = fight }
-								pirate_complete_port_visit_activity_effect = yes
-							}
+					show_as_tooltip = {
+						remove_short_term_gold = minor_gold_value
+						increase_wounds_no_death_effect = { REASON = fight }						
+					}
+				}		
+				scope:activity = {
+					add_activity_log_entry = {
+						key = pirate_visit_port_gambling_ran_away_failure_log
+						tags = { completed }
+						# this line below adds the entry to the Effects section of the conclusion UI
+						show_in_conclusion = yes
+						character = root	
+						scope:host = {
+							remove_short_term_gold = minor_gold_value
+							increase_wounds_no_death_effect = { REASON = fight }
+							pirate_complete_port_visit_activity_effect = yes
 						}
-					}					
+					}
 				}
 			}
 			10 = {
@@ -614,32 +642,30 @@ pirate_visit_port.0033 = {
 					left_icon = ROOT
 					type = event_toast_effect_good
 					title = pirate_visit_port.0033.b.success
-					add_prestige = miniscule_prestige_gain
-				}	
-				hidden_effect = {
-					scope:activity = {
-						add_activity_log_entry = {
-							key = pirate_visit_port_gambling_ran_away_success_log
-							tags = { good }
-							# this line below adds the entry to the Effects section of the conclusion UI
-							show_in_conclusion = yes
-							character = scope:host	
-							scope:host = {
-								add_prestige = miniscule_prestige_gain
-								pirate_complete_port_visit_activity_effect = yes
-							}
+					show_as_tooltip = {
+						add_prestige = miniscule_prestige_gain
+					}
+				}
+				scope:activity = {
+					add_activity_log_entry = {
+						key = pirate_visit_port_gambling_ran_away_success_log
+						tags = { completed }
+						# this line below adds the entry to the Effects section of the conclusion UI
+						show_in_conclusion = yes
+						character = root	
+						scope:host = {
+							add_prestige = miniscule_prestige_gain
+							pirate_complete_port_visit_activity_effect = yes
 						}
-					}					
+					}
 				}
 			}
 		}
 	}
 
 	after = {
-		hidden_effect = {
-			scope:activity = {
-				hidden_effect = { skip_activity_phase = yes }
-			}
+		scope:activity = {
+			hidden_effect = { skip_activity_phase = yes }
 		}
 	}
 }
@@ -663,10 +689,10 @@ pirate_visit_port.0034 = {
 		scope:activity = {
 			add_activity_log_entry = {
 				key = pirate_visit_port_gambling_lost_money_log
-				tags = { bad }
+				tags = { completed }
 				# this line below adds the entry to the Effects section of the conclusion UI
 				show_in_conclusion = yes
-				character = scope:host	
+				character = root	
 				scope:host = {
 					custom_tooltip = pirate_visit_port_gambling_lost_money_tooltip
 					stress_impact = {
@@ -680,10 +706,8 @@ pirate_visit_port.0034 = {
 	}
 
 	after = {
-		hidden_effect = {
-			scope:activity = {
-				hidden_effect = { skip_activity_phase = yes }
-			}
+		scope:activity = {
+			hidden_effect = { skip_activity_phase = yes }
 		}
 	}
 }
@@ -709,10 +733,10 @@ pirate_visit_port.0035 = {
 		scope:activity = {
 			add_activity_log_entry = {
 				key = pirate_visit_port_gambling_cheating_won_money_log
-				tags = { good }
+				tags = { completed }
 				# this line below adds the entry to the Effects section of the conclusion UI
 				show_in_conclusion = yes
-				character = scope:host	
+				character = root	
 				scope:host = {
 					custom_tooltip = pirate_visit_port_gambling_cheating_won_money_tooltip
 					stress_impact = {
@@ -725,10 +749,8 @@ pirate_visit_port.0035 = {
 	}
 
 	after = {
-		hidden_effect = {
-			scope:activity = {
-				hidden_effect = { skip_activity_phase = yes }
-			}
+		scope:activity = {
+			hidden_effect = { skip_activity_phase = yes }
 		}
 	}
 }
